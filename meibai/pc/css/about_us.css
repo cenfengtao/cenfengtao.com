@@ -1,0 +1,6 @@
+@charset "utf-8";
+
+#middle .title p{color:#484848;}
+
+#middle .content>p{ font-size:14px;line-height:30px;color:#737273;width:772px;margin:0 auto ;}
+#middle .content>img{display:block;margin:48px auto 110px;}
