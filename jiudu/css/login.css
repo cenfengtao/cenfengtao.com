@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+/*头部 start*/
+.header{
+	height: 1.38rem;
+	/*position: relative;*/
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	background: white;
+	line-height: 1.38rem;
+}
+.header a:first-child{
+	float: left;
+	font-size:0.393rem;
+	margin-left: 0.43rem;
+	color: #797979;
+}
+.header h3{
+	float: left;
+	/*text-align: center;*/
+	margin-left: 2.72rem;
+	font-size: 0.38rem;
+	font-weight: normal;
+}
+.header a:nth-child(3){
+	font-size: 0.24rem;
+    /*position: absolute;
+    top: 0.72rem;
+    right: 0.38rem;*/
+    float: right;
+    margin-right: 0.38rem;
+    color: #797979;
+}
+/*头部 end*/
+
+/*中部 start*/
+.middle{
+	clear: both;
+	background: #ebebeb;
+	padding-top: 0.1rem;
+	margin-top: 1.38rem;
+	margin-bottom: 1.1rem;
+}
+form label{
+	display: block;
+}
+.username{
+	background: white;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	border-bottom: 4px solid #ebebeb;
+	position: relative;
+}
+.username img{
+	width: 0.3rem;
+	height: 0.4rem;
+	margin-left: 0.26rem;
+	top: 50%;
+	margin-top: -0.18rem;
+	position: absolute;
+}
+.username input{
+    margin-left: 0.7rem;
+	top: 50%;
+	margin-top: -0.13rem;
+	position: absolute;
+	font-size: 0.3rem;
+	border: none;
+}
+.password{
+	background: white;
+	height: 0.88rem;
+	line-height: 0.88rem;
+}
+.password img{
+	float: left;
+	width: 0.34rem;
+	height: 0.4rem;
+	margin: 0.26rem 0.1rem 0 0.26rem;
+}
+.password input{
+	float: left;
+	margin-top: 0.3rem;
+	font-size: 0.3rem;
+	border: none;
+}
+.password .show{
+	float: right;
+	width: 1.36rem;
+	height: 0.55rem;
+	border: 0.02rem solid #b5b5b5;
+	border-radius: 0.4rem;
+	margin: 0.11rem 0.38rem 0 0;
+	position: relative;
+}
+.password .show .btn{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 0.5rem;
+	height: 0.5rem;
+	border: 0.03rem solid #b5b5b5;
+	border-radius: 50%;
+	margin-left: -0.02rem;
+	background: white;
+}
+.password .show span:nth-child(2),.password .show span:nth-child(3),.password .show span:nth-child(4){
+	float: left;
+	display: block;
+	width: 0.1rem;
+	height: 0.1rem;
+	line-height: 0.1rem;
+    background: #b5b5b5;
+	border-radius: 50%;
+	margin-left: 0.75rem;
+	margin-top: 0.24rem;
+}
+.password .show span:nth-child(3),.password .show span:nth-child(4){
+	margin-left: 0.1rem;
+}
+.forget a{
+	margin: 0.17rem 0 0.3rem 0.4rem;
+	display: block;
+	font-size: 0.24rem;
+}
+.login input{
+	width: 7.1rem;
+	height: 0.78rem;
+	margin: 0 0.2rem;
+	background: #b5b5b5;
+	border: 1px solid #b5b5b5;
+	font-size: 0.38rem;
+	color: black;
+}
+.quick a{
+	margin: 0.3rem 0.7rem 4.3rem 0;
+	float: right;
+	font-size: 0.24rem;
+}
+.cooperate{
+	clear: both;
+	border-top: 2px solid #b5b5b5;
+	border-bottom: 1px solid #c5c5c5;
+}
+.cooperate >span{
+	width: 2.5rem;
+	font-size: 0.24rem;
+	background:  #ebebeb;
+	margin: 0 auto;
+	display: block;
+	margin-top: -0.22rem;
+	text-align: center;
+}
+.cooperate ul{
+	overflow: hidden;
+	width: 6.7rem;
+	padding: 0 0.4rem;
+	margin: 0.67rem 0 0.4rem 0;
+}
+.cooperate ul li{
+	float: left;
+	text-align: center;
+	width: 25%;
+}
+.cooperate ul li img{
+	width: 1rem;
+	height: 1rem;
+	margin: 0 auto;
+	margin-bottom: 0.34rem;
+}
+.cooperate ul li span{
+	font-size: 0.2375rem;
+}
+.userWarn,.passWarn,.userNo{
+	text-align: center;
+	color: #797979;
+	margin: 0.1rem;
+	display: none;
+	font-size: 0.16rem;
+}
+/*中部 end*/

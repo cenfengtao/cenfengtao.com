@@ -1,0 +1,94 @@
+@charset "utf-8";
+/*公共样式 start*/
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 0.12rem;
+	}
+li{
+	list-style: none;
+	}
+a{
+	text-decoration: none;color: black;
+	}
+input,textarea,select,button{
+	outline: none;
+	}
+strong{
+	font-weight: normal;
+}
+img{
+	border: none;
+	display: block;
+	}
+.clear{
+	clear: both;
+	overflow: hidden;
+	}
+.container{
+	width: 7.1rem;
+	margin: 0 auto;
+	clear: both;
+	overflow: hidden;
+	}
+textarea{
+	resize: none;
+	overflow: hidden;
+	}
+body,html{
+	font-family: "微软雅黑";
+}	
+/*公共样式 end*/
+
+/*中间部分 start*/
+/*轮播 start*/
+.banner{
+	clear: both;
+	height: 4.28rem;
+	overflow: hidden;
+	position: relative;
+	}
+.banner .bd{
+	height: 4.28rem;
+	overflow: hidden;
+	}
+.banner .bd ul{
+	overflow: hidden;
+}
+.banner .bd li{
+	height: 4.28rem;
+	overflow: hidden;
+	float: left;
+	width: 100%;
+	}
+.banner .bd li img{
+	height: 4.28rem;
+	width: 100%;
+	display: block;
+	}
+
+.banner .hd{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	}
+.banner .hd ul{
+	display: inline-block;
+	*display: inline;
+	*zoom:1;
+	}
+.banner .hd ul li{
+	width: 0.17rem;
+	height: 0.17rem;
+	float: left;
+    cursor: pointer;
+    margin:0 0.11rem 0.23rem 0.1rem; 
+    border-radius: 50%;
+    background: #8899b8;
+    }
+.banner .hd ul li.on{
+	background: #183a78;
+	}
+/*轮播 end*/
+/*中部 end*/

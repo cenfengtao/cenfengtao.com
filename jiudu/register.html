@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/register.css"/>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/register.js" type="text/javascript" charset="utf-8"></script><br />
+		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="register">
+				<a href="javascript:history.back()">&lt;</a>
+				<h3>注册</h3>
+				<a href="login.html">登录</a>
+			</div>
+		</header>
+		<article class="middle">
+			<form>
+				<label for="">
+					<img src="images/registerIcon1.png"/>
+					<input type="text" name="username" id="username" value="" placeholder="请输入您的会员名"/>
+				</label>
+				<div class="userWarn">
+					请输入以字母开头的8-20位字符的用户。
+				</div>
+				<label for="">
+					<img src="images/registerIcon2.png"/>
+					<input type="password" name="password" id="password" value="" placeholder="请输入您的密码"/>
+				</label>
+				<div class="passWarn">
+					密码不符合格式,请输入8到20个字符。
+				</div>
+				<label for="">
+					<img src="images/registerIcon3.png"/>
+					<input type="tel" name="tel" id="tel" value="" placeholder="请输入您的电话"/>
+				</label>
+				<div class="telWarn">
+					请填写正确的11位数字的手机号码。
+				</div>
+				<label for="">
+					<img src="images/registerIcon4.png"/>
+					<input type="text" name="code" id="code" value="" placeholder="请输入您的校验码"/>
+					<a href="###" class="l_tel">获取校验码</a>
+				</label>
+				<div class="codeWarn">
+					验证码格式不对，应为四位字符。
+				</div>
+				<div class="agreement">
+					<label>
+						<input type="checkbox" name="" checked="checked" class="checked"/>
+						<i></i>
+						<span>同意</span>
+						<span>《酒都酒业用户注册协议》</span>
+					</label>	
+				</div>
+				<div class="agreeWarn">
+					填写信息不完整，请勾选了协议书再点击下一步进行注册。
+				</div>
+				<input type="submit" name="submit" id="submit" value="下一步" />
+			</form>
+		</article>
+		<footer class="footer">
+		 	<ul>
+				<li>
+					<a href="homepage.html">
+						<img src="images/footer_icon1.jpg" alt="footer_icon1" />
+						<span>首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="pro_categories.html">
+						<img src="images/footer_icon2.jpg" alt="footer_icon2" />
+						<span>分类</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/footer_icon3.jpg" alt="footer_icon3" />
+						<span>发布</span>
+					</a>
+				</li>
+				<li>
+					<a href="shop_cart.html">
+						<img src="images/footer_icon4.jpg" alt="footer_icon4" />
+						<span>购物车</span>
+					</a>
+				</li>
+				<li>
+					<a href="user.html">
+						<img src="images/footer_icon5.jpg" alt="footer_icon5" />
+						<span>我的</span>
+					</a>
+				</li>
+			</ul>
+		 </footer>
+	</body>
+</html>

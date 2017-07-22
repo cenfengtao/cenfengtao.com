@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+body{
+	background: #ebebeb;
+}
+/*头部 start*/
+.header{
+	background: white;
+	height: 1.38rem;
+	line-height: 1.38rem;
+}
+.payOrder{
+	text-align: center;
+	position: relative;
+}
+.payOrder img{
+	height: 0.38rem;
+	width: 0.38rem;
+	float: left;
+	top: 50%;
+	margin-top: -0.19rem;
+	position: absolute;
+    margin-left: 0.4rem;
+}
+.payOrder h3{
+	font-weight: normal;
+	font-size: 0.38rem;
+}
+/*头部 end*/
+
+/*中部 start*/
+.failure{
+	margin-bottom: 0.48rem;
+}
+.failure img{
+	width: 1.2rem;
+	height: 1.2rem;
+	margin: 1rem auto 0.36rem;
+}
+.failure h3{
+	text-align: center;
+	font-size: 0.36rem;
+	font-weight: normal;
+	margin-bottom: 0.46rem;
+}
+.failure p{
+	text-align: center;
+	font-size: 0.28rem;
+	padding: 0 0.65rem;
+	line-height: 0.56rem;
+}
+.middle >a{
+	float: left;
+}
+.middle >a:nth-child(2){
+	display: block;
+	width: 2.1rem;
+	height: 0.66rem;
+	line-height: 0.66rem;
+	text-align: center;
+	border: 3px solid #bfbfbf;
+	font-size: 0.36rem;
+	color: #d31d1d;
+	margin: 0 0.92rem 0 1.13rem;
+}
+.middle >a:nth-child(3){
+	display: block;
+	width: 2.16rem;
+	height: 0.72rem;
+	line-height: 0.72rem;
+	text-align: center;
+	font-size: 0.36rem;
+	background: #d31d1d;
+	color: white;
+}

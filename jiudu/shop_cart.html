@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购物车</title>
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/shop_cart.css"/>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shop_cart.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body onload="loadCar()">
+		<header class="header">
+			<div class="register">
+				<a href="javascript:history.back()">&lt;</a>
+				<h3>购物车</h3>
+				<a href="###" class="editAll">编辑</a>
+			</div>
+		</header>
+		<article class="middle">
+			<div class="product">
+				<ul id="carTbody">
+					
+				</ul>
+			</div>
+		</article>
+		<footer class="footer">
+			<label>
+				<input type="checkbox" class="checkedAll"/>
+				<i></i>
+				<span>全选</span>
+			</label>
+			<span>合计：</span>
+			<span>￥<strong id="totalSum">50.40</strong></span>
+			<a href="javascript:goLoad()">提交订单</a>
+		</footer>
+	</body>
+</html>

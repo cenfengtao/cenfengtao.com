@@ -1,0 +1,280 @@
+@charset "utf-8";
+body{
+	background: #EBEBEB;
+	overflow-x: hidden;
+}
+/*头部 start*/
+.header{
+	height: 1.28rem;
+	line-height: 1.28rem;
+	/*position: relative;*/
+	background: white;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+.header a:first-child{
+	margin-top: 0.43rem;
+	float: left;
+	margin-left: 0.43rem;
+}
+.header a img{
+	width: 0.42rem;
+	height: 0.42rem;
+}
+.header h3{
+	float: left;
+	/*text-align: center;*/
+	margin-left: 2.25rem;
+	font-size: 0.38rem;
+	font-weight: normal;
+}
+.header a:nth-child(3){
+    float: right;
+    margin-right: 0.38rem;
+    margin-top: 0.43rem;
+}
+/*头部 end*/
+
+/*中部 start*/
+.middle{
+	border-bottom: 1px solid #c5c5c5;
+	margin-top: 1.28rem;
+	margin-bottom: 1.12rem;
+}
+.img{
+	position: relative;
+}
+.img img:first-child{
+	width: 7.5rem;
+	height: 3.48rem;
+}
+.userImg{
+	width: 1.7rem;
+	height: 1.7rem;
+	border-radius: 50%;
+	overflow: hidden;
+	top: 0.38rem;
+	margin: auto;
+	left: 0;
+	right: 0;
+	position: absolute;
+}
+#user{
+	width: 1.7rem;
+	height: 1.7rem;
+}
+.see{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	height: 0.8rem;
+	background: rgba(188,188,188,0.3);
+}
+.see span{
+	float: left;
+	width: 49%;
+	display: block;
+	text-align: center;
+	height: 0.6rem;
+	margin: 0.1rem 0;
+}
+.see span a{
+	display: block;
+	color: white;
+	font-size: 0.24rem;
+}
+.see span a:first-child{
+	margin-top: -0.08rem;
+	display: block;
+}
+.see span:first-child{
+	border-right: 2px solid white;
+}
+.myOrder{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.04rem; 
+}
+.myOrder span{
+	font-size: 0.34rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.myOrder a{
+	font-size: 0.28rem;
+	color: #797979;
+}
+.type{
+	padding: 0 0.4rem;
+	background: white;
+	height: 1.24rem;
+	margin-bottom: 0.12rem;
+}
+.type ul{
+	overflow: hidden;
+	margin-right: -1rem;
+}
+.type ul li{
+	text-align: center;
+	width: 1.12rem;
+	margin-right: 0.76rem;
+	float: left;
+}
+.type ul li img{
+	height: 0.42rem;
+	width: 0.42rem;
+	margin: 0.2rem auto 0.14rem;
+}
+.type ul li a{
+	font-size: 0.28rem;
+}
+.wallet{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.04rem; 
+}
+.wallet span{
+	font-size: 0.34rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.wallet a{
+	font-size: 0.24rem;
+	color: #797979;
+}
+.account{
+	padding: 0 0.4rem;
+	background: white;
+	height: 1rem;
+	margin: 0.04rem 0;
+}
+.account ul{
+	overflow: hidden;
+	margin-right: -0.67rem;
+	margin-left: 0.3rem;
+}
+.account ul li{
+	text-align: center;
+	width: 1.15rem;
+	float: left;
+	margin-right: 0.6rem;
+}
+
+.account ul li a{
+	font-size: 0.28rem;
+	display: block;
+	color: #797979;
+}
+.account ul li a:first-child{
+	margin: 0.1rem 0;
+}
+.exchange{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.04rem; 
+}
+.exchange span{
+	font-size: 0.28rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.exchange a{
+	font-size: 0.24rem;
+	color: #797979;
+}
+.gold_shop{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.18rem; 
+}
+.gold_shop span{
+	font-size: 0.28rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.gold_shop a{
+	font-size: 0.24rem;
+	color: #797979;
+}
+.view{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.04rem; 
+}
+.view span{
+	font-size: 0.28rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.view a{
+	font-size: 0.24rem;
+	color: #797979;
+}
+.tel{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.18rem; 
+}
+.tel span{
+	font-size: 0.28rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.tel a{
+	font-size: 0.24rem;
+	color: #797979;
+}
+.business{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.06rem; 
+}
+.business span{
+	font-size: 0.28rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.business a{
+	font-size: 0.24rem;
+	color: #797979;
+}
+.come{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: white;
+	padding: 0 0.4rem;
+	text-align: right;
+	margin-bottom:0.04rem; 
+}
+.come span{
+	font-size: 0.28rem;
+	float: left;
+	margin-top: 0.02rem;
+}
+.come a{
+	font-size: 0.24rem;
+	color: #797979;
+}

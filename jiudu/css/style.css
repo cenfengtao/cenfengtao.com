@@ -1,0 +1,25 @@
+
+/*底部  start*/
+.footer{
+	background: white;
+	height: 1.1rem;
+	position: fixed;
+	bottom: 0;
+	z-index: 1000;
+	width:100%;
+}
+.footer ul li{
+	width: 20%;
+	text-align: center;
+	float: left;
+	margin: 0.06rem 0 0.08rem 0;
+}
+.footer ul li img{
+	width: 0.52rem;
+	height: 0.52rem;
+	margin: 0 auto;
+	margin-bottom: 0.1rem;
+}
+.footer ul li a span{
+	font-size: 0.22rem;
+}

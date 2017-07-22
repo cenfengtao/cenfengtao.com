@@ -1,0 +1,182 @@
+@charset "utf-8";
+
+body{
+	background: #ebebeb;
+}
+/*头部 start*/
+.header{
+	background: white;
+	padding-top: 0.4rem;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+}
+.payOrder{
+	height: 0.98rem;
+	line-height: 0.98rem;
+	border-top: 2px solid #EBEBEB;
+	border-bottom: 2px solid #EBEBEB;
+	text-align: center;
+	position: relative;
+}
+.payOrder img{
+	height: 0.38rem;
+	width: 0.38rem;
+	float: left;
+	top: 50%;
+	margin-top: -0.19rem;
+	position: absolute;
+    margin-left: 0.4rem;
+}
+.payOrder h3{
+	font-weight: normal;
+	font-size: 0.38rem;
+}
+/*头部 end*/
+
+/*中部 start*/
+.middle{
+	margin-top: 1.38rem;
+	/*padding-top: 0.1rem;*/
+	margin-bottom: 1.12rem;
+}
+.sub{
+	height: 0.88rem;
+	line-height: 0.88rem;
+	background: white;
+	padding:0 0.4rem ;
+}
+.sub span:first-child{
+	color: #cf0000;
+	font-size: 0.3rem;
+}
+.sub span:nth-child(2){
+	color: #797979;
+	font-size: 0.24rem;
+	float: right;
+	margin-top: 0.15rem;
+}
+.payType{
+	background: white;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	padding-left: 0.4rem;
+	margin: 0.12rem 0;
+}
+.payType span{
+	font-size: 0.3rem;
+}
+.bank ul{
+	overflow: hidden;
+}
+.bank ul li{
+	clear: both;
+	background: white;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	padding-left: 0.4rem;
+	margin-bottom: 0.04rem;
+	position: relative;
+}
+.bank ul li label{
+	display: inline-block;
+	/*float: left;*/
+}
+.bank ul li label i{
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 50%;
+	border: 0.01rem solid #797979;
+	display: block;
+	margin-top: 0.24rem;
+}
+.bank ul li label input:checked +i{
+	background: url(../images/checked_gray.png) no-repeat center;
+/*	background-size: 0.42rem 0.42rem;*/
+}
+.bank ul li img{
+	float: left;
+}
+/*.bank ul li img:first-child{
+	width: 0.42rem;
+	height: 0.42rem;
+	top: 50%;
+	margin-top: -0.21rem;
+	position: absolute;
+}*/
+.bank ul li:first-child label img:nth-child(3),.bank ul li:nth-child(4) label img:nth-child(3){
+	width: 2.15rem;
+	height: 0.44rem;
+	top: 50%;
+	margin-top: -0.22rem;
+	position: absolute;
+	margin-left: 0.77rem;
+}
+.bank ul li:nth-child(2) label img:nth-child(3),.bank ul li:nth-child(5) label img:nth-child(3){
+	height: 0.54rem;
+	width: 1.54rem;
+	margin-top: -0.27rem;
+	top: 50%;
+	position: absolute;
+	margin-left: 0.77rem;
+}
+.bank ul li:nth-child(2){
+	margin-bottom: 0.12rem;
+}
+.bank ul li:nth-child(3) label img:nth-child(3){
+	height: 0.48rem;
+	width: 1.54rem;
+	margin-top: -0.24rem;
+	top: 50%;
+	position: absolute;
+	margin-left: 0.77rem;
+}
+.otherType{
+	clear: both;
+	height: 0.88rem;
+	line-height: 0.9rem;
+	background: white;
+	margin-bottom: 4.27rem;
+}
+.otherType a:first-child{
+	margin-left: 1.17rem;
+	font-size: 0.2966rem;
+}
+
+.otherType a:nth-child(2){
+	float: right;
+	margin-right: 0.43rem;
+	font-size: 0.3595rem;
+}
+.confirm{
+	text-align: right;
+	background: white;
+	line-height: 0.99rem;
+	height: 0.99rem;
+	margin-bottom: 0.01rem;
+}
+.confirm span:first-child{
+	font-size: 0.24rem;
+}
+.confirm span:nth-child(2){
+	font-size: 0.3595rem;
+	color: #d6030a;
+	margin-right: 0.3rem;
+	margin-left: -0.08rem;
+}
+.confirm span:nth-child(2) strong{
+	font-size: 0.3595rem;
+	color: #d6030a;
+}
+.confirm a{
+	float: right;
+	width: 1.84rem;
+	height: 0.99rem;
+	line-height: 1rem;
+	text-align: center;
+ 	color: white;
+ 	font-size: 0.3595rem;
+ 	display: block;
+ 	background: #d6030a;
+}
