@@ -1,0 +1,82 @@
+﻿@charset "utf-8";
+
+/*@font-face{
+			font-family: 'myFirstFont';
+			src:url("../font/微软雅黑.ttf");
+			src: url('../font/微软雅黑.eot'); 
+			src: url('../font/微软雅黑.eot?#iefix') format('embedded-opentype'),
+                             url('../font/微软雅黑.woff') format('woff'), 
+                             url('../font/微软雅黑.ttf') format('truetype'), 
+                             url('../font/微软雅黑.svg#svgFontName') format('svg');
+		}*/
+
+*{margin:0; padding:0;}
+ul li{list-style-type:none;}
+a{ text-decoration:none;color: #000000;}
+a:link,a:visited{ font-family:'微软雅黑';}
+a,input,botton,iframe,textarea{outline:none;}
+/*body,html{font-family:'myFirstFont';}*/
+body,html{font-family: '微软雅黑';}
+.container{width:1200px;margin:0 auto;}
+img{border: none;}
+.clear{ clear:both; overflow:hidden;}
+textarea{resize:none;overflow:hidden;}
+
+/*头部  start*/
+#header {clear:both;overflow:hidden;}
+#header .container{width:1200px; margin:0 auto;overflow:hidden;}
+#header .container .logo{ float:left;}
+#header .container .logo a{height:128px; display: table-cell; vertical-align:middle;}
+
+#header .container .phone{ float: right;margin-top:20px;}
+#header .container .phone a img{display: inline-block;margin-bottom:-2px;margin-right: 4px;}
+#header .container .phone span{color:#78d478;font-size:18px;}
+
+#header .container .navbar{ float:left;height:62px;margin-left:22px;margin-top:18px;}
+#header .container .navbar ul li{ float:left;height:62px;line-height:62px;width:95px;text-align:center;margin-left:92px;}	
+#header .container .navbar ul li a{height:62px; color:#050505;display:block;}
+#header .container .navbar ul>li a:hover{border-bottom:4px solid #78d478;color:#78d478;}
+#header .container .navbar ul>li.on{border-bottom:4px solid #78d478;}
+#header .container .navbar ul>li.on a{color:#78d478;}
+/*头部 end*/
+
+/*中部 start*/
+/*banner部分*/
+#middle{ clear:both; overflow:hidden;}
+#middle .index_banner{height:600px;overflow:hidden;position:relative;clear: both;}
+#middle .index_banner .bd{height:600px;overflow:hidden;}
+#middle .index_banner .bd li{height:600px;overflow:hidden;position:relative; float:left; width:100%; }
+#middle .index_banner .bd li a{position:absolute;width:1920px;height:600px;left:50%;margin-left:-960px;}
+#middle .index_banner .bd li a img{display:block;}
+
+#middle .index_banner .hd{position:absolute;bottom:0;text-align:center;width:100%;}
+#middle .index_banner .hd ul{display:inline-block;*display:inline;*zoom:1;}
+#middle .index_banner .hd ul li{width:26px;height:26px;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;margin:24px 14px; float:left;cursor:pointer; background:url(../images/icon1.png);}
+#middle .index_banner .hd ul li.on{background: url(../images/icon2.png);}
+#middle .index_banner .hd ul li:hover{background:url(../images/icon2.png);}
+
+#middle .index_banner .prev,.index_banner .next {border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;height:54px;width:25px;position:absolute;color:#a5a3a5;top:50%;margin-top:-27px;font-familly:'宋体';font-size:90px;line-height:90px;text-align:center; behavior:url(PIE.htc);}
+#middle .index_banner .prev{left:50px;}
+#middle .index_banner .next{right:50px;}
+
+/*底部 start*/
+#footer{width: 100%;background: #696868;clear: both;overflow: hidden;}
+#footer .top{ clear:both; overflow:hidden;}
+#footer .top .title{float:left;margin:55px 0;margin-left: 100px;margin-right: 54px;}
+#footer .top .title h2{color: white;text-align: center;}
+#footer .top .title span{display:block;color: white;padding-left: 8px;}
+
+#footer .top .info{float: left;margin-top: 34px;}
+#footer .top .info p{font-size: 14px;color: white;line-height: 30px;}
+
+#footer .top .img{float: left;margin-top: 25px;margin-left: 232px;}
+#footer .top .img img{display:block;margin:0 auto;margin-bottom: 14px;}
+#footer .top .img span{display:block;color: white;}
+
+#footer .top .phone{float: left;margin-top: 49px;margin-left: 25px;}
+#footer .top .phone p{color: white;line-height: 30px;}
+#footer .top .phone p span{display: inline-block;color: #63cd63;font-size: 24px;}
+
+#footer .bottom{clear: both;background: #525151;}
+#footer .bottom{color: white;font-size: 18px;line-height: 25px;text-align: center;padding: 16px 0;}
+/*底部 end*/

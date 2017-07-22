@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.navbar ul li.on{background: white;}
+.navbar ul li.on a{color: black;}
+
+.menu ul{height: 0.77rem;line-height:0.77rem;margin-right: -0.20rem;}
+.menu ul li{float:left;text-align: center;margin:0.17rem 0.19rem 0.17rem 0;}
+
+.about{border-top: 2px solid  #9a9999;}
+.about>header{height: 0.75rem;line-height: 0.75rem;}
+.about>header h3{font-size: 0.36rem;color:#63cd63;margin-right: 0.12rem;float: left;text-align: center;font-weight: normal;}
+.about>header >span{font-size: 0.30rem;color: #9a9999;float: left;display: block;text-align: center;margin-top: 0.03rem;}
+.about>section{border-top: 2px solid  #9a9999;}
+.about>section>.container img{display: block;margin:0 auto 0.20rem;width: 100%;}

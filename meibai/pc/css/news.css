@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+#middle .content{margin-left:172px;}
+#middle .content ul{margin-bottom: 48px;}
+#middle .content ul li{margin: 0 14px;overflow: hidden;border-bottom: 2px solid  #827f7f;width:790px;}
+#middle .content ul li:hover .right h4 a{ color:#63cd63;}
+#middle .content ul li a img{width: 124px;height: 124px;display: block;float: left;padding: 10px 12px 10px 0px;}
+
+#middle .content ul li .right{float:left;}
+#middle .content ul li .right h4 a{display:block;font-size: 18px;padding-top: 5px;font-weight: normal;color:black;}
+#middle .content ul li .right span{display: block;color: #827f7f;font-size: 14px;margin-top: 8px;line-height:25px;margin:10px 0 7px;}
+#middle .content ul li .right p{font-size: 14px;line-height: 20px;width: 650px; color: #827f7f;line-weight:11px;}
+
+#middle .page{ margin:46px auto 120px; clear:both; overflow:hidden;}
+#middle .page ul{float:right; margin-right:134px; }
+

@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+#middle .title{width:930px;margin:50px auto 54px;border-top:2px solid #2d2d2d;border-bottom: 2px solid #2d2d2d;}
+
+#middle .content{width:930px;margin:0 auto;border-bottom:1px solid;}
+#middle .content p{margin-left:76px; font-size:18px; line-height:36px; color:#757575;}
+#middle .content img{ margin:42px auto;display:block;}
+
+#middle .page{width:930px;margin:0 auto;margin-bottom:94px;padding:7px 0;}
+#middle .page .left{float:left;}
+#middle .page .left a,.right a{color:black;font-size:18px;line-height:36px;color:#757575;}
+#middle .page .right{float:right;}

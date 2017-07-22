@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+.header{height: 0.88rem;background:#63cd63;line-height: 0.88rem;}
+.header .page{float: left;margin-left: 0.20rem;margin-right: 0.20rem;}
+.header .page a{height:0.88rem;display: table-cell;vertical-align: middle;}
+.header .page a img{display: block;height:0.26rem;}
+.header >a{display: block;float: left;font-size: 0.24rem;margin-right: 1.42rem;color: white;}
+.header h3{float: left;font-size: 0.36rem;margin: 0 auto;color: white;font-weight: normal;}
+
+.container>header{border-bottom: 0.02rem solid #9a9999;text-align: center;padding: 0.20rem 0;}
+.container>header h3{font-size: 0.36rem;font-weight: normal;margin-bottom: 0.10rem;}
+.container>header span{color:#434242;font-size: 0.24rem;line-height: 0.25rem;display: block;}
+.container>section{margin:0.14rem 0;}
+.container>section p{font-size: 0.25rem;line-height: 0.38rem;color:#434242;}
+.container>section img{display: block;width: 100%;margin: 0.14rem 0;}
+
+.footer{margin-top: 0.06rem;}
+
+
+
+
+
+
