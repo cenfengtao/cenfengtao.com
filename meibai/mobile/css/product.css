@@ -1,7 +1,0 @@
-@charset "utf-8";
-
-.navbar ul li.on{background: white;}
-.navbar ul li.on a{color: black;}
-
-.menu ul{height: 0.77rem;line-height:0.77rem;margin-right: -0.62rem;}
-.menu ul li{float:left;text-align: center;margin:0.14rem 0.61rem 0.17rem 0;}
