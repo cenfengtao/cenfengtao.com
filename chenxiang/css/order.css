@@ -1,0 +1,61 @@
+@charset "utf-8";
+body{color: black;}
+
+.top p{height: 31px;line-height: 31px;background: #f6f6f6;padding-left: 10px;margin: 27px 0 19px;}
+.bottom{margin-bottom: 62px;overflow: hidden;}
+.bottom_left{float: left;background: #efefef;}
+.bottom_left ul{overflow: hidden;}
+.bottom_left ul li{width: 220px;text-align: center;margin-top: 25px;}
+.bottom_left ul li.on a{color: #d33335;}
+.bottom_left ul li:nth-child(6),.bottom_left ul li:nth-child(11),.bottom_left ul li:nth-child(17){margin-top: 55px;}
+.bottom_left ul li:last-child{margin-bottom: 43px;}
+.bottom_left ul li h4{font-size: 14px;}
+.bottom_left ul li a{font-size: 12px;color: black;}
+
+.bottom_right{float: left;border-bottom: 2px solid #e6e6e6;border-top: 2px solid #e6e6e6;width: auto;width: 978px;}
+.bottom_right >p{height: 30px;line-height: 30px;font-size: 14px;background: #f6f6f6;margin: 26px 0 26px 26px;}
+.bottom_right >p span{cursor: pointer;}
+.bottom_right >p span:nth-child(1){margin-left: 8px;}
+.bottom_right >p span:nth-child(2){margin-left: 46px;}
+.bottom_right >p span:nth-child(3),
+.bottom_right >p span:nth-child(4){margin-left: 30px;}
+.bottom_right .type span.on{color: red;}
+.bottom_right .product{margin-left: 25px;}
+.bottom_right .product>ul>li{height: 163px;border-bottom: 1px solid #d7d7d7;}
+.bottom_right .product>ul>li:last-child{border: none;}
+.bottom_right .product>ul>li.on{background: #f6f6f6;}
+.bottom_right .product>ul>li>div{float: left;font-size: 12px;}
+.bottom_right .product>ul>li>div:nth-child(1){margin: 20px 50px 0 10px;}
+.bottom_right .product>ul>li>div:nth-child(1) img{cursor: pointer;}
+.bottom_right .product>ul>li>div:nth-child(1) input{margin: 0;height: 14px;width: 14px;}
+.bottom_right .product>ul>li>div:nth-child(2){margin-top: 12px;margin-right: 15px;}
+.bottom_right .product>ul>li>div:nth-child(3),
+.bottom_right .product>ul>li>div:nth-child(4),
+.bottom_right .product>ul>li>div:nth-child(5),
+.bottom_right .product>ul>li>div:nth-child(6){margin-top: 44px;}
+.bottom_right .product>ul>li>div:nth-child(3) a{display: inline-block;margin-bottom: 6px;color: black;}
+.bottom_right .product>ul>li>div:nth-child(3) a:nth-child(2){display: block;}
+.bottom_right .product>ul>li>div:nth-child(4) span{display: block;margin-bottom: 6px;margin-left: 120px;}
+.bottom_right .product>ul>li>div:nth-child(5){margin-left:90px;}
+.bottom_right .product>ul>li>div:nth-child(5) span:first-child{color: #d71e06;display: block;margin-bottom: 6px;}
+.bottom_right .product>ul>li>div:nth-child(5) span:last-child{margin-left: 10px;}
+.bottom_right .product>ul>li>div:nth-child(6){margin-left: 110px;}
+.bottom_right .product>ul>li>div:nth-child(6) a{color: black;display:block;}
+.bottom_right .product>ul>li>div:nth-child(6) a:first-child{display: inline-block;margin-bottom: 6px;}
+
+.bottom_right .button{overflow: hidden;clear: both;margin: 35px 0 35px 10px;display: none;}
+.bottom_right .button p{height: 30px;line-height: 30px;font-size: 14px;background: #f6f6f6;margin:  0 0 26px 15px;}
+.bottom_right .button a{font-size:14px;height: 37px;width: 112px;border: 1px solid #a29e9f;display: block;float: left;line-height: 37px;text-align: center;color: black;margin-left: 15px;}
+.bottom_right .button a:last-child{background: #e93536;color: white;}
+.bottom_right .received{display: none;}
+.bottom_right .received p{height: 30px;line-height: 30px;font-size: 14px;background: #f6f6f6;margin: 26px 0 26px 26px;}
+.bottom_right .evaluated{display: none;}
+.bottom_right .evaluated p{height: 30px;line-height: 30px;font-size: 14px;background: #f6f6f6;margin: 26px 0 26px 26px;}
+
+.bottom_right .like{clear: both;margin-bottom: 36px; margin-left: 28px;}
+.bottom_right .like ul li img{width: 150px;height: 152px;}
+.bottom_right .again{border-top: 1px solid lightgray;margin-left: 28px;}
+.bottom_right .again span{font-size: 20px;color: #211f1f;margin-left: 18px;margin-bottom: 23px;margin-top: 23px;display: block;}
+.bottom_right .again ul{margin-right: -14px;clear: both;overflow: hidden;}
+.bottom_right .again ul li{float: left;margin-right: 10px;}
+.bottom_right .again ul li img{width: 150px;height: 152px;}

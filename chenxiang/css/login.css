@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.header{background: #f9f7f8;padding-bottom: 68px;}
+.header .logo{border-bottom: 1px solid #E93535;padding: 16px 0;}
+.header .logo a img{margin: 0 auto;}
+
+.middle{clear: both;overflow: hidden;background: #f9f7f8;padding-bottom: 60px;}
+.middle p{height: 33px;background: #E93535;color: white;line-height: 33px;padding-left: 12px;font-size: 12px;}
+.middle h4{text-align: center;font-size: 24px;margin: 0px 0 70px;font-weight: normal;}
+.middle .container{background: white;}
+.middle .container>a{color:#E93535;font-size: 14px;margin: 100px 0 0 300px;display: block;}
+.middle .form form{width: 510px;margin: 0 auto;}
+.middle .form form label{font-size: 14px;display: block;position: relative;}
+.middle .form form label:nth-child(1){margin-left: 15px;margin-bottom: 24px;}
+.middle .form form label:nth-child(3){margin-left: 44px;margin-bottom: 44px;float:left}
+.middle .form form a:nth-child(4){float: left;display: block;color: black;height: 36px;line-height: 36px;margin-left: 10px;font-size: 12px;}
+.middle .form form label:nth-child(6){clear: both;margin-bottom: 35px;margin-left: 30px;float: left;margin-right: 10px;}
+.middle .form form label:nth-child(6) input{width: 142px;}
+.middle .form form a:nth-child(7){float: left;display: block;margin-top: 1px;position: relative;}
+.middle .form form .code img:nth-child(1),.middle .form form .code img:nth-child(2){position: absolute;}
+.middle .form form .code img:first-child{z-index: 10;}
+.middle .form form a:nth-child(8){float: left;height: 36px;line-height: 36px;color: black;margin-left: 10px;font-size: 12px;overflow: hidden;}
+.middle .form form label input{height: 34px; width: 309px;padding: 0 6px;}
+.middle .form form label:nth-child(10){clear: both;overflow: hidden;font-size: 12px;margin-bottom: 10px;}
+.middle .form form label:nth-child(10) img{float: left;margin-left: 192px;margin-right: 10px;cursor: pointer;}
+.middle .form form label:nth-child(10) span{cursor: pointer;}
+.middle .form form label:nth-child(12){padding-bottom: 50px;}
+.middle .form form label:nth-child(12) input{height: 36px;width: 155px;background: #d35e57;color: white;border: 1px solid #D35E57;margin-left: 185px;cursor: pointer;}
+.middle .form form .user_prompt{position: absolute;top: 52px;left: 78px;display: none;}
+.middle .form form .pass_prompt{position: absolute;top: 52px;left: 50px;display: none;}
+.middle .form form .code_prompt{position: absolute;top: 46px;left: 64px;display: none;}
+.footer{height: 60px;line-height: 60px;background: #333333;text-align: center;}
+.footer p{color: white;}

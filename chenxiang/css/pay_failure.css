@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+.middle .pay_failure{border-bottom: 2px solid #eb2d1f;border-top: 2px solid #eb2d1f;margin-bottom: 64px;overflow: hidden;}
+.middle .pay_failure .left{margin:78px 56px 86px 204px;float: left;}
+.middle .pay_failure .left img{margin-bottom: 25px;}
+.middle .pay_failure .left span{margin-left: 18px;display: block;color: #8f8488;font-size: 24px;}
+.middle .pay_failure .right{float: left;margin-top: 146px;}
+.middle .pay_failure .right p:first-child{width: 584px;height: 47px;border: 1px solid #8f8488;color: #8f8488;line-height: 47px;text-align: center;font-size: 16px;}
+.middle .pay_failure .right p:last-child{margin-top: 48px;margin-left: 48px;}
+.middle .pay_failure .right p:last-child a:first-child{margin-right: 36px;}
+.middle .pay_failure .right p:last-child a{color: #ed1347;font-size: 18px;}
+
+.like{clear: both;overflow: hidden;}
+.footer{height: 60px;line-height: 60px;background: #333333;text-align: center;}
+.footer p{color: white;}
