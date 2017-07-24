@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.middle .pay_sucess{border-bottom: 2px solid #eb2d1f;border-top: 2px solid #eb2d1f;margin-bottom: 64px;}
+.middle .pay_sucess p:nth-child(1){margin: 60px 0 32px 300px;overflow: hidden;}
+.middle .pay_sucess p:nth-child(1) img{float: left;}
+.middle .pay_sucess p:nth-child(1) span{float: left;font-size: 30px;}
+.middle .pay_sucess p:nth-child(2){overflow:hidden;height: 47px;width: 584px;border: 1px solid #cbcbcb;margin-left: 300px;line-height: 47px;}
+.middle .pay_sucess p:nth-child(2) img{float: left;margin: 12px;}
+.middle .pay_sucess p:nth-child(2) span{float: left;font-size: 14px;}
+.middle .pay_sucess p:nth-child(3){margin-top: 28px;margin-left: 340px;font-size: 14px;}
+.middle .pay_sucess p:nth-child(4){margin-top: 18px;margin-left: 340px;font-size: 14px;}
+.middle .pay_sucess p:nth-child(4) span{font-size: 16px;color: #f24537;}
+.middle .pay_sucess p:nth-child(5){margin-top: 18px;margin-bottom: 56px;font-size: 14px;}
+.middle .pay_sucess p:nth-child(5) a:first-child{color:#eb153b ;margin-left: 340px;margin-right: 28px;font-size: 14px;}
+.middle .pay_sucess p:nth-child(5) a:last-child{color:#eb153b ;font-size: 14px;}
+
+.footer{height: 60px;line-height: 60px;background: #333333;text-align: center;}
+.footer p{color: white;}

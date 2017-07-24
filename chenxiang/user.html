@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<title>会员中心</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <link rel="stylesheet" type="text/css" href="css/user.css" />	        
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />	        
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/bootstrap.js" type="text/javascript"></script>
+		<script src="js/city.js" type="text/javascript"></script>
+		<script src="js/user.js" type="text/javascript"></script>
+		<script src="js/carNum.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/control.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body onload="proNum()">
+		<header class="header">
+			<div class="header_top">
+				<div class="container">
+					<div class="top_left">
+						<span>您好&nbsp;欢迎来到世纪沉香在线商城</span>
+						<ul class="nav nav-pills">
+							<li><a href="login.html">登陆</a></li>
+							<li>|</li>
+							<li><a href="register.html">注册</a></li>
+						</ul>
+					</div>
+					<div class="top_right">
+						<nav class="nav navbar-default" role="navigation">
+							<div class="collapse navbar-collapse" id="example-navbar-collapse">
+								<ul class="nav nav-pills">
+									<li>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+											我关注的商品
+											<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+							               <li><a href="#">沉香珠串</a></li>
+							               <li><a href="#">沉香雕件</a></li>
+							               <li><a href="#">沉香摆件</a></li>
+							               <li class="divider"></li>
+							               <li><a href="#">沉香熏香</a></li>
+							            </ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											收藏夹<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+							              <li><a href="#">沉香珠串</a></li>
+							               <li><a href="#">沉香雕件</a></li>
+							               <li><a href="#">沉香摆件</a></li>
+							               <li class="divider"></li>
+							               <li><a href="#">沉香熏香</a></li>
+							            </ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											企业购<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+							               <li><a href="#">沉香珠串</a></li>
+							               <li><a href="#">沉香雕件</a></li>
+							               <li><a href="#">沉香摆件</a></li>
+							               <li class="divider"></li>
+							               <li><a href="#">沉香熏香</a></li>
+							            </ul>
+									</li>
+									<li>|</li>
+									<li>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											我的订单<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+							               <li><a href="order.html">沉香珠串</a></li>
+							               <li><a href="order.html">沉香雕件</a></li>
+							               <li><a href="order.html">沉香摆件</a></li>
+							               <li class="divider"></li>
+							               <li><a href="order.html">沉香熏香</a></li>
+							            </ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											商家支持<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+							               <li><a href="#">沉香珠串</a></li>
+							               <li><a href="#">沉香雕件</a></li>
+							               <li><a href="#">沉香摆件</a></li>
+							               <li class="divider"></li>
+							               <li><a href="#">沉香熏香</a></li>
+							            </ul>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											<span class="glyphicon glyphicon-th-list" aria-hidden="true" ></span>
+											网站导航
+											<span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu">
+							               <li><a href="#">沉香珠串</a></li>
+							               <li><a href="#">沉香雕件</a></li>
+							               <li><a href="#">沉香摆件</a></li>
+							               <li class="divider"></li>
+							               <li><a href="#">沉香熏香</a></li>
+							            </ul>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="header_middle">
+				<div class="container">
+					<div class="col-xs-4">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.jpg"/></a>	
+						</div>	
+					</div>
+					<div class="col-xs-5">
+						<div class="search">
+							<form>
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="搜索关键词"/>
+									<span class="input-group-btn">
+										<button type="submit" class="btn btn-default">
+											<span>搜索商品</span>
+										</button>
+									</span>
+								</div>
+							</form>
+						</div>
+						<div class="hot">
+							<span>热门搜索：</span>
+							<ul class="nav nav-pills">
+								<li><a href="product.html">沉香珠串</a></li>
+								<li><a href="product.html">沉香雕件</a></li>
+								<li><a href="product.html">沉香摆件</a></li>
+								<li><a href="product.html">沉香熏香</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xs-3">
+						<div class="car">
+							<a href="shop_cart.html">
+								<img src="images/cart.png"/>
+								<span>我的购物车</span>
+								<span>(<b class='checkedNum'></b>)</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header_bottom">
+				<div class="container">
+					<div class="pro_sorting">
+						<h4>全部产品分类<span>&gt;</span><span>&or;</span></h4>
+						<ul>
+							<li><a href="product.html">奇楠专区</a></li>
+							<li><a href="product.html">沉香串珠</a></li>
+							<li><a href="product.html">随形专区</a></li>
+							<li><a href="product.html">香道熏材</a></li>
+							<li><a href="product.html">沉香雕件</a></li>
+							<li><a href="product.html">沉香原材</a></li>
+							<li><a href="product.html">沉香摆件</a></li>
+						</ul>
+					</div>
+					<nav class="nav" id="nav">
+						<ul>
+							<li class="on">
+								<a href="index.html">首页</a>
+							</li>
+							<li>
+								<a href="product.html">当日精品</a>
+							</li>
+							<li>
+								<a href="product.html">设计精品</a>
+							</li>
+							<li>
+								<a href="product.html">最新上市</a>
+							</li>
+							<li>
+								<a href="product.html">人气商品</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<article class="middle">
+			<div class="container">
+				<div class="top">
+					<p>用户登录</p>
+				</div>
+				<div class="bottom">
+					<div class="bottom_left">
+						<ul>
+							<li><h4>订单中心</h4></li>
+							<li><a href="order.html">我的订单</a></li>
+							<li><a href="###">团购订单</a></li>
+							<li><a href="###">本地生活订单</a></li>
+							<li><a href="###">取消订单记录</a></li>
+							<li><h4>关注中心</h4></li>
+							<li><a href="###">关注的商品</a></li>
+							<li><a href="###">关注的店铺</a></li>
+							<li><a href="###">关注的品牌</a></li>
+							<li><a href="###">关注的活动</a></li>
+							<li><h4>客服服务</h4></li>
+							<li><a href="###">退换货服务</a></li>
+							<li><a href="###">价格保护</a></li>
+							<li><a href="###">意见建议</a></li>
+							<li><a href="###">购买咨询</a></li>
+							<li><a href="###">售后服务</a></li>
+							<li><h4>个人设置</h4></li>
+							<li class="on"><a href="user.html">个人资料</a></li>
+							<li><a href="address.html">收货地址</a></li>
+							<li><a href="#">修改密码</a></li>
+						</ul>
+					</div>
+					<div class="bottom_right">
+						<div class="right_top">
+							<p><img src="images/head.jpg"/><a href="###">编辑头像</a></p>
+							<p><a href="###"><img src="images/user.png"/></a><span>新人会员</span></p>
+							<p><a href="###"><img src="images/date.png"/></a><span>购物天数：6天</span></p>
+						</div>
+						<div class="right_middle">
+							<form name="reg_testdate">
+								<label class="call">
+									<span><b>*</b>昵称：</span>
+									<input type="text"  class="username"/>
+								</label>
+								<label class="sex" for="sex">
+									<span><b>*</b>性别：</span>
+									<input type="radio" name="sex"/> 
+									<span>男</span>
+									<input type="radio" name="sex"/> 
+									<span>女</span>
+								</label>
+								<label class="birthday">
+									<span><b>*</b>生日：</span>
+									<select name="YYYY" onchange="YYYYDD(this.value)" id="year">
+										<option value="请选择">请选择</option>
+									</select>
+									<span>年</span>
+									<select name="MM" onchange="MMDD(this.value)">
+										<option value="请选择">请选择</option>
+									</select>
+									<span>月</span>
+									<select name="DD">
+										<option value="请选择">请选择</option>
+									</select>
+									<span>日</span>
+									<a href="###">填写生日有惊喜的哦</a>
+								</label>
+								<label class="hobby">
+									<span><b>*</b>兴趣：&nbsp;选择您 感兴趣的分类，给您最新个推荐</span>
+									<br />
+									<br />
+									<a href="###" class="on">沉香手串</a>
+									<a href="###">沉香手串</a>
+									<a href="###">沉香手串</a>
+								</label>
+								<label class="email">
+									<span><b>*</b>邮箱：</span>
+									<a href="###">立马验证</a>
+								</label>
+								<label class="name">
+									<span><b>*</b>姓名：</span>
+									<input type="text" />
+								</label>
+								<label class="address">
+									<span><b>*</b>住址：</span>
+									<select class="province">
+										<option value="广州">广州</option>
+									</select>
+									<select class="city">
+										<option value="天河区">天河区</option>
+									</select>
+									<select class="county">
+										<option value="体育西">体育西</option>
+									</select>
+								</label>
+								<label class="sub">
+									<input type="submit" value="提交"/>
+								</label>
+							</form>
+						</div>
+						<div class="right_bottom">
+							<p>安全小提示：</p>
+							<p>1.如果您的账号登录密码忘记，可以通过验证安保问题和答案，重新设置密码。</p>
+							<p>2.由于安保问题是由您 选定的3个问题和答案，为了防止遗忘，建议您 一周验证记忆一次。</p>
+							<p>3.安保问题不要设置过于简单， 容易被人猜到。</p>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</article>
+		<footer class="footer">
+			<p>世纪沉香坊有限公司 WowSai.com Copyright&copy 2008-2013 [京ICP备10020900][京公网安备11010502026420][京IPC证090011号]</p>
+		</footer>
+	</body>
+</html>

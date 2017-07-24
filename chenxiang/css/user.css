@@ -1,0 +1,57 @@
+@charset "utf-8";
+body{color: black;}
+
+.top p{height: 31px;line-height: 31px;background: #f6f6f6;padding-left: 10px;margin: 27px 0 19px;}
+.bottom{margin-bottom: 62px;overflow: hidden;}
+.bottom_left{float: left;background: #efefef;}
+.bottom_left ul{overflow: hidden;}
+.bottom_left ul li{width: 220px;text-align: center;margin-top: 25px;}
+.bottom_left ul li.on a{color: #d33335;}
+.bottom_left ul li:nth-child(6),.bottom_left ul li:nth-child(11),.bottom_left ul li:nth-child(17){margin-top: 55px;}
+.bottom_left ul li:last-child{margin-bottom: 43px;}
+.bottom_left ul li h4{font-size: 14px;}
+.bottom_left ul li a{font-size: 12px;color: black;}
+
+.bottom_right{float: left;margin-left: 162px;margin-top: 54px;}
+.bottom_right .right_top p{float: left;margin-bottom: 50px;overflow: hidden;}
+.bottom_right .right_top p:first-child{position: relative;}
+.bottom_right .right_top p:first-child a{position: absolute;bottom: 16px;color: white;font-size: 14px;left: 40px;}
+.bottom_right .right_top p:nth-child(2){margin: 40px 46px 0 38px;}
+.bottom_right .right_top p:nth-child(2) img,.bottom_right .right_top p:nth-child(2) span{float: left;}
+.bottom_right .right_top p:nth-child(2) span{margin: 8px 0 0 16px;font-size: 14px;}
+.bottom_right .right_top p:nth-child(3){margin-top: 45px;}
+.bottom_right .right_top p:nth-child(3) img,.bottom_right .right_top p:nth-child(3) span{float: left;}
+.bottom_right .right_top p:nth-child(3) span{margin-left: 23px;font-size: 14px;}
+
+.bottom_right .right_middle{clear: both;margin-left: 8px;}
+.bottom_right .right_middle form label{display: block;margin-bottom: 35px;overflow: hidden;}
+.bottom_right .right_middle form label span:first-child{float:left;margin-top: 2px;font-size: 14px;}
+.bottom_right .right_middle form label span:first-child b{color: #ee4969;margin-right: 3px;margin-top: 3px;float: left;}
+.bottom_right .right_middle form .call span{padding-top: 2px;}
+.bottom_right .right_middle form .call input{width: 278px;height: 26px;font-size: 12px;border: 1px solid #d9d7d8;padding: 0 6px;}
+.bottom_right .right_middle form .sex input{float: left;margin-top: 6px;margin-right: 8px;font-size: 12px;cursor: pointer;}
+.bottom_right .right_middle form .sex span:nth-child(3),.bottom_right .right_middle form .sex span:nth-child(5){font-size: 12px;float: left;margin-top: 3px;}
+.bottom_right .right_middle form .sex input:nth-child(2){margin-left: 2px;}
+.bottom_right .right_middle form .sex input:nth-child(4){margin-left: 12px;}
+.bottom_right .right_middle form .birthday{clear: both;}
+.bottom_right .right_middle form .birthday span{margin-top: 12px;float: left;margin-right: 8px;}
+.bottom_right .right_middle form .birthday span:first-child{margin-top: 12px;float: left;margin-right: 0;}
+.bottom_right .right_middle form .birthday select{margin-right:5px;border: 1px solid #d9d7d8;float:left;width: 92px;height: 41px;padding-left: 6px;background: url(../images/select_icon.jpg) no-repeat 56px center;font-size: 12px;appearance: none;-webkit-appearance: none;-moz-appearance: none;cursor: pointer;}
+.bottom_right .right_middle form .birthday a{color: #e8001b;margin-left: 45px;margin-top: 15px;display: inline-block;font-size: 12px;}
+.bottom_right .right_middle form .hobby a{color: black;width: 92px;height: 41px;line-height: 41px;text-align: center;border: 1px solid #dcd8d9;display: block;float: left;font-size: 12px;}
+.bottom_right .right_middle form .hobby a:nth-child(4){margin-left: 50px;}
+.bottom_right .right_middle form .hobby a:nth-child(5),.bottom_right .right_middle form .hobby a:nth-child(6){margin-left: 40px;}
+.bottom_right .right_middle form .hobby a.on{color: #e8001b;border:1px solid #e8001b;;}
+.bottom_right .right_middle form .email a{margin-left: 32px;color: #da5654;margin-top: 4px;float: left;font-size: 12px;}
+.bottom_right .right_middle form .name input{width: 114px; height: 30px;border: 1px solid #d9d7d8;padding: 0 6px;}
+.bottom_right .right_middle form .name span{padding-top: 2px;}
+.bottom_right .right_middle form .address span{padding-top: 9px;}
+.bottom_right .right_middle form .address select{margin-right: 28px;border: 1px solid #d9d7d8;float:left;width: 92px;height: 41px;padding-left: 6px;background: url(../images/select_icon.jpg) no-repeat 56px center;font-size: 12px;appearance: none;-webkit-appearance: none;-moz-appearance: none;cursor: pointer;}
+.bottom_right .right_middle form .sub input{width: 96px;height: 38px;margin-left: 50px;border: 1px solid #d71f07; background: #d71f07;color: white;font-size: 14px;font-weight: normal;}
+
+.bottom_right .right_bottom{padding-left: 10px;}
+.bottom_right .right_bottom p{margin-bottom: 30px;font-size: 12px;}
+.bottom_right .right_bottom p:first-child{font-size: 14px;}
+
+.footer{height: 60px;line-height: 60px;background: #333333;text-align: center;}
+.footer p{color: white;}

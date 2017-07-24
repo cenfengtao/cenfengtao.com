@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+.top p:nth-child(1){margin: 30px 0 36px 10px;font-size: 18px;}
+.top p:nth-child(2){margin-bottom: 8px;font-size: 14px;overflow: hidden;}
+.top p:nth-child(2) span:first-child{float: left;margin-left: 50px;}
+.top p:nth-child(2) span:last-child{float: right;margin-right: 140px;}
+.top p:nth-child(3){font-size: 14px;margin-bottom: 54px;}
+.top p:nth-child(3) span:first-child{float: left;margin-left: 50px;}
+.top p:nth-child(3) a:last-child{float: right;margin-right: 185px;color: black;font-size: 14px;}
+
+.bottom{clear: both;overflow: hidden;border: 2px solid #d9d9d9;padding: 0 20px;margin: 0 66px 57px 46px;}
+.bottom >p:nth-child(1){ border-bottom: 1px solid #686868;font-size: 18px;padding: 20px 0;}
+.bottom >p:nth-child(2){clear: both;margin-left: 160px;padding: 20px 0;font-size: 14px;}
+.bottom >p:nth-child(2) a{color: #cf2e40;font-size: 14px;}
+.bottom .bank{border: 2px solid #d9d9d9;margin: 0 100px 63px 92px;}
+.bottom .bank>p{overflow: hidden;margin-top: 20px;margin-bottom: 30px;}
+.bottom .bank>p >span:first-child{width:68px;height:25px;display: block;float: left;}
+.bottom .bank>p >span:first-child img{padding: 0px 8px 0 36px;}
+.bottom .bank>p span:nth-child(2){float: left;margin-top: 5px;cursor: pointer;}
+.bottom .bank>p span:nth-child(3){float: right;margin-right: 30px;margin-top: 5px;}
+.bottom .bank>p span:nth-child(3) b{color: #f74752;}
+.bottom .bank .comfirm input:nth-child(1){padding-left:34px;width: 360px;height: 29px;border:1px solid #ccc;padding-right: 8px;
+background:url(../images/pen.png) no-repeat 14px center ;color: #6e6e6e;float: left;margin-left: 80px;font-size: 12px;}
+.bottom .bank .comfirm input:nth-child(2){font-weight: normal;width: 105px; height: 29px;background: #d03c30;margin-left: 28px;float: left;border: 1px solid #d03c30;font-size: 16px;color: white;}
+.bottom .bank .payType{margin-top: 30px;border-bottom: 1px solid #cacaca;border-left: 1px solid #cacaca;overflow: hidden;margin-left: 80px;}
+.bottom .bank .payType a{color: black;float: left;width: 158px;height: 29px;display: block;border-top: 1px solid #cacaca;padding-top:6px;font-size: 14px;border-right:  1px solid #cacaca;}
+.bottom .bank .payType a:first-child img{float:left;margin-left: 28px;}
+.bottom .bank .payType a:first-child span{float:left;margin-left: 18px;font-size: 14px;margin-top: -1px;}
+.bottom .bank .payType a:last-child{text-align: center;}
+.bottom .bank .payType a.on{background: #d03c30;color: white;}
+.bottom .bank .payType a.on span{color: white);}
+.bottom .bank .shortcut{clear: both;width: 695px;margin: 30px 85px 20px 80px;display: none;}
+.bottom .bank .shortcut a{color: black;margin:0 30px;height: 30px;line-height: 28px;width: 80px;text-align: center;display: inline-block;}
+.bottom .bank .shortcut a.on{color: red;border: 1px solid red;}
+.bottom .bank .img{clear: both;width: 695px;margin: 38px 85px 0px 80px;}
+.bottom .bank .img ul{overflow: hidden;margin-right: -20px;}
+.bottom .bank .img ul li{float: left;border: 1px solid #c2c2c2;margin-right: 18px;margin-bottom: 20px;}
+.bottom .bank .img ul li.on{border: 1px solid red;}
+.bottom .bank .img ul li:last-child a{display: block;width: 158px;height: 40px;color: #d03c30;font-size: 14px;line-height: 40px;text-align: center;}
+.bottom .bank .pay{margin-top: 14px;margin-bottom: 60px;}
+.bottom .bank .pay input:first-child{width: 158px;height: 40px;padding:0 8px;margin-left: 80px;color: #6e6e6e;font-size: 14px;}
+.bottom .bank .pay input:last-child{width: 158px;height: 38px;background: #D03C30;color: white;margin-left: 29px;border: 1px solid #D03C30;font-size: 14px;font-weight: normal;}
+
+.footer{height: 60px;line-height: 60px;background: #333333;text-align: center;}
+.footer p{color: white;}

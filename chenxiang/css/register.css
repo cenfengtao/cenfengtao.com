@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.header{background: #f9f7f8;padding-bottom: 68px;}
+.header .logo{border-bottom: 1px solid #E93535;padding: 16px 0;}
+.header .logo a img{margin: 0 auto;}
+
+.middle{clear: both;overflow: hidden;background: #f9f7f8;padding-bottom: 60px;}
+.middle p{height: 33px;background: #E93535;color: white;line-height: 33px;padding-left: 12px;font-size: 12px;}
+.middle h4{text-align: center;font-size: 24px;margin: 92px 0 50px;font-weight: normal;}
+.middle .container{background: white;}
+.middle .form{width:1200px;clear: both;overflow: hidden;}
+.middle .form >form{text-align: center;clear: both;overflow: hidden;}
+.middle .form >form >label{font-size: 14px;text-align: center;margin-bottom: 44px;display: block;float: right;margin-right: 372px;position: relative;}
+.middle .form >form >label >input{height: 36px; width: 309px;padding: 0 6px;}
+.middle .form >form >label:nth-child(6){margin-bottom: 24px;}
+.middle .form >form >label:nth-child(6) input{width: 146px;margin-right: 4px;}
+.middle .form >form >label:nth-child(6) button{height: 40px;width: 155px;background: #E93535;color: white;font-size: 14px;border: 1px solid #E93535;cursor: pointer;}
+.middle .form >form >label:nth-child(7){margin-bottom: 30px;}
+.middle .form >form >label:nth-child(7) input{width: 155px;height: 36px;background: #E93535;color: white;line-height: 36px;text-align: center;border: 1px solid #E93535;cursor: pointer;margin-right: 70px;}
+.middle .form >form >label:nth-child(8){margin-bottom:18px ;padding-right: 50px;}
+.middle .form >form >label:nth-child(8) img{float:left;margin-right: 10px;cursor: pointer;}
+.middle .form >form >label:nth-child(8) span{font-size: 12px;float:left;cursor: pointer;}
+.middle .form form .user_prompt{position: absolute;top: 52px;left: 112px;display: none;}
+.middle .form form .pass_prompt{position: absolute;top: 52px;left: 98px;display: none;}
+.middle .form form .repass_prompt{position: absolute;top: 52px;left: 126px;display: none;}
+.middle .form form .email_prompt{position: absolute;top: 52px;left: 126px;display: none;}
+.middle .form form .tel_prompt{position: absolute;top: 52px;left: 112px;display: none;}
+.middle .form .login{float: right;margin-right: 492px;margin-bottom: 48px;}
+.middle .form .login span{font-size: 12px;}
+.middle .form .login a{color: black;border-bottom: 1px solid #7e7e7e;margin-left: 16px;}
+
+.footer{height: 60px;line-height: 60px;background: #333333;text-align: center;}
+.footer p{color: white;}

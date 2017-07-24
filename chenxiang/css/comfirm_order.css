@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.middle{color: black;}
+.comfirm{margin-top: 28px;height: 30px;line-height: 30px;background: #f6f6f6;padding-left: 10px;font-size: 14px;}
+.write{margin-top: 12px;font-size: 12px;margin-bottom: 9px;overflow: hidden;}
+.write span:first-child{float: left;margin-left: 10px;}
+.write span:last-child{float: right;margin-right: 110px;}
+.message{clear: both;overflow: hidden;font-size: 12px;border: 1px solid #808080;padding:9px 0 40px;}
+.message p:first-child {margin-bottom: 10px;overflow: hidden;}
+.message p:first-child span:first-child{float: left;margin-left: 10px;}
+.message p:first-child a:last-child{float: right;margin-right: 30px;cursor: pointer;color: black;}
+.message ul li{clear: both;overflow: hidden;font-size: 12px;margin-bottom: 10px;}
+.message ul li a:first-child{height: 23px;width: 93px;line-height: 23px;text-align: center;border: 1px solid #d03c30;color: black;display: block;float: left;margin-left: 62px;}
+.message ul li span{margin-top: 5px;float: left;}
+.message ul li span:nth-child(2){margin-left: 29px;}
+.message ul li span:nth-child(3){margin-left: 34px;}
+.message ul li span:nth-child(4){margin-left: 45px;}
+.message ul li a{color: black;}
+.message ul li a:nth-child(5){margin-left: 169px;}
+.message ul li a:nth-child(6){margin-left: 220px; }
+.message ul li a:nth-child(7){margin-left: 32px;}
+.message a:last-child{margin-left: 358px;color: black;}
+.check{margin-top: 20px;height: 30px;line-height: 30px;background: #f6f6f6;padding-left: 10px;font-size: 12px;}
+.reduce{font-size: 12px;margin-top: 12px;margin-bottom: 2px;clear: both;overflow: hidden;}
+.reduce a:first-child{float: left;width: 50px;height: 19px;line-height: 19px;text-align: center;color: white;background: #e93535;}
+.reduce span{float: left;margin-left: 42px;margin-top: 2px;}
+.reduce span b{color: #d71e06;}
+.reduce a:last-child{margin-left: 12px;float: left;color: black;margin-top: 2px;}
+
+.product{clear: both;overflow: hidden;}
+.product >li{height: 163px;border-bottom: 1px solid #d7d7d7;}
+.product >li:last-child{border: none;}
+.product >li.on{background: #f6f6f6;}
+.product >li>div{float: left;font-size: 12px;}
+.product >li>div:nth-child(1){margin: 20px 50px 0 10px;}
+.product >li>div:nth-child(1) img{cursor: pointer;}
+.product >li>div:nth-child(2){margin-top: 12px;margin-right: 15px;}
+.product >li>div:nth-child(3),
+.product >li>div:nth-child(4),
+.product >li>div:nth-child(5),
+.product >li>div:nth-child(6),
+.product >li>div:nth-child(7){margin-top: 44px;}
+.product >li>div:nth-child(3) a{display: inline-block;margin-bottom: 6px;color: black;}
+.product >li>div:nth-child(3) a:nth-child(2){display: block;}
+.product >li>div:nth-child(4) span{display: block;margin-bottom: 6px;margin-left: 120px;}
+.product >li>div:nth-child(5){margin-left: 144px;}
+.product >li>div:nth-child(5) span:first-child{color: #d71e06;display: block;margin-bottom: 6px;}
+.product >li>div:nth-child(5) span:last-child{margin-left: 10px;}
+.product >li>div:nth-child(6){margin-left: 172px;margin-top: 48px;}
+.product >li>div:nth-child(7){margin-left: 162px;margin-top: 54px;}
+
+.count{float:right;margin-top: 30px;clear: both;margin-right: 4px;}
+.count span:first-child{font-size: 16px;float: left;margin-right: 18px;}
+.count span:last-child{font-size: 24px;float: left;margin-top: -6px;width: 105px;}
+.cashback{float: right;margin-top: 16px;font-size: 16px;clear: both;margin-right: 4px;}
+.cashback .less{width: 51px;display: inline-block;}
+.freight{float: right;margin-top: 16px;font-size: 16px;clear: both;margin-right: 4px;}
+.service{float: right;margin-top: 16px;font-size: 16px;clear: both;margin-right: 4px;}
+.exchange{float: right;margin: 16px 4px 24px 0;font-size: 16px;clear: both;}
+.cashback span:first-child,
+.freight span:first-child,
+.service span:first-child,
+.exchange span:first-child{margin-right: 68px;}
+.info{clear: both;overflow: hidden;height: 65px;background:#f6f6f6 ;font-size: 16px;}
+.info p:first-child{height: 65px;line-height: 65px;float: left;margin-left: 346px;}
+.info p:last-child{float:right;margin-right: 10px;}
+.info p:last-child span{display: block;}
+.info p:last-child span:first-child b{color: #fe060c;font-size: 24px;margin-left: 4px;width: 111px;display: inline-block;}
+.info p:last-child span:last-child{margin-left: 30px;}
+.sub{line-height:42px;text-align:center;width: 170px;height: 42px;background: #fe0000;float: right;margin-top:32px;border: 1px solid #fe0000;margin-bottom: 36px;font-size: 18px;color: white;}
+.sub:hover{color: white;}
+.like{clear: both;}
