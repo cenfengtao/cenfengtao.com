@@ -12,4 +12,7 @@ $(function(){
 			$(".bank ul li:gt(2)").hide();
 		}
 	})
+	$(".payOrder img").click(function(){
+		history.back()
+	})
 })
