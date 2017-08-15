@@ -1,7 +1,7 @@
 @charset "utf-8";
 body{
 	background: #EBEBEB;
-	overflow-x: hidden;
+	/*overflow-x: hidden;*/
 }
 /*头部 start*/
 .header{
@@ -39,6 +39,7 @@ body{
 
 /*中部 start*/
 .middle{
+	overflow-x: hidden;
 	border-bottom: 1px solid #c5c5c5;
 	margin-top: 1.28rem;
 	margin-bottom: 1.12rem;
