@@ -34,31 +34,12 @@ $(function(){
 	var ulList=document.querySelector(".type ul");
 	var arrowRight=document.querySelector(".type .right");
 	var arrowLeft=document.querySelector(".type .left");
-<<<<<<< HEAD
 	var get=parseInt((winW-320)*47/80)+parseInt(216);
-=======
-	var get=parseInt((winW-320)*47/80)+200;
->>>>>>> 466355b44fcc746ce8b52085846ab29d4be49f68
 	var startLeft;
 	var moveLeft;
 	var endLeft;
 	ulList.addEventListener('touchstart',function(){
 		startLeft=$(this).scrollLeft();
-<<<<<<< HEAD
-=======
-	})
-	ulList.addEventListener('touchend',function(){
-	endLeft=$(this).scrollLeft();
-		if(winW==320){
-				if(endLeft==218){
-					arrowRight.style.display="none";
-				}
-			}else if(winW>320){
-				if(endLeft>get){
-					arrowRight.style.display="none";
-				}
-			}
->>>>>>> 466355b44fcc746ce8b52085846ab29d4be49f68
 	})
 	// ulList.addEventListener('touchend',function(){
 	// endLeft=$(this).scrollLeft();
@@ -73,11 +54,8 @@ $(function(){
 	// 		}
 	// })
 	ulList.addEventListener('touchmove',function(){
-<<<<<<< HEAD
 		console.log(moveLeft)
 		console.log(get)
-=======
->>>>>>> 466355b44fcc746ce8b52085846ab29d4be49f68
 		moveLeft=$(this).scrollLeft();
 		if(moveLeft-startLeft>0){
 			arrowLeft.style.display="block";
@@ -86,11 +64,7 @@ $(function(){
 					arrowRight.style.display="none";
 				}
 			}else if(winW>320){
-<<<<<<< HEAD
 				if(moveLeft>=get){
-=======
-				if(moveLeft>get){
->>>>>>> 466355b44fcc746ce8b52085846ab29d4be49f68
 					arrowRight.style.display="none";
 				}
 			}

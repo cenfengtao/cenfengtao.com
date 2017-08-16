@@ -141,9 +141,8 @@
 	background:#fff;
 	white-space: nowrap;
 	overflow-y: hidden;
-	overflow-x:scroll ;
+	overflow-x:scroll;
 	padding-right: 1.2rem;
-	padding-left: 0.1rem;
 }
 .type ul::-webkit-scrollbar {
     display: none;
@@ -178,17 +177,13 @@
 	padding-right: 0.05rem;
 }
 .type ul li{
-<<<<<<< HEAD
 	padding:0 0.38rem;
-=======
-	padding:0 0.4rem;
->>>>>>> 466355b44fcc746ce8b52085846ab29d4be49f68
 	display: inline-block;
 	height: 1.2rem;
 	line-height: 1.2rem;
 }
-@media screen and (max-width: 350px) {
-   .type ul li{
+@media screen and (max-width: 350rem) {
+    .type ul li{
         height: 1.2rem;
         line-height: 1.35rem;
     }
