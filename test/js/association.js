@@ -20,7 +20,6 @@ $(function(){
         location.reload();
     })  
     var winW=$(window).width();
-    var li=$(".type ul li").width();
     var liLength=$(".type ul li").length;
 //	 $(".type").swipe({
 //		swipeLeft: function(){
@@ -33,31 +32,48 @@ $(function(){
 //		}
 //	})
 	var ulList=document.querySelector(".type ul");
-	var arrow=document.querySelector(".type div")
-	var lastLeft;
-	var nowLeft;
+	var arrowRight=document.querySelector(".type .right");
+	var arrowLeft=document.querySelector(".type .left");
+	var get=parseInt((winW-320)*47/80)+parseInt(216);
+	var startLeft;
+	var moveLeft;
+	var endLeft;
 	ulList.addEventListener('touchstart',function(){
-		lastLeft=$(this).scrollLeft();
+		startLeft=$(this).scrollLeft();
 	})
+	// ulList.addEventListener('touchend',function(){
+	// endLeft=$(this).scrollLeft();
+	// 	if(winW==320){
+	// 			if(endLeft==218){
+	// 				arrowRight.style.display="none";
+	// 			}
+	// 		}else if(winW>320){
+	// 			if(endLeft>get){
+	// 				arrowRight.style.display="none";
+	// 			}
+	// 		}
+	// })
 	ulList.addEventListener('touchmove',function(){
-		nowLeft=$(this).scrollLeft();
-		
-		if(nowLeft-lastLeft>0){
-			arrow.innerHTML="《";
+		console.log(moveLeft)
+		console.log(get)
+		moveLeft=$(this).scrollLeft();
+		if(moveLeft-startLeft>0){
+			arrowLeft.style.display="block";
+			if(winW==320){
+				if(moveLeft==218){
+					arrowRight.style.display="none";
+				}
+			}else if(winW>320){
+				if(moveLeft>=get){
+					arrowRight.style.display="none";
+				}
+			}
 		}else{
-			arrow.innerHTML="》"
+			if(moveLeft<30){
+				arrowLeft.style.display="none";
+			}
+			arrowRight.style.display="block";
 		}
 	})
-//	var bool=true;
-//	$('.type div').click(function(){
-//		if(bool){
-//			$('.type ul').css({"position":'absolute','top':'0.04rem','left':0,'zIndex':50,'whiteSpace':'normal'})
-//			$('.type div').css("zIndex",50).text("》")
-//			bool=false;
-//		}else{
-//			bool=true;
-//			$('.type ul').css({"position":'static','top':'static','left':"static",'zIndex':"normal",'whiteSpace':'nowrap'})
-//			$('.type div').css({"zIndex":"normal"}).text("《")
-//		}
-//	})
+
 })
