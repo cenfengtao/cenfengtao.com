@@ -34,27 +34,32 @@ $(function(){
 	var ulList=document.querySelector(".type ul");
 	var arrowRight=document.querySelector(".type .right");
 	var arrowLeft=document.querySelector(".type .left");
-	var liL=$(".type ul li").innerWidth();
-	var liLength=$(".type ul li").length;
-	var big=liL*liLength-winW+60;
-	var lastLeft;
-	var nowLeft;
+	var get=parseInt((winW-320)*47/80)+217;
+	var startLeft;
+	var moveLeft;
+	var endLeft;
 	ulList.addEventListener('touchstart',function(){
-		lastLeft=$(this).scrollLeft();
+		startLeft=$(this).scrollLeft();
 	})
 	ulList.addEventListener('touchmove',function(){
-		nowLeft=$(this).scrollLeft();
-		if(nowLeft-lastLeft>0){
+		moveLeft=$(this).scrollLeft();
+		if(moveLeft-startLeft>0){
 			arrowLeft.style.display="block";
-			if(nowLeft>big){
-				arrowRight.style.display="none";
+			if(winW==320){
+				if(moveLeft==218){
+					arrowRight.style.display="none";
+				}
+			}else if(winW>320){
+				if(moveLeft==get||moveLeft==(get+1)||moveLeft==(get-1)){
+					arrowRight.style.display="none";
+				}
 			}
-
 		}else{
-			if(nowLeft==0){
+			if(moveLeft==0){
 				arrowLeft.style.display="none";
 			}
 			arrowRight.style.display="block";
 		}
 	})
+
 })
