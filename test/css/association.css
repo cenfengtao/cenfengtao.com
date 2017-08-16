@@ -187,6 +187,9 @@
         height: 1.2rem;
         line-height: 1.35rem;
     }
+    .type .left,.type .right{
+    	line-height: 1.2rem;
+    }
 }
 .type ul li.on a{
 	color: #aa5a67;

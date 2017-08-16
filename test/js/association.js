@@ -33,19 +33,20 @@ $(function(){
 //	})
 	var ulList=document.querySelector(".type ul");
 	var arrowRight=document.querySelector(".type .right");
-	var arrowLeft=document.querySelector(".type .left")
+	var arrowLeft=document.querySelector(".type .left");
+	var liL=$(".type ul li").innerWidth();
+	var liLength=$(".type ul li").length;
+	var big=liL*liLength-winW+60;
 	var lastLeft;
 	var nowLeft;
 	ulList.addEventListener('touchstart',function(){
 		lastLeft=$(this).scrollLeft();
 	})
 	ulList.addEventListener('touchmove',function(){
-		var liL=$(".type ul li").innerWidth();
-		var liLength=$(".type ul li").length;
 		nowLeft=$(this).scrollLeft();
 		if(nowLeft-lastLeft>0){
 			arrowLeft.style.display="block";
-			if(nowLeft>liL*liLength-winW+65){
+			if(nowLeft>big){
 				arrowRight.style.display="none";
 			}
 
