@@ -34,7 +34,7 @@ $(function(){
 	var ulList=document.querySelector(".type ul");
 	var arrowRight=document.querySelector(".type .right");
 	var arrowLeft=document.querySelector(".type .left");
-	var get=parseInt((winW-320)*47/80)+216;
+	var get=parseInt((winW-320)*47/80)+200;
 	var startLeft;
 	var moveLeft;
 	var endLeft;
