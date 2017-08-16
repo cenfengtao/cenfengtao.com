@@ -2,8 +2,8 @@
 
 /*头部 start*/
 .header{
-	height: 0.8rem;
-	line-height: 0.82rem;
+	height: 1.2rem;
+	line-height: 1.22rem;
 	position: fixed;
 	width: 100%;
 	background: white;
@@ -29,7 +29,7 @@
 
 /*中部 start*/
 .middle{
-		padding-top: 0.85rem;
+		padding-top: 1.25rem;
 }
 /*导航栏 start*/
 .nav{
@@ -39,14 +39,15 @@
 	top: 0.8rem;
 	background: white;
 	z-index: 100;
+	margin-top: 0.4rem;
 }
 .nav ul{
 	display: flex;
 	justify-content: space-around;
 }
 .nav ul li{
-	height: 0.72rem;
-	line-height: 0.72rem;
+	height: 1.1rem;
+	line-height: 1.1rem;
 	width: 3.78rem;
 	text-align: center;
 }
@@ -64,7 +65,7 @@
 	clear: both;
 	margin-bottom: 1.7rem;
 	overflow: hidden;
-	padding-top: 0.85rem;
+	padding-top: 1.22rem;
 }
 /*专家讲学 start*/
 .expert{
@@ -154,8 +155,8 @@
 	position: absolute;
 	left: 0;
 	top: 0.05rem;
-	height: 0.5rem;
-	line-height: 0.5rem;
+	height: 1rem;
+	line-height: 1.1rem;
 	width: 0.8rem;
 	font-size: 0.45rem;
 	background: white;
@@ -167,8 +168,8 @@
 	position: absolute;
 	right: 0;
 	top: 0.05rem;
-	height: 0.5rem;
-	line-height: 0.5rem;
+	height: 1rem;
+	line-height: 1.1rem;
 	width: 0.8rem;
 	font-size: 0.45rem;
 	background: white;
@@ -178,11 +179,13 @@
 .type ul li{
 	padding:0 0.38rem;
 	display: inline-block;
+	height: 1.2rem;
+	line-height: 1.2rem;
 }
 @media screen and (max-width: 350px) {
    .type ul li{
-        height: 0.6rem;
-        line-height: 0.7rem;
+        height: 1.2rem;
+        line-height: 1.35rem;
     }
 }
 .type ul li.on a{

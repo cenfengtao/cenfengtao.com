@@ -45,7 +45,7 @@ $(function(){
 		nowLeft=$(this).scrollLeft();
 		if(nowLeft-lastLeft>0){
 			arrowLeft.style.display="block";
-			if(nowLeft>winW*0.55){
+			if(nowLeft>liL*liLength-winW+65){
 				arrowRight.style.display="none"
 			}
 
