@@ -34,7 +34,7 @@ $(function(){
 	var ulList=document.querySelector(".type ul");
 	var arrowRight=document.querySelector(".type .right");
 	var arrowLeft=document.querySelector(".type .left");
-	var get=parseInt((winW-320)*47/80)+217;
+	var get=parseInt((winW-320)*47/80)+216;
 	var startLeft;
 	var moveLeft;
 	var endLeft;
@@ -50,12 +50,12 @@ $(function(){
 					arrowRight.style.display="none";
 				}
 			}else if(winW>320){
-				if(moveLeft==get||moveLeft==(get+1)||moveLeft==(get-1)){
+				if(moveLeft>get){
 					arrowRight.style.display="none";
 				}
 			}
 		}else{
-			if(moveLeft==0){
+			if(moveLeft<30){
 				arrowLeft.style.display="none";
 			}
 			arrowRight.style.display="block";
