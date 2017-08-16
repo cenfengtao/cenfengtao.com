@@ -57,7 +57,7 @@ $(function(){
 //		console.log(moveLeft)
 //		console.log(get)
 		moveLeft=$(this).scrollLeft();
-		if(moveLeft-startLeft>=0){
+		if(moveLeft-startLeft>0){
 			arrowRight.style.display="none";
 			arrowLeft.style.display="block";
 			ulList.style.paddingLeft="1.5rem";
@@ -70,7 +70,7 @@ $(function(){
 //					arrowRight.style.display="none";
 //				}
 //			}
-		}else{
+		}else if(moveLeft-startLeft<0){
 //			if(moveLeft<30){
 //				arrowLeft.style.display="none";
 //			}
