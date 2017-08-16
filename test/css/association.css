@@ -135,15 +135,11 @@
 .type{
 	position:relative;
 	width: 100%;
-	line-height: 0.82rem;
-	
 }
 .type ul{
 	background:#fff;
 	white-space: nowrap;
 	overflow-y: hidden;
-/*	displ;ay: flex;
-	justify-content: space-around;*/
 	overflow-x:scroll ;
 	padding-right: 1.2rem;
 }
@@ -154,12 +150,25 @@
 	border-bottom: 0.08rem solid #EFEFEF;
 	position: relative;
 }
-.type >div{
+.type .left{
+	position: absolute;
+	left: 0;
+	top: 0.05rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	width: 0.8rem;
+	font-size: 0.45rem;
+	background: white;
+	text-align: center;
+	padding-left: 0.05rem;
+	display: none;
+}
+.type .right{
 	position: absolute;
 	right: 0;
 	top: 0.05rem;
-	height: 0.6rem;
-	line-height: 0.7rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
 	width: 0.8rem;
 	font-size: 0.45rem;
 	background: white;
@@ -167,10 +176,15 @@
 	padding-right: 0.05rem;
 }
 .type ul li{
-	margin:0 0.38rem;
+	padding:0 0.38rem;
 	display: inline-block;
 }
-
+@media screen and (max-width: 350px) {
+   .type ul li{
+        height: 0.6rem;
+        line-height: 0.7rem;
+    }
+}
 .type ul li.on a{
 	color: #aa5a67;
 }
@@ -181,6 +195,7 @@
 }
 .communicate >ul{
 	overflow: hidden;
+	padding-top: 0.15rem;
 }
 .communicate >ul li{
 	float: left;
@@ -240,6 +255,7 @@
 	padding-bottom: 0.6rem;
 	overflow: hidden;
 	background: white;
+	padding-top: 0.15rem;
 }
 .mine ul li{
 	float: left;

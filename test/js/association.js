@@ -20,7 +20,6 @@ $(function(){
         location.reload();
     })  
     var winW=$(window).width();
-    var li=$(".type ul li").width();
     var liLength=$(".type ul li").length;
 //	 $(".type").swipe({
 //		swipeLeft: function(){
@@ -33,31 +32,28 @@ $(function(){
 //		}
 //	})
 	var ulList=document.querySelector(".type ul");
-	var arrow=document.querySelector(".type div")
+	var arrowRight=document.querySelector(".type .right");
+	var arrowLeft=document.querySelector(".type .left")
 	var lastLeft;
 	var nowLeft;
 	ulList.addEventListener('touchstart',function(){
 		lastLeft=$(this).scrollLeft();
 	})
 	ulList.addEventListener('touchmove',function(){
+		var liL=$(".type ul li").innerWidth();
+		var liLength=$(".type ul li").length;
 		nowLeft=$(this).scrollLeft();
-		
 		if(nowLeft-lastLeft>0){
-			arrow.innerHTML="《";
+			arrowLeft.style.display="block";
+			if(nowLeft>winW*0.55){
+				arrowRight.style.display="none"
+			}
+
 		}else{
-			arrow.innerHTML="》"
+			if(nowLeft==0){
+				arrowLeft.style.display="none"
+			}
+			arrowRight.style.display="block"	
 		}
 	})
-//	var bool=true;
-//	$('.type div').click(function(){
-//		if(bool){
-//			$('.type ul').css({"position":'absolute','top':'0.04rem','left':0,'zIndex':50,'whiteSpace':'normal'})
-//			$('.type div').css("zIndex",50).text("》")
-//			bool=false;
-//		}else{
-//			bool=true;
-//			$('.type ul').css({"position":'static','top':'static','left':"static",'zIndex':"normal",'whiteSpace':'nowrap'})
-//			$('.type div').css({"zIndex":"normal"}).text("《")
-//		}
-//	})
 })
