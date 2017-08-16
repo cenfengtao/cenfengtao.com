@@ -41,18 +41,18 @@ $(function(){
 	ulList.addEventListener('touchstart',function(){
 		startLeft=$(this).scrollLeft();
 	})
-	// ulList.addEventListener('touchend',function(){
-	// endLeft=$(this).scrollLeft();
-	// 	if(winW==320){
-	// 			if(endLeft==218){
-	// 				arrowRight.style.display="none";
-	// 			}
-	// 		}else if(winW>320){
-	// 			if(endLeft>get){
-	// 				arrowRight.style.display="none";
-	// 			}
-	// 		}
-	// })
+	 ulList.addEventListener('touchend',function(){
+	 endLeft=$(this).scrollLeft();
+	 	if(winW==320){
+	 			if(endLeft==218){
+	 				arrowRight.style.display="none";
+	 			}
+	 		}else if(winW>320){
+	 			if(endLeft>=get){
+	 				arrowRight.style.display="none";
+	 			}
+	 		}
+	 })
 	ulList.addEventListener('touchmove',function(){
 		console.log(moveLeft)
 		console.log(get)
