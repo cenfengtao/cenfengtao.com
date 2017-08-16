@@ -41,38 +41,42 @@ $(function(){
 	ulList.addEventListener('touchstart',function(){
 		startLeft=$(this).scrollLeft();
 	})
-	 ulList.addEventListener('touchend',function(){
-	 endLeft=$(this).scrollLeft();
-	 	if(winW==320){
-	 			if(endLeft==218){
-	 				arrowRight.style.display="none";
-	 			}
-	 		}else if(winW>320){
-	 			if(endLeft>=get){
-	 				arrowRight.style.display="none";
-	 			}
-	 		}
-	 })
+//	 ulList.addEventListener('touchend',function(){
+//	 endLeft=$(this).scrollLeft();
+//	 	if(winW==320){
+//	 			if(endLeft==218){
+//	 				arrowRight.style.display="none";
+//	 			}
+//	 		}else if(winW>320){
+//	 			if(endLeft>=get){
+//	 				arrowRight.style.display="none";
+//	 			}
+//	 		}
+//	 })
 	ulList.addEventListener('touchmove',function(){
-		console.log(moveLeft)
-		console.log(get)
+//		console.log(moveLeft)
+//		console.log(get)
 		moveLeft=$(this).scrollLeft();
-		if(moveLeft-startLeft>0){
+		if(moveLeft-startLeft>=0){
+			arrowRight.style.display="none";
 			arrowLeft.style.display="block";
-			if(winW==320){
-				if(moveLeft==218){
-					arrowRight.style.display="none";
-				}
-			}else if(winW>320){
-				if(moveLeft>=get){
-					arrowRight.style.display="none";
-				}
-			}
+			ulList.style.paddingLeft="1.5rem";
+//			if(winW==320){
+//				if(moveLeft==218){
+//					arrowRight.style.display="none";
+//				}
+//			}else if(winW>320){
+//				if(moveLeft>=get){
+//					arrowRight.style.display="none";
+//				}
+//			}
 		}else{
-			if(moveLeft<30){
-				arrowLeft.style.display="none";
-			}
+//			if(moveLeft<30){
+//				arrowLeft.style.display="none";
+//			}
+			arrowLeft.style.display="none";
 			arrowRight.style.display="block";
+
 		}
 	})
 
