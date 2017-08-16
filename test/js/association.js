@@ -46,14 +46,14 @@ $(function(){
 		if(nowLeft-lastLeft>0){
 			arrowLeft.style.display="block";
 			if(nowLeft>liL*liLength-winW+65){
-				arrowRight.style.display="none"
+				arrowRight.style.display="none";
 			}
 
 		}else{
 			if(nowLeft==0){
-				arrowLeft.style.display="none"
+				arrowLeft.style.display="none";
 			}
-			arrowRight.style.display="block"	
+			arrowRight.style.display="block";
 		}
 	})
 })
