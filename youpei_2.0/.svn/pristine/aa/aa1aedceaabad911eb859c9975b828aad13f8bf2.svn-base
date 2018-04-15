@@ -1,4 +1,0 @@
-.add_button a,.add_button a:visited{color:#ffffff;}
-.add_button{float:right;margin-right:40px;}
-.required {color:red;}
-.form_radio {line-height:2.5em;}
