@@ -1,0 +1,203 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<!-- bootstrap-daterangepicker -->
+<link href="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/select2.min.css">
+<style>
+    .select2-container{
+        width:auto!important;
+    }
+
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>添加广告</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">位置</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        首页: <input type="radio" class="icheckbox_flat-green" name="location"
+                                                    value="1" checked="checked"/>
+                                        发现页: <input type="radio" class="icheckbox_flat-green" name="location"
+                                                   value="2" />
+                                        投票页: <input type="radio" class="icheckbox_flat-green" name="location"
+                                                   value="3"/>
+                                        <if condition="$onePage eq 1">
+                                            <else/>
+                                            单页: <input type="radio" class="icheckbox_flat-green" name="location"
+                                                       value="4"/>
+                                        </if>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">类型</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        文章: <input type="radio" class="icheckbox_flat-green" name="type"
+                                        value="1" />
+                                        课程: <input type="radio" class="icheckbox_flat-green" name="type"
+                                        value="2"/>
+                                        超链接: <input type="radio" class="icheckbox_flat-green" name="type"
+                                                    value="3" checked="checked"/>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="chooseArticle" style="display: none;">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">选择文章</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        <select class="form-control" name="art_id">
+                                            <foreach name="articleList" item="val">
+                                                <option value="{$val['id']}">{$val['title']}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="chooseProduct" style="display: none;">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">选择商品或课程</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        <select class="form-control" name="pro_id">
+                                            <foreach name="productList" item="val">
+                                                <option value="{$val['id']}">{$val['title']}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="super_url" style="">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">链接</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            <input type="text" name="url" class="col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">图片</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div id="filePicker" style='' class="btn_access" access_id="216">上传图片</div>
+                                            <span style="">请勿上传超过500k的图片，课程尺寸：720*360</span>
+                                            <input type="hidden" name="image" id="upload_image" tabindex="3"
+                                                   autocomplete="off">
+                                            <img id='preview' src='' ref='' width='200' height='200'
+                                                 style='display:none'/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">排序</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        <input type="number" min="0" name="sort" class="col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="__PUBLIC__/vendors/moment/min/moment.min.js"></script>
+<script src="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- product -->
+<script src="__PUBLIC__/js/admin/product.js"></script>
+<script src="__PUBLIC__/js/admin/select2.full.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+
+    $(function () {
+        $('input[name="type"]').click(function () {
+            if ($('input[name="type"]:checked').val() == 1) {
+                $("#chooseArticle").show();
+                $("#chooseProduct").hide();
+                $("#super_url").hide();
+            } else if($('input[name="type"]:checked').val() == 2){
+                $("#chooseArticle").hide();
+                $("#chooseProduct").show();
+                $("#super_url").hide();
+            } else {
+                $("#chooseArticle").hide();
+                $("#chooseProduct").hide();
+                $("#super_url").show();
+            }
+        });
+
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePicker',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                    $('#preview').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+    var SCOPE = {
+        'jump_url': '/admin.php/Poster/addPoster',
+        'success_url': '/admin.php/Poster/index'
+    };
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>富力足球嘉年华</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes"/> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/dialog.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/main_1-0.css">
+    <!-- <link rel="stylesheet" href="__PUBLIC__/Home/css/message.css"> -->
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/comment.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/kap.css">
+    <!--移动端兼容适配 end -->
+    <style>
+        .form-message p{
+            height: 3rem;
+            line-height: 3rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .form-message p input{
+            border: 1px solid gray;
+            width: 11.5rem;
+            padding: 0.2rem;
+            height: 1.2rem;
+            font-size: 0.7rem;
+        }
+        .form-message  .submit{
+            width: 16.5rem;
+            line-height: 1.04rem;
+            text-align: center;
+            font-size: 1rem;
+            border-radius: 0.1rem;
+            color: white;
+            background: #db6066;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 1rem auto;
+            }
+    </style>
+</head>
+<link rel="stylesheet" href="__PUBLIC__/css/home/introduce.css">
+<link href="__PUBLIC__/css/home/style4.css" rel="stylesheet" type="text/css"/>
+<body>
+<div class="container">
+    <div class="header" style="z-index: 11;" data-action="{$Think.ACTION_NAME}">
+        <a class="block delete_image" href="javascript:void(0)" id="header_go_back"
+           data-home-url="{:U('Index/index')}" style="display: none;"></a>
+        <h1 style="font-size:20px;">富力足球嘉年华</h1>
+        <a class="block delete_image" href="/index.php/Index/index" id="header_go_home" style="display: none;"></a>
+    </div>
+    <div class="main plpr0" style="padding: 10px;">
+        <section class="scroll">
+            <div class="content">
+                <div class="info" style="font-size:14px;" id="content-wrapper"></div>
+            </div>
+            <div class="form-message" style="display: none;">
+                <p>姓 &ensp; 名：<input type="text" name="username" placeholder="请输入姓名"></p>
+                <p>手 &ensp; 机：<input type="number" name="mobile" maxlength="11" placeholder="请输入手机号码"></p>
+                <p>验证码：<input type="number" max="4" name="code" style="width: 5.3rem;"  placeholder="请输入验证码">
+                    <button id="code" onclick="getCode()" style="border: 1px solid #386998;color: white; background: #386998;width: 6rem;height: 1.7rem;margin-top: 0.1rem;border-radius: 0.2rem;font-size: 0.7rem;text-align: center;">接收验证码</button>
+                </p>
+                <p>学 &ensp; 校：<input type="text" name="school"  placeholder="请输入学校"></p>
+                <button onclick="submitInfo()" class="submit">提交</button>
+            </div>
+            <div class="ticket" id="ticket" style="display: none;">
+                <input type="hidden" name="ticket_url" id="ticket_url">
+            </div>
+        </section>
+    </div>
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/js/home/dialog_1-0.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+<script src="__PUBLIC__/js/home/zepto.min.js"></script>
+<script src="__PUBLIC__/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+<script src="__PUBLIC__/js/sea.js"></script>
+<script src="__PUBLIC__/js/home/introduce.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var assetsVersion = '2.5';
+    seajs.config({
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?v=' + assetsVersion]
+        ],
+        base: "__PUBLIC__/js",
+        alias: {
+            "jquery": "jquery-1.10.2.min.js",
+            "zepto": "modules/zepto/zepto",
+        }
+    });
+    seajs.use(["main"], function (main) {
+        wrapper = document.getElementById('content-wrapper');
+        if (wrapper) {
+            main.previewImage(wrapper);
+        }
+    });
+
+    // 获取url中的参数
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    $(function () {
+        var ajaxUrl = "/index.php/ActivityInvite/ajaxGetInvite";
+        var id = GetRequest().id;
+        $.get(ajaxUrl, {id: id}, function (result) {
+            if (result.status == 0) {
+                alert(result.message);
+                setTimeout(function () {
+                    window.history.go(-1);
+                }, 2000);
+            }
+            if (result.status == 1) { //报名
+                $(".form-message").show();
+            }
+            if (result.status == 2) { //已报名
+                $("#ticket").show();
+                getTicket(result.data.info_id);
+            }
+            if (result.status == 3) { //已满人
+                $("#ticket").show().append("<p style='text-align: center;color:red'>"+result.message+"</p>");
+            }
+        }, 'json');
+    });
+
+    function getTicket(info_id) {
+        var url = '/index.php/ActivityInvite/getTicket';
+        $.get(url, {info_id:info_id}, function (result) {
+            if (result.status == 0) {
+                $("#ticket").append("<p>入场券生成有误，请联系客服</p>");
+            }
+            $("#ticket_url").val(result.data);
+            $("#ticket").append("<img src='"+result.data+"' style='width:100%;height: auto;'><p style='text-align: center;margin:0 auto;color:red;'>长按保存入场券</p>");
+        }, 'json');
+    }
+
+    function getCode(){
+        var url = "/index.php/ActivityInvite/getCode";
+        var mobile = $("input[name='mobile']").val();
+        var ret = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+        if (!ret.test(mobile)) {
+            return alert('手机格式不正确');
+        }else{
+            times()
+             $.post(url, {mobile: mobile}, function (result) {
+                if (result.status == 0) {
+                    return alert(result.message);
+                }
+            }, 'json');
+        }    
+    }
+
+var time=60;
+function times(){
+     if(time==0){
+        $("#code").removeAttr("disabled")
+        $("#code").html("接受验证码")
+        time=60
+    }else{
+        $("#code").html(time+'s后可重新发送')
+        $("#code").attr("disabled","disabled")
+        time--
+        setTimeout(function(){
+            times()
+        },1000)
+    }
+}
+    function submitInfo() {
+        var url = '/index.php/ActivityInvite/submitInfo';
+         var username = $("input[name='username']").val();
+        if(username==""){
+            alert("请输入姓名");
+            return
+        }
+        var mobile = $("input[name='mobile']").val();
+        var ret = /^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}$|18[0-9]{9}$/;
+        if (!ret.test(mobile)) {
+            return alert('手机格式不正确');
+        } 
+        var activityId = GetRequest().id;
+        var code = $("input[name='code']").val();
+        if(code == ""){
+             alert("请输入验证码");
+            return
+        }
+        var school = $("input[name='school']").val();
+        if(school==""){
+            alert("请输入学校");
+        }
+        $.post(url,{mobile:mobile, username:username, school:school, activityId:activityId, code:code}, function (result) {
+            layer.msg('入场券生成中...');
+            if (result.status == 0) {
+                return alert(result.message);
+            }
+            var info_id = result.data.info_id;
+            var ticketUrl = "/index.php/ActivityInvite/getTicket";
+            $.get(ticketUrl, {info_id:info_id}, function (result) {
+                layer.closeAll();
+                if (result.status == 0) {
+                    layer.alert(result.message,{
+                        icon:2
+                    });
+                }
+                if (result.status == 1) {
+                    var imageUrl = result.data;
+                    $("#ticket_url").val(imageUrl);
+                    $(".form-message").hide();
+                    $("#ticket").show().append("<img src='"+imageUrl+"' style='width:100%;height: auto;'><p style='text-align: center;margin:0 auto;color:red;'>长按保存入场券</p>");
+                }
+            },'json');
+        }, 'json');
+    }
+
+    $(".delete_image").click(function () {
+        var imageUrl = $("input[name='ticket_url']").val();
+        $.post('/index.php/ScanResponse/unlinkImage',{image:imageUrl});
+    });
+</script>
+</html>

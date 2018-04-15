@@ -1,0 +1,136 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+use \Think\Image;
+
+require_once __DIR__ . '/../../../ThinkPHP/Library/Org/Util/JSDDK.class.php';
+
+class TestController extends Controller
+{
+    function setSessionTest()
+    {
+        $_SESSION['openid'] = $_GET['open_id'];
+        $_SESSION['token'] = $_GET['token'];
+        $this->display();
+    }
+
+    public function test()
+    {
+        $url = "http://wuliu.market.alicloudapi.com/kdi?no=886838596587559779";
+        $result = ali_api_request('GET', $url);
+        $result = json_decode($result, true);
+        if ($result['status'] != 0) {
+            return '接口调用有误';
+        }
+        return $result['result']['content'];
+    }
+
+    function ali_api_request($method, $url, $headers = array())
+    {
+        array_push($headers, "Authorization:APPCODE " . "bb851762499542599b8bdd7b4b8a45d6");
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl, CURLOPT_FAILONERROR, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        if (1 == strpos("$" . $url, "https://")) {
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        }
+        $result = curl_exec($curl);
+        return $result;
+    }
+
+    public function testEncode()
+    {
+        $baseStr = "";
+        //匹配出图片的格式
+        if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $baseStr, $result)) {
+            $type = $result[2];
+            $new_file = "Upload/Poster/" . date('Ymd', time()) . "/";
+            if (!file_exists($new_file)) {
+                //检查是否有该文件夹，如果没有就创建，并给予最高权限
+                $result = mkdir($new_file, 0777, true);
+            }
+            $new_file = $new_file . time() . ".{$type}";
+            if (file_put_contents($new_file, base64_decode(str_replace($result[1], '', $baseStr)))) {
+                echo '新文件保存成功：', $new_file;
+            } else {
+                echo '新文件保存失败';
+            }
+        }
+    }
+
+    public function attentioni()
+    {
+        $access_token = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx2a478415b419d817&secret=5777fd0e27efa96cf5c85bbf1d2e5baa";
+        $access_msg = json_decode(file_get_contents($access_token));
+        $token = $access_msg->access_token;
+        $openid = $this->__checkOpenId();
+        $subscribe_msg = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=$token&openid=$openid";
+        $subscribe = json_decode(file_get_contents($subscribe_msg));
+        $result = $subscribe->subscribe;
+        if ($result === 1) {
+            echo "已关注";
+        } else {
+            echo "未关注";
+        }
+    }
+
+    protected function __checkOpenId()
+    {
+        $openid = $_SESSION['openid'];
+        if (!$openid) {
+            echo "暂无openID";
+        }
+        return $openid;
+    }
+
+    public function sendPost($url, $datas) {
+        $temps = array();
+        foreach ($datas as $key => $value) {
+            $temps[] = sprintf('%s=%s', $key, $value);
+        }
+        $post_data = implode('&', $temps);
+        $url_info = parse_url($url);
+        if(empty($url_info['port']))
+        {
+            $url_info['port'] = 80;
+        }
+        $httpheader = "POST " . $url_info['path'] . " HTTP/1.0\r\n";
+        $httpheader.= "Host:" . $url_info['host'] . "\r\n";
+        $httpheader.= "Content-Type:application/x-www-form-urlencoded\r\n";
+        $httpheader.= "Content-Length:" . strlen($post_data) . "\r\n";
+        $httpheader.= "Connection:close\r\n\r\n";
+        $httpheader.= $post_data;
+        $fd = fsockopen($url_info['host'], $url_info['port']);
+        fwrite($fd, $httpheader);
+        $gets = "";
+        $headerFlag = true;
+        while (!feof($fd)) {
+            if (($header = @fgets($fd)) && ($header == "\r\n" || $header == "\n")) {
+                break;
+            }
+        }
+        while (!feof($fd)) {
+            $gets.= fread($fd, 128);
+        }
+        fclose($fd);
+
+        return $gets;
+    }
+
+    /**
+     * 电商Sign签名生成
+     * @param data 内容
+     * @param appkey Appkey
+     * @return DataSign签名
+     */
+    public function encrypt($data, $appkey) {
+        return urlencode(base64_encode(md5($data.$appkey)));
+    }
+}

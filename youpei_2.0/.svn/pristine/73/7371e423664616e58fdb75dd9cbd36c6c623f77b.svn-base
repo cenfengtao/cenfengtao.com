@@ -1,0 +1,142 @@
+<include file="Common:header"/>
+<div id="detail_order" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回"
+               data-icon="ɒ"></a>
+            <a href="{:U('Index/index',array('current'=>'1'))}" class="btn right btn-user" title="返回首页"
+               data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="ty-page">
+        <div class="ty-detail-cover">
+            <span class="thumb"
+                  style="background-image:url({$activity['image']}); background-size:cover"></span>
+                 <span class="desc-top">
+                    <span data-icon="Ć" class="loc">燕子岗</span>
+                </span>
+                <span class="desc">
+                  </span>
+            <div class="introduce">
+                <span>{$activity['title']}</span>
+            </div>
+        </div>
+        <div class="ty-detail-content">
+            <div class="article">
+                <ul class="list-order-items">
+                    <li class="item" data-ty-profile="1">
+                        <span class="title">{$activity['title']}</span>
+                        <span class="price">{$activity['price']}/人</span>
+                        <span class="subtotal">{$activity['price']}元/人</span>
+                            <span class="num">
+                            <span class="btn-decrease btn-disabled"
+                                  onclick="reduceProductN({$activity['price']});">-</span>
+                            <input min="1" max="200" class="input-num" id="count" readonly="" value="1"
+                                   data-ty-itemid="303443" name="product_item" type="">
+                                <input type="hidden" name="max_people" value="{$maxPeople}">
+                            <span class="btn-increase" onclick="addProductN({$activity['price']});">+</span></span>
+                    </li>
+                </ul>
+                <div class="ty-order-summary ty-order-summary-off">
+                    <div class="price-full">{$activity['price']}</div>
+                    <div class="price-off">{$activity['price']}</div>
+                </div>
+                <div class="ty-order-agreement"><input id="product_rule" checked="" type="checkbox"> 我已阅读同意
+                    <a href="javascript:void(0);" data-ty-target="#page_agreement" onclick="agreement()">《服务协议》</a>
+                    及<a href="javascript:void(0);" id="view_rule" onclick="Refund_rule()">《退款规则》</a></div>
+            </div>
+            <div class="article-title explain"><span data-icon="Ĺ" class="title">费用说明</span></div>
+            <div class="article">
+                <div class="text">
+                    {$activity['cost']}
+                </div>
+            </div>
+            <div class="ty-contact">
+                <div data-icon="Ţ" class="ty-contact-content">如有疑问请咨询小优客服：<br>电&#12288;话：<a href="tel:020-34248062"
+                                                                                            data-icon="ŀ">020-34248062</a><br>微信号：<span
+                        class="wx" data-icon="ţ">youpeikefu01</span></div>
+            </div>
+        </div>
+        <div class="kap-bottom ty-menu-bottom">
+            <div id="tools_detail_order_next" class="ty-tools ty-tools-order ty-tools-current">
+                <a href="javascript:void(0);" onclick="order_next({$activity['id']})" class="btn-order-next"
+                   data-icon="Ĩ">下一步</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="Common:footer"/>
+<script type="text/javascript">
+    $(function () {
+        var count = parseFloat($('#count').val());
+        var price = {$activity['price']};
+        var total = price * count;
+        $('.price-off').html(total.toFixed(2));
+        $('.price-full').html(total.toFixed(2));
+    });
+    function addProductN(price) {
+        var n = parseFloat($('#count').val());
+        var num = parseInt(n) + 1;
+        var price = parseFloat(price);
+        var total = price * num;
+        var maxPeople = $("input[name='max_people']").val();
+        if (num < 1 || num > maxPeople) {
+            return;
+        }
+        $('.price-off').html(total.toFixed(2));
+        $('.price-full').html(total.toFixed(2));
+        $('#count').val(num);
+    }
+    function reduceProductN(price) {
+        var n = parseFloat($('#count').val());
+        var num = parseInt(n) - 1;
+        var price = parseFloat(price);
+        var total = price * num;
+        if (num < 1) {
+            return;
+        }
+        $('.price-off').html(total.toFixed(2));
+        $('.price-full').html(total.toFixed(2));
+        $('#count').val(num);
+        // $('.totalNum').html(num);
+    }
+
+    function agreement() {
+        layer.open({
+            type: 1,
+            title: '服务协议',
+            shadeClose: false,
+            shade: 0.8,
+            area: ['80%', '70%'],
+            maxmin: true, //允许全屏最小化
+            anim: 2, //0-6的动画形式，-1不开启
+            content: "服务协议服务协议服务协议服务协议服务协议" //iframe的url
+        });
+    }
+
+    function Refund_rule() {
+        layer.open({
+            type: 1,
+            title: '退款规则',
+            shadeClose: false,
+            shade: 0.8,
+            area: ['80%', '70%'],
+            maxmin: true, //允许全屏最小化
+            anim: 2, //0-6的动画形式，-1不开启
+            content: "<ul><li>1、本套餐产品为特殊优惠活动，一经付款<strong>不支持退改</strong>；</li><li>2、成功购买本产品后，您将收到预约凭证&mdash;&mdash;电子码的短信消息（短信可能会被手机软件拦截）；</li><li>3、收到预约凭证后，请务必在指定时间内通过网站或电话进行预约，预约时所提交的姓名必须和入住人身份证上姓名一致；</li> <li>4、请务必提前3天或以上预约；周末房间紧张，建议提前至少2周预约；节假日房间务必第一时间预约，先到先得；</li><li>5、预约结果需以酒店或景区确认为准，如遇到预约日期无法预约，请和酒店或景区协商改期使用；</li><li>6、酒店或景区一旦确认核销电子码，此电子码立即失效，预约成功后不得更改或取消；电子码在没有核销前可转赠给亲友使用；</li><li>7、本产品截止前未支付款项则视为弃权，过期未预约或未使用则自动作废；</li><li>8、本产品为特价促销产品，不提供发票；</li> <li>9、最终解释权归<strong>优培</strong>官方所有。</li></ul>" //iframe的url
+        });
+    }
+
+    function order_next(id) {
+        if (!$('#product_rule').is(':checked')) {
+            alert('请先阅读并同意《服务协议》及退款规则');
+            return;
+        }
+        var n = parseFloat($('#count').val());
+        window.location.href = "{:U('Organization/confirmationInfo')}?id=" + id + "&count=" + n;
+    }
+</script>
+</body>
+</html>

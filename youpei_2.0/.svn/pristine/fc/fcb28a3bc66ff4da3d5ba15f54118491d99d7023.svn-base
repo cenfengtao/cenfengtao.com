@@ -1,0 +1,93 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/userinfo.css">
+<div class="container interest-container">
+   <section class="scroll info">
+     <div class="main ">
+     <input type="hidden" name="id" id="id" value="{$user['userid']}">
+     <input type="hidden" name="prizeid" id="prizeid" value="{$prizeid}">
+     <input type="hidden" name="token" id="token" value="{$token}">
+     <input type="hidden" name="pid" id="pid" value="{$pid}">
+     <ul>
+     <dt><span><if condition="$user['addressid'] == 0">完善资料兑奖<else/>确认资料兑奖</if></span></dt>
+      <li><span>姓名</span><input type="text" name="username" id="username" value="{$user['username']}"></li>
+      <li><span>联系电话</span><input type="num" name="mobile" id="mobile" value="{$user['mobile']}"></li>
+      <li><span>地区</span>
+     <select id='areaId1' onchange='javascript:getAreaList("areaId2",this.value,0)'>
+               <option value=''>请选择</option>
+               <volist name="areaList" id="vo">
+               <option value='{$vo['areaid']}' <if condition="$user['areaid1'] == $vo['areaid'] ">selected</if>>{$vo['areaname']}</option>
+               </volist>
+             </select>
+             
+             <select id='areaId2' onchange='javascript:getAreaList("areaId3",this.value,1);'>
+               <option value=''>请选择</option>
+             </select>
+
+             <select id='areaId3' onchange="">
+               <option value=''>请选择</option>
+             </select>
+
+       </li>
+       <li><span>邮寄地址</span><input type="text" name="address" id="address" value="{$user['address']}"></li>
+     </ul>
+      <div class="twobtn">
+           <div class="footerbtn">
+            <a class="submit left3" onclick="submituserinfo()">确认</a>
+                </div>
+            <div class="clr"></div>
+            </div>
+     </div>
+   </section>
+</div>
+<include file="Common:footer"/>
+<script src="__PUBLIC__/js/formValidator/formValidator-4.1.3.js"></script>
+ <script>
+   $(function () {
+       $.formValidator.initConfig({
+           theme:'Default',mode:'AutoTip',formID:"myform",debug:true,submitOnce:true,onSuccess:function(){
+               editAddress();
+               return false;
+            },onError:function(msg){
+        }});
+       <if condition="$user['addressid'] != 0">
+       getAreaList('areaId2','{$user['areaid1']}',0,'{$user['areaid2']}');
+       getAreaList("areaId3",'{$user.areaid2}',1,'{$user.areaid3}');
+      
+       </if>
+   });
+  
+
+   function getAreaList(objId,parentId,t,id){
+       var params = {};
+       params.parentId = parentId;
+       $('#'+objId).empty();
+       if(t<1){
+           $('#areaId3').empty();
+           $('#areaId3').html('<option value="">请选择</option>');
+       }
+       var html = [];
+       $.post("{:U('queryByAreasList')}",params,function(data,textStatus){
+            html.push('<option value="">请选择</option>');
+            if(data.status=='1' && data.list.length>0){
+                var opts = null;
+                for(var i=0;i<data.list.length;i++){
+                    opts = data.list[i];
+                    html.push('<option value="'+opts.areaid+'" '+((id==opts.areaid)?'selected':'')+'>'+opts.areaname+'</option>');
+                }
+            }
+            $('#'+objId).html(html.join(''));
+       });
+   }
+   $(function(){
+       <PHP>if($areaid1!=0){</PHP>
+       getAreaList("areaid2",'{$areaid1}',0,'{$areaid2}');
+       <PHP>}</PHP>  
+       <PHP>if($areaid2 != 0){</PHP>
+       getAreaList("areaid3",'{$areaid2}',1,'{$areaid3}');
+       <PHP>}</PHP>
+       $('#orderStatus').val({$orderStatus});
+   });
+   </script>
+<script src="__PUBLIC__/js/home/userinfo.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

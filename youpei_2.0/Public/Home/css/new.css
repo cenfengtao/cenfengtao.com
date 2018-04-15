@@ -1,0 +1,61 @@
+.ty-cat-tags{
+    position: fixed;
+    border-bottom: 7px solid #f0f1f2;
+    border-top: 12px solid #f0f1f2;
+    max-height:109px;
+    line-height:90px;
+}
+.list-card-timeline .dt {
+    background-color: #ea775b;
+}
+.list-card-timeline .hd {
+    background-color: #f5be00;
+}
+.list-card-timeline .sy {
+    background-color: #3176c3;
+}
+.list-card-timeline .gs {
+    background-color: #1dd2a1;
+}
+.list-card-timeline .hb {
+    background-color: #ff84b0;
+}
+.list-card-timeline .kc {
+    background-color: #f59600;
+}
+.list-card-timeline .time {
+    color: #386998;
+    line-height: 1.5rem;
+    font-size: .75rem;
+    display: block;
+    font-weight: bold;
+    width: 95%;
+}
+.list-card-timeline .time .lef{
+    float: left;
+    color: #9e9e9e;
+}
+.list-card-timeline .time .rig{
+    float: right;
+}
+.list-card-timeline .time i{
+    border:1px solid #386998;
+    margin-right: 10px;
+}
+.saixuan{
+    float: right;
+    display: inline-block;
+    width:200px;
+    height: 60px;
+    line-height: 60px;
+    margin: 15px 15px 0 0;
+    border-radius:15px;
+    color: #fff!important;
+    font-weight: 600;
+    font-size: 35px;
+    background-color:#db6066;
+    /*background:url("../images/saixuan.png")no-repeat;*/
+}
+.ty-tools-inner{
+    position: relative;
+}

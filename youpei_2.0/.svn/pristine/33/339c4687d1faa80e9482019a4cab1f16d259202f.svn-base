@@ -1,0 +1,208 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<!-- video.js -->
+<link rel="stylesheet" href="/Public/js/video.js/css/video-js.css">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>投票列表</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                         aria-labelledby="home-tab">
+                                        <div class="table-responsive">
+                                            <table id="datatable"
+                                                   class="table table-striped jambo_table table-bordered">
+                                                <thead>
+                                                <tr class="headings">
+                                                    <th class="column-title">投稿时间</th>
+                                                    <th class="column-title">类型</th>
+                                                    <th class="column-title">投稿人</th>
+                                                    <th class="column-title">联系电话</th>
+                                                    <th class="column-title">昵称</th>
+                                                    <th class="column-title">总票数</th>
+                                                    <th class="column-title">有效票数</th>
+                                                    <th class="column-title no-link last"><span class="nobr">操作</span>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <foreach name="list" item="val">
+                                                    <tr class="even pointer">
+                                                        <td>{$val['create_time'] | date="Y-m-d", ###}</td>
+                                                        <td>{$val['type'] == 1 ? '图片': '视频'}</td>
+                                                        <td>{$val['username']}</td>
+                                                        <td>{$val['mobile']}</td>
+                                                        <td>{$val['nickname']}</td>
+                                                        <td>{$val['vote_count']}</td>
+                                                        <td>{$val['ratio_count']}</td>
+                                                        <td class="last">
+                                                            <a href="javascript:showContribution({$val['id']})" class="btn btn-info btn-xs btn_access" access_id="181">查看作品</a>
+                                                        </td>
+                                                    </tr>
+                                                </foreach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- video.js -->
+<script src="/Public/js/video.js/js/video.min.js"></script>
+<!-- self -->
+<script>
+    function changeStatus(id,voteId) {
+        layer.open({
+            type: 1,
+            title: '入围结果',
+            skin: 'layui-layer-rim',
+            area: ['370px', '240px'], //宽高
+            content: "<form style='margin-top:20px;' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left form-youpei'><div class='form-group'>" +
+            "<label class='control-label col-md-3 col-sm-3 col-xs-12'> 入围结果 </label>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12'>" +
+            "<input type='hidden' name='id' value='" + id + "'>" +
+            "<input type='hidden' name='voteId' value='" + voteId + "'>" +
+            "入围:<input type='radio' name='status' class='flat icheckbox_flat-green;' value='2' checked='checked' onclick='hiddenMsg()'>" +
+            "落选:<input type='radio' name='status' class='flat icheckbox_flat-green;' value='3' onclick='showMsg()'>" +
+            "</div></div>" +
+            "<div class='form-group' id='lose_reason' style='display: none;'>" +
+            "<label class='control-label col-md-3 col-sm-3 col-xs-12'> 落选原因 </label>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12'>" +
+            "<textarea style='width:220px;height:50px;resize:none;' id='lose_reason_content'></textarea>" +
+            "</div></div>" +
+            "<div class='form-group'>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12 col-md-offset-3'>" +
+            "<button class='btn btn-primary' type='reset'>重置</button>" +
+            "<button type='button'  class='btn btn-success' onclick='submitStatus()'>提交</button>" +
+            "</div></div></form>"
+        });
+    }
+    function submitStatus() {
+        var url = "{:U('Vote/submitContributionStatus')}";
+        var status = $("input[name='status']:checked").val();
+        var id = $("input[name='id']").val();
+        var lose_reason = $("#lose_reason_content").val();
+        var voteId = $("input[name='voteId']").val();
+        $.post(url, {status: status, id: id, lose_reason: lose_reason}, function (result) {
+            if (result.status == 1) {
+                return dialog.success(result.message, "{:U('Vote/getContribution')}?id="+voteId);
+            } else {
+                return dialog.error(result.message);
+            }
+        }, 'json');
+    }
+    function showMsg() {
+        $("#lose_reason").show();
+    }
+
+    function hiddenMsg() {
+        $("#lose_reason").hide();
+        $("#lose_reason_content").val('');
+    }
+
+    function showContributionResult(contribution_id,voteId) {
+        layer.open({
+            type: 0,
+            title: '确认信息',
+            btn: ['确认', '取消'],
+            icon: 3,
+            closeBtn: 2,
+            content: '确认发送投稿结果？发送后无法撤回',
+            yes: function () {
+                var url = "/admin.php/Vote/showContributionResult";
+                $.get(url,{contribution_id:contribution_id},function (result) {
+                    if(result.status == 0){
+                        dialog.error(result.message);
+                    }else{
+                        dialog.success(result.message, "/admin.php/Vote/getContribution?id="+voteId);
+                    }
+                },'json');
+            }
+        });
+    }
+    function showContribution(id) {
+        var url = "/admin.php/Vote/showContribution";
+        $.get(url,{id:id},function (result) {
+            if(result.status == 0){
+                return dialog.error(result.message);
+            }
+            if (result.data.type==1){
+                layer.open({
+                    type: 1,
+                    title: '查看作品',
+                    skin: 'layui-layer-rim',
+                    area: ['650px', '750px'], //宽高
+                    content: "<div><img src='"+result.data.path+"' style='width:100%;'></div>"
+                })
+            }
+            if(result.data.type == 2){
+                layer.open({
+                    type: 1,
+                    title: '查看作品',
+                    skin: 'layui-layer-rim',
+                    area: ['850px', '650px'], //宽高
+                    content: "<div>"+
+                    '<video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" style="width:800px;height:600px;" poster="/Public/images/logo.jpg">'+
+                    "<source src='"+result.data.path+"' type='video/mp4'/>"+
+                    "</video>"+
+                    "</div>"
+                })
+            }
+        },'json')
+    }
+</script>
+</body>
+</html>

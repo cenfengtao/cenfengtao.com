@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开学季</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/activity.css"/>
+	<style>
+		.content{
+			background: #f1f1f1;
+		}
+		.content> li{
+			margin-bottom: 0.1rem;
+			background: white;
+		}
+		.classes{
+			overflow: hidden;
+			position: relative;
+		}
+		.learn {
+			background-color: orange;
+			color: #fff;
+			position: absolute;
+			right: -58px;
+			top: 18px;
+			font-size: 34px;
+			font-weight: 600;
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			padding: 10px 70px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<a href="javascript:history.back()" class="back">
+            <img src="../../../../Public/images/back.png" alt="">
+        </a>
+        <h3>开学季</h3>
+        <a href="../Index/index.html" class="home">
+			<img src="../../../../Public/images/home.jpg" alt="">
+        </a>
+	</header>
+	<article class="middle">
+		<ul class="content">
+		</ul>
+	</article>
+	<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				 type: "post",
+		         url: "/index.php/Activity/indexAjax",
+		         aysnc: true,
+		         dataType: "json",
+		         success:function(data){
+		         	console.log(data)
+		         	 var content = $(".content");
+		         	 var length = data.data.length;
+		         	 var data = data.data;
+					 //先遍历文章
+		         	 for(var i=0; i<length; i++){
+		         		// console.log(data.product[i].id)
+						 if(data[i].article.id){
+							 content.append(
+								 '<li onclick="getArticle('+data[i].article.id+')" class="article">'+
+								 '<img src="'+data[i].article.image+'" alt="">'+
+								 '<div class="text">'+
+								 '<h3>'+data[i].article.title+'</h3>'+
+								 '<span class="biao">文章</span>'+
+								 '<span class="time">2017-08-21</span>'+
+								 '<span class="custom">评论（'+data[i].article.count+'）| 收藏（'+ data[i].article.collect+'）</span>'+
+								 '</div>'+
+								 '</li>'
+							 );
+						 }
+						 if(data[i].product != undefined){
+							 content.append(
+								 '<li onclick="getProduct('+data[i].product.id+')" class="product">'+
+								 '<img src="'+data[i].product.pic_url+'" alt="">'+
+								 '<div class="produce">'+
+								 '<h3>'+data[i].product.title+'</h3>'+
+								 '<p>'+data[i].product.f_title+'</p>'+
+								 '<div class="tag">'+
+								 '<span class="discount">商品</span>'+
+								 '</div>'+
+								 '</div>'+
+								 '<div class="price">'+
+								 '<span class="last">原价：<strong>￥'+data[i].product.original_price+'</strong></span>'+
+								 '<span class="now">优惠价:<strong>￥'+data[i].product.price+'</strong></span>'+
+								 '</div>'+
+								 '</li>'
+							 );
+						 }
+						 if(data[i].course != undefined) {
+							 content.append(
+								 '<li class="classes">'+
+								 '<a href="/index.php/Product/productDetails.html?pro_id='+data[i].course.id+'"><img src="'+data[i].course.pic_url+'" '+'alt=""></a>'+
+								 '<span class="learn">课程</span>'+
+								 '<div class="solution">'+
+								 '<div class="left">'+
+								 '<img src="../../../../Public/images/address.jpg" alt="">'+
+								 '<a href="/index.php/Map/GPS.html?id='+data[i].course.id+'" class="address">'+data[i].course.add+'</a>'+
+								 '</br>'+
+								 '<p class="course">'+data[i].course.titles+'</p>'+
+								 '<div class="type">'+
+								 '<span class="tagFirst">'+data[i].course.tagA+'</span>'+
+								 '<span class="tagTwo">'+data[i].course.tagB+'</span>'+
+								 '<span class="tagThree">'+data[i].course.tagC+'</span>'+
+								 '</div>'+
+								 '</div>'+
+								 '<div class="right">'+
+								 '<span class="last">原价：<strong>￥'+data[i].course.original_price+'</strong></span>'+
+								 '<span class="now">优惠价：<strong>￥'+data[i].course.price+'</strong></span>'+
+								 '</div>'+
+								 '</div>'+
+								 '</li>'
+							 );
+							 if(data[i].course.tagC == ''){
+								 var tagC = document.getElementsByClassName('type')[i].lastChild;
+								 tagC.style.display="none";
+							 }
+							 if(data[i].course.tagB ==""){
+								 var tagB = document.getElementsByClassName('type')[i].lastChild;
+								 tagB.style.display="none";
+							 }
+							 if(data[i].course.tagA ==""){
+								 var tagA = document.getElementsByClassName('type')[i].lastChild;
+								 tagA.style.display="none";
+							 }
+						 }
+		         	}
+		        }
+			})
+		});
+		function getArticle(id) {
+	        window.location.href = "{:U('Article/getArticle')}?art_id=" + id;
+	    }
+	    function getProduct(id) {
+	        window.location.href = "{:U('Product/productDetails')}?pro_id=" + id;
+	    }
+	</script>
+</body>
+</html>

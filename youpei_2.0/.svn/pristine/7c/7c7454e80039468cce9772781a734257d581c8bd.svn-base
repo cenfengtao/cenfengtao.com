@@ -1,0 +1,105 @@
+.footer ul li a img{
+	margin-top: 0.52rem;
+}
+.footer ul li a span{
+	margin-left: 0.14rem;
+}
+body,html{
+	background: #f1f1f1;
+}
+.middle{
+	padding-top: 1.2rem;
+	padding-bottom: 1.6rem;
+}
+.date{
+	background: white;
+	margin-top: 0.12rem;
+}
+.date p{
+	font-size: 0.42rem;
+	line-height: 1rem;
+	padding-left: 0.42rem;
+}
+.date p span{
+	font-size: 0.42rem;
+}
+
+.img{
+	background: white;
+}
+.img img{
+	width: 9.5rem;
+	height: 6.1rem;
+	margin: 0 auto;
+}
+
+
+.name{
+	background: white;
+}
+.name p{
+	font-size: 0.48rem;
+	line-height: 1rem;
+	width: 10.56rem;
+	margin: 0 auto;
+	border-bottom: 0.01rem solid #aeaeae;
+}
+.name p i{
+	height: 0.23rem;
+	width: 0.23rem;
+	border-radius: 50%;
+	-webkit-border-radius:50%;
+	background: #4c4c4c;
+	display: block;
+	float: left;
+	margin-top: 0.4rem;
+	margin-right: 0.2rem;
+}
+.name p span{
+	color: #386998;
+	font-size: 0.48rem;
+}
+
+
+.nowTicket{
+	background: white;
+}
+.nowTicket p{
+	width: 10.56rem;
+	margin: 0 auto;
+	font-size: 0.48rem;
+	line-height: 1rem;
+}
+.nowTicket p i{
+	height: 0.23rem;
+	width: 0.23rem;
+	border-radius: 50%;
+	-webkit-border-radius:50%;
+	background: #4c4c4c;
+	display: block;
+	float: left;
+	margin-top: 0.4rem;
+	margin-right: 0.2rem;
+}
+.nowTicket p span{
+	color: #386998;
+	font-size: 0.48rem;
+}
+.go{
+	background: white;
+	padding: 0.3rem 0 0.55rem;
+}
+.go a{
+	height: 1.4rem;
+	width: 7.1rem;
+	display: block;
+	margin: 0 auto;
+	background: #db6066;
+	color: white;
+	font-size: 0.63rem;
+	line-height: 1.4rem;
+	text-align: center;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	font-weight: bold;
+}

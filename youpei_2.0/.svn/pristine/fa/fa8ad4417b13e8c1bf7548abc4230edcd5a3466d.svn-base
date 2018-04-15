@@ -1,0 +1,137 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/css/admin/page.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<style>
+    #datatable_paginate{display: none;}
+    #datatable_info{display:none;}
+    .pagination ul a{color:#008DE7}
+    #datatable_filter{display:none;}
+    #datatable_length{display:none;}
+    .form-control{
+        width:75%;
+        float: left;
+    }
+    .search{
+        width:80%;
+        float: right;
+    }
+    .search span{
+        width:25%;
+        border:1px solid #ccc;
+        text-align: center;
+        float: left;
+        font-weight:600;
+        line-height:2.4rem;
+        font-size: 1.5rem;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>用户列表</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6"><div id="" class="search"><input type="text" class="form-control input-sm btn_access" access_id="266" name="name" placeholder="请输入用户名" aria-controls="datatable"><span class="btn_access" access_id="266" onclick="seek()">查找</span></div></div>
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-striped jambo_table table-bordered">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">用户名</th>
+                                        <th class="column-title">头像</th>
+                                        <th class="column-title">手机</th>
+                                        <th class="column-title">积分</th>
+                                        <th class="column-title">余额</th>
+                                        <th class="column-title">最后登录时间</th>
+                                        <th class="column-title">最后登录ip</th>
+                                        <th class="column-title no-link last"><span class="nobr">操作</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="userList" item="val">
+                                        <tr class="even pointer">
+                                            <td>{$val['username']}</td>
+                                            <td style="text-align: center"><img src="{$val['headimgurl']}" style="width:40px;height: 40px;"></td>
+                                            <td>{$val['mobile']}</td>
+                                            <td>{$val['integral']}</td>
+                                            <td>{$val['money']}</td>
+                                            <td>{$val['last_login_time']|date="Y-m-d H:i:s",###}</td>
+                                            <td>{$val['last_ip']}</td>
+                                            <td class="last">
+                                                <a href="javascript:void(0)" class="table-button-delete btn btn-danger btn-xs btn_access" access_id="71" attr_message="确认删除该用户？" attr_id="{$val['id']}">删除</a>
+                                                <a href="{:U('User/userIntegralRecord',array('id'=>$val['id']))}" class="btn btn-success btn-xs btn_access" access_id="72">积分详情</a>
+                                                <a href="{:U('User/myChildGroup',array('user_id'=>$val['id']))}" class="btn btn-info btn-xs btn_access" access_id="73">学友团({$val['child_count']})</a>
+                                            </td>
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                                <div class="pagination pagination-small">{$page}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- self -->
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("User/delete")}'
+    };
+    function seek() {
+        var name = $("input[name='name']").val();
+        if(!name){
+            alert('内容不能为空');
+        }else{
+            window.location.href = "{:U('User/search')}?name="+name;
+        }
+    }
+</script>
+</body>
+</html>

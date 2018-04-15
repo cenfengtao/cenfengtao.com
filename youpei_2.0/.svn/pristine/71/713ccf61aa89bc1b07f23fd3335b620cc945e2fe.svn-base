@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>优培圈</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/homes/userContribution.css"/>
+    <!--<link rel="stylesheet" href="__PUBLIC__/vendors/upload-image/css/page-common.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">-->
+    <!--<link rel="stylesheet" href="__PUBLIC__/vendors/upload-image/css/upload.css"/>-->
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+</head>
+<style>
+</style>
+<body class="kap-loading ty-view-all" >
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>投稿</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle" style="position: relative;"> 
+      <section class="basic title">
+        <h3 class="container">——/ <strong>基</strong> / <strong>本</strong> / <strong>信</strong> / <strong>息</strong>/——</h3>
+      </section>
+      <form  id="demo-form2" data-parsley-validate class="form-horizontal form-label-left form-youpei">
+      <div class="out">
+        <section class="works container">
+            <span>*作品标题：</span>
+            <input type="text" value="" name="title" id="title" onchange="testTitle(this.value)" maxlength="6" placeholder="亲，只能输入六个字哦。">
+            <img src="../../../../Public/images/write.png" alt="">
+        </section>
+         <section class="works container">
+            <span>*作品作者：</span>
+            <input type="text" value="" name="username" id="userName" onchange="testName(this.value)" maxlength="6" placeholder="亲，只能输入六个字哦。">
+            <img src="../../../../Public/images/write.png" alt="">
+        </section>
+         <section class="works container">
+            <span>*联系电话：</span>
+            <input type="tel" value="" maxlength="11" onchange="testTel(this.value)" name="mobile" id="mobile">
+            <img src="../../../../Public/images/write.png" alt="">
+            <input type="text" value="" name="vote_id" id="vote_id" style="display: none;">
+        </section>
+         <section class="works container" style="display: none;">
+             <span>*宝宝年龄段：</span>
+             <select name="age_bracket" id="age_bracket">
+             </select>
+             <img src="../../../../Public/images/write.png" alt="">
+         </section>
+        </div>
+        <section class="basic title" style="margin-top: 0.12rem;">
+          <h3 class="container">——/ <strong>作</strong> / <strong>品</strong> / <strong>上</strong> / <strong>传</strong>/——</h3>
+        </section>
+        <div class="out">
+          <section class="explain container">
+          </section>
+        </div>
+        <div class="out">
+          <div class="imgContent container border">
+            <section class="upload">
+              <a href="#img" onclick="firstFile(0)" class="videoImg" style="display: none;">上传或修改</br><span style="font-size: 0.4rem;">第一张展示图</span></a>
+            </section> 
+            <section class="img" id="img">
+            </section>
+          </div>
+          <div class="imgContent1 container border">
+            <section class="upload">
+               <a href="#img1" onclick="firstFile(1)" style="display: none;" class="oneUpload" id="oneUpload">上传或修改</br>第二张展示图</a>
+            </section>
+             <section class="img" id="img1">
+            </section>
+          </div>
+          <div class="imgContent2 container border" style="border: none;">
+            <section class="upload">
+               <a href="#img2" onclick="firstFile(2)" style="display: none;" class="twoUpload" id="twoUpload">上传或修改</br>第三张展示图</a>
+            </section>
+            <section class="img" id="img2">
+            </section>
+          </div> 
+        </div>
+        
+        <p class="alert" style="text-align: center;background: white; font-size: 0.6rem; padding-bottom: 1rem; padding-top: -0.1rem;"></p>
+        <section class="upload">
+<!--             <a href="###" onclick="firstFile()" style="display: none;">点击上传/修改</a> -->
+            <input type="button" value="提交审核" onclick="sub()"  class="submit" />
+            <input type="hidden" name="image" id="upload_image" tabindex="3" autocomplete="off"/>
+            <div style="display: none;">
+              <div id="filePicker" style=''>上传图片</div>
+            </div>
+            <input type="hidden" name="image" id="upload_image1" tabindex="3" autocomplete="off"/>
+            <div style="display: none;">
+                <div id="filePicker1" style=''>上传图片</div>
+            </div>
+            <input type="hidden" name="image" id="upload_image2" tabindex="3" autocomplete="off"/>
+            <div style="display: none;">
+                <div id="filePicker2" style=''>上传图片</div>
+            </div>
+          </section>
+
+          <section class="hidden">
+          <img id='preview' src='' ref='' width='200' height='200' style='display:none'/>
+          <img id='preview1' src='' ref='' width='200' height='200' style='display:none'/>
+          <img id='preview2' src='' ref='' width='200' height='200' style='display:none'/>
+          <img id='video1' src='' ref='' width='200' height='200' style='display:none'/>
+          </section>
+          <section class="show" style="display: none;">
+              <p>正在加载中......</p>
+          </section>
+          <section class="sub" style="display: none;">
+              <p>正在提交中......</p>
+          </section>
+        </form>    
+        <section class="tellBox" style="display:none;">
+            <div class="tellContent">
+                <img src="../../../../Public/images/close.png" alt="" class="closeBtn">
+                <h3>投稿结果</h3>
+                <div>
+                  <p>您已成功投稿！请等待审核通过！</p>
+                </div>
+                <a href="javascript:void(0);">关注「优培圈」才能收到审核通过的消息通知噢！</a>
+                <img src="../../../../Public/images/ypq_qrcode.jpg" alt="" class="code">
+            </div>
+        </section>
+        <section class="tellBoxs" style="display:none;">
+            <div class="tellContents">
+                <img src="../../../../Public/images/close.png" alt="" class="closeBtn">
+                <h3>投稿结果</h3>
+                <div>
+                  <p>您重新成功投稿！请等待审核通过！</p>
+                </div>
+                <a href="javascript:void(0);">关注「优培圈」才能收到审核通过的消息通知噢！</a>
+                <img src="../../../../Public/images/ypq_qrcode.jpg" alt="" class="code">
+            </div>
+        </section>
+        <div id="message">正在上传中,请稍后</div>
+</div>
+</article>
+<footer class="footer">
+    <ul class="icon">
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="javascript:void(0);" class="voteList">
+                <img src="__PUBLIC__/images/voteIcon1.png"/>
+                <span>作品库</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="javascript:void(0);" class="userVote">
+                <img src="__PUBLIC__/images/voteIcon2.png"/>
+                <span>我的投票</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="javascript:void(0);" class="userWorks">
+                <img src="__PUBLIC__/images/voteIcon3.png"/>
+                <span>我的作品</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="javascript:void(0);" class="userBillboard">
+                <img src="__PUBLIC__/images/voteIcon4.png"/>
+                <span>榜单</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<input type="hidden" id="userStatus" value="{$userStatus}">
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+<!-- <script src="__PUBLIC__/vendors/jquery/dist/jquery.min.js"></script> -->
+<script src="__PUBLIC__/js/layer/layer.js"></script>
+<script src="__PUBLIC__/js/dialog.js"></script>
+<!-- common -->
+<script src="__PUBLIC__/js/admin/common.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- <script src="__PUBLIC__/js/webuploader/batchupload.js"></script> -->
+<script src="__PUBLIC__/js/webuploader/webuploader.custom.js"></script>
+<!-- <script src="__PUBLIC__/js/webuploader/webuploader.min.js"></script> -->
+<!-- <script src="__PUBLIC__/js/webuploader/webuploader.html5only.min.js"></script> -->
+<!-- bootstrap-daterangepicker -->
+<script src="__PUBLIC__/vendors/moment/min/moment.min.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script>
+    //    获取url参数
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+// 底部导航对应选中状态
+ $(".footer ul li>img").css("display","none");
+$(".footer ul li>img:eq(2)").css("display","block");
+$(" .footer ul li").click(function(){
+    $(this).addClass('on').siblings().removeClass("on");
+    var index=$(this).index();
+    var liLen=$(".footer ul li").length;
+    for(var i=0;i<=liLen-1;i++){
+        $(".footer ul li>img").eq(i).css("display","none");
+    }
+    $(this).find("img:eq(0)").css("display","block");
+})
+// 作品名不能为空判断
+var testTitle=function(value){
+  if(value==""){
+    alert("请先填写您的作品名称。")
+    return;
+  }
+}
+// 作者名不能为空判断
+var testName=function(value){
+  if(value==""){
+    alert("请先填写您的名字。")
+    return;
+  }
+}
+// 手机号码正则验证
+var testTel=function(value){
+    var reg=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+    if(!reg.test(value)){
+        alert("你输入的手机号码不正确，请重新输入。")
+        return false;
+    }
+}  
+// 判断手机类型
+function fBrowserRedirect(){
+ var sUserAgent = navigator.userAgent.toLowerCase();
+ var isIphone = sUserAgent.match(/iphone/i) == "iphone";
+ var isAndroid = sUserAgent.match(/android/i) == "android";
+ if(isIphone){ $("#file").attr("accept","");
+ $("#file").attr("capture","");
+ }
+//if(isAndroid){
+// 	$("#file").attr("accept","");
+// 	$("input['file']").attr("accept","");
+// 	$("input['file']").removeAttr("multiple")
+// }
+// if(isAndroid){ window.location.href = "download/android.html"; }
+}
+fBrowserRedirect();
+// 点击上传实现上传文件
+function firstFile(key) {
+    document.getElementsByClassName("webuploader-element-invisible")[key].click();
+    // $(".webuploader-element-invisible").eq(key).click()
+}
+    //    获取url参数
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    // 给不同的底部导航不同参数进行跳转
+    var vote_id = getQueryString('vote_id');
+    $(".voteList").attr("href","/index.php/Votes/voteList.html?vote_id="+vote_id)
+    $(".userVote").attr("href","/index.php/Votes/userVote.html?vote_id="+vote_id)
+    $(".userWorks").attr("href","/index.php/Votes/userWorks.html?vote_id="+vote_id)
+    $(".userBillboard").attr("href","/index.php/Votes/userBillboard.html?vote_id="+vote_id)
+    $("#vote_id").attr("value",vote_id)
+</script>
+<script type="text/javascript">
+// 上传图片按钮操作
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+// 进入页面获取上传类型进行上传  
+var upload_type;
+$(function(){
+    $.ajax({
+        type: "get",
+        url: "/index.php/Vote/uploadType",
+        aysnc: true,
+        dataType: "json",
+        data:{
+            vote_id:vote_id,
+        },
+        success:function(data){
+            if(data.status==1){
+              upload_type=data.data.type;
+              var age_bracket=data.data.age_bracket;
+                $.each(data.data.age_bracket,function (key,val) {
+                    if(val.id == data.data.userUpload.age_bracket){
+                        $('#age_bracket').append(
+                                '<option value="'+val.id+'" selected="selected">'+val.title+'</option>'
+                        );
+                    }else{
+                        $('#age_bracket').append(
+                                '<option value="'+val.id+'">'+val.title+'</option>'
+                        );
+                    }
+                });
+                if(data.data.isContribute==1){
+                  alert("亲，该活动已截止投稿，欢迎下一次活动时来参加！")
+                  $(".submit").attr("disabled","disabled");
+                  $(".submit").css("background","gray")
+                }
+              window.sessionStorage.setItem("upload_status",data.data.userUpload.upload_status)
+              window.sessionStorage.setItem("statuss",data.data.userUpload.status)
+              window.sessionStorage.setItem("upload_type",data.data.type)
+                if(data.data.type==1){
+                  $(".alert").html("亲，请上传图片。")
+                  $(".explain").append(
+                      '<h3>投稿须知：</h3>'+
+                     ' <p>1、作品最多可上传3张图片进行展示，请选择最好的图片上传噢！</p>'+
+                      '<p>2、投稿成功后需后台审核通过后才能进行拉票。可在“我的作品”菜单栏查看审核状态。</p>'+
+                      '<p>3、投稿遇到问题请咨询客服<a href="tel://020-34248062">客服咨询</a></p>'
+                    )
+                  $(".videoImg").show()
+                  if(data.data.userUpload.upload_status==2){
+                      var title=data.data.userUpload.title;
+                      var userName=data.data.userUpload.username;
+                      var mobile=data.data.userUpload.mobile;
+                      $("#title").val(title)
+                      $("#userName").val(userName)
+                      $("#mobile").val(mobile)
+                      $("#img").html('<img src="'+data.data.userUpload.path[0]+'">')
+                      var imgSrc=$("#img img").attr("src")
+                       if(imgSrc!=""){
+                        $(".oneUpload").show()
+                      }else{
+                        $("#img img").remove()
+                      }
+                      $("#img1").html('<img src="'+data.data.userUpload.path[1]+'">')
+                      var imgSrc1=$("#img1 img").attr("src")
+                      if(imgSrc1!=""){
+                        $(".twoUpload").show()
+                      }else{
+                        $("#img1 img").remove()
+                      }
+                      $("#img2").html('<img src="'+data.data.userUpload.path[2]+'">')
+                      var imgSrc2=$("#img2 img").attr("src")
+                      if(imgSrc2!=""){
+                      }else{
+                        $("#img2 img").remove()
+                      }
+                      $(".alert").hide()
+                      $(".border").css("border-bottom","0.01rem solid #aeaeae");
+                      $(".border:last").css("border-bottom","none");
+                  }
+                  // 当活动是图片时,serve为/index.php/Vote/uploadPic，当活动视频时，sever为/index.php/Vote/uploadVideo;
+                  $(function () {
+                    setTimeout(function(){
+                      var uploading = null;
+                      uploadFile({
+                          server: "/index.php/Vote/uploadPic",
+                          pick: '#filePicker',
+                          formData: {dir: 'vote',upload_type:upload_type},
+                          callback: function (result) {
+                              if (result.status == 1) {
+//                                layer.close(uploading);
+									$("#message").hide()
+                                  var json = WST.toJson(result);
+                                  $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                                  $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                                  var src=$("#preview").attr("src")
+                                  if(src.indexOf("jpg")>-1||src.indexOf("jpeg")>-1||src.indexOf("pdf")>-1||src.indexOf("gif")>-1||src.indexOf("dwg")>-1||src.indexOf("png")){
+                                    $("#img").html('<img src="'+src+'" alt=""/>')
+                                    $(".imgContent").css("border-bottom","0.01rem solid #aeaeae");
+                                    $("#img").removeAttr("style")
+                                    $(".oneUpload").show()
+                                    // setTimeout(function(){
+                                    //   var height=document.getElementById('oneUpload').offsetTop;
+                                    //   $("html,body").animate({scrollTop:height+"px"}, 500)
+                                    // },1000)
+                                    
+                                  }
+                                  if(src.indexOf("mp4")>-1||src.indexOf("mp3")>-1){
+                                    $("#img").css("height","7.23rem")
+                                    $("#img").html('<div class="video"><video src="'+src+'" id="video" autoplay></video></div>')
+                                  }
+                              } else {
+                                  dialog.error(result.message);
+                              }
+                          },
+                          progress: function (rate) {
+//                            uploading = WST.msg('正在上传中，请稍后...');
+							$("#message").show()
+                          }
+                      });
+                        uploadFile({
+                            server: "/index.php/Vote/uploadPic",
+                            pick: '#filePicker1',
+                            formData: {dir: 'vote',upload_type:upload_type},
+                            callback: function (result) {
+                                if (result.status == 1) {
+//                                  layer.close(uploading);
+									$("#message").hide()
+                                    var json = WST.toJson(result);
+                                    $('#preview1').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                                    $('#upload_image1').val('/' + json.file.savepath + json.file.savename);
+                                    var src=$("#preview1").attr("src")
+                                    if(src.indexOf("jpg")>-1||src.indexOf("jpeg")>-1||src.indexOf("pdf")>-1||src.indexOf("gif")>-1||src.indexOf("dwg")>-1||src.indexOf("png")){
+                                        $("#img1").html('<img src="'+src+'" alt="" />')
+                                         $(".imgContent1").css("border-bottom","0.01rem solid #aeaeae");
+                                        $("#img1").removeAttr("style")
+                                        $(".twoUpload").show()
+                                        // setTimeout(function(){
+                                        //     var height=document.getElementById('twoUpload').offsetTop;
+                                        //   $("html,body").animate({scrollTop:height+"px"}, 500)
+                                        // },1000)
+                                    }
+                                } else {
+                                    dialog.error(result.message);
+                                }
+                            },
+                            progress: function (rate) {
+//                              uploading = WST.msg('正在上传中，请稍后...');
+								$("#message").show()
+                            }
+                        });
+                        uploadFile({
+                            server: "/index.php/Vote/uploadPic",
+                            pick: '#filePicker2',
+                            formData: {dir: 'vote',upload_type:upload_type},
+                            callback: function (result) {
+                                if (result.status == 1) {
+//                                  layer.close(uploading);
+									$("#message").hide()
+                                    var json = WST.toJson(result);
+                                    $('#preview2').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                                    $('#upload_image2').val('/' + json.file.savepath + json.file.savename);
+                                    var src=$("#preview2").attr("src")
+                                    if(src.indexOf("jpg")>-1||src.indexOf("jpeg")>-1||src.indexOf("pdf")>-1||src.indexOf("gif")>-1||src.indexOf("dwg")>-1||src.indexOf("png")){
+                                        $("#img2").html('<img src="'+src+'" alt="" />')
+                                        $("#img2").removeAttr("style")
+                                        window.location.href="#onclick";
+
+                                    }
+                                } else {
+                                    dialog.error(result.message);
+                                }
+                            },
+                            progress: function (rate) {
+//                              uploading = WST.msg('正在上传中，请稍后...');
+								$("#message").show()
+                            }
+                        });
+                    },1800)
+                      
+                  });
+                }
+                if(data.data.type==2){
+                   $(".alert").html("亲，请上传视频。")
+                   $(".explain").append(
+                     ' <h3>投稿说明：</h3>'+
+                      '<p>1.只可上传1个视频。</p>'+
+                      '<p>2.上传视频建议采用微信短视频后保存上传，视频限制最大12MB。</p>'+
+                      '<p>3.投稿成功后需活动方审核通过后才能在相关页面显示，可在“我的作品”页查看审核状态。</p>'
+                    )
+                   $(".videoImg span").text("视频")
+                   $(".videoImg").show()
+                    if(data.data.userUpload.upload_status==2){
+                        var title=data.data.userUpload.title;
+                        var userName=data.data.userUpload.username;
+                        var mobile=data.data.userUpload.mobile;
+                        var src=data.data.userUpload.video;
+                        var srcImg=data.data.userUpload.path;
+                        $("#title").val(title)
+                        $("#userName").val(userName)
+                        $("#mobile").val(mobile)
+                        $("#img").css("height","7.23rem")
+                        $("#img").html('<div class="video"><video src="'+src+'" id="video" poster="'+srcImg+'" preload controls controlsList="nodownload"/></video></div>')
+                        $(".alert").hide()
+                        Media = document.getElementById("video"); 
+                        $("#video").click(function(){
+                          Media.play()
+                        })
+                    }
+                     $(function () {
+                      setTimeout(function(){
+                      	
+                        var uploading = null;
+                        uploadFile({
+                            server: "/index.php/Vote/uploadVideo",
+                            pick: '#filePicker',
+                            formData: {dir: 'vote',upload_type:upload_type},
+                            callback: function (result) {
+                                if (result.status == 1) {
+                                    // layer.close(uploading);
+                                    $("#message").hide()
+                                    var json = WST.toJson(result);
+                                    $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                                    $('#video1').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savevideo);
+                                    $('#upload_image').val('/' + json.file.savepath + json.file.savevideo);
+                                    var src=$("#preview").attr("src")
+                                    var imgSrc=$("#video1").attr("src")
+                                    if(imgSrc.indexOf("mp4")>-1||imgSrc.indexOf("mp3")>-1){
+                                      $("#img").css("height","7.23rem")
+                                      $("#img").html('<div class="video"><video src="'+imgSrc+'" poster="'+src+'" preload controls controlsList="nodownload"></video</div>')
+                                       Media = document.getElementById("video"); 
+                                        $("#video").click(function(){
+                                          Media.play()
+                                        })
+                                    }
+                                } else {
+                                    $("#message").hide()
+                                    dialog.error(result.message);
+                                }
+                            },
+                            progress: function (rate) {
+                                // uploading = layer.msg('正在上传中，请稍后...');
+                                $("#message").show()
+                            }
+                        });
+                      },1800)
+                        
+                    });
+                }
+            }    
+        }
+    })
+})
+// $.each(uploadBtnArray, function(index, el){
+//el.refresh();
+//});
+
+    // 提交按钮进行相对应的判断
+    function sub(){
+      // var attentions=window.sessionStorage.getItem("attentions")
+      var userStatus=$("#userStatus").val();
+      var upload_status=window.sessionStorage.getItem("upload_status")
+      var statuss=window.sessionStorage.getItem("statuss")
+      var upload_type=window.sessionStorage.getItem("upload_type")
+       if($("#title").val()==""){
+        alert("请先填写您的作品名称。")
+        return
+      }
+      if($("#userName").val()==""){
+        alert("请先填写您的名字。")
+        return
+      }
+      if($("#mobile").val()==""){
+        alert("请先填写您的电话号码。")
+        return
+      }
+        var path = [];
+        if(upload_type == 1){
+            path = [
+                $("#upload_image").val(),
+                $("#upload_image1").val(),
+                $("#upload_image2").val()
+            ];
+        }else if(upload_type == 2){
+            path = $("#upload_image").val();
+        }
+        var is_share=GetRequest().is_share;
+        var share_user_id=GetRequest().share_user_id;
+      if(upload_status==1){
+        $(".sub").show()
+        $.ajax({   
+          type: "post",  
+          url:"/index.php/Vote/ajaxContribution",  
+          async: true, 
+          dataType:"json",
+          data:{
+              title:$("#title").val(),
+              vote_id:$("#vote_id").val(),
+              username:$("#userName").val(),
+              mobile:$("#mobile").val(),
+              age_bracket:$("#age_bracket option:selected").val(),
+              path:path,
+              share_user_id:share_user_id,
+              is_share:is_share
+          }, 
+          success: function(data) {
+            $(".sub").hide()
+             if(data.status==0){     
+                setTimeout(function(){
+                    alert(data.message+",请重新上传。")
+                },500)
+             }
+              if(data.status==1){
+                 if(userStatus==1){
+                    setTimeout(function(){
+                       alert(data.message)
+                       window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;         
+                     },500) 
+                   }else if(userStatus==2){
+                    $(".tellBox").fadeIn(1500);
+                    $(".closeBtn").click(function(){
+                      window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;
+                    })
+                   }else{
+                    setTimeout(function(){
+                       alert(data.message)
+                        window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;        
+                     },500) 
+                   }
+               }
+          }  
+        }) 
+      }
+      if(upload_status==2){
+        if(statuss==2){
+          alert("您的投稿已经通过了，不能重新进行投稿了，赶快去我的作品页点击图片到作品详情页分享朋友圈拉票吧！") 
+          window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;        
+        }
+        else{
+          var confirm=window.confirm("重新投稿将会换掉之前投稿的作品，您确定更改吗？")
+          if(confirm==true){
+            $(".sub").show()
+            $.ajax({   
+              type: "post",  
+              url:"/index.php/Vote/ajaxContribution",  
+              async: true, 
+              dataType:"json",
+              data:{
+                  title:$("#title").val(),
+                  vote_id:$("#vote_id").val(),
+                  username:$("#userName").val(),
+                  mobile:$("#mobile").val(),
+                  age_bracket:$("#age_bracket option:selected").val(),
+                  path:path
+              }, 
+              success: function(data) {
+                $(".sub").hide()
+                 if(data.status==0){     
+                    setTimeout(function(){
+                        alert(data.message+",请重新上传。")
+                    },500)
+                 }
+                  if(data.status==1){
+                    if(userStatus==1){
+                          setTimeout(function(){
+                           alert(data.message)
+                           window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;      
+                         },500)  
+                          
+                         }else if(userStatus==2){
+                          $(".tellBoxs").fadeIn(1500);
+                          $(".closeBtn").click(function(){
+                            window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;
+                          })
+                         }else{
+                           setTimeout(function(){
+                           alert(data.message)
+                           window.location.href="/index.php/Votes/userWorks.html?vote_id="+vote_id;        
+                         },500)  
+                      }
+                   }
+              }  
+          }) 
+        }
+        }
+        
+      }
+    }
+    // 微信端分享
+    $.ajax({
+        type: "get",
+        url: "/index.php/Vote/voteListContribution",
+        aysnc: true,
+        dataType: "json",
+        data:{
+            vote_id:vote_id,
+        },
+        success:function(data){
+            // console.log(data);
+            var title=data.data.share_title;
+            var f_title=data.data.share_desc;
+            var shareUrl=data.data.share_url;
+            var shareImg=data.data.share_img;
+            // 调用微信的分享接口
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+                timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+                nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+                signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            wx.ready(function () {
+                wx.onMenuShareAppMessage({
+                    title: title,
+                    desc: f_title,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    success: function () {
+                        share_record();
+                    },
+                    cancel: function () {
+                        alert('已取消');
+                    }
+                });
+                wx.onMenuShareTimeline({
+                    title: title,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    success: function () {
+                        share_record();// 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        alert('已取消');// 用户取消分享后执行的回调函数
+                    }
+                });
+
+                function share_record() {
+                    var data = new Array();
+                    data[id] = getQueryString(id);
+                    data[share_user_id] = getQueryString(share_user_id);
+                 var url = "/index.php/Vote/userContributionRecord";
+                 $.post(url, data, function (result) {
+                 alert(result.message);
+                 }, 'json');
+                 }
+            });
+        }
+    });
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

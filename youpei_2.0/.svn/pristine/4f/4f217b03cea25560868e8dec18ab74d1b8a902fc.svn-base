@@ -1,0 +1,157 @@
+body,html{
+	background: #f1f1f1;
+}
+.middle{
+	padding-top: 1.36rem;
+}
+
+
+.middle .works:first-child{
+	padding-top: 0.3rem;
+}
+.middle .works:nth-child(3){
+	padding-bottom: 0.3rem;
+}
+.works{
+	height: 1.35rem;
+	line-height: 1.35rem;
+	width: 100%;
+	background: #386998;
+	overflow: hidden;
+	margin-top: -0.1rem;
+}
+.works span{
+	color: white;
+	font-size: 0.48rem;
+	margin-left: 0.33rem;
+	float: left;
+}
+.works input{
+	width: 6.2rem;
+	height: 0.88rem;
+	line-height: 0.9rem;
+	padding: 0 0.3rem;
+	color: #4791c0!important;
+	background: white;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	margin-top: -0.1rem;
+	float: left;
+	border: 0.01rem solid white;
+	margin-top: 0.2rem;
+	font-size: 0.45rem;
+}
+
+.works img{
+	width: 0.69rem;
+	height: 0.74rem;
+	float: right;
+	margin-right: 0.3rem;
+	margin-top: 0.25rem;
+}
+
+
+
+.img{
+	/*height: 7.23rem;*/
+	background: white;
+	width: 100%;
+	position: relative;
+	margin-top: 0.2rem;
+}
+.img >img{
+	width: 9.5rem;
+/*	height: 6.1rem;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;*/
+	margin: auto;
+	/*position: absolute;*/
+	padding-top: 1rem;
+	/*padding-bottom: 1rem;*/
+}
+.video{
+	height: 100%;
+}
+.video video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.upload a:first-child{
+	height: 1.4rem;
+	width: 7.1rem;
+	display: block;
+	margin: 0.97rem auto 0.7rem;
+	background: #f4b014;
+	color: white;
+	font-size: 0.63rem;
+	line-height: 1.4rem;
+	text-align: center;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	font-weight: bold;
+}
+.upload input:nth-child(2){
+	height: 1.4rem;
+	width: 7.1rem;
+	display: block;
+	margin: 0.97rem auto 0.7rem;
+	background: #db6066;
+	color: white;
+	font-size: 0.63rem;
+	line-height: 1.4rem;
+	text-align: center;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	font-weight: bold;
+	border: 0.01rem solid #db6066;
+}
+
+.explain{
+	padding: 0 1.1rem 2rem;
+}
+.explain h3{
+	color: #386998;
+	font-size: 0.45rem;
+	line-height: 0.65rem;
+}
+.explain p{
+	line-height: 0.65rem;
+	font-size: 0.45rem;
+	color: #585858;
+}
+
+
+
+.show,.sub{
+    position: fixed;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+}
+.show p,.sub p{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    color: white;
+    width: 5rem;
+    text-align: center;
+    font-size: 0.5rem;
+    height: 1rem;
+}
+.layui-layer-btn a{
+	font-size: 16px;
+}

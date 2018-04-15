@@ -1,0 +1,174 @@
+/*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a:first-child{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a:first-child img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+/*头部 end*/
+/*中部 start*/
+.middle{
+    padding-top: 1.4rem;
+    background: #f0f1f1;
+}
+.appointList ul li{
+    background: white;
+    margin-bottom: 0.2rem;
+}
+.org{
+    height: 2rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    line-height: 2rem;
+}
+.org .logo{
+    width: 4.14rem;
+    height: 2rem;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+.org .logo img{
+    height: 1.3rem;
+    width: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.org>a{
+    height: 0.7rem;
+    width: 2.4rem;
+    display: inline-block;
+    font-size: 0.405rem;
+    border-radius: 0.1rem;
+    background: #386998;
+    color: white;
+    text-align: center;
+    line-height: 0.7rem;
+}
+.org .seen{
+    height: 0.7rem;
+    width: 2.4rem;
+    display: inline-block;
+    font-size: 0.405rem;
+    border-radius: 0.1rem;
+    background: #db6066;
+    color: white;
+    text-align: center;
+    line-height: 0.7rem;
+    margin: 0 0.56rem 0 0.3rem;
+}
+.org>div{
+    height: 1.9rem;
+    width: 1.9rem;
+    display: inline-block;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    top: -0.4rem;
+    right: -0.4rem;
+}
+.org .arrange{
+    background: #f0b926;
+}
+.org .success{
+    background: #80b939;
+}
+.org .fail{
+    background: #8a8a8a;
+}
+.org>div span{
+    font-size: 0.4rem;
+    width: 1rem;
+    display: block;
+    margin-top: 0.5rem;
+    margin-left: 0.4rem;
+    line-height: 0.55rem;
+}
+.works{
+    height: 1.45rem;
+    line-height: 1.45rem;
+    width: 96%;
+    overflow: hidden;
+    margin-top: -0.1rem;
+    margin: -0.1rem auto;
+    border-top: 0.01rem solid #f1f1f1;
+}
+.works span{
+    font-size: 0.48rem;
+    margin-left: 0.33rem;
+    float: left;
+    width: 85px;
+    text-align: right;
+    color: gray;
+}
+.works input{
+    width: 7rem;
+    height: 0.88rem;
+    line-height: 0.9rem;
+    padding: 0 0.3rem;
+    color: #4791c0!important;
+    background: white;
+    border-radius: 0.1rem;
+    -webkit-border-radius:0.1rem;
+    margin-top: -0.1rem;
+    float: left;
+    border: 0.01rem solid gray;
+    margin-top: 0.2rem;
+    font-size: 0.45rem;
+    background: url(../../../../Public/images/pull-down.png) no-repeat right center;
+    background-size: 0.53rem 1.13rem;
+}
+
+/*上课地址样式*/
+form label select{
+    font-size: 0.42rem;
+    color: #8d8d8d;
+    height: 1.02rem;
+    border: 0.03rem solid #686868;
+    border-radius: 0.1rem;
+    background: url(../../../../Public/images/pull-down.png) no-repeat right center;
+    background-size: 0.53rem 1.13rem;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    overflow: hidden;
+    padding-left: 0.1rem;
+    padding-right: 0.5rem;
+}
+form label select option{
+    font-size: 0.42rem;
+}
+form .classTimes select{
+    width: 2.42rem;
+}
+form .classAddress select{
+        width: 2.5rem;
+}
+form .classAddress input{
+    margin-left: 2.7rem;
+}

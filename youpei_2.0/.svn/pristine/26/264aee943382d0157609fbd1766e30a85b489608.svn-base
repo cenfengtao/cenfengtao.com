@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>预约试听课</title>
+	<link rel="stylesheet" type="text/css" href="../../../../Public/css/home/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../../Public/css/home/getClassTable.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+	<script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+</head>
+<body class="kap-loading ty-view-all">
+    <include file="Common:common"/>
+	<div class="form">
+		<form action="">
+			<div class="longTime">			
+			</div>	
+			<label for="name" class="name">姓名：</label>
+			<input type="text" id="name">	
+			</br>
+			<label for="tel" class="tel">手机号码：</label>
+			<input type="tel" id="tel">
+			<input type="button" value="提交" class="submit">
+			<span class="close">X</span>
+		</form>
+	</div>
+	<header class="header">
+		<a href="javascript:history.back()">
+			<img src="../../../../Public/images/back.png" alt="">
+		</a>
+		<h3>预约试听课</h3>
+	</header>
+	<article class="middle">
+		<div class="img">
+			<a href="###">
+				<img src="../../../../Public/images/red.jpg" alt="">
+			</a>
+		</div>
+		<div class="classes">
+			<div class="week">
+				<a href="###" class="left" id="last-week">&lt;</a>
+				<h3 class="date" id="curday"></h3>
+				<a href="###" class="right" id="next-week">&gt;</a>
+			</div>
+			<div class="day">
+				<ul class="days">
+					<!-- <li><a href="###">时间</a></li> -->
+				</ul>
+			</div>
+			<div class="list">
+				<table cellpadding="0" cellspacing="4">
+					<tr id="monitor">
+					</tr>
+					<tr class="first">
+						<td>9:00<span>-</span>12:00</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="second">
+						<td>12:00<span>-</span>15:00</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="third">
+						<td>15:00<span>-</span>18:00</td>
+						<td></td>
+						<td></td>
+						<!-- <td><span class="light">\</span></td> -->
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="fourth">
+						<td>18:00<span>-</span>21:00</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<!-- <td><a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a></td> -->
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="alert">
+			<p>
+				<span>注</span>
+				<span>：</span>
+				1.点击课查看具体上课时间!
+			</p>
+			<p>2.选择具体时间可预约试听!</p>
+		</div>
+	</article>
+	
+	<script src="../../../../Public/js/home/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// var getMonthWeek = function(a, b, c){
+	 //        var date = new Date(a, parseInt(b) - 1, c),
+	 //            w = date.getDay(),
+	 //            d = date.getDate();
+	 //        return Math.ceil((d + 6 - w) / 7);
+		// 	};
+		// var getYearWeek = function(a, b, c){
+
+		//         var date1 = new Date(a, parseInt(b) - 1, c),
+		//             date2 = new Date(a, 0, 1),
+		//             d = Math.round((date1.valueOf() - date2.valueOf()) / 86400000);
+		//         return Math.ceil((d + ((date2.getDay() + 1) - 1)) / 7);
+		// 	};
+			
+		$(function(){
+			function GetRequest() {   
+			   var url = location.search; //获取url中"?"符后的字串   
+			   var theRequest = new Object();   
+			   if (url.indexOf("?") != -1) {   
+			      var str = url.substr(1);   
+			      strs = str.split("&");   
+			      for(var i = 0; i < strs.length; i ++) {   
+			         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+			      }   
+			   }   
+			   return theRequest;   
+			} 
+			var pro_id=GetRequest().pro_id;
+			$.ajax({
+				type:"post",
+			    url:"{:U('Product/getClassTableAjax')}",
+			    aysnc:true,
+			    data:{
+			    	pro_id:pro_id
+			    },
+			    dataType:"json",
+			    success:function(data){
+			    	console.log(data)
+			    	var header=data.data.header;
+			    	var weekArray=data.data.weekArray;
+			    	//获取时间头部信息
+			    	var curday=$("#curday");
+			    	curday.html('<span class="year">'+weekArray[0].year+'</span>'+'-'+'<span class="month">'+header.start_date+'</span>'+' ~ '+'<span class="y">'+weekArray[6].year+'</span>'+'-'+'<span class="mon">'+header.end_date+'</span>');
+			    	//遍历循环星期几数据
+			    	var days=$(".days");
+			    	var weekLen=weekArray.length;
+			    	days.append(
+			    			'<li><a href="###">时间</a></li>'
+			    		)
+			    	for(var i=0; i<=weekLen-1; i++){
+			    		days.append(
+			    				'<li><a href="###">'+weekArray[i].day+'</a></li>'
+			    			)
+			    	}
+			    	//遍历循环天数
+			    	var monitor=$("#monitor");
+			    	monitor.append(
+			    			'<td><span></span></td>'
+			    		)
+			    	for(var i=0; i<=weekLen-1; i++){
+			    		monitor.append(
+			    				'<td>'+weekArray[i].date+'</td>'
+			    			)
+			    	}
+			    	for(var i=0; i<=weekLen-1 ;i++){
+			    		if(weekArray[i].class_time){
+			    			var class_time=weekArray[i].class_time.length;
+			    			for (var a = 0; a < class_time; a++) {
+					   			var class_start_hour=weekArray[i].class_time[a].class_start_hour;
+				    			class_start_hour=class_start_hour.substr(0,2);
+				    			if(class_start_hour.substr(0,1)==0){
+				    				class_start_hour=class_start_hour.slice(1)
+				    			}
+				    			var class_end_hour=weekArray[i].class_time[a].class_end_hour;
+				    			class_end_hour=class_end_hour.substr(0,2);
+				    			if(class_end_hour.substr(0,1)==0){
+				    				class_end_hour=class_end_hour.slice(1)
+				    			}
+
+				    			// 九点开始
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>9&class_end_hour<=12){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>12&class_end_hour<=15){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>15&class_end_hour<=18){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>18&class_end_hour<=24){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			// 十二点开始
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>12&class_end_hour<=15){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>15&class_end_hour<=18){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>18&class_end_hour<=24){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			//十五点开始
+				    			if(class_start_hour>=15&class_start_hour<18&class_end_hour>15&class_end_hour<=18){
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=15&class_start_hour<18&class_end_hour>18&class_end_hour<=24){
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			// 十八点开始
+				    			if(class_start_hour>=18&class_start_hour<21&class_end_hour>18&class_end_hour<=24){
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				   			}
+			    		}
+			    		if(weekArray[i].book_time){
+			    			
+			    			var book_time=weekArray[i].book_time.length;
+			    			// console.log(class_time)
+			    			for (var j = 0; j < book_time; j++) {
+				    			var book_start_hour=weekArray[i].book_time[j].book_start_hour;
+				    			book_start_hour=book_start_hour.substr(0,2);
+				    			if(book_start_hour.substr(0,1)==0){
+				    				book_start_hour=book_start_hour.slice(1)
+				    			}
+				    			var book_end_hour=weekArray[i].book_time[j].book_end_hour;
+				    			book_end_hour=book_end_hour.substr(0,2);
+				    			if(book_end_hour.substr(0,1)==0){
+				    				book_end_hour=book_end_hour.slice(1)
+				    			}
+				    			// 九点开始
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>9&book_end_hour<=12){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>12&book_end_hour<=15){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>15&book_end_hour<=18){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>18&book_end_hour<=24){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				
+				    			}
+				    			// 十二点开始
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>12&book_end_hour<=15){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>15&book_end_hour<=18){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>18&book_end_hour<=24){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			// 十五点开始
+				    			if(book_start_hour>=15&book_start_hour<18&book_end_hour>15&book_end_hour<=18){
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=15&book_start_hour<18&book_end_hour>18&book_end_hour<=24){
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			// 十八点开始
+				    			if(book_start_hour>=18&book_start_hour<24&book_end_hour>18&book_end_hour<=24){
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				   			}
+				   			// // 九点开始
+			    			// if(class_start_hour>=9&class_start_hour<12&book_start_hour>=9&book_start_hour<12&class_end_hour>9&class_end_hour<=12&book_end_hour>9&book_end_hour<=12){
+			    			// 	$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// if(class_start_hour>=9&class_start_hour<12&book_start_hour>=9&book_start_hour<12&class_end_hour>12&class_end_hour<=15&book_end_hour>12&book_end_hour<=15){
+			    			// 	$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// if(class_start_hour>=9&class_start_hour<12&book_start_hour>=9&book_start_hour<12&class_end_hour>15&class_end_hour<=18&book_end_hour>15&book_end_hour<=18){
+			    			// 	$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// if(class_start_hour>=9&class_start_hour<12&book_start_hour>=9&book_start_hour<12&class_end_hour>18&class_end_hour<=24&book_end_hour>18&book_end_hour<=24){
+			    			// 	$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// //十二点开始
+			    			// if(class_start_hour>=12&class_start_hour<15&book_start_hour>=12&book_start_hour<15&class_end_hour>12&class_end_hour<=15&book_end_hour>12&book_end_hour<=15){
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// if(class_start_hour>=12&class_start_hour<15&book_start_hour>=12&book_start_hour<15&class_end_hour>15&class_end_hour<=18&book_end_hour>15&book_end_hour<=18){
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// if(class_start_hour>=12&class_start_hour<15&book_start_hour>=12&book_start_hour<15&class_end_hour>18&class_end_hour<=24&book_end_hour>18&book_end_hour<=24){
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }			    			
+			    			// // 十五点开始
+			    			// if(class_start_hour>=15&class_start_hour<18&book_start_hour>=15&book_start_hour<18&class_end_hour>15&class_end_hour<=18&book_end_hour>15&book_end_hour<=18){
+			    			// 	$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }
+			    			// if(class_start_hour>=15&class_start_hour<18&book_start_hour>=15&book_start_hour<18&class_end_hour>18&class_end_hour<=24&book_end_hour>18&book_end_hour<=24){
+			    			// 	$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// 	$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }			    			
+			    			// // 十八点开始
+			    			// if(class_start_hour>=18&class_start_hour<21&book_start_hour>=18&book_start_hour<21&class_end_hour>18&class_end_hour<=24&book_end_hour>18&book_end_hour<=24){
+			    			// 	$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+			    			// }			    			
+
+			    		}else{
+			    		}
+			    		if($(".first td").eq(i+1).html()==""){
+			    			$(".first td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".second td").eq(i+1).html()==""){
+			    			$(".second td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".third td").eq(i+1).html()==""){
+			    			$(".third td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".fourth td").eq(i+1).html()==""){
+			    			$(".fourth td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    	}
+			    	
+			    }
+			})
+			$(".left").click(function(){
+				var year=$(".year").html();
+				var month=$(".month").html().split("-")[0].slice(1)-1;
+				var day=$(".month").html().split("-")[1];
+				var temp=new Date(year,month,day)
+				var time=temp.getTime();
+				time=time/1000-604800;
+				$.ajax({
+					type:"post",
+				    url:"{:U('Product/getClassTableAjax')}",
+				    aysnc:true,
+				    dataType:"json",
+				    data:{
+				    	pro_id:pro_id,
+				    	start_date:time
+				    },
+				    success:function(data){
+				    	var header=data.data.header;
+				    	var weekArray=data.data.weekArray;
+				    	//获取时间头部信息
+				    	var curday=$("#curday");
+				    	curday.html('<span class="year">'+weekArray[0].year+'</span>'+'-'+'<span class="month">'+header.start_date+'</span>'+' ~ '+'<span class="y">'+weekArray[6].year+'</span>'+'-'+'<span class="mon">'+header.end_date+'</span>');
+				    	//遍历循环星期几数据
+				    	var days=$(".days");
+				    	var weekLen=weekArray.length;
+				    	days.html("");
+				    	days.append(
+				    			'<li><a href="###">时间</a></li>'
+				    		)
+				    	for(var i=0; i<=weekLen-1; i++){
+				    		days.append(
+				    				'<li><a href="###">'+weekArray[i].day+'</a></li>'
+				    			)
+				    	}
+				    	//遍历循环天数
+				    	var monitor=$("#monitor");
+				    	monitor.html("");
+				    	monitor.append(
+				    			'<td><span></span></td>'
+				    		)
+				    	for(var i=0; i<=weekLen-1; i++){
+				    		monitor.append(
+				    				'<td>'+weekArray[i].date+'</td>'
+				    			)
+				    	}
+				    	for(var i=0; i<=weekLen-1 ;i++){
+			    		if(weekArray[i].class_time){
+			    			var class_time=weekArray[i].class_time.length;
+			    			for (var a = 0; a < class_time; a++) {
+					   			var class_start_hour=weekArray[i].class_time[a].class_start_hour;
+				    			class_start_hour=class_start_hour.substr(0,2);
+				    			if(class_start_hour.substr(0,1)==0){
+				    				class_start_hour=class_start_hour.slice(1)
+				    			}
+				    			var class_end_hour=weekArray[i].class_time[a].class_end_hour;
+				    			class_end_hour=class_end_hour.substr(0,2);
+				    			if(class_end_hour.substr(0,1)==0){
+				    				class_end_hour=class_end_hour.slice(1)
+				    			}
+				    			// 九点开始
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>9&class_end_hour<=12){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>12&class_end_hour<=15){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>15&class_end_hour<=18){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>18&class_end_hour<=24){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			// 十二点开始
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>12&class_end_hour<=15){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>15&class_end_hour<=18){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>18&class_end_hour<=24){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			//十五点开始
+				    			if(class_start_hour>=15&class_start_hour<18&class_end_hour>15&class_end_hour<=18){
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=15&class_start_hour<18&class_end_hour>18&class_end_hour<=24){
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			// 十八点开始
+				    			if(class_start_hour>=18&class_start_hour<21&class_end_hour>18&class_end_hour<=24){
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				   			}
+			    		}
+			    		if(weekArray[i].book_time){
+			    			
+			    			var book_time=weekArray[i].book_time.length;
+			    			// console.log(class_time)
+			    			for (var j = 0; j < book_time; j++) {
+				    			var book_start_hour=weekArray[i].book_time[j].book_start_hour;
+				    			book_start_hour=book_start_hour.substr(0,2);
+				    			if(book_start_hour.substr(0,1)==0){
+				    				book_start_hour=book_start_hour.slice(1)
+				    			}
+				    			var book_end_hour=weekArray[i].book_time[j].book_end_hour;
+				    			book_end_hour=book_end_hour.substr(0,2);
+				    			if(book_end_hour.substr(0,1)==0){
+				    				book_end_hour=book_end_hour.slice(1)
+				    			}
+				    			// 九点开始
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>9&book_end_hour<=12){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>12&book_end_hour<=15){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>15&book_end_hour<=18){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>18&book_end_hour<=24){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				
+				    			}
+				    			// 十二点开始
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>12&book_end_hour<=15){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>15&book_end_hour<=18){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>18&book_end_hour<=24){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			// 十五点开始
+				    			if(book_start_hour>=15&book_start_hour<18&book_end_hour>15&book_end_hour<=18){
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=15&book_start_hour<18&book_end_hour>18&book_end_hour<=24){
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			// 十八点开始
+				    			if(book_start_hour>=18&book_start_hour<24&book_end_hour>18&book_end_hour<=24){
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				   			}
+
+			    		}else{
+			    		}
+			    		if($(".first td").eq(i+1).html()==""){
+			    			$(".first td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".second td").eq(i+1).html()==""){
+			    			$(".second td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".third td").eq(i+1).html()==""){
+			    			$(".third td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".fourth td").eq(i+1).html()==""){
+			    			$(".fourth td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    	}
+			    	
+				    }
+				})
+			})
+			$(".right").click(function(){
+				var year=$(".year").html();
+				var month=$(".month").html().split("-")[0].slice(1)-1;
+				var day=$(".month").html().split("-")[1];
+				var temp=new Date(year,month,day)
+				var time=temp.getTime();
+				time=time/1000+604800;
+				$.ajax({
+					type:"post",
+				    url:"{:U('Product/getClassTableAjax')}",
+				    aysnc:true,
+				    dataType:"json",
+				    data:{
+				    	pro_id:pro_id,
+				    	start_date:time
+				    },
+				    success:function(data){
+				    	var header=data.data.header;
+				    	var weekArray=data.data.weekArray;
+				    	//获取时间头部信息
+				    	var curday=$("#curday");
+				    	curday.html('<span class="year">'+weekArray[0].year+'</span>'+'-'+'<span class="month">'+header.start_date+'</span>'+' ~ '+'<span class="y">'+weekArray[6].year+'</span>'+'-'+'<span class="mon">'+header.end_date+'</span>');
+				    	//遍历循环星期几数据
+				    	var days=$(".days");
+				    	var weekLen=weekArray.length;
+				    	days.html("");
+				    	days.append(
+				    			'<li><a href="###">时间</a></li>'
+				    		)
+				    	for(var i=0; i<=weekLen-1; i++){
+				    		days.append(
+				    				'<li><a href="###">'+weekArray[i].day+'</a></li>'
+				    			)
+				    	}
+				    	//遍历循环天数
+				    	var monitor=$("#monitor");
+				    	monitor.html("");
+				    	monitor.append(
+				    			'<td><span></span></td>'
+				    		)
+				    	for(var i=0; i<=weekLen-1; i++){
+				    		monitor.append(
+				    				'<td>'+weekArray[i].date+'</td>'
+				    			)
+				    	}
+				    	for(var i=0; i<=weekLen-1 ;i++){
+			    		if(weekArray[i].class_time){
+			    			var class_time=weekArray[i].class_time.length;
+			    			for (var a = 0; a < class_time; a++) {
+					   			var class_start_hour=weekArray[i].class_time[a].class_start_hour;
+				    			class_start_hour=class_start_hour.substr(0,2);
+				    			if(class_start_hour.substr(0,1)==0){
+				    				class_start_hour=class_start_hour.slice(1)
+				    			}
+				    			var class_end_hour=weekArray[i].class_time[a].class_end_hour;
+				    			class_end_hour=class_end_hour.substr(0,2);
+				    			if(class_end_hour.substr(0,1)==0){
+				    				class_end_hour=class_end_hour.slice(1)
+				    			}
+				    			// 九点开始
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>9&class_end_hour<=12){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>12&class_end_hour<=15){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>15&class_end_hour<=18){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=9&class_start_hour<12&class_end_hour>18&class_end_hour<=24){
+				    				$(".first td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			// 十二点开始
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>12&class_end_hour<=15){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>15&class_end_hour<=18){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=12&class_start_hour<15&class_end_hour>18&class_end_hour<=24){
+				    				$(".second td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			//十五点开始
+				    			if(class_start_hour>=15&class_start_hour<18&class_end_hour>15&class_end_hour<=18){
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			if(class_start_hour>=15&class_start_hour<18&class_end_hour>18&class_end_hour<=24){
+				    				$(".third td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				    			// 十八点开始
+				    			if(class_start_hour>=18&class_start_hour<21&class_end_hour>18&class_end_hour<=24){
+				    				$(".fourth td").eq(i+1).html('<a href="###" class="ke">课</a>')
+				    			}
+				   			}
+			    		}
+			    		if(weekArray[i].book_time){
+			    			
+			    			var book_time=weekArray[i].book_time.length;
+			    			// console.log(class_time)
+			    			for (var j = 0; j < book_time; j++) {
+				    			var book_start_hour=weekArray[i].book_time[j].book_start_hour;
+				    			book_start_hour=book_start_hour.substr(0,2);
+				    			if(book_start_hour.substr(0,1)==0){
+				    				book_start_hour=book_start_hour.slice(1)
+				    			}
+				    			var book_end_hour=weekArray[i].book_time[j].book_end_hour;
+				    			book_end_hour=book_end_hour.substr(0,2);
+				    			if(book_end_hour.substr(0,1)==0){
+				    				book_end_hour=book_end_hour.slice(1)
+				    			}
+				    			// 九点开始
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>9&book_end_hour<=12){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>12&book_end_hour<=15){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>15&book_end_hour<=18){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=9&book_start_hour<12&book_end_hour>18&book_end_hour<=24){
+				    				if($(".first td").eq(i+1).html()){
+				    					$(".first td").eq(i+1).html("");
+				    					$(".first td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".first td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				
+				    			}
+				    			// 十二点开始
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>12&book_end_hour<=15){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>15&book_end_hour<=18){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=12&book_start_hour<15&book_end_hour>18&book_end_hour<=24){
+				    				if($(".second td").eq(i+1).html()){
+				    					$(".second td").eq(i+1).html("");
+				    					$(".second td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".second td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			// 十五点开始
+				    			if(book_start_hour>=15&book_start_hour<18&book_end_hour>15&book_end_hour<=18){
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			if(book_start_hour>=15&book_start_hour<18&book_end_hour>18&book_end_hour<=24){
+				    				if($(".third td").eq(i+1).html()){
+				    					$(".third td").eq(i+1).html("");
+				    					$(".third td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".third td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				    			// 十八点开始
+				    			if(book_start_hour>=18&book_start_hour<24&book_end_hour>18&book_end_hour<=24){
+				    				if($(".fourth td").eq(i+1).html()){
+				    					$(".fourth td").eq(i+1).html("");
+				    					$(".fourth td").eq(i+1).html('<a href="###" class="smallKe">课</a><span class="light">/</span><a href="###" class="smallYu">预</a>')
+				    				}else{
+				    					$(".fourth td").eq(i+1).append('<a href="###" class="yu">预</a>')
+				    				}
+				    			}
+				   			}		
+
+			    		}else{
+			    		}
+			    		if($(".first td").eq(i+1).html()==""){
+			    			$(".first td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".second td").eq(i+1).html()==""){
+			    			$(".second td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".third td").eq(i+1).html()==""){
+			    			$(".third td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    		if($(".fourth td").eq(i+1).html()==""){
+			    			$(".fourth td").eq(i+1).html('<span class="light">&#92;</span>')
+			    		}
+			    	}
+			    	
+				    }
+				})
+			})
+			$("tr td").click(function(){
+				var index=$(this).index()
+				if(index==0){
+					return false;
+				}
+				var year=$(".year").html();
+				var y=$(".y").html();
+				var month=$(".month").html().split("-")[0];
+				if(month.indexOf("0")==0){
+					month=month.slice(1)-1
+				}else{
+					month=month-1;
+				}
+				var m=$(".mon").html().split("-")[0];
+				if(m.indexOf("0")==0){
+					m=m.slice(1)
+				}
+				var day=$(".month").html().split("-")[1]
+				if(day.indexOf("0")==0){
+					day=day.slice(1)
+				}else{
+					day=$(".month").html().split("-")[1]
+				}
+				// var d=$(".mon").html().split("-")[1]
+				// if(d.indexOf("0")==0){
+				// 	d=d.slice(1)
+				// }else{
+				// 	d=$(".mon").html().split("-")[1]
+				// }
+				var date=$("#monitor td").eq(index).html();
+				if(date.indexOf("0")==0){
+					date=date.slice(1)
+				}
+				if(date<day){
+					month=m-1;
+				}
+				if(date<day&(month+1)>m){
+					year=y;
+				}
+				// console.log(year,month,date)
+				var temp=new Date(year,month,date)
+				var time=temp.getTime();
+				time=time/1000;
+				$.ajax({
+					type:"post",
+				    url:"{:U('Product/getBookTimeByDay')}",
+				    aysnc:true,
+				    data:{
+				    	pro_id:pro_id,
+				    	time:time
+				    },
+				    dataType:"json",
+				    success:function(data){
+				    	if(data.status==0){
+				    		return false;
+				    	}
+				    	var time=data.data;
+				    	// console.log(data)
+				    	var timeLi=data.data.book_time.length;
+				    	var longTime=$(".longTime");
+				    	$(".form").show();
+				    	$(".longTime").html("");
+				    	for(var i=0; i<=timeLi-1; i++){
+				    		longTime.append(
+									'<input type="radio" name="time" id="time'+i+'"  class="time">'+
+									'<label for="time'+i+'">'+year+'-'+(month+1)+'-'+date+','+time.book_time[i].start_time+'-'+time.book_time[i].end_time+
+									'</label>'+
+									'</br>'
+				    			)
+				    		
+				    	}
+				    	
+				    }
+				})
+			})
+
+			$(".submit").click(function(){
+	    		var timeL=$('input[name="time"]:checked').next().html();
+	    		if(timeL){
+	    			year=timeL.split(",")[0].split("-")[0];
+	    			month=timeL.split(",")[0].split("-")[1]
+	    			date=timeL.split(",")[0].split("-")[2];
+	    			start_time=timeL.split(",")[1].split("-")[0];
+	    			end_time=timeL.split(",")[1].split("-")[1];
+	    			// console.log(year,month,date,start_time,end_time)
+
+	    		}else{
+	    			alert("请选择时间段，并填写姓名和手机号码。")
+	    			return false;
+
+	    		}	
+	    		var reg_mphone = /^1[3-9]\d{9}$/;  //手机
+
+	    		var name=$("#name").val();
+	    		var tel=$("#tel").val();
+	    		if(name.trim() === ""){
+	    			alert("请输入你的姓名。")
+	    			return;
+	    		}
+	    		if(tel.trim() === "" || !reg_mphone.test(tel)){
+	    			alert("请输入你正确的手机号码。")
+	    			return;
+	    		}
+	    		// console.log(pro_id,start_time,end_time,name,tel)
+	    		$.ajax({
+	    			type:"post",
+				    url:"{:U('Product/getBookReadRecord')}",
+				    aysnc:true,
+				    data:{
+				    	pro_id:pro_id,
+				    	year:year,
+				    	month:month,
+				    	date:date,
+				    	start_time:start_time,
+				    	end_time:end_time,
+				    	name:name,
+				    	tel:tel
+				    },
+				     dataType:"json",
+	   				 success:function(data){
+	   				 	if(data.status==1){
+	   				 		alert("您预约成功了。")
+	   				 	}else{
+	   				 		alert("不好意思，您预约失败了，请重新预约。")
+	   				 	}
+	   				 },
+	   				 error:function(){
+
+	   				 }
+	    		})
+	    		setTimeout(function(){
+	    			$(".form").hide()
+	    		},500)
+	    		
+	    	})
+			$(".close").click(function(){
+				$(".form").hide();
+			})
+		})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Document</title>
+    <style>
+        .demo img{
+            width: 100px;
+            height: 100px;
+        }
+        .two img{
+            position: absolute;
+            top:0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo first">
+        <img src="../../../../Application/Home/View/Activity/img/a11.png" alt="" onclick="firstFile(this)">
+        <input type="file" onchange="first(this)" style="display:none;" id="btn_first" accept="image/*"/>
+    </div>
+    <div class="demo two">
+        <img src="../../../../Application/Home/View/Activity/img/a11.png" alt="" onclick="twoFile()">
+        <input type="file" onchange="two(this)" style="display:none;" id="btn_two" accept="image/*"/>
+    </div>
+    <script src="../../../../Application/Home/View/Activity/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        function firstFile() { 
+            document.getElementById("btn_first").click(); 
+        } 
+        function twoFile() { 
+            document.getElementById("btn_two").click(); 
+        } 
+        function first(file){
+            if (file.files && file.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(evt){
+                    // var url=evt.target.result;
+                    // $.ajax({
+                    //     type:"post",
+                    //     url:"../Test/testUpload",
+                    //     // async: false,
+                    //     // cache: false,
+                    //     // contentType: false,
+                    //     // processData: false,
+                    //     data:{
+                    //         first:"first",
+                    //         url:url
+                    //     },
+                    //     success:function(data){
+                    //         // console.log(data)
+                    //     },
+                    //     error:function(){
+
+                    //     }
+                    // })
+                    jQuery(".first img").attr("src",evt.target.result)
+                    // console.log(evt.target.result)
+                  }
+                reader.readAsDataURL(file.files[0]);
+            }
+            else{
+              jQuery(".first img").attr("src",evt.target.result)
+            }
+        }
+        function two(file){
+            if (file.files && file.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(evt){
+                    jQuery(".two img").attr("src",evt.target.result)
+                    // console.log(evt.target.result)
+                  }
+                reader.readAsDataURL(file.files[0]);
+            }
+            else{
+              jQuery(".two img").attr("src",evt.target.result)
+            }
+        }
+    </script>
+</body>
+</html>

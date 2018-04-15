@@ -1,0 +1,95 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class GamesController extends BaseController
+{
+    public function seekGame()
+    {
+        $this->title = "寻宝活动";
+        $this->display();
+    }
+     public function startGame()
+    {
+        $this->display();
+    }
+    public function ajaxSeekGame()
+    {
+        /*$prize_arr = array(
+            '0' => array('id' => 1, 'count' => 1, 'prize' => '1平板电脑', 'v' => 1),
+            '1' => array('id' => 2, 'count' => 10, 'prize' => '5数码相机', 'v' => 5),
+            '2' => array('id' => 3, 'count' => 20, 'prize' => '10音箱设备', 'v' => 100),
+            '3' => array('id' => 4, 'count' => 30, 'prize' => '4G优盘', 'v' => 120),
+            '4' => array('id' => 5, 'count' => 40, 'prize' => '10Q币', 'v' => 220),
+            '5' => array('id' => 6, 'count' => 50, 'prize' => '下次没准就能中哦', 'v' => 500),
+        );*/
+        if(!$_GET['id']){
+            return show(0,'游戏ID不能为空');
+        }
+        $games = M('games')->where(array('id'=>$_GET['id'],'start_time'=>array('ELT',time()),'end_time'=>array('EGT',time())))->find();
+        if(!$games){
+            return show(0,'并不在活动期间内哦');
+        }
+        $isGet = M('games_record')->where(array('user_id'=>$this->user['id'],'type'=>1,'create_time'=>
+            array(array('EGT',$games['start_time']),array('ELT',$games['end_time']),'and')))->find();
+        if($isGet){
+            return show(2,'你已经参加过了呢',$isGet);
+        }
+        $data = M('games_prize')->where(array('type'=>1,'type_id'=>$games['id']))->select();
+        $arr = [];
+        foreach ($data as $key => $val) {
+            $arr[$key] = $val['probability'];
+        }
+        $rid = $this->get_rand($arr); //根据概率获取奖项id
+        $res['yes'] = $data[$rid]; //中奖项
+        $res['yes']['code'] = substr(md5(uniqid() . $this->user['open_id']), 0, 8);
+        unset($data[$rid]); //将中奖项从数组中剔除，剩下未中奖项
+        shuffle($data); //打乱数组顺序
+        for ($i = 0; $i < count($data); $i++) {
+            $res['no'][$i] = $data[$i]['title'];
+        }
+        $isExchange = 2;
+        $exchangeTime = 0;
+        if($res['yes']['status'] == 3 || $res['yes']['status'] == 4){
+            $isExchange = 1;
+            $exchangeTime = time();
+        }
+        $userPrize = [
+            'user_id'=>$this->user['id'],
+            'create_time'=>time(),
+            'type'=>1,
+            'type_id'=>$_GET['id'],
+            'code'=>$res['yes']['code'],
+            'status'=>$res['yes']['status'],
+            'desc'=>$res['yes']['title'],
+            'is_exchange'=>$isExchange,
+            'exchange_time'=>$exchangeTime
+        ];
+        $id = M('games_record')->add($userPrize);
+        if($id){
+            return show(1,'恭喜你中奖了',$res);
+        }
+    }
+
+    function get_rand($proArr)
+    {
+        $result = '';
+        //概率数组的总概率精度
+        $proSum = array_sum($proArr);
+        //概率数组循环
+        foreach ($proArr as $key => $proCur) {
+            $randNum = mt_rand(1, $proSum);
+            if ($randNum <= $proCur) {
+                $result = $key;
+                break;
+            } else {
+                $proSum -= $proCur;
+            }
+        }
+        unset ($proArr);
+        return $result;
+    }
+
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>活动列表</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/voteActivityList.css"/>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+    <!--  <script>
+         var _hmt = _hmt || [];
+         (function() {
+           var hm = document.createElement("script");
+           hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+           var s = document.getElementsByTagName("script")[0];
+           s.parentNode.insertBefore(hm, s);
+         })();
+     </script> -->
+</head>
+<body class="kap-loading ty-view-all">
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>活动列表</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle">
+    <section class="advert">
+        <img src="../../../../Public/images/joinActivity.jpg" alt="">
+    </section>
+    <section class="joinNum">
+        <div><span></span>总计<strong class="total">0</strong>人参与投票</div>
+    </section>
+    <section class="people">
+        <ul>
+            <li class="on">
+                <span>进行中<strong class="proceed">0</strong>项</span>
+            </li>
+            <li>
+                <span>已结束<strong class="over">0</strong>项</span>
+            </li>
+        </ul>
+    </section>
+    <section class="orgList">
+        <ul class="proceedList">
+        </ul>
+        <ul class="overList" style="display: none;">
+<!--             <li onclick="voteList()">
+                <div class="img">
+                    <img src="../../../../Public/images/bargainProduct1.jpg" alt="" class="org">
+                    <div class="hot">
+                        <span>火热进行中</span>
+                        <img src="../../../../Public/images/hotFire.png" alt="">
+                    </div>
+                </div>
+                <div class="text">
+                    <h3>史太姆积木搭建比赛</h3>
+                    <p class="works">参与作品数：<span>45</span></p>
+                    <p class="all">共计投票数：<span>9999</span></p>
+                    <p class="activityTime">活动时间：<span>2017/9/1-9/30</span></p>
+                </div>
+                <div class="next">
+                    <img src="../../../../Public/images/come.png" alt="">
+                </div>
+            </li> -->
+        </ul>
+    </section>
+</article>
+<footer class="footer">
+    <ul class="icon">
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/voteActivityList.html">
+                <img src="__PUBLIC__/images/voteIcon1.png"/>
+                <span>活动列表</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userVote.html">
+                <img src="__PUBLIC__/images/voteIcon2.png"/>
+                <span>我的投票</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userWorks.html">
+                <img src="__PUBLIC__/images/voteIcon3.png"/>
+                <span>我的作品</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userBillboardList.html">
+                <img src="__PUBLIC__/images/voteIcon4.png"/>
+                <span>榜单列表</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/voteActivityList.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+<script>
+    $(function(){
+        $(".people li").click(function(){
+            var index=$(this).index();
+            $(this).addClass("on").siblings().removeClass("on")
+            $(".orgList ul").eq(index).show().siblings().hide()
+        })
+    })
+    function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+var vote_id=GetRequest().vote_id;
+ // 微信端分享
+    $.ajax({
+        type: "get",
+        url: "/index.php/Vote/voteActivitContribution",
+        aysnc: true,
+        dataType: "json",
+        success:function(data){
+            var title="【优培·投票】优培投票活动";
+            var f_title="快来参与投票吧！";
+            var shareUrl="{$shareData['share_url']}";
+            var shareImg=data.data.share_img;
+            // 调用微信的分享接口
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+                timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+                nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+                signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            wx.ready(function () {
+                wx.onMenuShareAppMessage({
+                    title: title,
+                    desc: f_title,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    success: function () {
+                        alert('已分享');
+                    },
+                    cancel: function () {
+                        alert('已取消');
+                    }
+                });
+                wx.onMenuShareTimeline({
+                    title: title,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    success: function () {
+                        alert('已分享');
+                    },
+                    cancel: function () {
+                        alert('已取消');// 用户取消分享后执行的回调函数
+                    }
+                });
+
+            });
+        }
+    })
+
+$.ajax({
+    type: "get",
+    url: "/index.php/Vote/ajaxVoteActivityList",
+    aysnc: true,
+    dataType: "json",
+    success:function(data){
+        var overCount=data.data.overCount;
+        var proceedCount=data.data.proceedCount;
+        var voteUserSum=data.data.voteUserSum;
+        var overActivity=data.data.over;
+        var overLength=overActivity.length;
+        var proceedActivity=data.data.proceed;
+        var proceedLength=data.data.proceedActivity;
+        $(".over").html(overCount);
+        $(".proceed").html(proceedCount);
+        $(".total").html(voteUserSum)
+        for(var i=0; i<proceedLength; i++){
+            var month=proceedActivity[i].vote_end_time.split("/")[1];
+            var day=proceedActivity[i].vote_end_time.split("/")[2];
+            $(".proceedList").append(
+                    '<li onclick="voteList('+proceedActivity[i].id+')">'+
+                        '<div class="img">'+
+                            '<img src="'+proceedActivity[i].image+'" alt="" class="org">'+
+                            '<div class="hot">'+
+                                '<span>火热进行中</span>'+
+                                '<img src="../../../../Public/images/hotFire.png" alt="">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="text">'+
+                            '<h3>'+proceedActivity[i].title+'</h3>'+
+                            '<p class="works">参与作品数：<span>'+proceedActivity[i].userWorksCount+'</span></p>'+
+                            '<p class="all">共计投票数：<span>'+proceedActivity[i].userVoteCount+'</span></p>'+
+                            '<p class="activityTime">活动时间：<span>'+proceedActivity[i].work_start_time+'-'+month+'/'+day+'</span></p>'+
+                        '</div>'+
+                        '<div class="next">'+
+                            '<img src="../../../../Public/images/come.png" alt="">'+
+                        '</div>'+
+                    '</li>'
+                )
+        }
+        for(var j=0; j<overLength; j++){
+            var month=overActivity[j].vote_end_time.split("/")[1];
+            var day=overActivity[j].vote_end_time.split("/")[2];
+            $(".overList").append(
+                    '<li onclick="voteList('+overActivity[j].id+')">'+
+                        '<div class="img">'+
+                            '<img src="'+overActivity[j].image+'" alt="" class="org">'+
+                            '<div class="hot" style="background:url(../../../../Public/images/endShape.png);background-size:3.11rem 0.72rem;">'+
+                                '<span style="margin-left:0.7rem;">活动已结束</span>'+
+                                // '<img src="../../../../Public/images/hotFire.png" alt="">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="text">'+
+                            '<h3>'+overActivity[j].title+'</h3>'+
+                            '<p class="works">参与作品数：<span>'+overActivity[j].userWorksCount+'</span></p>'+
+                            '<p class="all">共计投票数：<span>'+overActivity[j].userVoteCount+'</span></p>'+
+                            '<p class="activityTime">活动时间：<span>'+overActivity[j].work_start_time+'-'+month+'/'+day+'</span></p>'+
+                        '</div>'+
+                        '<div class="next">'+
+                            '<img src="../../../../Public/images/come.png" alt="">'+
+                        '</div>'+
+                    '</li>'
+                )
+        }
+    }
+})
+
+    function voteList(id){
+        window.location.href="/index.php/Vote/voteList.html?vote_id="+id;
+    }
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

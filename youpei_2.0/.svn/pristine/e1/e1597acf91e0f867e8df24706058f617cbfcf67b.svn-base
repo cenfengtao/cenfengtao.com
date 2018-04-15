@@ -1,0 +1,116 @@
+.footer ul li a img{
+	margin-top: 0.52rem;
+}
+.footer ul li a span{
+	margin-left: 0.14rem;
+}
+body,html{
+	background: #f1f1f1;
+}
+.middle{
+	padding-top: 1.2rem;
+	padding-bottom: 1.6rem;
+}
+
+
+.worksList{
+	margin-top:0.14rem;
+    overflow: hidden;
+}
+.worksList ul{
+	/*overflow: hidden;
+	margin-right: -0.25rem;
+	margin-top: 0.14rem*/
+	width:49%;
+    float: left;
+}
+.workList ul:last-child{
+	margin-left: 2%;
+}
+.voteRight{
+	margin-left: 2%;
+}
+.worksList ul li{
+	width: 5.5rem;
+	background: white;
+	float: left;
+	margin-right: 0.25rem;
+	margin-bottom: 0.2rem;
+}
+.worksList ul li .img{
+	position: relative;
+	margin: 0 0.2rem;
+}
+.worksList ul li .img >img{
+	width: 5.11rem;
+	margin: 0.18rem auto;
+}
+.worksList ul li .img >video{
+	width: 5.1rem;
+	margin: 0.18rem auto;
+}
+.worksList ul p{
+	font-size: 0.48rem;
+	line-height: 0.72rem;
+	margin-left: 0.6rem;
+}
+.worksList ul p span{
+	font-size: 0.48rem;
+}
+.worksList ul .name span{
+	color: #386998;
+}
+.worksList ul .text{
+	width: 5.14rem;
+	margin: 0.2rem auto 0.6rem;
+	overflow: hidden;
+	border-top: 0.01rem solid #696969;
+	padding-top: 0.4rem;
+}
+.worksList ul .text span{
+	font-size: 0.4rem;
+	float: left;
+	margin-top: 0.03rem;
+}
+.worksList ul .text span:first-child{
+	margin-top: 0.1rem;
+}
+.worksList ul .text span strong{
+	color: #386998;
+	font-size: 0.4rem;
+}
+.worksList ul .text .vote{
+	color: white;
+	font-size: 0.45rem;
+	/*width: 2.54rem;*/
+	padding: 0 0.1rem;
+	text-align: center;
+	height: 0.71rem;
+	line-height: 0.71rem;
+	float: right;
+	display: inline-block;
+	background: #db6066;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	margin-right: 0.1rem;
+	font-weight: bold;
+}
+
+.play{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+}
+.play img{
+	height: 2.03rem;
+	width: 2.03rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}

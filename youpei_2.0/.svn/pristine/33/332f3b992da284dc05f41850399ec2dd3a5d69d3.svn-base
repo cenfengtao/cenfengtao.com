@@ -1,0 +1,56 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class DiscoveryController extends BaseController
+{
+      public function demo()
+    {
+        $this->display();
+    }
+    public function index()
+    {
+        $this->title = "发现";
+        try {
+            $current = (int)I('current', 2);
+            $this->assign('current', $current);
+            //导航分类列表
+            $cateList = D('ArticleCate')->getList();
+            $this->assign('cateList', $cateList);
+            //精选育儿文章
+            $helpChildList = D('Article')->getArticleByClass('育儿', 'id,image,title');
+            $this->assign('helpChildList', $helpChildList);
+            //精选福利文章
+            $parentList = D('Article')->getArticleByClass('福利', 'id,image,title');
+            $this->assign('parentList', $parentList);
+            //热销商品
+            $saleProduct = D('Product')->getSaleList(2, 6, 'id,pic_url,title,f_title,price');
+            foreach ($saleProduct as $k => $v) {
+                $prices = json_decode($v['price'], true);
+                $price = $prices[key($prices)];
+                $saleProduct[$k]['price'] = $price;
+            }
+            $this->assign('saleProduct', $saleProduct);
+            $this->display();
+        } catch (Exception $e) {
+            $this->error($e->getMessage());
+        }
+    }
+
+    public function loadingProduct()
+    {
+        $npage = (int)I("npage");
+        $list = D('Product')->getListByPage($npage, 2);
+        foreach ($list as $k => $v) {
+            $prices = json_decode($v['price'], true);
+            $price = $prices[key($prices)];
+            $list[$k]['price'] = $price;
+        }
+        if (!$list || empty($list)) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '没有数据'));
+        }
+        $this->ajaxReturn(array('status' => 1, 'msg' => '获取成功', 'data' => $list));
+    }
+}

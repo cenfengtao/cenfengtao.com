@@ -1,0 +1,57 @@
+<include file="Common:header"/>
+<style>
+    .statu{
+        position: absolute;
+        right: .9375rem;
+        top: 2.5rem;
+        font-size: .75rem;
+        color: #aaa;
+    }
+</style>
+<div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="history.go(-1); " class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Personal/index',array('current'=>'4'))}" class="btn right btn-user" title="返回个人中心"
+           data-icon="Ņ"></a>
+    </div>
+</div>
+
+<div id="detail_msg" title="{$title}" class="kap-page kap-page-current">
+    <div class="ty-page">
+        <ul class="list-user-msg">
+            <volist name="list" id="val">
+                    <li class="item "onclick="getMessageId({$val['id']})">
+                    <span class="desc">
+                        <span class="from"><if condition="$val['system_message'] == 2">系统通知<else/>{$val['org_name']}</if></span>
+                        <span class="time">{$val['create_time']}</span>
+                    </span>
+                        <span class="content">{$val['title']}</span>
+
+                            <!--<span class="status"></span>-->
+
+                            <span class="statu" attr_id="{$val['id']}"><if condition="$val['is_read'] eq 2">已读<else/>未读</if></span>
+
+                    </li>
+            </volist>
+        </ul>
+    </div>
+</div>
+<include file="Common:footer"/>
+<script>
+    /*$('.item').click(function () {
+        $(this).addClass('read');
+        $('.read>.statu').html('已读');
+    })*/
+    function getMessageId(id) {
+        window.location.href = '{:U("Message/messageDetails")}?id='+id;
+        /*var url = ':U("Message/index")';
+        $.post(url,{id:id},function (res) {
+            if(res.status == 1){
+                $('.read>.statu').html('已读1');
+            }
+        },'json')*/
+    }
+</script>
+</body>
+</html>

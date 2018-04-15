@@ -1,0 +1,101 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+use \Think\Image;
+
+require_once __DIR__ . '/../../../ThinkPHP/Library/Org/Util/JSDDK.class.php';
+
+class TestController extends Controller
+{
+    function setSessionTest()
+    {
+        $_SESSION['openid'] = $_GET['open_id'];
+        $_SESSION['token'] = $_GET['token'];
+        $this->display();
+    }
+
+    public function test()
+    {
+
+        $url = $this->getQrcodeBargainUrl("58", '1', '7904');
+        $background = "http://" . $_SERVER['HTTP_HOST'] . "/Public/images/bargain-background.png";
+        $pic1 = "./Public/images/axe.png";
+        $pic2 = "./Public/images/ax.png";
+        
+        header("Content-type: image/png");
+        imagepng($background);
+    }
+
+    function ali_api_request($method, $url, $headers = array())
+    {
+        array_push($headers, "Authorization:APPCODE " . "bb851762499542599b8bdd7b4b8a45d6");
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl, CURLOPT_FAILONERROR, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        if (1 == strpos("$" . $url, "https://")) {
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        }
+        $result = curl_exec($curl);
+        return $result;
+    }
+
+    public function testEncode()
+    {
+        $baseStr = "";
+        //匹配出图片的格式
+        if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $baseStr, $result)) {
+            $type = $result[2];
+            $new_file = "Upload/Poster/" . date('Ymd', time()) . "/";
+            if (!file_exists($new_file)) {
+                //检查是否有该文件夹，如果没有就创建，并给予最高权限
+                $result = mkdir($new_file, 0777, true);
+            }
+            $new_file = $new_file . time() . ".{$type}";
+            if (file_put_contents($new_file, base64_decode(str_replace($result[1], '', $baseStr)))) {
+                echo '新文件保存成功：', $new_file;
+            } else {
+                echo '新文件保存失败';
+            }
+        }
+    }
+
+    public function attentioni()
+    {
+        $access_token = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" . C('APPID') . "&secret=" . C('SECRET');
+        $access_msg = json_decode(file_get_contents($access_token));
+        $token = $access_msg->access_token;
+        $subscribe_msg = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=$token&openid=" . $_SESSION['openid'];
+        $subscribe = json_decode(file_get_contents($subscribe_msg));
+        $result = $subscribe->subscribe;
+        if ($result === 1) {
+            echo "已关注";
+        } else {
+            echo "未关注";
+        }
+    }
+
+
+    function getQrcodeBargainUrl($proId, $key, $shareUserId)
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/qrcode/create";
+        $body = array(
+            'action_name' => 'QR_LIMIT_STR_SCENE',
+            'action_info' => array(
+                'scene' => array(
+                    'scene_str' => "bargainUrl=" . "http://" . $_SERVER['HTTP_HOST'] . "/index.php/Product/bargainHelp?pro_id={$proId}&key={$key}&share_user_id={$shareUserId}",
+                )
+            )
+        );
+        $body = json_encode($body);
+        //生成结果返回
+        $result = post_weixin_curl(get_wxuser("g232238gc959"), $url, $body);
+        return $result['url'];
+    }
+}

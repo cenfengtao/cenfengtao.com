@@ -1,0 +1,377 @@
+.footer ul li a img{
+	margin-top: 0.52rem;
+}
+.footer ul li a span{
+	margin-left: 0.14rem;
+}
+body,html{
+	background: #f1f1f1;
+}
+.middle{
+	padding-top: 1.2rem;
+	padding-bottom: 1.6rem;
+}
+
+.advert{
+	margin-top: 0.12rem;
+	margin-bottom: 0.15rem;
+}
+.advert img{
+	width: 100%;
+	/*height: 4.72rem;*/
+}
+
+.joinNum{
+	height: 1.07rem;
+	line-height: 1.07rem;
+	background: white;
+	margin-bottom: 0.2rem;
+}
+.joinNum div{
+	font-size: 0.55rem;
+}
+.joinNum div span{
+	width: 0.12rem;
+	height: 0.46rem;
+	background: #e2416e;
+	border-radius: 0.1rem;
+	display: inline-block;
+	margin-left: 0.4rem;
+	margin-right: 0.2rem;
+}
+.joinNum div strong{
+	font-size: 0.55rem;
+	font-weight: normal;
+	color: #3878a4;
+}
+.people{
+	overflow: hidden;
+	background: white;
+}
+.people ul li{
+	width: 50%;
+	float: left;
+	text-align: center;
+	height: 1.07rem;
+	line-height: 1.07rem;
+}
+.people ul li span{
+	display: block;
+	font-size: 0.55rem;
+	color: #757679;
+}
+.people ul li span strong{
+	font-size: 0.55rem;
+	/*color: #757679;*/
+	font-weight: normal;
+}
+.people ul li.on{
+	border-bottom: 0.1rem solid #1a679d;
+}
+.people ul li.on span{
+	color: #3878a4;
+}
+.people ul li.on strong{
+	color: #3878a4;
+}
+
+
+.orgList{
+	margin-top: 0.2rem;
+}
+.orgList ul li{
+	height: 3.94rem;
+	background: white;
+	padding-top: 0.15rem;
+	margin-bottom: 0.2rem;
+}
+.orgList .img{
+	width: 4.39rem;
+	height: 3.62rem;
+	position: relative;
+	float: left;
+}
+.orgList .img >img{
+	width: 100%;
+	height: 100%;
+}
+
+.orgList .img .hot{
+	position: absolute;
+	z-index: 1000;
+	right: 0;
+	top: 0.2rem;
+	width: 3.11rem;
+	height: 0.72rem;
+	line-height: 0.72rem;
+	background: url(../../../../Public/images/hotShape.png) no-repeat;
+	background-size: 3.11rem 0.72rem;
+}
+.hot span{
+	font-size: 0.4rem;
+	color: white;
+	float: left;
+	margin-left: 0.4rem;
+	margin-right: 0.05rem;
+}
+.hot img{
+	width: 0.46rem;
+	height: 0.53rem;
+	float: left;
+	margin-top: 0.08rem;
+}
+.orgList .text{
+	float: left;
+}
+.text h3{
+	font-size: 0.48rem;
+	color: #386998;
+	padding-left: 0.12rem;
+	width: 5.95rem;
+	height: 0.91rem;
+	line-height: 0.91rem;
+}
+.text .works{
+	padding-left: 0.12rem;
+	font-size: 0.4rem;
+	background: #e3f2f9;
+	width: 5.95rem;
+	height: 0.91rem;
+	line-height: 0.91rem;
+}
+.text .works span{
+	font-size: 0.4rem;
+	color: #386998;
+}
+.text .all{
+	padding-left: 0.12rem;
+	font-size: 0.4rem;
+	width: 5.95rem;
+	height: 0.91rem;
+	line-height: 0.91rem;
+}
+.text .all span{
+	font-size: 0.4rem;
+	color: #386998;
+}
+.text .activityTime{
+	padding-left: 0.12rem;
+	font-size: 0.4rem;
+	background: #e3f2f9;
+	width: 5.95rem;
+	height: 0.91rem;
+	line-height: 0.91rem;
+}
+.text .activityTime span{
+	font-size: 0.4rem;
+	color: #386998;
+}
+
+
+.orgList .next{
+	width: 0.8rem;
+	height: 3.64rem;
+	position: absolute;
+	background: #99d8f6;
+	right: 0;
+	z-index: 10000;
+}
+.orgList .next img{
+	width: 0.69rem;
+	height: 0.68rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+
+.roll{
+    background: white;
+    margin-bottom: 0.02rem;
+}
+.roll >h3{
+    font-size: 0.2669rem;
+    color: #959696;
+    font-weight: normal;
+    text-align: center;
+    height: 1.12rem;
+    line-height: 1.12rem;
+}
+.roll >h3 strong{
+    font-size: 0.468rem;
+    color: #386998;
+    font-weight: normal;
+}
+.rollList{
+    overflow: hidden;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    background: white;
+    margin-bottom: 0.2rem;
+}
+.rollList img{
+    width: 0.52rem;
+    height: 0.51rem;
+    float: left;
+    margin: 0.3rem 0.25rem 0 0.37rem;
+}
+.rollList ul{
+    float: left;
+    width: 10.13rem;
+}
+.rollList ul li{
+    font-size: 0.4rem;
+}
+.people{
+    margin-bottom: 0.06rem;
+}
+.people ul{
+    overflow: hidden;
+}
+.orgLists ul li{
+    display: flex;
+    flex-flow: row;
+    background: white;
+    height: 4.33rem;
+    margin-bottom: 0.15rem;
+}
+.orgLists .img{
+    width: 4.12rem;
+    height: 3.37rem;
+    position: relative;
+    margin: 0.47rem 0.16rem 0 0.36rem;
+
+}
+.orgLists .img img{
+    width: 100%;
+    height: 100%;
+}
+.orgLists .img .type{
+    height: 0.6rem;
+    line-height: 0.6rem;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.orgLists .img .type span{
+    height: 0.43rem;
+    line-height: 0.43rem;
+    font-size: 0.2593rem;
+    padding: 0 0.1rem;
+    color: white;
+    display: inline-block;
+    margin-right: 0.13rem;
+    border-radius: 0.1rem;
+}
+.orgLists .img .type span:first-child{
+    background-color: #ffc62d;
+    margin-left: 0.23rem;
+}
+.orgLists .img .type span:nth-child(2){
+    background-color: #e0656b;
+}
+.orgLists .img .type span:nth-child(3){
+    background-color: #62b7e3;
+    margin-right: 0;
+}
+.orgLists .text{
+    flex: 3;
+    margin-top: 0.47rem;
+}
+.orgLists .text h3{
+    font-size: 0.42rem;
+    line-height: 0.73rem;
+    height: 0.73rem;
+    color: #386998;
+    border-bottom:0.02rem solid #d5d5d5;
+    width: 95%;
+    padding-left: 0;
+}
+.orgLists .text .work{
+    height: 0.86rem;
+    line-height: 0.86rem;
+    overflow: hidden;
+    border-bottom:0.02rem solid #d5d5d5;
+    width: 95%;
+}
+.orgLists .text .workNum{
+    float: left;
+}
+.orgLists .workNum span{
+    font-size: 0.4rem;
+}
+.orgLists .text .workNum strong{
+    font-weight: normal;
+    color: #386998;
+    font-size: 0.4rem;
+}
+.orgLists .text .heat{
+    float: left;
+    font-size: 0.4rem;
+    margin-left: 0.3rem;
+}
+.orgLists .text .heat span{
+    font-size: 0.4rem;
+    float: left;
+    margin-right: 0.1rem;
+}
+.orgLists .text .heat img{
+    width: 0.4rem;
+    height: 0.38rem;
+    display: inline-block;
+    margin-top: 0.22rem;
+}
+.orgLists .text .date span{
+    font-size: 0.4rem;
+    height: 0.86rem;
+    line-height: 0.86rem;
+}
+.orgLists .text .date .dateTime{
+    color: #386998;
+}
+.orgLists .text>a{
+    float: right;
+    height: 0.8rem;
+    width: 3rem;
+    text-align: center;
+    line-height: 0.8rem;
+    background: #db6066;
+    color: white;
+    font-size: 0.4rem;
+    display: inline-block;
+    margin-right: 0.4rem;
+    border-radius: 0.1rem;
+}
+ /*头部部分*/
+.pagination .swiper-pagination-clickable{
+    width: 100%;
+    text-align: center;
+}
+
+.swiper-pagination-bullet{
+    margin:0 0.2rem;
+}
+.swiper-pagination-bullet-active{
+    background: #386998;
+}
+.pagination1{
+    z-index: 100000;
+    position: absolute;
+    margin-top: -0.6rem;
+}
+.pagination1 .swiper-pagination-bullet{
+    background:white;
+    opacity: 1;
+}
+.pagination1 .swiper-pagination-bullet-active{
+    background:#ffce55!important;
+}
+.pagination2{
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}

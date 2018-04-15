@@ -1,0 +1,407 @@
+<include file="Common:header"/>
+<style type="text/css">
+	@media screen and (max-width: 1100px)
+.layui-layer-iframe {
+	overflow-y: none!important;
+}
+.layui-layer-title{
+    font-family: "微软雅黑";
+    background-color: #386998 !important;
+    color: #fff !important;
+    font-weight:bold !important;
+    font-size: 3vh !important;
+    height:5vh;
+    line-height: 6vh;
+    /*border-bottom: 2px solid #386998 !important;*/
+    margin-bottom: -4px;
+    padding-left: 100px;
+    background: url(../../../../Public/images/redPacket.png) no-repeat 24px 10px;
+    background-size: 40px 50px;
+}
+.layui-layer-ico{
+    color: #fff !important;
+}
+#tools-idx{
+    background: #f1f1f1!important;
+}
+.layui-layer-setwin a {
+	position: relative!important;
+	width: 40px!important;
+	height: 40px!important;
+	margin-left: 10px!important;
+	font-size: 12px!important;
+	overflow: hidden!important;	
+	background: url(../../../../Public/images/closeButton.png)!important;
+	background-size: 40px 40px!important;
+}
+.ty-user-menu{
+    background: #f1f1f1;
+}
+.ty-user-menu .panel{
+    margin-bottom: 0.2rem!important;
+    padding-bottom: 1.25rem!important;
+}
+.ty-user-menu .item{
+    margin-bottom: 0.35rem!important;
+}
+.ty-user-menu .border{
+    border-top: none!important;
+}
+.ty-user-menu .item-order{
+    padding: 0.2rem 1rem;
+}
+.ty-user-menu .task{
+    padding: 0.2rem 1rem;
+    margin-bottom: 0.02rem!important;
+}
+.exp-task li{
+    background: white;
+}
+.ty-user-menu .love{
+    margin-top: 0.2rem;
+    padding: 0.2rem 1rem;
+    margin-bottom: 0.02rem!important;
+}
+.yp-love-rec{
+    background: white
+}
+.yp-love-rec .yp-love{
+    padding: 0.5rem;
+    margin-bottom: 0.2rem!important;
+}
+.ty-user-menu .youpei{
+    padding: 0.2rem 1rem;
+    margin-bottom: 0.3rem!important;
+}
+.ty-user-menu .panel{
+    border-top: none!important;
+}
+</style>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/idangerous.swiper.css">
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+
+        </div>
+    </div>
+     <div class="ty-page user-area">
+        <if condition="$object neq '' and $object['is_show'] eq 0">
+            <div class="ty-user-cover" data-kap-bg=""
+                 style="background:url(/{$object.image}); background-size:100% 100%">
+                <else/>
+                <div class="ty-user-cover" data-kap-bg=""
+                     style="background:url(/Public/images/bg.jpg); background-size:100% 100%">
+        </if>
+        <div class="yp-user-left">
+            <span class="avatar"><div class="jgqrcode"><img src="{$user['headimgurl']}"></div></span>
+          <!--   <span class="avatar2"><img src="{:U('Qrcode/getUserMsg',array('user_id' => $user['id']))}"></span> -->
+            <span class="title">{$user['username']}</span>
+        </div>
+        <div class="yp-userqr-right">
+            <span class="avatar"><div class="tipimg"><img src="/Public/images/618348288222690487.jpg"></div></span>
+            <span class="title">关注优培圈</span>
+        </div>
+    </div>
+    <div class="ty-user-data">
+        <ul class="pocket">
+            <li class="current"><b>{$user['integral']}</b><span>积分</span></li>
+            <li><b>￥{$user['money']|default = 0}</b><span>钱包</span></li>
+            <li><b>{$coupon_count}</b><span>电子券</span></li>
+            <li><b>{$friend_count}</b><span>学友团</span></li>
+        </ul>
+        <div class="exp-banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <ul class="integral">
+                            <li><b>共获得</b><span id="getIntegral">{$totalGetIntegral|default = 0}积分</span></li>
+                            <li><b>已使用</b><span>{$totalUseIntegral|default = 0}积分</span>
+                                <label class="tip jf" data-icon-after="">
+                                <a href="javascript:void(0)" onclick="red('{$user.id}')">兑换红包</a>
+                                </label>
+                            </li>
+                            <li>
+                                <b>还剩余</b><span id="nowIntegral">{$user['integral']|default = 0}积分</span>
+                                <label class="tip" data-icon-after="Ĩ"><a href="{:U('MemberIntegral/integrallist')}">更多详细</a></label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <ul class="wallet">
+                            <li>
+                                <p class="recharge"></p>
+                                <span>充值</span>
+                            </li>
+                            <li>
+                                <p class="withdrawals"></p>
+                                <span>提现</span><br/>
+                                <label>余额：0元</label>
+                            </li>
+                            <li>
+                                <p class="historical"></p>
+                                <span>历史记录</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <ul class="voucher">
+                            <li><a class="" href="javascript:void(0);"><img src="/Public/images/1496307283.png" alt=""></a>
+                            </li>
+                            <li><a class="" href="javascript:void(0);"><img src="/Public/images/1496307693.png" alt=""></a>
+                            </li>
+                            <li><a class="" href="javascript:void(0);"><img src="/Public/images/1496307316.png" alt=""></a>
+                            </li>
+                            <!--  <label  class="tip" data-icon-after="Ĩ">更多详细</label> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ty-user-menu">
+        <div class="item item-order border" data-icon="ɐ"><label>我的订单</label><span class="tip" data-icon-after="Ĩ"><a
+                href="{:U('Orders/allOrders')}">全部订单</a></span></div>
+        <div class="panel">
+            <a href="{:U('Orders/queryPayByPage')}"><span class="btn" data-icon="Ĥ"><label>待付款<br/>({$needPayCount})个</label></span></a>
+            <a href="{:U('Orders/queryDeliveryByPage')}"><span class="btn" data-icon="Ģ"><label>已付款</label></span></a>
+            <a href="{:U('Orders/queryDeliveryByPage')}"><span class="btn" data-icon="İ"><label>待评价</label></span></a>
+            <a href="{:U('Orders/queryCancelOrders')}"><span class="btn" data-icon="ɡ"><label>取消/退款</label></span></a>
+        </div>
+        <div class="item task border" data-icon="ŕ"><label>每天做任务</label>
+            <!--<span class="tip" data-icon-after="Ĩ">全部任务</span>--></div>
+        <div class="exp-task">
+            <ul>
+                <li>
+                    <div class="high">
+                        <div class="tasks">
+                            <span>签到</span>
+                            <label>+{$taskIntegral['task_sign_integral'] |default=0} 积分</label>
+                        </div>
+                        <div class="schedule" id="signin">
+                            <if condition='$isSign eq 0'>
+                                <span>未完成</span>
+                                <div class="do-tasks" onclick="signin()">做任务</div>
+                                <else/>
+                                <span>已完成</span>
+                                <span data-icon="&#x174;"></span>
+                            </if>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="high">
+                        <div class="tasks">
+                             <span>转发文章</span>
+                            <label>+{$taskIntegral['task_share_integral'] |default=0} 积分</label>
+                        </div>
+                        <div class="schedule">
+                            <if condition="$isShare eq 1">
+                                <span>已完成</span>
+                                <span data-icon="&#x174;"></span>
+                                <else/>
+                                <span>未完成</span>
+                                <div class="do-tasks" onclick="today_share()">做任务</div>
+                            </if>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="high">
+                        <div class="tasks">
+                            <span>阅读3篇文章</span>
+                            <label>+{$taskIntegral['task_read_integral'] |default=0} 积分</label>
+                        </div>
+                        <div class="schedule">
+                            <if condition="$todayReadCount egt 3">
+                                <span>已完成</span>
+                                <span data-icon="&#x174;"></span>
+                                <else/>
+                                <span>未完成</span>
+                                <div class="do-tasks" onclick="today_share()">做任务</div>
+                            </if>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="high">
+                        <div class="tasks">
+                            <span>发表1次评论</span>
+                            <label>+{$taskIntegral['task_comment_integral'] |default=0} 积分</label>
+                        </div>
+                        <div class="schedule">
+                            <if condition="$isTodayComment eq 1">
+                                <span>已完成</span>
+                                <span data-icon="&#x174;"></span>
+                                <else/>
+                                <span>未完成</span>
+                                <div class="do-tasks" onclick="today_share()">做任务</div>
+                            </if>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="high">
+                        <div class="tasks">
+                            <span>发展1个学友</span>
+                            <label>+{$taskIntegral['task_schoolmate_integral'] |default=0} 积分</label>
+                        </div>
+                        <div class="schedule">
+                            <if condition="$isTodayInvite eq 1">
+                                <span>已完成</span>
+                                <span data-icon="&#x174;"></span>
+                                <else/>
+                                <span>未完成</span>
+                                <div class="do-tasks">做任务</div>
+                            </if>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="hotel-cat"></div> -->
+        <div class="item love border"><i class="loveiocn">&nbsp;</i><label>爱心捐赠</label>
+            <!--<span class="tip" data-icon-after="Ĩ">查看更多</span>-->
+        </div>
+
+        <div class="yp-love-rec">
+            <ul class="yp-love">
+                <li><a class="" href="javascript:void(0);" onclick="hint()"><img src="/Public/images/1496288306.png" alt=""></a></li>
+                <li><a class="" href="javascript:void(0);" onclick="hint()"><img src="/Public/images/1496288270.png" alt=""></a></li>
+                <li><a class="" href="javascript:void(0);" onclick="hint()"><img src="/Public/images/1496288289.png" alt=""></a></li>
+            </ul>
+        </div>
+
+        <div class="item youpei border"><i class="youpeiiocn">&nbsp;</i><label>我的优培</label></div>
+        <div class="panel">
+            <span class="btn footprint" onclick="hint()">足迹</span>
+            <a href="{:U('Collect/index')}" class="btn follow">收藏</a>
+            <a href="{:U('Message/index')}" class="btn msg ">消息 <if condition="$sum eq 0"><else/><span class="item-new">{$sum}</span></if></a>
+            <span class="btn profile" onclick="hint()">我的</span>
+        </div>
+        <div class="ty-qrcode-area" style="display: none"><span class="qrcode"><img src="/Public/images/618348288222690487.jpg" alt="" width="200" height="200">请长按二维码关注</span></div>
+
+        <div class="ty-qrcode-jg" style="display: none"><span class="qrcode"><img src="{:U('Qrcode/getUserMsg',array('user_id' => $user['id']))}">机构扫码</span></div>
+
+        <div style="text-align:center; width:100%; line-height:4rem; clear:both; color:#999; font-size:75%;background: white;"><a
+                style="color:#999; text-decoration:none" href="#">粤ICP备17008351号</a></div>
+    </div>
+</div>
+</div>
+<include file="Common:menu"/>
+</div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        var mySwiper = new Swiper('.swiper-container', {
+            speed: 500,
+            onSlideChangeStart: function () {
+                $(".pocket li").removeClass('current')
+                $(".pocket li").eq(mySwiper.activeIndex).addClass('current')
+            }
+        })
+
+        $(".pocket li").on('touchstart mousedown', function (e) {
+            e.preventDefault()
+            $(".pocket .current").removeClass('current')
+            $(this).addClass('current')
+            mySwiper.swipeTo($(this).index())
+            var url = "{:U('Friends/index')}";
+            if ($(this).index() == 3) {
+                window.location.href = url;
+            }
+        })
+       $(".pocket li").click(function(e){
+    e.preventDefault()
+  })
+    })
+
+    function stopPropagation(e) {
+if (e.stopPropagation)
+e.stopPropagation();
+else
+e.cancelBubble = true;
+} 
+
+ $('.tipimg').click(function(){
+   $(".ty-qrcode-area").css("display","block");
+ 
+ })
+
+$(document).bind('click',function(){
+$('.ty-qrcode-area').css('display','none');
+});
+
+$('.tipimg').bind('click',function(e){
+stopPropagation(e);
+}); 
+
+$('.jgqrcode').click(function(){
+   $(".ty-qrcode-jg").css("display","block");
+ 
+ })
+
+$(document).bind('click',function(){
+$('.ty-qrcode-jg').css('display','none');
+});
+
+$('.jgqrcode').bind('click',function(e){
+stopPropagation(e);
+}); 
+
+
+$(document).click(function(event){
+event.stopPropagation();
+});
+
+    function red(id) {
+        layer.open({
+            type: 2,
+            title: '积分兑红包',
+            shadeClose: false,
+            shade: 0.8,
+            area: ['80%', '60%'],
+            content: ["{:U('Personal/red',array('id'=>'" + id + "'))}", 'no'] //iframe的url
+//            content:"<section></section>"
+        });
+    }
+
+    function today_signin() {
+        var url = "{:U('Personal/today_signin')}";
+        $.post(url, function (res) {
+            if (res.status == 1) {
+                alert(res.msg);
+                var html = '';
+                html += '<div class="schedule" id="signin">';
+                html += '<span>已完成</span>';
+                html += '<span data-icon="&#x174;"></span>';
+                html += '<div>';
+                $("#signin").replaceWith(html);
+                $("#nowIntegral").append(" +" + res.data['addIntegral']);
+                $("#getIntegral").append(" +" + res.data['addIntegral'])
+            } else {
+                alert(res.msg);
+            }
+        })
+    }
+
+    function signin(){
+        window.location.href = "{:U('Sign/index')}";
+    }
+
+    function today_share() {
+        window.location.href = "{:U('Article/index')}";
+    }
+</script>
+<include file="Common:footer"/>
+
+
+
+
+</body>
+</html>

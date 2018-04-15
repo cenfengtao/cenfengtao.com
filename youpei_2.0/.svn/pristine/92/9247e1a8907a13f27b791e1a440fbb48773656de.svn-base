@@ -1,0 +1,22 @@
+.ty-sc-h{
+  margin:0 auto;
+  width:95%;
+}
+.ty-rec-view.ty-sc-h > *{
+  width: auto;
+  border: none;
+  border-radius: .25rem;
+  margin-right: .95rem;
+  line-height:1rem;
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  font-weight:bold;
+}
+.list-rec .item .ty-rec-view{
+  padding: 0rem;
+  //margin-left: 1rem;
+}
+.list-rec .item .ty-rec-view .on{
+  border: solid 3px #f56b85;
+  color:#f56b85;
+}

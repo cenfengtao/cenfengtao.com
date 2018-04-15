@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <!-- 向下滑动加载的图片样式，需放在外链的第一位 -->
+        <link rel="stylesheet" href="http://www.youpei-exc.com/Public/Home/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloadered.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/demo.css"/>
+        <style>
+            select{
+                border:none;
+                -webkit-appearance:none;
+                font-size: 0.45rem;
+                appearance:none;
+                height: 1.44rem;
+                text-align: center;
+                width: 1.5rem;
+                position: absolute;
+                right: 0;
+                top: 0;
+                pointer-events: auto;
+            }
+            select option{
+                height: 1rem;
+                line-height: 1rem!important;
+                text-align: center;
+                font-size: 0.42rem;
+                margin: 0 auto;
+            }
+        </style>
+        <!-- 判断是IE时执行 -->
+        <script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>    
+    </head>
+    <body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+           <a href="/index.php/Company/introduce/token/g232238gc959">
+               <img src="../../../../Public/images/indexLogo.png" alt="">
+           </a>
+           <div class="search" onclick="window.location.href='/index.php/Index/search'">
+               <input type="text" placeholder="搜索精彩内容" onfocus="this.blur()">
+               <img src="../../../../Public/images/indexSearch.png" alt="">
+           </div>
+            <div class="area">
+                <span><img src="../../../../Public/images/or.png" alt=""></span>
+                <select name="area" id="">
+                    <option value="0" selected>全部</option>
+                    <option value="1" >广州</option>
+                </select>
+                <!-- <span>广州</span> -->
+            </div>
+        </header>
+        <article class="middle">
+            <section class="banner">
+                <div class="bd">
+                    <ul class="imgLi">
+                        <li><a href=""><img src="../../../../Public/images/scheduleImg.jpg" alt=""></a></li>
+                        <li><a href=""><img src="../../../../Public/images/school_product1.png" alt=""></a></li>
+                        <li><a href=""><img src="../../../../Public/images/scheduleImg.jpg" alt=""></a></li>
+                    </ul>
+                </div>
+                <div class="hd">
+                    <ul class="hdList">
+                        <li class="on"></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="nav">
+                <ul class="navList">
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>亲子</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>团购</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>投票</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>机构</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>签到</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>地图</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>玩转2.0</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>优培砍价</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>商城</span></a></li>
+                    <li><a href=""><img src="../../../../Public/images/number.png" alt=""><span>抽奖</span></a></li>
+                </ul>
+            </section>
+            <section class="limit">
+                <div class="limitHead">
+                    <div class="text">
+                        <img src="../../../../Public/images/indexTime.png" alt="">
+                        <span>限时抢购</span>
+                    </div>
+                    <div class="time">
+                        <img src="../../../../Public/images/indexFilter.png" alt="">
+                        <span>还剩下1天 18:47:47</span>
+                    </div>
+                </div>
+                <div class="limitContent">
+                    <div class="img">
+                        <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                        <div class="tap">
+                            <span>抢购</span>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <h3>史太姆积木精选</h3>
+                        <div class="type">
+                            <span>32课时</span>
+                            <span>动手能力</span>
+                        </div>
+                        <p class="add">
+                            <img src="../../../../Public/images/indexAddr.png" alt="">
+                            <span>广州海珠区燕岗</span>
+                        </p>
+                        <p class="price">
+                            <span class="originalPrice">原价:￥4880</span>
+                            <span class="limitPrice">抢购价：<span class="moneySign">￥</span><strong>4780</strong></span>
+                        </p>
+                    </div>
+            </section>
+                </div>
+            <section class="goods">
+                <h3>——/ <strong>精</strong> / <strong>品</strong> /——</h3>
+                <div class="goodsNav">
+                    <ul>
+                        <li>
+                            <div class="stationery">
+                                <span class="on"></span>
+                                <a href="###">文具</a>
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <div class="toy">
+                                <span></span>
+                                <a href="###">玩具</a>
+                            </div>    
+                        </li>
+                        <li>
+                            <div class="living">
+                                <span></span>
+                                <a href="###">用品</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="goodsList">
+                    <ul>
+                        <li>
+                            <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                            <h3>迷宫</h3>
+                            <div class="type">
+                                <span>益智</span>
+                                <span>动手能力</span>
+                            </div>
+                            <span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>209</strong></span>
+                        </li>
+                        <li>
+                            <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                            <h3>迷宫</h3>
+                            <div class="type">
+                                <span>益智</span>
+                                <span>动手能力</span>
+                            </div>
+                            <span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>209</strong></span>
+                        </li>
+                        <li>
+                            <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                            <h3>迷宫</h3>
+                            <div class="type">
+                                <span>益智</span>
+                                <span>动手能力</span>
+                            </div>
+                            <span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>209</strong></span>
+                        </li>
+                        <li>
+                            <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                            <h3>迷宫</h3>
+                            <div class="type">
+                                <span>益智</span>
+                                <span>动手能力</span>
+                            </div>
+                            <span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>209</strong></span>
+                        </li>
+                        <li>
+                            <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                            <h3>迷宫</h3>
+                            <div class="type">
+                                <span>益智</span>
+                                <span>动手能力</span>
+                            </div>
+                            <span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>209</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="course">
+                <h3>——/ <strong>精</strong> / <strong>品</strong> / <strong>课</strong> / <strong>程</strong> /——</h3>
+                <div class="advert">
+                    <img src="../../../../Public/images/titleBackground.jpg" alt="">
+                </div>
+                <div class="courseContent">
+                    <div class="img">
+                        <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                        <div class="tap">
+                            <img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">
+                            <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                        </div>
+                        <div class="type">
+                            <span>48课时</span>
+                            <span>名师</span>
+                            <span>气质</span>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <h3>优培钢琴48课时</h3>
+                        <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                        <p class="originalPrice">原价：2288元/人</p>
+                        <p class="try">
+                            <a href="###">直接购买</a>
+                            <a href="###">预约试听</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="classify">
+                <h3>——/ <strong>拼</strong> / <strong>团</strong> / <strong>上</strong> / <strong>课</strong> /——</h3>
+                <div class="classifyNav">
+                    <ul>
+                        <li class="on"><a href="">全部</a></li>
+                        <li><a href="">美术</a></li>
+                        <li><a href="">舞蹈</a></li>
+                        <li><a href="">语言</a></li>
+                        <li><a href="">书法</a></li>
+                        <li><a href="">武术</a></li>
+                        <li><a href="">体育</a></li>
+                        <li><a href="">音乐</a></li>
+                        <li><a href="">积木</a></li>
+                        <li><a href="">其他</a></li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="article">
+                        <div class="articleTap">
+                            <span>热文</span>
+                        </div>
+                        <div class="left">
+                            <h3>[优培·积木]</h3>
+                            <p>教你如何跟宝宝拼好积木</p>
+                            <div class="type">
+                                <div class="comment">
+                                    <img src="../../../../Public/images/comment.png" alt="">
+                                    <span> 评论 (65) | </span>
+                                </div>
+                                <div class="collect">
+                                    <img src="../../../../Public/images/collect.png" alt="">
+                                    <span>收藏 (65) | </span>
+                                </div>
+                                <div class="send">
+                                    <img src="../../../../Public/images/send.png" alt="">
+                                    <span>转发 (65)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <ul>
+                            <li><a href="">综合排名</a></li>
+                            <li><a href="">最近</a></li>
+                            <li><a href="">人气</a></li>
+                            <li><a href="">销量</a></li>
+                            <li><a href="">信用</a></li>
+                        </ul>
+                        <span class="price">价格<img src="../../../../Public/images/priceIcon.png" alt=""></span>
+                        <span class="hr">|</span>
+                        <input type="text" value="￥">
+                        <span>~</span>
+                        <input type="text" value="￥">
+                        <a href="">确定</a>
+                    </div>
+                    <div class="courseList">
+                        <ul>
+                            <li>
+                                <div class="img">
+                                    <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                    <div class="tap">
+                                        <img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">
+                                        <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                                    </div>
+                                    <div class="type">
+                                        <span>48课时</span>
+                                        <span>名师</span>
+                                        <span>气质</span>
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <div class="time">
+                                        <img src="../../../../Public/images/indexFilter.png" alt="">
+                                        <span>还剩下1天 18:47:47</span>
+                                    </div>
+                                    <h3>优培积木3课时</h3>
+                                    <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                    <p class="originalPrice">原价：2288元/人</p>
+                                    <a href="">去拼团</a>
+                                    <div class="groupNum">
+                                        <span class="finished">已拼团人数 : (6/10)</span>
+                                        <div class="bar"><span></span></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <footer class="footer">
+            <div></div>
+            <ul class="icon">
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Index/index.html">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Discovery/index',array('current'=>'2'))}">
+                        <img src="__PUBLIC__/image/footer_icon2.png"/>
+                        <span>发现</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Association/index/current/3.html">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>社群</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Personal/index',array('current'=>'4'))}">
+                        <img src="__PUBLIC__/image/footer_icon4.png"/>
+                        <span>个人中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/jquery.touchSwipe.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/font.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/layer/layer.js"></script>
+        <script src="__PUBLIC__/js/home/demo.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        	$(function(){
+        		$(".goodsNav a").click(function(){
+        			$(this).prev().addClass("on").show().parent().parent().siblings().find("span").removeClass("on").hide()
+        			var background=$(this).css("background-color");
+        			$(".goodsList").css("background-color",background)
+        		})
+        	})
+        	$(function(){
+            var winW=$(window).width();
+            $(winW).resize(function(){
+                location.reload()
+            })
+            $(window).resize(function(){
+                location.reload()
+            })
+            //获取小圆点的集合
+            var  circleList =  $(".hd ul>li");
+            //获取banner图集合
+            var bannerList = $(".bd ul li");
+            var len=circleList.length;
+            //左右箭头切换标记
+            var circleTag = 0;
+            var liLen=bannerList.length;
+            //自动轮播标记
+            var autoTag = 0;
+            $(".bd ul").css({"width":winW*liLen+"px"});
+            $(".bd li").width(winW);
+            //小圆点切换banner图
+            circleList.each(function(i){
+                //为每一个小圆点绑定mouseover事件
+                $(this).click(function(){
+                    clearlunbo();
+                    //鼠标移动到哪个圆点上，为该圆点增加active样式
+                    circleList.eq(i).addClass("on");
+                    //其他圆点取消active样式
+                    circleList.not(circleList.eq(i)).removeClass("on");
+                    //切换对应的banner图
+                    bannerList.eq(i).show();
+                    bannerList.not(bannerList.eq(i)).hide();
+
+                    circleTag = i;
+                    autoTag = i;
+                })
+
+            })
+            //左箭头切换上一张
+            function prev(){
+
+                circleTag--;
+                // console.log(circleTag)
+                if(circleTag<0){
+                    circleTag =len-1;
+                }
+                circleList.eq(circleTag).trigger("click");
+            }
+
+            //右箭头切换下一张
+            function next(){
+                circleTag++;
+                //当下一页为最后一页时，则重置索引值，显示第一页
+                if(circleTag>len-1){
+                    circleTag =0;
+                }
+                circleList.eq(circleTag).trigger("click");
+            }
+            $(".bd ul li").swipe({
+                swipeLeft: function(){
+                    next();
+//          clearlunbo();
+                },
+                swipeRight: function(){
+                    prev();
+//          clearlunbo();
+                },
+            })
+
+            //自动轮播
+            var autoTag=0;
+//          var bool=true;
+            var downtime =  setInterval(action,3000);//每隔一秒调用action函数
+            //执行自动轮播的函数
+            function action(){
+                autoTag++;
+                //如果已经是最后一页了，则重置为第一页
+                if(autoTag>len-1){
+                    autoTag = 0;
+                }
+                circleList.eq(autoTag).trigger("click")
+            }
+            function clearlunbo(){
+                clearInterval(downtime);
+                setTimeout(function(){
+                    downtime=setInterval(action,3000)
+                },1)
+            }
+        })
+        // $.ajax({
+        //     type: "get",
+        //     url: "/index.php/Index/indexTest",
+        //     aysnc: true,
+        //     dataType: "json",
+        //     success: function (data) {
+        //         //遍历循环homec数据
+        //     var homec = $(".navList");
+        //     var c = data.data.Homec;
+        //     for (i in c) {
+        //         homec.append('<li><a href="'+c[i].url+'"><img src="'+c[i].image+'" alt=""><span>'+c[i].title+'</span></a></li>')
+                
+        //         }
+        //     }
+        // })
+        </script>
+    </body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

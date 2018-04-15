@@ -1,0 +1,26 @@
+<include file="Common:header"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/association.css"/>
+<style>
+</style>
+<!-- 菜单 开始 -->
+<div class="kap-top ty-menu-top">
+    <div class="kap-top ty-menu-top">
+        <div id="tools-msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+        </div>
+    </div>
+</div>
+
+
+<!--start-->
+<!--end-->
+
+<script>
+
+</script>
+<!--<script src="__PUBLIC__/js/home/association.js" type="text/javascript" charset="utf-8"></script>-->
+<!--tailTrap<body></body><head></head><html></html>-->
+</div>
+<include file="Common:footer"/>

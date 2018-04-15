@@ -1,0 +1,143 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link href="__PUBLIC__/css/admin/page.css" rel="stylesheet">
+<style>
+    #datatable_paginate{display: none;}
+    #datatable_info{display:none;}
+    .pagination ul a{color:#008DE7}
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>社群列表</h2>
+                            <a href="{:U('Association/addConsult')}" class="btn btn-success add_button btn_access" access_id="273">添加咨询群</a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                            <li role="presentation" class=" btn_access" access_id="268"><a href="{:U('Association/index')}">社群列表</a>
+                            </li>
+                            <li role="presentation" class="active btn_access" access_id="272"><a href="{:U('Association/consult')}">咨询群</a>
+                        </ul>
+                        <div class="x_content">
+                            <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                         aria-labelledby="home-tab">
+                                        <div class="table-responsive">
+                                            <table id="datatable"
+                                                   class="table table-striped jambo_table table-bordered">
+                                                <thead>
+                                                <tr class="headings">
+                                                    <th class="column-title">标题</th>
+                                                    <th class="column-title">创建时间</th>
+                                                    <th class="column-title">机构</th>
+                                                    <th class="column-title">图片</th>
+                                                    <th class="column-title">二维码</th>
+                                                    <th class="column-title">分类</th>
+                                                    <th class="column-title no-link last"><span class="nobr">操作</span></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <foreach name="list" item="val">
+                                                    <tr class="even pointer">
+                                                        <td>{$val['title']}</td>
+                                                        <td>{$val['create_time']|date="Y-m-d H:i:s",###}</td>
+                                                        <td>{$val['org_name']}</td>
+                                                        <td><img src="{$val['pic_url']}" style="width:130px;height:100px" alt=""></td>
+                                                        <td><img src="{$val['qr_code']}" style="width:100px;height:100px" alt=""></td>
+                                                        <td>{$val['cate_name']}</td>
+                                                        <td class="last">
+                                                            <a href="{:U('Association/editAssociation',array('id'=>$val['id']))}"
+                                                               class="btn btn-info btn-xs btn_access" access_id="270">修改</a>
+                                                            <a href="javascript:void(0)" attr_message="确认取消该咨询群？"  attr_id="{$val['id']}"
+                                                               class="cancel_hot btn btn-danger btn-xs btn_access" access_id="274">取消</a>
+                                                        </td>
+                                                    </tr>
+                                                </foreach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- self -->
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("Association/delete")}'
+    };
+    $('.cancel_hot').click(function () {
+        var id = $(this).attr('attr_id');
+        var message = $(this).attr('attr_message');
+        var url = "{:U('Association/cancel')}";
+        layer.open({
+            type: 0,
+            title: '确认信息',
+            btn: ['确认', '取消'],
+            icon: 3,
+            closeBtn: 2,
+            content: message,
+            yes: function () {
+                cancel(url, {'id': id});
+            }
+        });
+    });
+    function cancel(url, data) {
+        $.post(url, data, function (result) {
+            if (result.status == 1) {
+                return dialog.success(result.message, '');
+            } else {
+                return dialog.error(result.message);
+            }
+        }, 'JSON');
+    }
+</script>
+</body>
+</html>

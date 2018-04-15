@@ -1,0 +1,455 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/qiangou.css">
+<style>
+    .bor{
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    .loc{
+        color: #757575!important;
+        font-size: 0.85rem!important;
+        font-weight:bold ;
+    }
+    .iconfont, [data-icon]:before{
+        font-size:0.85rem!important;
+    }
+    .swiper-slide .rig .labels span{
+        width: auto;
+    }
+    .gps{
+        font-size: 1rem;
+    }
+</style>
+<!-- 菜单 开始 -->
+<div class="kap-top ty-menu-top">
+    <div class="ty-announce" id="ty_announce_top" style="display:none;" data-ty-page="" data-ty-args="">
+        <div class="content"></div>
+        <span data-icon="ă" class="btn-close"></span>
+    </div>
+    <div id="tools_loading" class="ty-tools ty-tools-loading">
+        <a href="javascript:void(0);" class="btn btn-back-loading" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_hot" class="ty-tools ty-tools-hot ty-tools-current" data-ty-autohide="false">
+        <span class="title" data-icon=""><a href="/index.php/Company/introduce/token/g232238gc959"><img src='__PUBLIC__/images/5886c9b0d0eac.jpg' width="26%" height=""></a></span>
+        <div class="ty-tools-search">
+            <div class="input-jump" data-ty-target="#page_search"
+                 onclick="window.location.href='/index.php/Index/search'">搜索精彩内容...
+                <!--onclick="_hmt.push(['_trackEvent', 'topbar', 'click', '首页搜索']);">搜索精彩内容...-->
+            </div>
+            <i data-icon="Đ"></i>
+        </div>
+        <div class="ty-tools-cityswitch">
+            <select id="sel_city_switch" data-kap-skin="sel-city-switch" data-icon-blue="Ė"
+                    style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">
+                <option value="1">广州</option>
+                <option value="2">深圳</option>
+                <option value="0" selected="">全部</option>
+            </select>
+        </div>
+    </div>
+    <div id="tools_search" class="ty-tools ty-search-bar" data-ty-autohide="false">
+        <a href="javascript:void(0);" class="btn-home" title="首页" data-icon="ɒ"></a>
+        <div class="ty-tools-search">
+            <form id="page_hot_search">
+                <div class="ty-tools-typeswitch">
+                    <div data-kap="_kap_1" class="kap-input sel-type-switch" style="position: relative;"><select
+                            data-kap-skin="sel-type-switch" data-icon="Ė" id="sel_type_switch"
+                            style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">
+                        <option value="1">活动</option>
+                        <option value="2">达人</option>
+                    </select><span data-icon="Ė" class="kap-input-value">活动</span></div>
+                </div>
+                <input class="input" id="page_hot_keyword" placeholder="搜索活动、达人..." type="search"></form>
+            <i data-icon="Đ"></i>
+        </div>
+        <div class="btn-search">搜索</div>
+    </div>
+</div>
+<div id="page_hot" title="热推" class="kap-page kap-page-current" data-ty-tools="#tools_hot,#tools_idx,#side_common">
+    <div class="ty-page" data-ty-current="12" data-ty-total="377" data-filter-tags="" data-ty-seriesid="0"
+         data-ty-title="" data-ty-talents="" data-ty-pic="">
+        <div class="ty-banner">
+            <span class="ty-banner-prev-btn" data-icon="Ĩ" id="prev"></span>
+            <span class="ty-banner-next-btn" data-icon="Ĩ" id="next"></span>
+            <div class="banner-roll wst-slide" id="wst-slide">
+                <ul class="wst-slide-items imgList">
+                    <volist name="picture" id="vo" key='i'>
+                        <a class="" href="{$vo['url']}">
+                            <li style="" data-num="1"><img width="100%" height="100%" src="__ROOT__/{$vo['image']}"
+                                                           alt="puss in boots1"></li>
+                        </a>
+                    </volist>
+                </ul>
+            </div>
+            <div class="wst-slide-numbox">
+                <div class="wst-slide-controls banner-nav indexList">
+                    <volist name="picture" id="vo" key="k">
+                        <if condition="$k eq 1">
+                            <i class="indexOn"></i>
+                            <else/>
+                            <i class=""></i>
+                        </if>
+                    </volist>
+                </div>
+            </div>
+        </div>
+        <div class="headernav headernav2 change-headernav clr">
+            <ul class="list-tags clr">
+                <volist name="Homec" id="vo" key="k" offset="0" length="8">
+                    <li>
+                        <if condition="$vo['title'] eq '签到' "><a href="javascript:void(0)" onclick="signin()">
+                            <else/>
+                            <a href="{$vo['url']}">
+                        </if>
+                        <div class="ico"><img src="__ROOT__/{$vo['image']}" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>{$vo['title']}</span>
+                        </div>
+                        </a>
+                    </li>
+
+                </volist>
+            </ul>
+        </div>
+        <div class="limit-area on">
+            <div class="limit-head">
+                <span class="title" data-icon="⏰">今日限时抢购</span>
+                <!--<span class="more" data-icon-after="Ĩ" data-ty-target="#page_activity_tag">查看更多<i-->
+                <!--data-icon="ɑ"></i></span>-->
+            </div>
+            <div class="device">
+                <!--<a class="arrow-left" href="#"></a>-->
+                <!--<a class="arrow-right" href="#"></a>-->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <volist name="limitBuy" id="val" offset="0" length="4">
+                            <div class="swiper-slide" onclick="getProduct({$val['id']})">
+                                <img class="thumb" src="{$val['thumb_image']}">
+                                <div class="rig">
+                                    <!--<span class="status"></span>-->
+                                    <div class="triangle"><p class="text">折扣</p></div>
+                                    <div class="title">{$val['title']}</div>
+                                    <div class="labels">
+                                        <notempty name="val['tagA']"><span class="label1">{$val['tagA']}</span></notempty>
+                                        <notempty name="val['tagB']"><span class="label2">{$val['tagB']}</span></notempty>
+                                        <notempty name="val['tagC']"><span class="label3">{$val['tagC']}</span></notempty>
+                                    </div>
+                                    <div class="price">
+                                        <span class="original">原价:￥{:intval($val['original_price'])}</span>
+                                        <span class="current">抢购价:￥{:intval($val['rush_price'])}</span>
+                                    </div>
+                                </div>
+                                <div class="bot">
+                                    剩余时间 还剩<em class="endtime showtime" value="{$val['end_time']}"></em>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+        </div>
+        <ul class="list-rec">
+            <li class="item">
+                <div class="poster">
+                    <a href="{:U('Groups/index')}">
+                        <img src="__PUBLIC__/images/banner1.jpg" data-kap-lazy="__PUBLIC__/images/banner1.jpg"
+                             alt="" width="640" height="320">
+                    </a>
+                </div>
+                <!--<div class="ty-rec-view ty-sc-h">-->
+                <!--<a href="javascript:void(0);" class="item" data-ty-target="#detail_activity"-->
+                <!--data-ty-seriesid="7624"><img src="__PUBLIC__/images/_20170508105533_01.jpg"-->
+                <!--data-kap-lazy="__PUBLIC__/images/_20170508105533_01.jpg" alt="">-->
+                <!--<p class="name">优培家教</p>-->
+                <!--<p>团购更优惠</p><span class="price">5800</span></a>-->
+                <!--<a href="javascript:void(0);" class="item" data-ty-target="#detail_activity"-->
+                <!--data-ty-seriesid="7801"><img src="__PUBLIC__/images/_20170508105533_02.jpg"-->
+                <!--data-kap-lazy="__PUBLIC__/images/_20170508105533_02.jpg" alt="">-->
+                <!--<p class="name">户外活动</p>-->
+                <!--<p>团购更优惠</p><span class="price">7800</span></a>-->
+                <!--<a href="javascript:void(0);" class="item" data-ty-target="#detail_activity"-->
+                <!--data-ty-seriesid="8354"><img src="__PUBLIC__/images/_20170508105533_03.jpg"-->
+                <!--data-kap-lazy="__PUBLIC__/images/_20170508105533_03.jpg" alt="">-->
+                <!--<p class="name">智趣乐园</p>-->
+                <!--<p>团购更优惠</p><span class="price">2680</span></a>-->
+                <!--<a href="javascript:void(0);" class="item" data-ty-target="#detail_activity"-->
+                <!--data-ty-seriesid="7849"><img src="__PUBLIC__/images/_20170508105533_01.jpg"-->
+                <!--data-kap-lazy="__PUBLIC__/images/_20170508105533_01.jpg" alt="">-->
+                <!--<p>美娜多</p>-->
+                <!--<p>8天7夜</p><span class="price">12800</span></a>-->
+                <!--</div>-->
+            </li>
+        </ul>
+
+        <h2 class="ty-title red bor">课程精选</h2>
+        <div class="">
+            <foreach name="sifts" item="vo">
+                <a class="item" href="{:U('Product/productDetails')}?pro_id={$vo['id']}"><img style="width:31%;height:12vh;margin:0 1%;"
+                                                                                              src="{$vo['thumb_image']}" alt=""></a>
+            </foreach>
+        </div>
+        <h2 class="ty-title red">热门课程</h2>
+        <div class="ty-cat-tags">
+            <a href="javascript:;" onclick="getProductByType(0)"> <span
+                    class="tag link on" id="first_class" attr_id="0">热门</span></a>
+            <volist name="Homep" id="vo" key='i' empty='暂无添加分类'>
+                <a href="javascript:;" onclick="getProductByType({$vo['id']})"> <span
+                        class="tag link" attr_id="{$vo['id']}">{$vo['title']}</span></a>
+
+            </volist>
+            <!-- <span class="show-all off" data-icon="Ė">展开</span> -->
+        </div>
+        <ul class="list-card">
+
+        </ul>
+
+    </div>
+</div>
+<include file="Common:menu"/>
+
+<!-- 独立弹窗 结束 -->
+<span id="btn_top" class="iconfont btn-top-hide">Ė</span>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<include file="Common:footer"/>
+<script type="text/javascript">
+$(function () {
+    $(".ty-cat-tags a").click(function () {
+        $(this).find("span").addClass("tag link on").parent().siblings().find("span").removeClass("on");
+    });
+    var first_class_id = $('#first_class').attr('attr_id');
+    getProductByType(first_class_id);
+});
+
+function getProductByType(id) {
+    page();
+    var url = "{:U('Index/getProductByType')}";
+    $.post(url, {id: id}, function (result) {
+        if (result.status == 1) {
+            //加载层
+            layer.load();
+            setTimeout(function () {
+                layer.closeAll('loading');
+            }, 1000);
+
+            $(".list-card li").remove();
+            $.each(result.data, function (index, value) {
+                $(".list-card").append("<li class='item'>" +
+                        "<a href={:U('Product/productDetails')}?pro_id=" + value['id'] + ">" +
+                        "<span class='thumb' style=''><img src='" + value['pic_url'] + "'></span>" +
+                        "<div class='desc'>" +
+                        "<span data-icon='Ć' class='loc'><a class='gps' href={:U('Map/GPS')}?id=" + value['id'] + ">"+ value['city'] + value['area'] + value['add'] +"</a></span>"+
+                        "<div class='triangle'><p class='text'>" + value['class_title'] + "</p></div>" +
+                        "<h3 class='title'>" + value['title'] + "</h3>" +
+                        "<span class='price'>" + value['price'] + "</span>" +
+                        "<span class='talent'><i class='avatar'><img src='" + value['image'] + "' alt=''></i></span>"+
+                        "<div class='tags'>" +
+                        "<span class='tag red'>" + value['tagA'] + "</span>" +
+                        "<span class='tag'>" + value['tagB'] + "</span>" +
+                        "<span class='tag'>" + value['tagC'] + "</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "</a>" +
+                        "</li>");
+            });
+        } else {
+            return $('.list-card').html("<li class='empty'>没有该类型商品</li>");
+        }
+    }, 'json');
+
+}
+function page() {
+    return npage = 3;
+}
+var npage = 3;
+$(function () {
+    $(window).scroll(function () {
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        if (scrollTop + windowHeight == scrollHeight && npage != 0) {
+            $(this).scrollTop(scrollHeight - 50);
+            //加载层
+            layer.load();
+            setTimeout(function () {
+                layer.closeAll('loading');
+            }, 1000);
+            var first_class_id = $('.ty-cat-tags .on').attr('attr_id');
+            var url = "{:U('Index/loadingProduct')}";
+            var params = {};
+            params.first_class_id = first_class_id;
+            params.npage = npage;
+            $.post(url, params, function (result) {
+                if (result.status == 0) {
+                    $(".empty").remove();
+                    npage = 0;
+                    return $('.list-card').append("<li class='empty'>没有更多了</li><li class='empty'>粤ICP备17008351号</li>");
+                }
+                $.each(result.data, function (index, value) {
+                    $(".list-card").append("<li class='item'>" +
+                            "<a href={:U('Product/productDetails')}?pro_id=" + value['id'] + ">" +
+                            "<span class='thumb' style=''><img src='" + value['pic_url'] + "'></span>" +
+                            "<div class='desc'>" +
+                            "<span data-icon='Ć' class='loc'><a class='gps' href={:U('Map/GPS')}?id=" + value['id'] + ">"+ value['city'] + value['area'] + value['add'] +"</a></span>"+
+                            "<div class='triangle'><p class='text'>" + value['class_title'] + "</p></div>" +
+                            "<h3 class='title'>" + value['title'] + "</h3>" +
+                            "<span class='price'>" + value['price'] + "</span>" +
+                            "<span class='talent'><i class='avatar'><img src='" + value['image'] + "' alt=''></i></span>"+
+                            "<div class='tags'>" +
+                            "<span class='tag red'>" + value['tagA'] + "</span>" +
+                            "<span class='tag'>" + value['tagB'] + "</span>" +
+                            "<span class='tag'>" + value['tagC'] + "</span>" +
+                            "</div>" +
+                            "</div>" +
+                            "</a>" +
+                            "</li>");
+                });
+            })
+            npage += 3;
+        }
+    });
+});
+/** ***********************广告显示 start************************ */
+
+var curIndex = 0, //当前index
+        imgLen = $(".imgList li").length; //图片总数
+
+// 定时器自动变换2.5秒每次
+var autoChange = setInterval(function () {
+    if (curIndex < imgLen - 1) {
+        curIndex++;
+    } else {
+        curIndex = 0;
+    }
+    //调用变换处理函数
+    changeTo(curIndex);
+}, 2500);
+//左箭头滑入滑出事件处理
+$("#prev").hover(function () {
+    //滑入清除定时器
+    clearInterval(autoChange);
+}, function () {
+    //滑出则重置定时器
+    autoChangeAgain();
+});
+//左箭头点击处理
+$("#prev").click(function () {
+    //根据curIndex进行上一个图片处理
+    curIndex = (curIndex > 0) ? (--curIndex) : (imgLen - 1);
+    changeTo(curIndex);
+});
+//右箭头滑入滑出事件处理
+$("#next").hover(function () {
+    //滑入清除定时器
+    clearInterval(autoChange);
+}, function () {
+    //滑出则重置定时器
+    autoChangeAgain();
+});
+//右箭头点击处理
+$("#next").click(function () {
+    curIndex = (curIndex < imgLen - 1) ? (++curIndex) : 0;
+    changeTo(curIndex);
+});
+//对右下角按钮index进行事件绑定处理等
+$(".indexList").find("i").each(function (item) {
+    $(this).hover(function () {
+        clearInterval(autoChange);
+        changeTo(item);
+        curIndex = item;
+    }, function () {
+        autoChangeAgain();
+    });
+});
+//清除定时器时候的重置定时器--封装
+function autoChangeAgain() {
+    autoChange = setInterval(function () {
+        if (curIndex < imgLen - 1) {
+            curIndex++;
+        } else {
+            curIndex = 0;
+        }
+        //调用变换处理函数
+        changeTo(curIndex);
+    }, 4000);
+}
+function changeTo(num) {
+    var system = {
+        win: false,
+        mac: false,
+        xll: false
+    };
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+//跳转语句
+    if (system.win || system.mac || system.xll) {
+
+        var goLeft = num * 640;
+        $(".imgList").animate({left: "-" + goLeft + "px"}, 500);
+        $(".indexList").find("i").removeClass("indexOn").eq(num).addClass("indexOn");
+    } else {
+        var goLeft = num * 25;
+        $(".imgList").animate({left: "-" + goLeft + "rem"}, 500);
+        $(".indexList").find("i").removeClass("indexOn").eq(num).addClass("indexOn");
+    }
+}
+
+//倒计时
+var time_current = (new Date()).valueOf();//获取当前时间
+$(function () {
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - time_current;
+
+    setInterval(function () {
+        $(".endtime").each(function () {
+            var obj = $(this);
+            var endTime = new Date(parseInt(obj.attr('value')) * 1000);
+            var nowTime = new Date();
+            var nMS = endTime.getTime() - nowTime.getTime() + difference;
+            var myD = Math.floor(nMS / (1000 * 60 * 60 * 24));
+            var myH = Math.floor(nMS / (1000 * 60 * 60)) % 24;
+            var myM = Math.floor(nMS / (1000 * 60)) % 60;
+            var myS = Math.floor(nMS / 1000) % 60;
+            var myMS = Math.floor(nMS / 100) % 10;
+            if (myD >= 0) {
+                var str = myD + "天  " + myH + ":" + myM + ":" + myS;
+            } else {
+                var str = "已结束！";
+            }
+            obj.html(str);
+        });
+    }, 100);
+});
+
+var mySwiper = new Swiper('.swiper-container', {
+    pagination: '.pagination',
+    loop: true,
+    grabCursor: true,
+    paginationClickable: true
+})
+$('.arrow-left').on('click', function (e) {
+    e.preventDefault()
+    mySwiper.swipePrev()
+})
+$('.arrow-right').on('click', function (e) {
+    e.preventDefault()
+    mySwiper.swipeNext()
+})
+
+function signin() {
+    window.location.href = "{:U('Sign/index')}";
+}
+
+//查看商品
+function getProduct(id) {
+    window.location.href = "{:U('Product/productDetails')}?pro_id=" + id;
+}
+$.ajax
+
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

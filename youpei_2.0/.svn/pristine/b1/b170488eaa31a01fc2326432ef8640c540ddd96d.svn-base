@@ -1,0 +1,54 @@
+ $(window).load(function (){
+    setTimeout(function () {
+        $('.kap-bottom').show();
+    },2000)
+});
+function getProduct(id) {
+    window.location.href = "/index.php/Groups/getGroup?id=" + id;
+}
+ 
+ $(function () {
+     var ajaxUrl = "/index.php/Groups/ajaxIndex";
+     $.get(ajaxUrl,function (result) {
+         if (result.status == 0) {
+             return alert('获取数据错误');
+         }
+         var groupList = result.data.groupList;
+         if (groupList.length == 0) {
+             return $(".list-talent-product").append("<li style='text-align: center;width:100%;'>暂时没有团购</li>");
+         }
+         $.each(groupList, function (index,val) {
+             if (parseInt(val.order_count) >= parseInt(val.max_people)) { //满人
+                 $(".list-talent-product").append("<li class='item on'>" +
+                     "<img class='thumb' src='"+val.image+"'>" +
+                     "<span class='title'> <nobr>"+val.title+"</nobr></span>" +
+                     "<span class='original'>原价:"+val.original_price+"元/人</span>"+
+                     "<span class='discount'>组团价:</span>"+
+                     "<span class='price'>"+val.price+"</span>"+
+                     "<div class='condition'>"+
+                     "<label>"+val.min_people+"人成班 已有<span>"+val.order_count+"人</span>报名</label><br/>"+
+                     "<time>"+val.end_time+"截止</time>"+
+                     "</div>"+
+                     "<div class='gogroups' style='background:#888;'>"+
+                     "<span>已满人</span>"+
+                     "</div>" +
+                     "</li>");
+             } else {
+                 $(".list-talent-product").append("<li class='item on' onclick='getProduct("+val.id+")'>" +
+                     "<img class='thumb' src='"+val.image+"'>" +
+                     "<span class='title'> <nobr>"+val.title+"</nobr></span>" +
+                     "<span class='original'>原价:"+val.original_price+"元/人</span>"+
+                     "<span class='discount'>组团价:</span>"+
+                     "<span class='price'>"+val.price+"</span>"+
+                     "<div class='condition'>"+
+                     "<label>"+val.min_people+"人成班 已有<span>"+val.order_count+"人</span>报名</label><br/>"+
+                     "<time>"+val.end_time+"截止</time>"+
+                     "</div>"+
+                     "<div class='gogroups'>"+
+                     "<span>去入团>></span>"+
+                     "</div>" +
+                     "</li>");
+             }
+         })
+     },'json');
+ });

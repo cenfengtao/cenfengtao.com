@@ -1,0 +1,103 @@
+.bor {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    .loc {
+        color: #757575 !important;
+        font-size: 0.85rem !important;
+        font-weight: bold;
+    }
+
+    .iconfont, [data-icon]:before {
+        font-size: 0.85rem !important;
+    }
+
+    .swiper-slide .rig .labels span {
+        width: auto;
+    }
+
+    .gps {
+        font-size: 1rem;
+    }
+
+    /*轮播 start*/
+    .banner {
+        clear: both;
+        height: 33vw;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .banner .bd {
+        height: 33vw;
+        overflow: hidden;
+    }
+
+    .banner .bd ul {
+        overflow: hidden;
+    }
+
+    .banner .bd li {
+        height: 33vw;
+        overflow: hidden;
+        float: left;
+        width: 100%;
+    }
+
+    .banner .bd li img {
+        height: 33vw;
+        width: 100%;
+        display: block;
+    }
+
+    .banner .hd {
+        position: absolute;
+        bottom: 0.3rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .banner .hd ul {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+    }
+
+    .banner .hd ul li {
+        width: .5rem;
+        height: .5rem;
+        text-align: center;
+        display: inline-block;
+        line-height: 24px;
+        border-radius: 12px;
+        background-color: #fff;
+        color: white;
+        cursor: pointer;
+        margin: 0 .25rem;
+        vertical-align: middle
+    }
+
+    .banner .hd ul li.on {
+        background: #ffce55;
+        font-weight: bold;
+        color: white;;
+    }
+    .classes{
+        white-space: nowrap;
+        overflow-x:scroll;
+    }
+    .classes > a {
+        margin-right: 0.4rem;;
+    }
+
+    .classes > a:nth-child(1) {
+        margin-left: 0.4rem;
+    }
+
+    .classes a img {
+        width: 30.5% !important;
+    }
+    .change-headernav ul li{
+        width: 20%;
+    }

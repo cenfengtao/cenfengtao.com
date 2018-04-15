@@ -1,0 +1,346 @@
+<include file="Common:header"/>
+<link href="__PUBLIC__/Home/css/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/faxian.css">
+<link rel="stylesheet" href="__PUBLIC__/css/home/discovery.css">
+<div id="page_activity" class="kap-page kap-page-current" title="{$title}">
+     <div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+    </div>
+</div>
+<section class="banner">
+    <div class="bd">
+        <ul class="imgLi">
+        <li>
+            <a href="/index.php/Poster/index.html?style_id=4"><img src="../../../../Public/images/fffffff.png" alt=""></a>
+        </li>    
+        <li>
+            <a href="/index.php/Sign/index.html"><img src="../../../../Public/images/red.jpg" alt=""></a>
+        </li>   
+        <li>
+            <a href="/index.php/Product/productDetails.html?pro_id=57"><img src="/Upload/adspic/2017-09/59ad05e3955d7.jpg"></a>
+        </li>   
+        </ul>
+    </div>
+    <div class="hd">
+        <ul>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</section>
+    <div class="ty-page" data-ty-current="12" data-ty-total="115" data-filter-tags="" data-filter-type="6"
+         data-filter-age="0" data-filter-days="0" data-filter-status="0" data-filter-beans="0" data-filter-keyword=""
+         data-sort-key="0">
+        <div class="headernav headernav2 change-headernav clr toptitle finder">
+            <ul class="list-tags clr" style="overflow-x:scroll;white-space: nowrap; ">
+                <li>
+                    <a href="/index.php/Map/index" onclick="">
+                        <div class="ico"><img src="__PUBLIC__/images/Finder_5.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>地图</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Article/index')}" >
+                        <div class="ico"><img src="__PUBLIC__/images/article.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>文章</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Article/videoList')}" >
+                        <div class="ico"><img src="__PUBLIC__/images/discoveryIcon2.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>搞笑一刻</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Article/professionVideoList')}">
+                        <div class="ico"><img src="__PUBLIC__/images/discoveryIcon1.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>专家课程</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Boutique/index')}">
+                        <div class="ico"><img src="__PUBLIC__/images/Finder_3.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>精品</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Article/index',array('cate_id'=>9))}">
+                        <div class="ico"><img src="__PUBLIC__/images/Finder_2.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>福利</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index.php/Parenting/index.html">
+                        <div class="ico"><img src="__PUBLIC__/images/children.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>亲子</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/index.php/Organization/index.html">
+                        <div class="ico"><img src="__PUBLIC__/images/organization.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>机构</span>
+                        </div>
+                    </a>
+                </li>
+                <li style="display: none;">
+                    <a href="###">
+                        <div class="ico"><img src="__PUBLIC__/images/choujiang.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>游戏</span>
+                        </div>
+                    </a>
+                </li>
+                <li style="display: none;">
+                    <a href="###">
+                        <div class="ico"><img src="__PUBLIC__/images/course.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>课程</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="hotel-cat"></div>
+        <div> 
+            <a href="/index.php/Map/index.html" class="map" style="z-index: 10">
+                <!-- <img src="../../../../Public/images/close.png" alt="" style="position:absolute;right: 0; background: rgba(0,0,0,0.5);" class="closeMap"> -->
+            </a>
+            <iframe src="{:U('Map/discoverIndex')}" style="width:98%; height:13rem;z-index: 10;margin-left: 1%; border-radius: 10px;overflow: hidden;border: 4px solid #b8b1b0;" frameborder="0" onload="hideHead(this)"></iframe>
+        </div>
+
+        <ul class="list-card list-height">
+            <li class="item" data-ty-target="#detail_activity" data-ty-seriesid="8798">
+                <div class="device">
+                    <a class="arrow-left" href="#"></a>
+                    <a class="arrow-right" href="#"></a>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <volist name="helpChildList" id="val">
+                            <div class="swiper-slide" onclick="getArticle({$val['id']})">
+                                <img src="{$val['image']}">
+                                <div class="triangle left" style=""><p class="text" style="">热帖</p></div>
+                                <div class="black">{$val.title|mb_substr=###,0,17,'utf-8'}</div>
+                            </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+                <!--<div class="mainvisual">
+                    &lt;!&ndash;<div class="flickingcon">&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;</div>&ndash;&gt;
+                    <div class="mainimage">
+                        <ul>
+                            <volist name="helpChildList" id="val">
+                                <li onclick="getArticle({$val['id']})">
+                                    <span class="thumb"
+                                          style="background-image:url({$val['image']}); background-size:cover"></span>
+                                    <div class="triangle left" style=""><p class="text" style="">热帖</p></div>
+                                    <div class="desc row">
+                                        <label class="size red" style="color:#ffffff;text-align: center;display: block;line-height: 0.8rem;margin-left: -0.5rem;">{$val.title|mb_substr=###,0,17,'utf-8'}</label>
+                                        &lt;!&ndash;<div class="tags bp">&ndash;&gt;
+                                        &lt;!&ndash;<span class="tag red">自营11</span>&ndash;&gt;
+                                        &lt;!&ndash;<span class="tag">自营</span>&ndash;&gt;
+                                        &lt;!&ndash;</div>&ndash;&gt;
+                                    </div>
+                                </li>
+                            </volist>
+                        </ul>
+                        &lt;!&ndash;<span class="title">精选育儿文章</span>&ndash;&gt;
+                        <a href="javascript:;" id="btnprev"></a>
+                        <a href="javascript:;" id="btnnext"></a>
+                    </div>
+                </div>-->
+            </li>
+
+            <li class="item-more selected">精 <span>/</span> 选 <span>/</span> 福 <span>/</span> 利</li>
+            <li class="item" data-ty-target="#detail_activity" data-ty-seriesid="8798">
+                <div class="device">
+                    <a class="arrow-left1" href="#"></a>
+                    <a class="arrow-right1" href="#"></a>
+                    <div class="swiper-container1">
+                        <div class="swiper-wrapper">
+                            <volist name="parentList" id="val">
+                                <div class="swiper-slide" onclick="getArticle({$val['id']})">
+                                    <img src="{$val['image']}">
+                                    <div class="triangle left" style=""><p class="text" style="">热帖</p></div>
+                                    <div class="black">{$val.title|mb_substr=###,0,17,'utf-8'}</div>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <div class="pagination1"></div>
+                </div>
+            </li>
+            <li class="item mtop">
+            <a href="{:U('Lottery/index')}?token=g232238gc959">
+            <span class="thumb" style="background-image:url(/Public/images/1495531071.png); background-size:100% 100%"></span>
+            </a>
+            </li>
+            <li class="item-more selected">热 <span>/</span> 销 <span>/</span> 商 <span>/</span> 品</li>
+            <div style="" class="goods productContent">
+                <ul class="products">
+                <volist name="saleProduct" id="val">
+                    <li onclick="getProduct({$val['id']})">
+                        <a href="###" class="img">
+                            <img src="{$val['pic_url']}" alt="">
+                        </a>
+                        <div class="texts">
+                            <h3>{$val['title']}</h3>
+                            <div class="describe">简介：{$val['f_title']}</div>
+                            <div class="original-price">原价：￥{$val['price']['original_price']}</div>
+                            <p>
+                                <span>现价：</span>
+                                <span>￥</span>
+                                <span>{$val['price']['now_price']}</span>
+                            </p>
+                        </div>
+                    </li>
+                    <!-- <li class="item selling" onclick="getProduct({$val['id']})">
+                        <img class="thumb" src="{$val['pic_url']}" style="width:23vh;height:18vh;">
+                        <div class="triangle"><p class="text" style="">折扣 </p><i class="fireico">&nbsp;</i></div>
+                        <span class="title">{$val['title']}</span>
+                        <span class="abstract">简介：{$val['f_title']}</span>
+                        <span class="discounts">优惠价：<span class="price">{$val['price']['now_price']}</span></span>
+                    </li> -->
+                </volist>
+                </ul>
+            </div>
+            <div class="goods goodss productContent">
+                <ul class="productss">
+                    
+                </ul>
+            </div>
+            <!--<li data-icon="Ĩ" class="item-more">-->
+                <!--点击载入更多-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <include file="Common:menu"/>
+</div>
+</div>
+<script src="__PUBLIC__/Home/js/common.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.event.drag-1.5.min.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.touchSlider.js"></script>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<script src="__PUBLIC__/Home/js/kap.js"></script>
+<script src="__PUBLIC__/Home/layer/layer.js"></script>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<script src="__PUBLIC__/js/home/discovery.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/selectivizr.js?v1.3"></script>
+<!--加载 -->
+<script src="__PUBLIC__/Home/js/pageloader.js"></script>
+<script>
+
+$(function(){
+    $('.closeMap').on('click', function (e) {
+    e.preventDefault();
+    $("iframe").css("display","none");
+    $(".closeMap").css("display","none")
+    });
+
+    var bannerHeight=$(".banner").height();
+    var headerHeight=$(".kap-top").height()
+    $(window).scroll(function(){
+        var scrollHeight=$(window).scrollTop()
+        if(scrollHeight>bannerHeight||scrollHeight==bannerHeight){
+            $(".headernav").addClass("fixed")
+            // $(".headernav").css("position","fixed");
+               $(".headernav").css("top",headerHeight+"px");
+            // $(".headernav").css("zIndex","10000");
+        }else{
+            $(".headernav").removeClass("fixed")
+                $(".headernav").css("top","");
+            // $(".headernav").css("position","");
+            // $(".headernav").css("zIndex","0");
+        }
+    })
+
+    var windowWidth=$(window).width();
+    if(windowWidth<680){
+        $(".productContent ul li .img img").css("height","7.78rem")
+    }
+    jQuery(window).resize(function () {
+        resizenow();
+    });
+})
+
+    function resizenow() {
+        var browserwidth = jQuery(window).width();
+        var browserheight = jQuery(window).height();
+        jQuery('.bonfire-pageloader-icon').css('right', ((browserwidth - jQuery(".bonfire-pageloader-icon").width()) / 2)).css('top', ((browserheight - jQuery(".bonfire-pageloader-icon").height()) / 2));
+    }
+    resizenow();
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+        timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+        nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+        signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: "{$shareData['share_title']}",
+            desc: "{$shareData['share_desc']}",
+            link: "{$shareData['share_url']}",
+            imgUrl: "{$shareData['share_img']}",
+            success: function () {
+                alert('分享成功');
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: "{$shareData['share_title']}",
+            link: "{$shareData['share_url']}",
+            imgUrl: "{$shareData['share_img']}",
+            success: function () {
+                alert('分享成功');// 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                alert('已取消');// 用户取消分享后执行的回调函数
+            }
+        });
+        wx.error(function (res) {
+            alert(JSON.stringify(res));
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<!-- bootstrap-daterangepicker -->
+<link href="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+
+    #demo-form2 {
+        float: left;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>添加商品</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <form id="demo-form2" data-parsley-validate
+                                      class="form-horizontal form-label-left form-youpei">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">名称 <span
+                                                class="required">*</span></label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" name="title" required="required"
+                                                   class="form-control col-md-7 col-xs-12">
+                                            <input type="hidden" name="type" value="{$type}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">副标题 </label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" name="f_title" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">分类</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="class_id" required="required">
+                                                <option value="0">请选择分类</option>
+                                                <foreach name="class_list" item="val">
+                                                    <option value="{$val['id']}">{$val['title']}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">图片</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div id="filePicker" style='' class="btn_access" access_id="216">上传图片</div>
+                                            <if condition="$type eq 1">
+                                                <span style="">课程尺寸：720*360</span>
+                                                <else/>
+                                                <span style="">热销商品尺寸：230*230</span>
+                                            </if>
+                                            <!--<span style="">抢购尺寸：224*160</span><br>-->
+                                            <!--<span style="">课程尺寸：720*360</span><br>-->
+                                            <!--<span style="">精选课程尺寸：223*154</span><br>-->
+                                            <!--<span style="">团购尺寸：173*125</span><br>-->
+                                            <input type="hidden" name="pic_url" id="upload_image" tabindex="3"
+                                                   autocomplete="off">
+                                            <img id='preview' src='' ref='' width='200' height='200'
+                                                 style='display:none'/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">是否使用代金券</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            否: <input type="radio" class="flat icheckbox_flat-green" name="is_voucher"
+                                                      value="1"
+                                                      checked=""/>
+                                            是: <input type="radio" class="flat icheckbox_flat-green" name="is_voucher"
+                                                      value="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">是否使用优惠券</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            否: <input type="radio" class="flat icheckbox_flat-green" name="is_coupon"
+                                                      value="1"
+                                                      checked=""/>
+                                            是: <input type="radio" class="flat icheckbox_flat-green" name="is_coupon"
+                                                      value="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">是否需要邮寄</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            否: <input type="radio" class="flat icheckbox_flat-green" name="is_mail"
+                                                      value="1"
+                                                      checked=""/>
+                                            是: <input type="radio" class="flat icheckbox_flat-green" name="is_mail"
+                                                      value="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">现库存</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="number" name="count" min="0" value="1"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">原价</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="number" name="original_price" min="0"
+                                                   class="form-control col-md-7 col-xs-12" value="0.00">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">现价</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="number" name="price" class="form-control col-md-7 col-xs-12"
+                                                   value="0.00" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">状态</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            上架: <input type="radio" class="flat icheckbox_flat-green" name="status"
+                                                       value="1"
+                                                       checked=""/>
+                                            下架: <input type="radio" class="flat icheckbox_flat-green" name="status"
+                                                       value="2"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">单位</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" name="unit" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">标签</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" name="tag" class="form-control col-md-7 col-xs-12"
+                                                   value="">
+                                            <small>用空格隔开，最多三个</small>
+                                        </div>
+                                    </div>
+                                    <if condition="$type eq 1">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"> 是否可预约 </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                否: <input type="radio" class="icheckbox_flat-green" name="is_book"
+                                                          value="1"/>
+                                                是: <input type="radio" class="icheckbox_flat-green" name="is_book"
+                                                          value="2" checked="checked"/>
+                                            </div>
+                                        </div>
+                                        <div class="book_time" style="display: none;">
+                                            <div class="form-group book_time1">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">预约上课时间</label>
+                                                <div class="col-md-2 col-sm-6 col-xs-12">
+                                                    <select class="form-control" name="book_time_day">
+                                                        <option value="周一">周一</option>
+                                                        <option value="周二">周二</option>
+                                                        <option value="周三">周三</option>
+                                                        <option value="周四">周四</option>
+                                                        <option value="周五">周五</option>
+                                                        <option value="周六">周六</option>
+                                                        <option value="周日">周日</option>
+                                                    </select>
+                                                </div>
+                                                <input type="time" style="height:2.7rem;" name="book_start_hour"
+                                                       value='00:00'> - <input type="time" style="height:2.7rem;"
+                                                                               name="book_end_hour" value='23:59'> &nbsp;<a
+                                                    class="btn btn-info btn-xs" id="addTime1"
+                                                    onclick="addClassTime(1)">添加</a>
+                                            </div>
+                                        </div>
+                                    </if>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">商品简介</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <textarea name="desc" id="info"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">费用说明</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <textarea name="cost" id="infos"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            <button class="btn btn-primary" type="reset">重置</button>
+                                            <button type="button" onclick="product.checkReal()" class="btn btn-success">提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="__PUBLIC__/vendors/moment/min/moment.min.js"></script>
+<script src="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- product -->
+<script src="__PUBLIC__/js/admin/product.js"></script>
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {
+            initialFrameWidth: 900,
+            initialFrameHeight: 400,
+            serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"
+        });
+        UE.getEditor('infos', {
+            initialFrameWidth: 900,
+            initialFrameHeight: 400,
+            serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"
+        });
+    });
+</script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("Product/addProduct")}',
+        'success_url': '{:U("Product/proUpList")}'
+    };
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+
+    $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePicker',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                    $('#preview').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+
+        var is_book = $("input[name='is_book']:checked").val();
+        if (is_book == 2) {
+            $(".book_time").show();
+        }
+        $("input[name='is_book']").click(function () {
+            var is_book = $("input[name='is_book']:checked").val();
+            if (is_book == 2) {
+                $(".book_time").show();
+            } else {
+                $(".book_time").hide();
+            }
+        });
+    });
+
+    function addClassTime(count) {
+        var newCount = count + 1;
+        if (newCount > 7) {
+            return dialog.error('不能超过7条时间');
+        }
+        $(".book_time" + count).after(
+                "<div class='form-group book_time" + newCount + "'> " +
+                "<label class='control-label col-md-3 col-sm-3 col-xs-12'></label>" +
+                "<div class='col-md-2 col-sm-6 col-xs-12'>" +
+                "<select class='form-control' name='book_time_day'>" +
+                "<option value='周一'>周一</option>" +
+                "<option value='周二'>周二</option>" +
+                "<option value='周三'>周三</option>" +
+                "<option value='周四'>周四</option>" +
+                "<option value='周五'>周五</option>" +
+                "<option value='周六'>周六</option>" +
+                "<option value='周日'>周日</option>" +
+                "</select>" +
+                "</div>" +
+                "<input type='time' style='height:2.7rem;' name='book_start_hour' value='00:00'> - " +
+                "<input type='time' style='height:2.7rem;' name='book_end_hour' value='23:59'> " +
+                "<a class='btn btn-danger btn-xs' id='deleteTime" + newCount + "' onclick='deleteTime(" + newCount + ")'> 删除</a>" +
+                " &nbsp;<a class='btn btn-info btn-xs' id='addTime" + newCount + "' onclick='addClassTime(" + newCount + ")'>添加</a>" +
+                "</div>"
+        );
+        $("#addTime" + count).hide();
+        $("#deleteTime" + count).hide();
+    }
+
+    function deleteTime(count) {
+        var lastCount = count - 1;
+        $(".book_time" + count).remove();
+        $("#addTime" + lastCount).show();
+        $("#deleteTime" + lastCount).show();
+    }
+</script>
+</body>
+</html>

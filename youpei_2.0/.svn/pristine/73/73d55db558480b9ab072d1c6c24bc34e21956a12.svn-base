@@ -1,0 +1,24 @@
+<?php
+/**
+ * 投票
+ */
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class VoteController extends BaseController
+{
+    public function voteList()
+    {
+        $this->display();
+    }
+
+    public function getVoteList()
+    {
+        $orgId = M('organization')->where(['token' => $this->token])->getField('id');
+        $voteList = D('Vote')->getList(['type' => 1, 'type_id' => $orgId, 'start_time' => array('elt', time()),
+            'end_time' => array('gt', time()), 'check_status' => 2, 'status' => 1]);
+        return show(1, '获取成功', $voteList);
+    }
+}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>投票活动</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/voteList.css"/>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+    <!--  <script>
+         var _hmt = _hmt || [];
+         (function() {
+           var hm = document.createElement("script");
+           hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+           var s = document.getElementsByTagName("script")[0];
+           s.parentNode.insertBefore(hm, s);
+         })();
+     </script> -->
+</head>
+<body class="kap-loading ty-view-all">
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>投票活动</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle">
+    <section class="advert">
+        <img src="" alt="">
+    </section>
+    <section class="people">
+        <ul>
+            <li>
+                <span>已报名</span>
+                <span><strong class="join">0</strong>人</span>
+            </li>
+            <li>
+                <span>累计投票</span>
+                <span><strong class="total">0</strong>票</span>
+            </li>
+            <li>
+                <span>访问量</span>
+                <span><strong class="access">0</strong>次</span>
+            </li>
+        </ul>
+    </section>
+    <section class="worksList">
+        <ul class="voteLeft">
+        </ul>
+        <ul class="voteRight">
+        </ul>
+    </section>
+    <section class="joinWorks" style="display: none;">
+        <a href="javascript:void(0)" onclick="join()">我也要参加</a>
+    </section>
+</article>
+<footer class="footer">
+    <ul class="icon">
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/voteList.html?vote_id=4">
+                <img src="__PUBLIC__/images/voteIcon1.png"/>
+                <span>作品库</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userVote.html">
+                <img src="__PUBLIC__/images/voteIcon2.png"/>
+                <span>我的投票</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userWorks.html">
+                <img src="__PUBLIC__/images/voteIcon3.png"/>
+                <span>我的作品</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userBillboard.html?vote_id=4">
+                <img src="__PUBLIC__/images/voteIcon4.png"/>
+                <span>榜单</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/voteList.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+<script>
+    // $(function () {
+    //     $.get("/index.php/Vote/ajaxVoteList", function (result) {
+    //         if (result.status == 0) {
+    //             return alert(result.message);
+    //         } else {
+    //             $.each(result.data,function (index,item) {
+    //                 $('.vote-list').append(
+    //                         "<li onclick='getDetail("+item['id']+")'>"+item['title']+"</li>"
+    //                 );
+    //             })
+    //         }
+    //     }, 'json');
+    // });
+    // function getDetail(id) {
+    //     window.location.href = "http://www.baidu.com?id="+id;
+    // }
+    function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+var vote_id=GetRequest().vote_id;
+ // 微信端分享
+    $.ajax({
+        type: "get",
+        url: "/index.php/Vote/voteListContribution",
+        aysnc: true,
+        dataType: "json",
+        data:{
+            vote_id:vote_id,
+        },
+        success:function(data){
+            // console.log(data);
+            var title=data.data.share_title;
+            var f_title=data.data.share_desc;
+            var shareUrl=data.data.share_url;
+            var shareImg=data.data.share_img;
+            // 调用微信的分享接口
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+                timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+                nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+                signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            wx.ready(function () {
+                wx.onMenuShareAppMessage({
+                    title: title,
+                    desc: f_title,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    success: function () {
+                        share_record();
+                    },
+                    cancel: function () {
+                        alert('已取消');
+                    }
+                });
+                wx.onMenuShareTimeline({
+                    title: title,
+                    link: shareUrl,
+                    imgUrl: shareImg,
+                    success: function () {
+                        share_record();// 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        alert('已取消');// 用户取消分享后执行的回调函数
+                    }
+                });
+
+                function share_record() {
+                    var data = new Array();
+                    data[id] = getQueryString(id);
+                    data[share_user_id] = getQueryString(share_user_id);
+                 var url = "/index.php/Vote/userContributionRecord";
+                 $.post(url, data, function (result) {
+                 alert(result.message);
+                 }, 'json');
+                 }
+            });
+        }
+    });
+    $.ajax({
+        type:"get",
+        url:"/index.php/Vote/ajaxVoteList",
+        async: true,
+        dataType:"json",
+        data:{
+            vote_id:vote_id
+        },
+        success:function(data){
+            if(data.status==0){
+                setTimeout(function(){
+                     alert(data.message)
+                     history.back()
+                },1000) 
+            }
+            if(data.status==1){
+                $(".advert img").attr("src",data.data.background)
+                var joinSum=data.data.joinSum;
+                var visitSum=data.data.visitSum;
+                var voteSum=data.data.voteSum;
+                var joinUser=data.data.joinUser;
+                var joinUserLength=joinUser.length;
+                var upload_type=data.data.upload_type;
+                if(data.data.isContribute==1){
+                    $(".joinWorks").hide();
+                }
+                if(data.data.isContribute==2){
+                    $(".joinWorks").show();
+                }
+                if(data.data.voteStatus==1){
+                    setTimeout(function(){
+                         alert("该活动已结束，欢迎下次来参加!")
+                    })
+                    $(".join").html(joinSum);
+                    $(".total").html(voteSum);
+                    $(".access").html(visitSum);
+                    // 图片数据
+                    if(upload_type==1){
+                        for(var i=0;i<joinUserLength; i++){
+                            var chtml = '<li onclick="toVote('+joinUser[i].id+')">'+
+                                    '<div class="img">'+
+                                         '<img src="'+joinUser[i].path+'" alt="">'+
+                                    '</div>'+
+                                    '<p class="name">名称：<span>'+joinUser[i].title+'</span></p>'+
+                                    '<p>作者：<span>'+joinUser[i].username+'</span></p>'+
+                                    '<div class="text">'+
+                                        '<span class="getNum">共获<strong>'+joinUser[i].vote_count+'</strong>票</span>'+
+                                        '<span class="vote">为TA投票</span>'+
+                                    '</div>'+
+                                '</li>'
+                                if($('.voteLeft').height() < $('.voteRight').height()||$('.voteLeft').height()==$('.voteRight').height()){
+                                    $('.voteLeft').append(chtml);
+                                }else{
+                                    $('.voteRight').append(chtml);
+                                }
+                        }
+                    }
+                    // 视频数据
+                    if(upload_type==2){
+                        for(var j=0;j<joinUserLength; j++){
+                            var chtml = '<li onclick="toVote('+joinUser[j].id+')">'+
+                                    '<div class="img">'+
+                                         '<video src="'+joinUser[j].path+'" alt="" autoplay></video>'+
+                                    '</div>'+
+                                    '<p class="name">名称：<span>'+joinUser[j].title+'</span></p>'+
+                                    '<p>作者：<span>'+joinUser[j].username+'</span></p>'+
+                                    '<div class="text">'+
+                                        '<span class="getNum">共获<strong>'+joinUser[j].vote_count+'</strong>票</span>'+
+                                        '<span class="vote">为TA投票</span>'+
+                                    '</div>'+
+                                '</li>'
+                                if($('.voteLeft').height() < $('.voteRight').height()||$('.voteLeft').height()==$('.voteRight').height()){
+                                    $('.voteLeft').append(chtml);
+                                }else{
+                                    $('.voteRight').append(chtml);
+                                }
+                        } 
+                    }
+                    $(".vote").hide();
+                    $(".getNum").css("float","none")
+                    $(".text").css("textAlign","center")
+                
+                }
+
+                if(data.data.voteStatus==2){
+                    $(".join").html(joinSum);
+                    $(".total").html(voteSum);
+                    $(".access").html(visitSum);
+                    // 图片数据
+                    if(upload_type==1){
+                        for(var i=0;i<joinUserLength; i++){
+                            var chtml = '<li onclick="toVote('+joinUser[i].id+')">'+
+                                    '<div class="img">'+
+                                         '<img src="'+joinUser[i].path+'" alt="">'+
+                                    '</div>'+
+                                    '<p class="name">名称：<span>'+joinUser[i].title+'</span></p>'+
+                                    '<p>作者：<span>'+joinUser[i].username+'</span></p>'+
+                                    '<div class="text">'+
+                                        '<span class="getNum">共获<strong>'+joinUser[i].vote_count+'</strong>票</span>'+
+                                        '<span class="vote">为TA投票</span>'+
+                                    '</div>'+
+                                '</li>'
+                                if($('.voteLeft').height() < $('.voteRight').height()||$('.voteLeft').height()==$('.voteRight').height()){
+                                    $('.voteLeft').append(chtml);
+                                }else{
+                                    $('.voteRight').append(chtml);
+                                }
+                        }
+                    }
+                    // 视频数据
+                    if(upload_type==2){
+                        for(var j=0;j<joinUserLength; j++){
+                            var chtml = '<li onclick="toVote('+joinUser[j].id+')">'+
+                                    '<div class="img">'+
+                                         '<video src="'+joinUser[j].path+'" alt="" autoplay></video>'+
+                                    '</div>'+
+                                    '<p class="name">名称：<span>'+joinUser[j].title+'</span></p>'+
+                                    '<p>作者：<span>'+joinUser[j].username+'</span></p>'+
+                                    '<div class="text">'+
+                                        '<span class="getNum">共获<strong>'+joinUser[j].vote_count+'</strong>票</span>'+
+                                        '<span class="vote">为TA投票</span>'+
+                                    '</div>'+
+                                '</li>'
+                                if($('.voteLeft').height() < $('.voteRight').height()||$('.voteLeft').height()==$('.voteRight').height()){
+                                    $('.voteLeft').append(chtml);
+                                }else{
+                                    $('.voteRight').append(chtml);
+                                }
+                        } 
+                    }
+
+                }
+
+            }
+            
+        }
+    })    
+    // $(function(){
+    //     $(".vote").bind("click",function(){
+    //         $(this).unbind('click');
+    //         var number=parseInt($(this).prev().find("strong").html())
+    //         number+=1;
+    //         $(this).prev().find("strong").html(number)
+    //         $.ajax({
+    //             type:"post",
+    //             url:"/index.php/Vote/ajaxContribution",
+    //             async: true,
+    //             dataType:"json",
+    //             data:{
+
+    //             },
+    //             success:function(){
+
+    //             }
+    //         })
+    //     })
+    // })
+    function toVote(id){
+        window.location.href="/index.php/Vote/voteDetail.html?id="+id+"&vote_id="+vote_id;
+    }
+    function join(){
+         window.location.href="/index.php/Vote/contribution.html?vote_id="+vote_id;
+    }
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

@@ -1,0 +1,43 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+use \Think\Image;
+
+require_once __DIR__ . '/../../../ThinkPHP/Library/Org/Util/JSDDK.class.php';
+
+class TestController extends Controller
+{
+    function setSessionTest()
+    {
+        $_SESSION['openid'] = $_GET['open_id'];
+        $_SESSION['token'] = $_GET['token'];
+        echo 'setSession and token ok';
+    }
+
+    public function test()
+    {
+        $this->display();
+    }
+
+    public function testEncode()
+    {
+        $baseStr = "";
+        //匹配出图片的格式
+        if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $baseStr, $result)) {
+            $type = $result[2];
+            $new_file = "Upload/Poster/" . date('Ymd', time()) . "/";
+            if (!file_exists($new_file)) {
+                //检查是否有该文件夹，如果没有就创建，并给予最高权限
+                $result = mkdir($new_file, 0777, true);
+            }
+            $new_file = $new_file . time() . ".{$type}";
+            if (file_put_contents($new_file, base64_decode(str_replace($result[1], '', $baseStr)))) {
+                echo '新文件保存成功：', $new_file;
+            } else {
+                echo '新文件保存失败';
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="/Public/Home/css/style_v3.css">
+<link rel="stylesheet" href="__PUBLIC__/css/home/organization.css">
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+            <a href="{:U('Index/index',array('current'=>'1'))}" class="btn right btn-user" title="返回首页"
+               data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="ty-page">
+        <div class="shop-list">
+            <div class="search-head">
+                <span class="find" onclick="searchWord();">搜索</span>
+                <div class="ty-tools-search">
+                    <input type="text" placeholder="搜索机构" class="org" name="searchWord">
+                    <i data-icon="Đ"></i>
+                </div>
+                <!--  -->
+                <!--<div class="ty-tools-cityswitch">-->
+                    <!--<select id="sel_city_switch" data-kap-skin="sel-city-switch" data-icon-blue="Ė"-->
+                        <!--style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">-->
+                        <!--<option value="1">广州</option>-->
+                        <!--<option value="2">深圳</option>-->
+                        <!--<option value="0" selected="">全部</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            </div>
+            <div class="institu-list">
+                <ul>
+                    <foreach name="orgList" item="val">
+                        <a href="javascript:getInfo({$val['id']})">
+                            <li>
+                                <div class="shoplogo">
+                                    <img src="{$val['picture']}">
+                                    <span>{$val['org_name']}</span>
+                                </div>
+                                <div class="details">
+                                    <span onclick="getIntroduce({$organization['id']})">了解TA</span>
+                                    <span id="f0_txt" onclick="followed({$organization['id']})"><if condition="$isFollowed EQ 1">已关注<else/>关注</if></span>
+                                </div>
+                                <label>关注可获取TA的教学动态噢！</label>
+                                <div class="score">
+                                <span>机构评级</span>
+                                <span>
+                                    <for name="$val['org_star']" start="0" end="$val['org_star']" step="1">
+                                        <span class="full-star"></span>
+                                    </for>
+                                    <for name="$val['org_star']" start="0" end="5 - $val['org_star']" step="1">
+                                        <span class="empty-star"></span>
+                                    </for>
+                                </span>
+                                <span>环境评级</span>
+                                <span class="star">
+                                    <for name="$val['env_star']" start="0" end="$val['env_star']" step="1">
+                                        <span class="full-star"></span>
+                                    </for>
+                                    <for name="$val['env_star']" start="0" end="5 - $val['env_star']" step="1">
+                                        <span class="empty-star"></span>
+                                    </for>
+                                </span>
+                                <span>教学质量</span>
+                                <span class="star">
+                                    <for name="$val['quality_star']" start="0" end="$val['quality_star']" step="1">
+                                        <span class="full-star"></span>
+                                    </for>
+                                    <for name="$val['quality_star']" start="0" end="5 - $val['quality_star']" step="1">
+                                        <span class="empty-star"></span>
+                                    </for>
+                                </span>
+                                </div>
+                            </li>
+                        </a>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer"/>
+<script>
+    function getInfo(id) {
+        window.location.href = "{:U('Organization/home')}?id=" + id;
+    }
+    function getIntroduce(id) {
+        window.location.href = "{:U('Organization/getOrganizationIntroduce')}?id=" + id;
+    }
+     function followed(id) {
+            var url = "{:U('Organization/followed')}";
+            $.post(url,{id:id},function (res) {
+                if(res.status == 1){
+                    alert('成功关注');
+                    $('#f0_txt').text('已关注');
+                }else if(res.status == 2){
+                    alert('成功取消关注');
+                    $('#f0_txt').text('关注');
+                }
+            },'json')
+        }
+    function searchWord() {
+        var inputWord = $("input[name='searchWord']").val();
+        if (!inputWord) {
+            return alert("请输入搜索内容");
+        }
+        var url = "/index.php/Index/searchResult";
+        window.location.href = url + "?type=4&word=" + inputWord;
+    }
+</script>
+</body>
+</html>

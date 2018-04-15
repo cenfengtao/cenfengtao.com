@@ -1,0 +1,335 @@
+<include file="Common:load.html"/>
+ <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/association.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+        <header class="header">
+            <a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>社群</h3>
+        </header>
+        
+        <article class="middle">
+            <div class="nav">
+                <ul>
+                    <li class="on"><a href="###">专家讲学</a></li>
+                    <li><a href="###">交流群</a></li>
+                    <!--<li><a href="###">我的群</a></li>-->
+                </ul>
+            </div>
+            <div class="content">
+                <div class="expert">
+                    <ul>
+                        <li>
+                            <a href="expertDetails.html"><img src="__PUBLIC__/image/expert1.jpg"/></a>
+                            <a class="text" href="expertDetails.html">
+                                <h4>如何通过玩积木提高孩子的动手能力</h4>
+                                <span>499人次学习</span>
+                                <span>专家：优小培</span>
+                                <span>免费</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="expertDetails.html"><img src="__PUBLIC__/image/expert2.jpg"/></a>
+                            <a class="text" href="expertDetails.html">
+                                <h4>网络成瘾，家长如何正确看待与引导</h4>
+                                <span>523人次学习</span>
+                                <span>专家：优小培</span>
+                                <span><b>￥</b>9.9</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="expertDetails.html"><img src="__PUBLIC__/image/expert3.jpg"/></a>
+                            <a class="text" href="expertDetails.html">
+                                <h4>哄宝宝睡觉的技巧</h4>
+                                <span>1323人次学习</span>
+                                <span>专家：优小培</span>
+                                <span>免费</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="communicate">
+                    <div class="type">
+                        <div class="left">《</div>
+                        <ul class="smallNav">
+                            <li class="on first" id="0"><a href="###">推荐</a></li>
+        <!--                <li><a href="###">积木</a></li>
+                            <li><a href="###">亲子</a></li>
+                            <li><a href="###">书法</a></li>
+                            <li><a href="###">话剧</a></li>
+                            <li><a href="###">绘画</a></li>
+                            <li><a href="###">游玩</a></li>
+                            <li><a href="###">笑剧</a></li>
+                            <li><a href="###">友谊</a></li>
+                            <li><a href="###">家长</a></li> -->
+                        </ul>
+                        <div class="right">》</div>
+                    </div>
+                    <ul class="con">
+                       <!--  <li>
+                            <img src="__PUBLIC__/image/communicate1.jpg" alt="">
+                            <a href="###">
+                                <img src="__PUBLIC__/image/communicate1.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>89人进群</span>
+                                <a href="###">加入</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/communicate2.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>101人进群</span>
+                                <a href="###">加入</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/communicate3.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>234人进群</span>
+                                <a href="###">加入</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/communicate4.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>89人进群</span>
+                                <a href="###">加入</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/communicate5.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>234人进群</span>
+                                <a href="###">加入</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/communicate6.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>234人进群</span>
+                                <a href="###">加入</a>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="mine">
+                    <ul>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/mine1.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>89人进群</span>
+                                <a href="###">进入</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="###">
+                                <img src="__PUBLIC__/image/mine2.jpg"/>
+                            </a>
+                            <div class="join">
+                                <span>101人进群</span>
+                                <a href="###">进入</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="more">
+                        <h3>加入更多群 》</h3>
+                        <ul>
+                            <li>
+                                <a href="###">
+                                    <img src="__PUBLIC__/image/mine3.jpg"/>
+                                </a>
+                                <div class="join">
+                                    <span>234人进群</span>
+                                    <a href="###">进入</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="###">
+                                    <img src="__PUBLIC__/image/mine4.jpg"/>
+                                </a>
+                                <div class="join">
+                                    <span>234人进群</span>
+                                    <a href="###">进入</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <footer class="footer">
+            <div></div>
+            <ul class="icon">
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Index/index',array('current'=>'1'))}">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Discovery/index',array('current'=>'2'))}">
+                        <img src="__PUBLIC__/image/footer_icon2.png"/>
+                        <span>发现</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="###">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>社群</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Personal/index',array('current'=>'4'))}">
+                        <img src="__PUBLIC__/image/footer_icon4.png"/>
+                        <span>个人中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/association.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+        $(function(){ 
+        
+             $.ajax({
+                type:"get",
+                url:"{:U('Association/associationList')}",
+                aysnc:true,
+                data:{
+                    'type_id':2,
+                    'cate_id':0
+                },
+                dataType:"json",
+                success:function(data){
+                    // console.log(data)
+                    // console.log(data.data.cateList)
+                    var smallNav=$(".smallNav");
+                    var cate=data.data.cateList;
+                    for(var i=0;i<=cate.length-1;i++){
+                         smallNav.append('<li><a href="###" id="'+cate[i].id+'" class="a">'+cate[i].title+'</a></li>')
+                    }
+                    var list=data.data.list;
+                    var type_list=$(".con");
+                    for(var a=0;a<=list.length-1;a++){
+                        type_list.append('<li>'+
+                            '<span>'+
+                                '<img src="'+list[a].logo+'" alt="">'+
+                            '</span>'+   
+                            '<a href="###" class="code">'+
+                                '<img src="'+list[a].pic_url+'"/>'+
+                            '</a>'+
+                            '<div class="join">'+
+                                '<span>89人进群</span>'+
+                                '<a href="###">加入</a>'+
+                            '</div>'+
+                            '<div class="tan">'+
+                                    '<img src="'+list[a].qr_code+'"/>'+
+                             '</div>'+
+                        '</li>')
+                    }
+                    $(".first").click(function(){
+                        for(var a=0;a<=list.length-1;a++){
+                            type_list.append('<li>'+
+                                '<img src="'+list[a].logo+'" alt="">'+
+                                '<a href="###" class="code">'+
+                                    '<img src="'+list[a].pic_url+'"/>'+
+                                '</a>'+
+                                '<div class="join">'+
+                                    '<span>89人进群</span>'+
+                                    '<a href="###">加入</a>'+
+                                '</div>'+
+                                '<div class="tan">'+
+                                    '<img src="'+list[a].qr_code+'"/>'+
+                                '</div>'+
+                            '</li>')
+                        }
+                        $(".tan").click(function(){
+                            $(".tan").hide()
+                        })
+                         $(".join").click(function(){
+                            $(".tan").css("background","rgba(0,0,0,0.5)")
+                            $(".tan").show();
+                        })
+                        $(".code").click(function(){
+                            $(".tan").css("background","rgba(0,0,0,0.1)")
+                            $(".tan").show();
+                         })
+                    })
+                    $(".smallNav li").click(function(){
+                        $(this).addClass("on").siblings().removeClass("on")
+                    })
+                    $(".smallNav li a").click(function(){
+                        type_list.html("");
+                        var  b=$(this).attr("id");
+                        for(var j=0;j<=list.length-1;j++){
+                            if(b==list[j].cate_id){
+                                type_list.append('<li>'+
+                                '<img src="'+list[j].logo+'" alt="">'+
+                                '<a href="###" class="code">'+
+                                    '<img src="'+list[j].pic_url+'"/>'+
+                                '</a>'+
+                                '<div class="join">'+
+                                    '<span>89人进群</span>'+
+                                    '<a href="###">加入</a>'+
+                                '</div>'+
+                                '<div class="tan">'+
+                                    '<img src="'+list[j].qr_code+'"/>'+
+                                '</div>'+
+                            '</li>')
+                            }
+                        }
+                        $(".tan").click(function(){
+                            $(".tan").hide()
+                        })
+                        $(".join").click(function(){
+                            $(".tan").css("background","rgba(0,0,0,0.5)")
+                            $(".tan").show();
+                        })
+                        $(".code").click(function(){
+                            $(".tan").css("background","rgba(0,0,0,0.5)")
+                            $(".tan").show();
+                        })
+                    })
+                     $(".join").click(function(){
+                            $(".tan").css("background","rgba(0,0,0,0.5)")
+                            $(".tan").show();
+                     })
+                    $(".code").click(function(){
+                        $(".tan").css("background","rgba(0,0,0,0.1)")
+                        $(".tan").show();
+                    })
+                    $(".tan").click(function(){
+                        $(".tan").hide()
+                    })
+                }
+            })
+        
+        
+        })
+           
+        </script>
+        <include file="Common:footer"/>
+    </body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

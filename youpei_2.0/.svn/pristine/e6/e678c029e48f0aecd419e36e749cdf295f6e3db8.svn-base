@@ -1,0 +1,144 @@
+/*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a:first-child{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+.home{
+    right: 0.27rem;
+}
+/*头部 end*/
+
+/*中部 start*/
+.middle{
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
+}
+.advert img{
+    height: 2.34rem;
+    width: 100%;
+    margin: 0.16rem 0 0.24rem;
+}
+
+.courseContent ul{
+    /*overflow: hidden;*/
+}
+.courseContent ul li{
+    /*overflow: hidden;*/
+    background: white;
+    height: 3.92rem;
+    margin-bottom: 0.28rem;
+    padding: 0.44rem 0.15rem;
+}
+.courseContent .img{
+    position: relative;
+    float: left;
+}
+.courseContent .img .courseImg{
+    width: 5.39rem;
+    height: 3.83rem;
+}
+.courseContent .tap{
+    height: 1.04rem;
+    width: 1.15rem;
+    position: absolute;
+    top: -0.05rem;
+    left: 0.1rem;
+}
+.courseContent .logoTap{
+    height: 1.04rem;
+    width: 1.15rem;
+    position: absolute;
+}
+.courseContent .img .tapText{
+    width: 0.8rem;
+    height: 0.7rem;
+    position: absolute;
+    top: 0.2rem;
+    margin: 0 auto;
+    left: 0.1rem;
+    right: 0;
+    color: white;
+    font-size: 0.36rem;
+}
+.courseContent .text{
+    float: left;
+    margin-left: 0.14rem;
+    margin-top: -0.25rem;
+}
+.text p{
+    font-size: 0.48rem;
+    line-height: 1rem;
+    margin: 0 auto;
+    border-bottom: 0.01rem solid #aeaeae;
+    width: 5.3rem;
+}
+.text p i{
+    height: 0.23rem;
+    width: 0.23rem;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    background: #4c4c4c;
+    display: block;
+    float: left;
+    margin-top: 0.4rem;
+    margin-right: 0.2rem;
+}
+.text p span{
+    color: #386998;
+    font-size: 0.48rem;
+}
+
+
+/*之后添加的样式弹框*/
+.tan{
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+    background: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.tan .attention{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    height: 6rem;
+    width: 5rem;
+    text-align: center;
+}
+.tan img{   
+    height: auto;
+    width:5rem;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+.tan span{
+    font-size: 0.5rem;
+    color: white;
+}

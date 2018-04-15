@@ -1,0 +1,72 @@
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="/admin.php" class="site_title">&nbsp; &nbsp;&nbsp;&nbsp;<span>优培圈</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+            <div class="profile_pic">
+                <img src="__PUBLIC__/images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>欢迎光临</span>
+                <h2>{$adminName}</h2>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+        <br />
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>{$roleName}</h3>
+                <ul class="nav side-menu">
+                    <foreach name="menuList" item="val">
+                        <empty name="val['child']">
+                            <li class="btn_access" access_id="{$val['accessId']}"><a href="{:U($val['url'])}"><i class="fa {$val['pic_url']}"></i> {$val['title']} </a></li>
+                            <else/>
+                            <li class="btn_access" access_id="{$val['accessId']}"><a><i class="fa {$val['pic_url']}"></i> {$val['title']} <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <foreach name="val['child']" item="vo">
+                                        <li class="btn_access" access_id="{$vo['accessId']}"><a href="{:U($vo['url'])}">{$vo['title']}</a></li>
+                                    </foreach>
+                                </ul>
+                            </li>
+                        </empty>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+        <!-- /sidebar menu -->
+    </div>
+</div>
+
+<!-- top navigation -->
+<div class="top_nav">
+    <div class="nav_menu">
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            <div style="display: inline-block;float: right;">
+                <a href="{:U('ProductComment/commentList')}" style="line-height: 58px;margin-right:30px;"><i class="fa fa-users"></i>用户咨询 <span style="color:red">({$newProductCommentCount}条新咨询)</span></a>
+                <a href="{:U('Order/orderList')}" style="margin-right: 10px;"><i class="glyphicon glyphicon-bell"></i>订单通知 <span style="color:red">({$newOrderMsgCount}条新信息)</span></a>
+                <ul class="nav navbar-nav navbar-right" style="width:auto;">
+                    <li>
+                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            {$adminName}
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                            <li><a href="{:U('AdminUser/editAdminUser',array('adminId'=>$adminId))}"><i class="glyphicon glyphicon-cog pull-right" ></i>修改资料</a></li>
+                            <li><a href="{:U('Login/loginOut')}"><i class="fa fa-sign-out pull-right"></i> 退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- /top navigation -->

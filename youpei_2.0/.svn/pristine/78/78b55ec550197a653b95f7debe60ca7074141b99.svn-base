@@ -1,0 +1,171 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>团购列表</h2>
+                            <a href="{:U('Product/addGroupProduct')}" class="btn btn-success add_button btn_access" access_id="58">添加团购课程</a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="btn_access" access_id="48"><a href="{:U('Product/proUpList')}">上架商品</a>
+                                    </li>
+                                    <li role="presentation" class="btn_access" access_id="276"><a href="{:U('Product/fireList')}">热门课程</a>
+                                    </li>
+                                    <li role="presentation" class="btn_access" access_id="279"><a href="{:U('Product/activityList')}">活动商品</a>
+                                    </li>
+                                    <li role="presentation" class="btn_access" access_id="49"><a href="{:U('Product/rushList')}">抢购课程</a>
+                                    </li>
+                                    <li role="presentation" class="active btn_access" access_id="50"><a href="{:U('Product/groupProductList')}">团购商品</a>
+                                    </li>
+                                    <li role="presentation" class="btn_access" access_id="51"><a href="{:U('Product/hotList')}">精选商品</a>
+                                    </li>
+                                    <li role="presentation" class="btn_access" access_id="52"><a href="{:U('Product/proDownList')}">下架商品</a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                         aria-labelledby="home-tab">
+                                        <div class="table-responsive">
+                                            <table id="datatable"
+                                                   class="table table-striped jambo_table table-bordered">
+                                                <thead>
+                                                <tr class="headings">
+                                                    <th class="column-title">商品名称</th>
+                                                    <th class="column-title">分类</th>
+                                                    <th class="column-title">机构</th>
+                                                    <th class="column-title">团购价</th>
+                                                    <th class="column-title">最少成团人数</th>
+                                                    <th class="column-title">最大限制人数</th>
+                                                    <th class="column-title">图片</th>
+                                                    <th class="column-title">创建时间</th>
+                                                    <th class="column-title">状态</th>
+                                                    <th class="column-title">失败原因</th>
+                                                    <th class="column-title no-link last"><span class="nobr">操作</span>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <foreach name="groupList" item="val">
+                                                    <tr class="even pointer">
+                                                        <td>{$val['title']}</td>
+                                                        <td>{$val['class_name']}</td>
+                                                        <td>{$val['org_name']}</td>
+                                                        <td>{$val['price']}</td>
+                                                        <td>{$val['min_people']}</td>
+                                                        <td>{$val['max_people']}</td>
+                                                        <td><img src="{$val['image']}" width="40" height="40" alt=""></td>
+                                                        <td>{$val['create_time']|date="Y-m-d",###}</td>
+                                                        <td>{$val['check_status'] == 1?'审核中':($val['check_status'] == 2?'通过':'审核失败')}</td>
+                                                        <td>{$val['err_msg']}</td>
+                                                        <td class="last">
+                                                            <a href="{:U('Product/editGroupProduct',array('id'=>$val['id']))}" class="btn btn-info btn-xs btn_access" access_id="59">修改</a>
+                                                            <a href="javascript:void(0)" class="btn btn-danger btn-xs table-button-delete btn_access" access_id="60" attr_message="确认删除该团购？" attr_id="{$val['id']}">删除</a>
+                                                            <if condition="$val['check_status'] eq 3">
+                                                                <a href="javascript:regainCheck({$val['id']})"
+                                                                   class="btn btn-success btn-xs btn_access" access_id="156">重新审核</a>
+                                                            </if>
+                                                        </td>
+                                                    </tr>
+                                                </foreach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- self -->
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("Product/deleteGroupProduct")}'
+    };
+    $('.cancel_rush').click(function () {
+        var id = $(this).attr('attr_id');
+        var message = $(this).attr('attr_message');
+        var url = "{:U('Product/cancelRush')}";
+        layer.open({
+            type: 0,
+            title: '确认信息',
+            btn: ['确认', '取消'],
+            icon: 3,
+            closeBtn: 2,
+            content: message,
+            yes: function () {
+                cancelRush(url, {'id': id});
+            }
+        });
+    });
+    function cancelRush(url, data) {
+        $.post(url, data, function (result) {
+            if (result.status == 1) {
+                return dialog.success(result.message, '');
+            } else {
+                return dialog.error(result.message);
+            }
+        }, 'JSON');
+    }
+    function regainCheck(id) {
+        var url = "{:U('Check/regainCheckGroup')}";
+        $.post(url, {id: id}, function (result) {
+            if (result.status == 1) {
+                return dialog.success(result.message, "{:U('Product/groupProductList')}");
+            } else {
+                return dialog.error(result.message);
+            }
+        }, 'json');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class GroupsController extends BaseController
+{
+    public function index()
+    {
+        $this->title = "团购列表";
+        try {
+            //先把过期的团购修改状态
+            M('group_record')->where(array('status' => array('neq', 5), 'end_time' => array('ELT', time())))
+                ->save(array('status' => 2));
+            $groupList = M('group_record')->where(array('status' => array('neq', 5), 'end_time' => array('gt', time())))->select();
+            foreach ($groupList as $k => $v) {
+                $userCount = M('order')->where(array('group_record_id' => $v['id'],
+                    'status' => array(array('eq', 1), array('eq', 4), 'OR')))->count('amount');
+                $product = D('GroupProduct')->find($v['group_id']);
+                if ($userCount >= $product['min_people']) {
+                    D('GroupRecord')->updateById($v['id'], array('status' => 2));
+                }
+                if ($userCount >= $product['max_people']) {
+                    D('GroupRecord')->updateById($v['id'], array('status' => 4));
+                }
+                $orderCount = M('order')->where(array('status' => array(array('eq', 1), array('eq', 4), 'OR'),
+                    'group_record_id' => $v['id']))->count();
+                $groupList[$k]['title'] = $product['title'];
+                $groupList[$k]['original_price'] = $product['original_price'];
+                $groupList[$k]['price'] = $product['price'];
+                $groupList[$k]['min_people'] = $product['min_people'];
+                $groupList[$k]['order_count'] = $orderCount;
+                $groupList[$k]['image'] = $product['image'];
+            }
+            $this->assign('groupList', $groupList);
+            $this->display();
+        } catch (Exception $e) {
+            $this->error($e->getMessage());
+        }
+    }
+
+    public function getGroup()
+    {
+        if ($_POST) {
+            if (!$_POST['group_id'] || empty($_POST['group_id'])) {
+                return show(0, 'ID不能为空');
+            }
+            if (!$_POST['content'] || empty($_POST['content'])) {
+                return show(0, '咨询内容不能为空');
+            }
+            $data = array(
+                'group_id' => $_POST['group_id'],
+                'user_id' => $this->user['id'],
+                'create_time' => time(),
+                'type' => 1,
+                'status' => 1,
+                'content' => $_POST['content'],
+                'token' => $this->token,
+            );
+            $id = D('ProductComment')->insert($data);
+            $find = D('ProductComment')->find($id);
+            $headImg = M('user')->where("id={$find['user_id']}")->field('headimgurl')->find();
+            $find['headImg'] = $headImg['headimgurl'];
+            if (!$find || empty($find)) {
+                $this->ajaxReturn(array('status' => 0, 'msg' => '咨询失败'));
+            }
+            $this->ajaxReturn(array('status' => 1, 'msg' => '咨询成功', 'data' => $find));
+
+        } else {
+            $this->title = "团购详细";
+            if (!$_GET['id'] || !is_numeric($_GET['id'])) {
+                $this->error('ID参数错误');
+            }
+            try {
+                $groupRecord = D('GroupRecord')->find($_GET['id']);
+                $group = D('GroupProduct')->find($groupRecord['group_id']);
+                $tags = explode(' ', $group['tag']);
+                $group['tagA'] = $tags[0] ?: '';
+                $group['tagB'] = $tags[1] ?: '';
+                $group['tagC'] = $tags[2] ?: '';
+                //评论列表
+
+                $commentList = D('ProductComment')->getCommentByFatherGroupId(0, 0, $groupRecord['group_id']);
+                foreach ($commentList as $k => $v) {
+                    $commentList[$k]['child'] = M('ProductComment')->where(array('type_id' => $v['id'], 'group_id' => $v['group_id'], 'status' => 1))->select();
+                    $commentList[$k]['headImg'] = D('user')->getHeadById($v['user_id']);
+                    foreach ($commentList[$k]['child'] as $ke => $va) {
+                        //回复
+                        if ($va['is_gm'] == 2) {
+                            //待机构管理员完善之后需修改
+                            //客服头像
+                            $picture = M('organization')->field('picture')->where(array('token' => $this->token))->find();
+                            $commentList[$k]['child'][$ke]['headImg'] = $picture['picture'];
+                        } elseif ($va['is_gm'] == 1) {
+                            $commentList[$k]['child'][$ke]['headImg'] = D('user')->getHeadById($va['user_id']);
+                        }
+                        //被回复
+                        $userId = M('ProductComment')->where(array('id' => $commentList[$k]['child'][$ke]['father_id']))->find();
+                        if ($userId['is_gm'] == 2) {
+                            $pictures = M('organization')->field('picture')->where(array('token' => $userId['token']))->find();
+                            $commentList[$k]['child'][$ke]['headImgs'] = $pictures['picture'];
+                        } else if ($userId['is_gm'] == 1) {
+                            $commentList[$k]['child'][$ke]['headImgs'] = D('user')->getHeadById($userId['user_id']);
+                        }
+                    }
+                }
+                //购买商品的所有用户头像
+                $userId = D('Order')->getGroupByGroupRecordId($groupRecord['id']);
+                foreach ($userId as $k => $v) {
+                    $headImg[$k]['headImg'] = D('User')->getHeadById($v['user_id']);
+                }
+                $userCount = M('order')->where(array('group_record_id' => $groupRecord['id'],
+                    'status' => array(array('eq', 1), array('eq', 4), 'OR')))->count('amount');
+                $organization = D('Organization')->findByToken($group['token']);
+                $this->assign('group', $group)->assign('commentList', $commentList)->assign('groupRecordId', $groupRecord['id']);
+                $this->assign('headImg', $headImg)->assign('userCount', $userCount)->assign('organization', $organization);
+                $this->display();
+            } catch (Exception $e) {
+                $this->error($e->getMessage());
+            }
+        }
+    }
+
+    public function checkOrderInfo()
+    {
+        $this->title = "团购详细";
+        if (!$_GET['groupRecordId'] || !is_numeric($_GET['groupRecordId'])) {
+            $this->error('获取不到该团购信息');
+        }
+        try {
+            $groupRecord = D('GroupRecord')->find($_GET['groupRecordId']);
+            $group = D('GroupProduct')->find($groupRecord['group_id']);
+            //判断可购买数量
+            $nowCount = M('order')->where(array('group_record_id' => $groupRecord['id'],
+                'status' => array(array('eq', 1), array('eq', 4), 'OR')))->count('amount');
+            $this->assign('group', $group)->assign('groupRecordId', $groupRecord['id'])->assign('canOrderCount', $group['max_people'] - $nowCount);
+            $this->display();
+        } catch (Exception $e) {
+            $this->error($e->getMessage());
+        }
+    }
+
+    public function confirmationInfo()
+    {
+        if (!$_GET['groupRecordId']) {
+            return show(0, '参数错误');
+        }
+        if (!$_GET['amount'] || $_GET['amount'] < 1) {
+            return show(0, '数量参数错误');
+        }
+        if (!$_GET['name']) {
+            return show(0, '联系人不能为空');
+        }
+        if (!$_GET['mobile']) {
+            return show(0, '联系电话不能为空');
+        }
+        $this->display();
+    }
+
+
+    public function ajaxConfirmationInfo()
+    {
+        if (!$_GET['groupRecordId']) {
+            return show(0, '参数错误');
+        }
+        if (!$_GET['amount'] || $_GET['amount'] < 1) {
+            return show(0, '数量参数错误');
+        }
+        $groupRecord = M('group_record')->where(['id' => $_GET['groupRecordId']])->find();
+        $group = M('group_product')->where(['id' => $groupRecord['group_id']])->field('description,cost', true)->find();
+        $org = D('Organization')->findByToken($group['token']);
+        $price = $group['price'];
+        $couponByUser = M('coupon')->where(['status' => 1, 'user_id' => $this->user['id']])->select();
+        $couponList = [];
+        $totalPrice = $price * $_GET['amount'];
+        foreach ($couponByUser as $key => $val) {
+            //判断有否过期
+            $offer = M('coupon_offer')->where(['id' => $val['offer_id']])->find();
+            if ($offer['end_time'] <= time()) {
+                M('coupon')->where(['id' => $val['id']])->save(['status' => 4]);
+                continue;
+            }
+            //判断该商品是否可用
+            if ($offer['type'] == 1 && $offer['type_id'] != $org['id']) {
+                continue;
+            }
+            //判断商品总额，是否可用
+            if ($offer['coupon_type'] == 1 && $offer['full'] > $totalPrice) {
+                continue;
+            }
+            $couponList[$key] = [
+                'full' => $offer['full'],
+                'subtract' => $offer['subtract'],
+                'start_time' => date("Y.m.d", $offer['start_time']),
+                'end_time' => date("Y.m.d", $offer['end_time']),
+                'fee' => $offer['fee'],
+                'coupon_type' => $offer['coupon_type'],
+                'id' => $val['id']
+            ];
+        }
+        //优惠券排序
+        $flag = [];
+        foreach ($couponList as $v) {
+            $flag[] = $v['coupon_type'];
+        }
+        array_multisort($flag, SORT_DESC, $couponList);
+        //现有积分
+        $nowIntegral = M('user')->where("id={$this->user['id']}")->getField('integral');
+        return show(1, '获取成功', ['couponList' => $couponList, 'totalPrice' => $totalPrice, 'nowIntegral' => $nowIntegral,
+            'title'=>$group['title'],'image'=>$group['image'],'unit'=>$group['unit']]);
+    }
+    
+
+    //发起组团
+    public function addGroup()
+    {
+        $this->title = "组团";
+        //筛选出有可团购的机构列表
+        $tokenList = M('group_product')->distinct(true)->field('token')->where(array('status' => 1, 'check_status' => 2))->select();
+        $orgList = [];
+        foreach ($tokenList as $k => $v) {
+            $orgList[$k] = M('organization')->where(array('token' => $v['token']))->field('token,org_name')->find();
+        }
+        $this->assign('orgList', $orgList);
+        $this->display();
+    }
+
+    //根据机构id显示团购列表
+    public function getGroupsByOrgId()
+    {
+        if (!$_POST['token'] || empty($_POST['token'])) {
+            return show(0, '请选择机构');
+        }
+        $groups = D('GroupProduct')->getGroupsByToken($_POST['token'], 'id,title');
+        return show(1, '获取成功', $groups);
+    }
+
+    public function getGroupById()
+    {
+        if (!$_POST['id'] || empty($_POST['id'])) {
+            return show(0, 'ID参数错误');
+        }
+        $product = D('GroupProduct')->find($_POST['id']);
+        $product['class_time'] = json_decode($product['class_time'], true);
+        $product['group_time'] = [
+            'start_time' => date('Y/m/d', time()),
+            'end_time' => date('Y/m/d', strtotime('+2 week', time()))
+        ];
+        return show(1, '获取成功', $product);
+    }
+
+    //发起团购
+    public function launchGroup()
+    {
+        if (!$_POST['group_id'] || !is_numeric($_POST['group_id'])) {
+            return show(0, '参数错误');
+        }
+        //判断是否有相同的团购
+        $isGroup = D('GroupRecord')->isSameGroup($_POST['group_id']);
+        if ($isGroup && !empty($isGroup)) {
+            return show(0, '已经有该课程的团购');
+        }
+        $insertData = [
+            'user_id' => $this->user['id'],
+            'create_time' => time(),
+            'group_id' => $_POST['group_id'],
+            'end_time' => strtotime('+2 week', time()),
+            'status' => 1,
+        ];
+        $id = D('GroupRecord')->insert($insertData);
+        if ($id) {
+            return show(1, '发起成功');
+        } else {
+            return show(0, '发起失败');
+        }
+    }
+
+    //我的团
+    public function myGroups()
+    {
+        $this->title = "我的团";
+        $groupRecordIds = M('order')->distinct(true)->field('group_record_id')->where(
+            array('status' => array(array('eq', 1), array('eq', 4), 'OR'),
+                'user_id' => $this->user['id'], 'group_record_id' => array('neq', 0)))->select();
+        $groupList = [];
+        foreach ($groupRecordIds as $k => $v) {
+            $groupRecord = D('GroupRecord')->find($v['group_record_id']);
+            $group = D('GroupProduct')->find($groupRecord['group_id']);
+            $groupList[$k] = [
+                'title' => $group['title'],
+                'status' => $groupRecord['status'],
+                'image' => $group['image'],
+                'original_price' => $group['original_price'],
+                'price' => $group['price'],
+                'record_id' => $groupRecord['id'],
+            ];
+        }
+        $this->assign('groupList', $groupList);
+        $this->display();
+    }
+
+    //用户之间留言对话
+    public function comment()
+    {
+        if ($_POST) {
+            if (!$_POST['group_id'] || empty($_POST['group_id'])) {
+                $this->ajaxReturn(array('status' => 0, 'msg' => 'ID参数错误'));
+            }
+            if (!$_POST['father_id'] || empty($_POST['father_id'])) {
+                $this->ajaxReturn(array('status' => 0, 'msg' => 'FATHER_ID参数错误'));
+            }
+            if (!$_POST['content'] || empty($_POST['content'])) {
+                $this->ajaxReturn(array('status' => 0, 'msg' => '咨询内容不能为空'));
+            }
+            $data = [
+                'user_id' => $this->user['id'],
+                'father_id' => $_POST['father_id'],
+                'group_id' => $_POST['group_id'],
+                'content' => $_POST['content'],
+                'token' => $this->token,
+                'type_id' => $_POST['type_id'],
+                'status' => 1,
+                'type' => 1,
+                'create_time' => time()
+            ];
+            $id = D('ProductComment')->insert($data);
+            //评论人头像
+            $reply = D('ProductComment')->find($id);
+            $headImg = M('user')->where("id={$reply['user_id']}")->field('headimgurl')->find();
+            $reply['headImg'] = $headImg['headimgurl'];
+            //被评论人头像
+            $replys = D('ProductComment')->find($_POST['father_id']);
+            $headImgs = M('user')->where("id={$replys['user_id']}")->field('headimgurl')->find();
+            $reply['headImgs'] = $headImgs['headimgurl'];
+            if (!$reply || empty($reply)) {
+                $this->ajaxReturn(array('status' => 0, 'msg' => '评论失败'));
+            }
+            $this->ajaxReturn(array('status' => 1, 'msg' => '评论成功', 'data' => $reply));
+        }
+    }
+
+    //添加愿望单
+    public function addHope()
+    {
+        if (!$_POST['class_time'] || empty($_POST['class_time'])) {
+            return show(0, '上课时间错误');
+        }
+        if (!$_POST['content'] || empty($_POST['content'])) {
+            return show(0, '请写出你的愿望');
+        }
+        if (!$_POST['mobile'] || empty($_POST['mobile'])) {
+            return show(0, '手机不能为空');
+        }
+        $classTime = [];
+        //编译成json格式存进数据库
+        foreach ($_POST['class_time'] as $k => $v) {
+            $classTime[$k]['class_time_day'] = $v[0];
+            $classTime[$k]['class_start_hour'] = $v[1];
+            $classTime[$k]['class_end_hour'] = $v[2];
+            if (empty($classTime[$k]['class_time_day']) || empty($classTime[$k]['class_start_hour']) || empty($classTime[$k]['class_end_hour'])) {
+                return show(0, '上课时间设置有误，请重新核实');
+            }
+        }
+        $classTime = json_encode($classTime);
+        $insertData = [
+            'create_time' => time(),
+            'user_id' => $this->user['id'],
+            'type' => 1,
+            'class_time' => $classTime,
+            'content' => $_POST['content'],
+            'mobile' => $_POST['mobile'],
+        ];
+        try {
+            $id = D('Hope')->insert($insertData);
+            if ($id) {
+                return show(1, '你的愿望已提交');
+            } else {
+                return show(0, '提交失败');
+            }
+        } catch (Exception $e) {
+            return show(0, $e->getMessage());
+        }
+    }
+
+    public function checkOrderInformation()
+    {
+        if (!$_GET['groupRecordId'] || !is_numeric($_GET['groupRecordId'])) {
+            $this->error('获取不到该团购信息');
+        }
+        try {
+            $groupRecord = D('GroupRecord')->find($_GET['groupRecordId']);
+            $product = D('GroupProduct')->find($groupRecord['group_id']);
+            //判断可购买数量
+            $nowCount = M('order')->where(array('group_record_id' => $groupRecord['id'],
+                'status' => array(array('eq', 1), array('eq', 4), 'OR')))->count('amount');
+            $this->assign('product', $product)->assign('groupRecordId', $groupRecord['id'])->assign('canOrderCount', $product['max_people'] - $nowCount);
+            $this->display();
+        } catch (Exception $e) {
+            $this->error($e->getMessage());
+        }
+    }
+
+
+}

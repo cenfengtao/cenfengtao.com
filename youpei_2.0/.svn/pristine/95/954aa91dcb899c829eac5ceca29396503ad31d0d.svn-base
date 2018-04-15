@@ -1,0 +1,15 @@
+ .list .empty{
+        text-align: center;
+        line-height: 2.3rem;
+    }
+    .list-card-timeline{
+        background: #f1f1f1;
+    }
+    .list-card-timeline .item{
+        border-bottom: none!important;
+        border-top: none!important;
+        margin-bottom: 5px;
+    }
+/*    .list-cat-tags{
+        border-bottom: none!important;
+    }*/

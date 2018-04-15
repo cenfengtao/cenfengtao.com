@@ -1,0 +1,252 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/addGroup.css">
+<style type="text/css">
+	.want{
+		width: 100%;
+		height: 4.72rem;
+	}
+</style>
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回"
+               data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="user-area">
+        <div class="tab-nav">
+            <a href="javascript:void(0)" class="active" id="tab-create">自动创建</a>
+            <a href="javascript:void(0)" id="tab-hope">愿望单</a>
+        </div>
+        <div class="auto-create">
+            <ul>
+                <li>
+                    <div class="group-left">请选择机构</div>
+                    <div class="group-right">
+                        <select name="org_token" onchange="chooseOrg()">
+                            <option value="0" style="font-size:0.5rem;"></option>
+                            <foreach name="orgList" item="val">
+                                <option value="{$val['token']}" style="font-size:0.5rem;">{$val['org_name']}</option>
+                            </foreach>
+                        </select>
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="group-left">请选择课程</div>
+                    <div class="group-right">
+                        <select name="group_id" onchange="chooseProduct()"></select>
+                    </div>
+                    <hr>
+                </li>
+                <li class="class-time">
+                    <div class="group-left" style="vertical-align:top;">上课时间</div>
+                    <div class="group-right"><ul class="classTime"></ul></div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="group-left">召集时间</div>
+                    <div class="group-right"><p class="groupTime"></p></div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="group-left">成团人数</div>
+                    <div class="group-right"><p class="minPeople"></p></div>
+                    <hr>
+                </li>
+            </ul>
+            <div class="launch-group">
+                <button onclick="launchGroup()" class="button-launch">发起组团</button>
+            </div>
+        </div>
+        <div class="hope-order">
+            <ul>
+                <li>
+                    <div class="group-left" style="vertical-align:top;">上课内容</div>
+                    <div class="group-right">
+                        <textarea name="hope_content" id="hope-content" placeholder="请输入你想要的培训内容/想法"></textarea>
+                    </div>
+                    <hr>
+                </li>
+                <li class="class-time1">
+                    <div class="group-left">上课时间1</div>
+                    <div class="group-right">
+                        <select name="class_time_day">
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            <option value="周四">周四</option>
+                            <option value="周五">周五</option>
+                            <option value="周六">周六</option>
+                            <option value="周日">周日</option>
+                        </select>
+                        <input type="time" name="class_start_hour" value='00:00'> - <input type="time" name="class_end_hour" value='23:59'>
+                    </div>
+                    <hr>
+                </li>
+                <li class="class-time2">
+                    <div class="group-left">上课时间2</div>
+                    <div class="group-right">
+                        <select name="class_time_day">
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            <option value="周四">周四</option>
+                            <option value="周五">周五</option>
+                            <option value="周六">周六</option>
+                            <option value="周日">周日</option>
+                        </select>
+                        <input type="time" name="class_start_hour" value='00:00'> - <input type="time" name="class_end_hour" value='23:59'>
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="group-left">联系电话</div>
+                    <div class="group-right"><input type="number" name="mobile"></div>
+                </li>
+            </ul>
+            <div class="submit-hope">
+                <button onclick="submitHope()" class="button-submit">提交愿望</button>
+                <p class="hint">* 提示：提交愿望后，优培圈会努力帮你实现哦！</p>
+            </div>
+            <img src="../../../../Public/images/want.jpg" class="want"/>
+        </div>
+    </div>
+    <!-- 底部菜单 -->
+    <div class="kap-bottom ty-menu-bottom">
+        <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+            <a href="{:U('Index/index',array('current'=>'1'))}" data-ty-target="#page_hot" data-icon=""><i
+                    style="background: url('__PUBLIC__/images/1497609486.png') center center/70% 70% no-repeat; display:block;"
+                    class="on"> </i>首页</a>
+            <i class="border"></i>
+            <a href="{:U('Groups/index',array('current'=>'2'))}"
+            <if condition='$current eq 2'>class="current"</if>
+            data-ty-target="#page_discover" data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '发现'])"><i
+                style="background: url('__PUBLIC__/images/1497609958.png')center center/70% 70% no-repeat; display:block;"
+                class="on"> </i>入团</a>
+            <i class="border"></i>
+            <a href="{:U('Groups/addGroup',array('current'=>'3'))}" class="current"
+            data-ty-target="#detail_msg" data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '消息'])"><i
+                style="background: url('__PUBLIC__/images/1497609579.png')center center/70% 70% no-repeat; display:block;"
+                class="on"> </i>组团<i id="new_msg_alert"></i></a>
+            <i class="border"></i>
+            <a href="{:U('Groups/myGroups',array('current'=>'4'))}"
+            <if condition='$current eq 4'>class="current"</if>
+            data-ty-target="#page_user" data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '我的'])"><i
+                style="background: url('__PUBLIC__/images/1497609711.png')center center/70% 70% no-repeat; display:block;"
+                class="on"></i>我的团</a>
+        </div>
+    </div>
+</div>
+<include file="Common:footer"/>
+<script>
+    $(window).load(function () {
+        setTimeout(function () {
+            $('.kap-bottom').show();
+        }, 2000)
+    });
+    function getProduct(id) {
+        window.location.href = "{:U('Groups/getGroup')}?product_id=" + id;
+    }
+//    选择机构
+    function chooseOrg() {
+        var token = $('select[name="org_token"] option:selected').val();
+        if (token == 0) {
+            $('select[name="group_id"]').empty();
+            return false;
+        }
+        var url = "{:U('Groups/getGroupsByOrgId')}";
+        $.post(url, {token: token}, function (result) {
+            if (result.status == 0) {
+                return alert(result.message);
+            }
+            if (result.status == 1) {
+                $('select[name="group_id"]').empty();
+                $.each(result.data, function (idx, obj) {
+                    $('select[name="group_id"]').append("<option value='"+obj.id+"'>"+obj.title+"</option>");
+                });
+                chooseProduct();
+            }
+        }, 'json');
+    }
+//    选择课程
+    function chooseProduct() {
+        var id = $('select[name="group_id"] option:selected').val();
+        var url = "{:U('Groups/getGroupById')}";
+        $.post(url,{id:id},function (result) {
+            if (result.status == 0){
+                return alert(result.message);
+            } else {
+                $('.classTime').empty();
+                $.each(result.data['class_time'],function (idx,obj) {
+                    $('.classTime').append("<li>"+obj.class_time_day+" "+obj.class_start_hour+" - "+obj.class_end_hour+"</li>");
+                });
+                $('.groupTime').html(result.data['group_time']['start_time']+" - "+result.data['group_time']['end_time']);
+                $('.minPeople').html(result.data['min_people']);
+            }
+        },'json')
+    }
+    //发起组团
+    function launchGroup() {
+        var group_id = $('select[name="group_id"] option:selected').val();
+        var url = "{:U('Groups/launchGroup')}";
+        $.post(url,{group_id:group_id},function (result) {
+            if (result.status == 0){
+                return alert(result.message);
+            } else {
+                alert(result.message);
+                setTimeout(function () {
+                    window.location.href = "{:U('Groups/index')}";
+                },1000)
+            }
+        },'json')
+    }
+
+    function submitHope() {
+        //获取上课时间
+        var class_time = new Array();
+        var add_time_length = $('select[name="class_time_day"] option:selected').length;
+        for(var i = 0;i<=add_time_length;i++){
+            class_time[i] = new Array();
+            class_time[i][0] = $(".class-time"+i+" select[name='class_time_day'] option:selected").val();
+            class_time[i][1] = $(".class-time"+i+" input[name='class_start_hour']").val();
+            class_time[i][2] = $(".class-time"+i+" input[name='class_end_hour']").val();
+        }
+        var content = $("#hope-content").val();
+        var mobile = $("input[name='mobile']").val();
+        if(!content || content == ''){
+            return alert('请写出你的愿望');
+        }
+        if (!/^1(3|4|5|7|8){1}\d{9}$/.test(mobile)) {
+            return alert("手机号码格式不正确，请重新填写");
+        }
+        var url = "{:U('Groups/addHope')}";
+        $.post(url,{class_time:class_time,content:content,mobile:mobile},function (result) {
+            if(result.status == 1){
+                alert(result.message);
+                setTimeout(function(){
+                    window.location.href = "{:U('Groups/index',array('current' => 2))}";
+                },1500);
+            } else {
+                alert(result.message);
+            }
+        },'json')
+    }
+    $("#tab-create").click(function () {
+        $("#tab-hope").removeClass();
+        $("#tab-create").addClass('active');
+        $('.hope-order').hide();
+        $('.auto-create').show();
+    });
+
+    $("#tab-hope").click(function () {
+        $("#tab-create").removeClass();
+        $("#tab-hope").addClass('active');
+        $('.hope-order').show();
+        $('.auto-create').hide();
+    })
+</script>
+</body>
+</html>

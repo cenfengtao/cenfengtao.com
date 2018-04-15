@@ -1,0 +1,103 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/addGroup.css">
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回"
+               data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="user-area">
+        <div class="hope-order" style="display: block;">
+            <ul>
+                <li>
+                    <div class="group-right" style="width: 100%;">
+                        <textarea name="hope_content" id="hope-content" placeholder="请输入你想要的培训内容/想法" style="margin:1rem; height: 12rem; padding:0.5rem;"></textarea>
+                    </div>
+                </li>
+                <li style="text-align: center;">—请选择你想要上课的时间—</li>
+                <li class="class-time1">
+                    <div class="group-left" style="width: 23%;">上课时间1</div>
+                    <div class="group-right">
+                        <select name="class_time_day">
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            <option value="周四">周四</option>
+                            <option value="周五">周五</option>
+                            <option value="周六">周六</option>
+                            <option value="周日">周日</option>
+                        </select>
+                        <input type="time" name="class_start_hour" value='00:00'> - <input type="time" name="class_end_hour" value='23:59'>
+<!--                         <label for="check1">
+                            <input type="checkbox" name="message" style="display: none;" class="checkbox" id="check1">
+                            <span class="check"></span>
+                        </label> -->
+                    </div>
+                    <hr>
+                </li>
+                <li class="class-time2">
+                    <div class="group-left" style="width: 23%;">上课时间2</div>
+                    <div class="group-right">
+                        <select name="class_time_day">
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            <option value="周四">周四</option>
+                            <option value="周五">周五</option>
+                            <option value="周六">周六</option>
+                            <option value="周日">周日</option>
+                        </select>
+                        <input type="time" name="class_start_hour" value='00:00'> - <input type="time" name="class_end_hour" value='23:59'>
+<!--                         <label for="check2">
+                             <input type="checkbox" name="message" style="display: none;" class="checkbox" id="check2">
+                            <span class="check"></span>
+                        </label> -->
+                    </div>
+                    <hr>
+                </li>
+                <li style="display: none;">
+                    <div class="group-left">联系电话</div>
+                    <div class="group-right"><input type="number" name="mobile"></div>
+                </li>
+            </ul>
+            <div class="submit-hope">
+                <button onclick="submitHope()" class="button-submit">提交愿望</button>
+                <p class="hint" style="padding:0 1.8rem 4rem; line-height: 1.5rem;">● 提示：提交愿望后，优配圈会努力帮您实现哦！敬请留意最新课程信息！</p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部菜单 -->
+    <footer class="footer" style="display: none;">
+        <div></div>
+        <ul class="icon">
+            <li>
+                <img src="__PUBLIC__/image/circle.png" alt="">
+                <a href="/index.php/Groups/index.html">
+                    <img src="__PUBLIC__/images/groupsIcon3.png"/>
+                    <span>参团</span>
+                </a>
+            </li>
+            <li>
+                <img src="__PUBLIC__/image/circle.png" alt="">
+                <a href="/index.php/Groups/addGroup.html">
+                    <img src="__PUBLIC__/images/groupsIcon2.png"/>
+                    <span>愿望单</span>
+                </a>
+            </li>
+            <li>
+                <img src="__PUBLIC__/image/circle.png" alt="">
+                <a href="/index.php/Groups/myGroups.html">
+                    <img src="__PUBLIC__/images/groupsIcon1.png"/>
+                    <span>我的团</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</div>
+<include file="Common:footer"/>
+<script src="__PUBLIC__/js/home/addGroup.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?php
+namespace Admin\Controller;
+
+use Think\Controller;
+
+class PictureController extends CommonController
+{
+    public function index()
+    {
+        $list = M('Picture')->where(array('token' => $this->token))->order('sort')->select();
+        $this->assign('list', $list);
+        $this->display();
+    }
+
+    public function addPicture()
+    {
+        $m = D('Picture');
+        if (I('id', 0) > 0) {
+            $object = $m->get();
+        }
+        $this->assign('object', $object);
+        $this->display();
+    }
+
+    /**
+     * 新增/修改操作
+     */
+    public function edit()
+    {
+        $m = D('Picture');
+        if (I('id', 0) > 0) {
+            $rs = $m->editPicture();
+        } else {
+            $rs = $m->insertPicture($this->token);
+        }
+        $this->ajaxReturn($rs);
+    }
+
+    public function del()
+    {
+        $m = D('Picture');
+        $rs = $m->del();
+        $this->ajaxReturn($rs);
+    }
+}

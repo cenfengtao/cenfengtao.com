@@ -1,0 +1,27 @@
+<include file="Common:header"/>
+<style>
+    body,html{
+        background: #f1f1f1;
+    }
+    .wst-sys-msg-ub p{
+        line-height: 1.5rem;
+        padding: 0 1rem;
+        font-size: 36px!important;
+        color: #2a6591;
+    }
+</style>
+<div class="container interest-container">
+<div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Index/index',array('current'=>'1'))}" class="btn right btn-user" title="返回首页"
+           data-icon="Ņ"></a>
+    </div>
+    <br/>
+    <div class="wst-sys-msg-ub">
+       {$lotteryrule}
+    </div>
+</div>
+</div>
+<include file="Common:footer"/>

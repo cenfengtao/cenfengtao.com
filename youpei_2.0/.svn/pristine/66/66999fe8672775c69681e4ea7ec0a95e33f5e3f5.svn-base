@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>我的作品</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/userWorks.css"/>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+    <!--  <script>
+         var _hmt = _hmt || [];
+         (function() {
+           var hm = document.createElement("script");
+           hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+           var s = document.getElementsByTagName("script")[0];
+           s.parentNode.insertBefore(hm, s);
+         })();
+     </script> -->
+</head>
+<body class="kap-loading ty-view-all">
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>我的作品</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle">
+    <ul class="works">
+    </ul>
+    <!-- <section class="morePeople" style="display: none;">
+         <span><img src="../../../../Public/images/guide1.png"/></span>
+    </section> -->
+</article>
+<footer class="footer">
+    <ul class="icon">
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/voteList.html?vote_id=4">
+                <img src="__PUBLIC__/images/voteIcon1.png"/>
+                <span>作品库</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userVote.html">
+                <img src="__PUBLIC__/images/voteIcon2.png"/>
+                <span>我的投票</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userWorks.html">
+                <img src="__PUBLIC__/images/voteIcon3.png"/>
+                <span>我的作品</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userBillboard.html?vote_id=4">
+                <img src="__PUBLIC__/images/voteIcon4.png"/>
+                <span>榜单</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/userWorks.js" type="text/javascript" charset="utf-8"></script>
+<script>
+//    获取url参数
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+var id=GetRequest().id;
+    $.ajax({
+        type:"post",
+        url:"/index.php/Vote/ajaxUserWorks",
+        async: true,
+        dataType:"json",
+        data:{
+
+        },
+        success:function(data){
+            console.log(data)
+            var data=data.data;
+            var dataLength=data.length;
+            for(var i=0; i<dataLength; i++){
+                if(data[i].upload_type==1){
+                    var year=data[i].time.split("-")[0];
+                    var month=data[i].time.split("-")[1];
+                    var day=data[i].time.split("-")[2];
+                    $(".works").append(
+                        '<li>'+
+                            '<section class="date">'+
+                                '<p>投稿日期：<span>'+year+'年'+month+'月'+day+'日</span></p>'+
+                            '</section>'+
+                            '<section class="img">'+
+                                '<img src="'+data[i].path+'" alt="">'+
+                            '</section>'+
+                            '<section class="name">'+
+                                '<p><i></i>名称：<span>'+data[i].title+'</span></p>'+
+                            '</section>'+
+                            '<section class="nowTicket">'+
+                                '<p><i></i>当前票数：<span>'+data[i].vote_count+'</span>票</p>'+
+                            '</section>'+
+                            '<section class="go">'+
+                                '<a href="/index.php/Vote/voteDetail.html?id='+data[i].id+'">去拉票</a>'+
+                            '</section>'+
+                        '</li>'
+                    )
+                }
+                if(data[i].upload_type==2){
+                    var year=data[i].time.split("-")[0];
+                    var month=data[i].time.split("-")[1];
+                    var day=data[i].time.split("-")[2];
+                    $(".works").append(
+                        '<li>'+
+                            '<section class="date">'+
+                                '<p>投稿日期：<span>'+year+'年'+month+'月'+day+'日</span></p>'+
+                            '</section>'+
+                            '<section class="img">'+
+                                '<video src="'+data[i].path+'" autoplay></video>'+
+                            '</section>'+
+                            '<section class="name">'+
+                                '<p><i></i>名称：<span>'+data[i].title+'</span></p>'+
+                            '</section>'+
+                            '<section class="nowTicket">'+
+                                '<p><i></i>当前票数：<span>'+data[i].vote_count+'</span>票</p>'+
+                            '</section>'+
+                            '<section class="go">'+
+                                '<a href="/index.php/Vote/voteDetail.html?id='+data[i].id+'">去拉票</a>'+
+                            '</section>'+
+                        '</li>'
+                    )
+                }
+            } 
+        }
+    })
+    // $(function(){
+    //     $(".go a").click(function(){
+    //         $(".morePeople").show()
+    //     })
+    //     $(".morePeople").click(function(){
+    //         $(".morePeople").hide()
+    //     })
+
+    // })
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

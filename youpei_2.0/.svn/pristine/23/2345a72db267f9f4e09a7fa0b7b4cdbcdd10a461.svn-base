@@ -1,0 +1,500 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/idangerous.swiper.css">
+<link rel="stylesheet" href="/Public/Home/css/style_v3.css">
+<link rel="stylesheet" href="/Public/Home/css/new.css">
+<link rel="stylesheet" href="__PUBLIC__/css/home/organizationHome.css">
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+            <a href="{:U('Index/index',array('current'=>'1'))}" class="btn right btn-user" title="返回首页"
+               data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="advert">
+        <!-- <a href="###"><img src="../../../../Public/images/article-banner.png" alt=""></a> -->
+    </div>
+    <div class="ty-page" data-ty-current="0" data-ty-total="0">
+        <div class="shop-info">
+            <div class="shoplogo">
+                <img src="{$organization['picture']}">
+                <span>{$organization['org_name']}</span>
+            </div>
+            <div class="score">
+                <span>机构评级</span>
+                 <span class="star" data-ty-talent-star="5">
+                    <for name="$organization['org_star']" start="0" end="$organization['org_star']" step="1">
+                        <i class="on iconfont">Ŧ</i>
+                    </for>
+                    </span>
+                <span>环境评级</span>
+                 <span class="star" data-ty-talent-star="5">
+                  <for name="$organization['env_star']" start="0" end="$organization['env_star']" step="1">
+                      <i class="on iconfont">Ŧ</i>
+                  </for>
+                    </span>
+                <span>教学质量</span>
+                 <span class="star" data-ty-talent-star="5">
+                     <for name="$organization['quality_star']" start="0" end="$organization['quality_star']" step="1">
+                         <i class="on iconfont">Ŧ</i>
+                     </for>
+                    </span>
+            </div>
+            <div class="details">
+            <span onclick="getIntroduce({$organization['id']})">了解TA</span>
+            <span id="f0_txt" onclick="followed({$organization['id']})"><if condition="$isFollowed EQ 1">已关注<else/>关注</if></span></div>
+            <label>关注可获取TA的教学动态噢！</label>
+            <div class="choice">
+                <div class="choice-classify">
+                    <div class="swiper-container swiper-nested-2">
+                        <div class="swiper-wrapper">
+                            <foreach name="banners" item="val">
+                                <if condition="$val['type'] eq 1">
+                                    <div class="swiper-slide">
+                                        <a href="/index.php/Article/getArticle.html?art_id={$val['type_id']}"><img src="{$val['image']}"></a>
+                                    </div>
+                                    <else/>
+                                    <div class="swiper-slide">
+                                        <a href="/index.php/Product/productDetails.html?pro_id={$val['type_id']}"><img src="{$val['image']}"></a>
+                                    </div>
+                                </if>
+                            </foreach>
+                        </div>
+                    </div>
+                    <div class="pagination pagination-nested-2"></div>
+                </div>
+            </div>
+        </div>
+        <div></div>
+        <div class="act-tag">
+            <a href="#desc" class="tag detail on" attr_id="1" onclick="tabs(0)">热门课程</a>
+            <a href="#cost" class="tag price" attr_id="2" onclick="tabs(1)">文章·福利</a>
+            <a href="#comment" class="tag qa" attr_id="3" onclick="tabs(2)">活动安排</a>
+        </div>
+        <input type="hidden" name="id" id="id" value="{$organization['id']}">
+        <div class="tabcon" style="display: block;">
+            <ul class="list-card">
+                <foreach name="classList" item="val">
+                    <li class="item">
+                        <a href="/index.php/Product/productDetails.html?pro_id={$val['id']}">
+        <span class="thumb" style=""><img class="lazy" data-original="{$val['pic_url']}">
+        </span>
+                            <div class="desc">
+                                <span data-icon="Ć" class="loc">
+                                    {$organization['province']}{$organization['city']}{$organization['area']}{$organization['address']}
+                                </span>
+                                <div class="triangle">
+                                    <p class="text">{$val['class_title']}</p>
+                                </div>
+                                <h3 class="title">{$val['title']}</h3>
+                                <span class="price">{$val['price']['now_price']}</span>
+                            </div>
+                        </a></li>
+                </foreach>
+            </ul>
+            <ul class="hotart emptyone list-card"></ul>
+            <div class="logo-qrcode">
+                <span><img src="{$organization['picture']}"></span>
+		     <span><img src="{$organization['qr_code']}">
+		     <br/><span>扫一扫关注我们</span></span>
+            </div>
+        </div>
+        <div class="tabcon" style="display: none;">
+            <div class="weffimg">
+                <div class="swiper-container swiper-nested-1">
+                        <div class="swiper-slide">
+                            <a href="javascript:;"> <img src="__PUBLIC__/images/fffffff.png"></a>
+                        </div>
+                </div>
+                <div class="pagination pagination-nested-1"></div>
+            </div>
+            <div class="item-more shareline"> —— 分享领红包 ——</div>
+            <div class="timeline-product shoparticle">
+                <ul class="list-card-timeline">
+                    <foreach name="articleList" item="val">
+                        <li class="item" data-ty-target="#detail_activity" onclick="getArticle({$val['id']})">
+                        <span class="thumb"
+                              style="background-image:url({$val['image']}); background-size:cover"></span>
+                        <span class="desc">
+                            <h3 class="title">{$val['title']}</h3>
+                            <span class="time"><span class="lef">{$val['time']}</span><span class="rig">评论（{$val['comment_count']}） <i></i> 收藏（{$val['collect']}）</span></span>
+                            <span class="status dt">{$val['cate_title']}</span>
+                        </span>
+                            <span class="icon-sale"></span>
+                        </li>
+                    </foreach>
+                </ul>
+                <ul class="article-boon list-card-timeline">
+                </ul>
+            </div>
+
+            <div class="item-more shareline"> —— 更多精彩推荐 ——</div>
+            <div class="more-article">
+                <ul>
+                    <volist name="newList" id="val">
+                        <li onclick="getArticle({$val['id']})"><img src="{$val['org_pic']}"> <span>{$val['title_name']}...</span><label
+                                data-icon="Ĩ"> </label></li>
+                    </volist>
+                </ul>
+            </div>
+            <div>
+            </div>
+        </div>
+        <div class="tabcon line-height" style="display: none;">
+            <div class="weffimg">
+                <div class="item-more shareline"> —— 赶快报名吧 ——</div>
+                <ul class="list-card">
+                    <foreach name="activityList" item="val">
+                        <li onclick="" style="float: none; display: block; position: relative; top: 0px; left: 0px;">
+                            <a href="{:U('Organization/activityDetail')}?id={$val['id']}">
+                                    <span class="thumb"
+                                          style="background-image:url({$val['image']}); background-size:cover">
+                                    </span>
+                                <span class="status"><p data-icon-fiery="ə">进行中</p></span>
+                                <div class="desc row">
+                                    <label class="size red"
+                                           style="color:#ffffff;margin-right:3vh;">活动时间：{$val['activity_time']|date="Y-m-d",###}</label>
+                                </div>
+                            </a>
+                        </li>
+                    </foreach>
+                    <div class="activity"></div>
+                </ul>
+                <div class="item-more shareline"> —— 更多精彩活动 ——</div>
+                <div class="more-article">
+                    <ul>
+                        <volist name="actList" id="val">
+                            <li onclick="getActivity({$val['id']})"><img src="{$val['org_pic']}"> <span>{$val['title_name']}...</span>
+                                <label data-icon-go="Ĩ">去参加</label></li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 底部菜单 -->
+        <div class="kap-bottom ty-menu-bottom">
+            <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+                <a href="" class="current" data-icon="Ņ">TA首页</a>
+                <a href="{:U('Organization/fullShot')}?id={$organization['id']}"
+                <if condition='$current eq 1'>class="current"</if>
+                data-icon="Đ">全景</a>
+                <a href="{:U('Association/index',array('current'=>'3'))}"
+                <if condition='$current eq 3'>class="current"</if>
+                data-icon="Ĵ">社群</a>
+                <a href="" <if condition='$current eq 1'>class="current"</if> data-icon="Ē">客服</a>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer"/>
+    <script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+    <script src="__PUBLIC__/Home/js/jquery.lazyload.js?v=1.9.1"></script>
+    <script type="text/javascript">
+        var itemL=$(".list-card-timeline li").length;
+		for(var i=0; i<itemL; i++){
+			var color=document.getElementsByClassName("dt")[i].innerHTML;
+//			console.log(color)
+//			console.log(color=="视频")
+			if(color=="视频"){
+//				console.log(1111)
+           document.getElementsByClassName("dt")[i].style.backgroundColor="#ea775b";
+	       }
+	       if(color=="育儿"){
+	          document.getElementsByClassName("dt")[i].style.backgroundColor="#f59600";
+	       }
+	       if(color=="亲子"){
+	           document.getElementsByClassName("dt")[i].style.backgroundColor="#19f724";
+	       }
+	       if(color=="故事"){
+	           document.getElementsByClassName("dt")[i].style.backgroundColor="#1dd2a1";
+	       }
+	       if(color=="实验"){
+	           document.getElementsByClassName("dt")[i].style.backgroundColor="#3176c3";
+	       }
+	       if(color=="绘本"){
+	           document.getElementsByClassName("dt")[i].style.backgroundColor="#9fc4e0";
+	       }
+	       if(color=="福利"){
+	           document.getElementsByClassName("dt")[i].style.backgroundColor="#ff84b0";
+	       }
+		}
+    	var itemLe=$(".list-card li").length;
+		for(var j=0; j<itemLe; j++){
+			var color=document.getElementsByClassName("text")[j].innerHTML;
+//			console.log(color)
+//			console.log(color=="视频")
+			if(color=="视频"){
+//				console.log(1111)
+           document.getElementsByClassName("text")[j].style.backgroundColor="#ea775b";
+	       }
+	       if(color=="早教"){
+	          document.getElementsByClassName("triangle")[j].style.borderColor="#f59600";
+	       }
+	       if(color=="画画"){
+	           document.getElementsByClassName("triangle")[j].style.borderColor="#19f724";
+	       }
+	       if(color=="积木"){
+	           document.getElementsByClassName("triangle")[j].style.borderColor="#1dd2a1";
+	       }
+	       if(color=="实验"){
+	           document.getElementsByClassName("text")[j].style.backgroundColor="#3176c3";
+	       }
+	       if(color=="绘本"){
+	           document.getElementsByClassName("text")[j].style.backgroundColor="#9fc4e0";
+	       }
+	       if(color=="福利"){
+	           document.getElementsByClassName("text")[j].style.backgroundColor="#ff84b0";
+	       }
+		}
+    	
+      $(function() {
+
+          $("img.lazy").lazyload({effect: "fadeIn"});
+
+      });
+        $(window).load(function (){
+            setTimeout(function () {
+                $('.kap-bottom').show();
+            },2000)
+        });
+        function tabs(tabNum) {
+            //设置点击后的切换样式
+            $(".act-tag a").removeClass("on");
+            $(".act-tag a").eq(tabNum).addClass("on");
+            //根据参数决定显示内容
+            $(".tabcon").hide();
+            $(".tabcon").eq(tabNum).show();
+
+        }
+        var swiperParent = new Swiper('.swiper-parent', {
+            pagination: '.pagination-parent',
+            loop: true,
+            grabCursor: true,
+            paginationClickable: true,
+            autoplay: 2500,
+            slidesPerView: 1
+        });
+        var swiperNested2 = new Swiper('.swiper-nested-2', {
+            pagination: '.pagination-nested-2',
+            loop: true,
+            grabCursor: true,
+            paginationClickable: true,
+            autoplay: 2500,
+            slidesPerView: 1,
+            autoplayDisableOnInteraction:false,
+        });
+
+        var page = 3;
+        $(function () {
+            $(window).scroll(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                var windowHeight = $(this).height();
+                var cate_id = $('.act-tag .on').attr('attr_id');
+                var id = $('#id').val();
+                if (scrollTop + windowHeight == scrollHeight) {
+                    //加载层
+                    layer.load();
+                    setTimeout(function () {
+                        layer.closeAll('loading');
+                    }, 1000);
+                    var url = "{:U('Organization/loadingOrganization')}";
+                    var params = {};
+                    params.cate_id = cate_id;
+                    params.id = id;
+                    params.page = page;
+                    $.post(url, params, function (result) {
+                        if (result.status == 1) {
+                            $(".empty").remove();
+                            return $('.emptyone').append("<li class='empty' style='line-height:3rem;'>没有更多了</li>");
+                        }else if(result.status == 2){
+                            $.each(result.data, function (index, value) {
+                                $(".hotart").append("<li class='item'>" +
+                                                "<a href='/index.php/Product/productDetails.html?pro_id=" + value['id'] + "'>"+
+                                                "<span class='thumb'><img src='" + value['pic_url'] + "' alt=''></span>"+
+                                                "<div class='desc'>"+
+                                                "<span data-icon='Ć' class='loc'>" + value['province'] + value['city'] + value['area'] + value['address'] +"</span>"+
+                                                "<div class='triangle'><p class='text'>" + value['class_title'] + "</p></div>"+
+                                                "<h3 class='title'>" + value['title'] + "</h3>"+
+                                                "<span class='price'>" + value['price'] + "</span>"+
+                                                "</div>"+
+                                                "</a>"+
+                                        "</li>");
+                            });
+                        }else if(result.status == 3){
+                            $.each(result.data, function (index, value) {
+                                $(".article-boon").append("<li class='item' onclick='getArticle( " + value['id'] + ")'>" +
+                                        "<img class='thumb' src='" + value['image'] + "' style='background-size:cover;'>" +
+                                        "<span class='desc'>" +
+                                        "<h3 class='title'>" + value['title'] + "</h3>" +
+                                        "<span class='time'><span class='lef'>" + value['time'] + "</span>" +
+                                        "<span class='rig'>评论（" + value['comment_count'] + "） <i></i> 收藏（" + value['collect'] + "）</span></span>" +
+                                        "<span class='status dt'>" + value['cate_title'] + "</span>" +
+                                        "</span>" +
+                                        "<span class='icon-sale'></span>" +
+                                        "</li>");
+                            });
+                        }else if(result.status == 4){
+                            $.each(result.data, function (index, value) {
+                                $(".activity").append(
+                                        "<li style='float: none; display: block; position: relative; top: 0px; left: 0px;'>" +
+                                        "<a href='{:U('Organization/activityDetail')}?id="+ value['id'] +"'>"+
+                                        "<span class='thumb' style='background-image:url(" + value['image'] + "); background-size:cover'></span>"+
+                                        "<span class='status'><p data-icon-fiery='ə'>进行中</p></span>"+
+                                        "<div class='desc row'><label class='size red' style='color:#ffffff;margin-right:3vh;'>活动时间：" + value['time'] + "</label></div>"+
+                                        "</a>"+
+                                        "</li>");
+                            });
+                        }
+                         
+                    var itemL=$(".list-card-timeline li").length;
+					for(var i=0; i<itemL; i++){
+						var color=document.getElementsByClassName("dt")[i].innerHTML;
+			//			console.log(color)
+			//			console.log(color=="视频")
+						if(color=="视频"){
+			//				console.log(1111)
+			           document.getElementsByClassName("dt")[i].style.backgroundColor="#ea775b";
+				       }
+				       if(color=="育儿"){
+				          document.getElementsByClassName("dt")[i].style.backgroundColor="#f59600";
+				       }
+				       if(color=="亲子"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#19f724";
+				       }
+				       if(color=="故事"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#1dd2a1";
+				       }
+				       if(color=="实验"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#3176c3";
+				       }
+				       if(color=="绘本"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#9fc4e0";
+				       }
+				       if(color=="福利"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#ff84b0";
+				       }
+					}
+					
+					
+					var itemLe=$(".list-card li").length;
+						for(var j=0; j<itemLe; j++){
+							var color=document.getElementsByClassName("text")[j].innerHTML;
+				//			console.log(color)
+				//			console.log(color=="视频")
+							if(color=="视频"){
+				//				console.log(1111)
+				           document.getElementsByClassName("text")[j].style.backgroundColor="#ea775b";
+					       }
+					       if(color=="早教"){
+					          document.getElementsByClassName("triangle")[j].style.borderColor="#f59600";
+					       }
+					       if(color=="画画"){
+					           document.getElementsByClassName("triangle")[j].style.borderColor="#19f724";
+					       }
+					       if(color=="积木"){
+					           document.getElementsByClassName("triangle")[j].style.borderColor="#1dd2a1";
+					       }
+					       if(color=="实验"){
+					           document.getElementsByClassName("text")[j].style.backgroundColor="#3176c3";
+					       }
+					       if(color=="绘本"){
+					           document.getElementsByClassName("text")[j].style.backgroundColor="#9fc4e0";
+					       }
+					       if(color=="福利"){
+					           document.getElementsByClassName("text")[j].style.backgroundColor="#ff84b0";
+					       }
+						}
+                    });
+                    page += 3;
+                    
+                    
+                    
+                    var itemL=$(".list-card-timeline li").length;
+					for(var i=0; i<itemL; i++){
+						var color=document.getElementsByClassName("dt")[i].innerHTML;
+			//			console.log(color)
+			//			console.log(color=="视频")
+						if(color=="视频"){
+			//				console.log(1111)
+			           document.getElementsByClassName("dt")[i].style.backgroundColor="#ea775b";
+				       }
+				       if(color=="育儿"){
+				          document.getElementsByClassName("dt")[i].style.backgroundColor="#f59600";
+				       }
+				       if(color=="亲子"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#19f724";
+				       }
+				       if(color=="故事"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#1dd2a1";
+				       }
+				       if(color=="实验"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#3176c3";
+				       }
+				       if(color=="绘本"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#9fc4e0";
+				       }
+				       if(color=="福利"){
+				           document.getElementsByClassName("dt")[i].style.backgroundColor="#ff84b0";
+				       }
+					}
+                }
+            });
+        });
+
+
+        function getInfo(id) {
+            window.location.href = "{:U('Organization/home')}?id=" + id;
+        }
+        function getArticle(id) {
+            window.location.href = "{:U('Article/getArticle')}?art_id=" + id;
+        }
+        function getIntroduce(id) {
+            window.location.href = "{:U('Organization/getOrganizationIntroduce')}?id=" + id;
+        }
+        function getActivity(id) {
+            window.location.href = "{:U('Organization/activityDetail')}?id=" + id;
+        }
+
+        function followed(id) {
+            var url = "{:U('Organization/followed')}";
+            $.post(url,{id:id},function (res) {
+                if(res.status == 1){
+                    alert('成功关注');
+                    $('#f0_txt').text('已关注');
+                }else if(res.status == 2){
+                    alert('成功取消关注');
+                    $('#f0_txt').text('关注');
+                }
+            },'json')
+        }
+        // $.ajax({
+        //  type: "post",
+        //  url: "/index.php/Activity/indexAjax",
+        //  aysnc: true,
+        //  dataType: "json",
+        //  success:function(data){
+        //      //遍历文章或视频数据
+        //     for(var a=0; a<articleLength; a++){
+        //         var articleId=data.data.articles[a].id;
+        //         var articleImg=data.data.articles[a].image;
+        //         var article=data.data.articles[a];
+        //         $(".articles").append(
+        //              '<li class="articleLi" onclick="getArticle('+articleId+')">'+
+        //                ' <img src="'+articleImg+'" alt="">'+
+        //                 '<div class="text">'+
+        //                     '<h3>'+article.titles+'</h3>'+
+        //                     // '<div class="describe">'+article.desc+'</div>'+
+        //                     '<span class="biao">'+article.cate_name+'</span>'+
+        //                     '<span class="time">'+article.create_time+'</span>'+
+        //                     '<span class="custom">评论（'+article.count+'）| 收藏（'+article.collect+'）</span>'+
+        //                 '</div>'+
+        //             '</li>'
+        //         )
+        //     }
+        //  }
+    </script>
+    </body>
+    </html>

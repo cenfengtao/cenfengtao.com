@@ -1,0 +1,249 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>修改海报样式</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">标题 <span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="title" required="required" value="{$style['title']}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">图片</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div id="filePicker" >上传图片</div>
+                                        <input type="hidden" name="image" id="upload_image" tabindex="3"
+                                               autocomplete="off">
+                                        <notempty>
+                                            <img id='preview' src='{$style['image']}' ref='' width='400' height='200'/>
+                                        </notempty>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">图片数量</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input  type="number" name="image_count" value="{$style['image_count']}" id="image_count" class="form-control col-md-7 col-xs-12" onchange="imageCount()">
+                                    </div>
+                                </div>
+                                <div class="image_position">
+                                    <foreach name="image_position" item="val" key="k" >
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">坐标{$k-1}</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <foreach name="val" item="v" key="key" >
+                                                <input type="text" name="image_position_name{$k-1}" class="form-control col-md-7 col-xs-12" value="{$key}" placeholder="坐标命名">
+                                            </foreach>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <foreach name="val" item="v" key="key" >
+                                            <input type="text" name="image_position{$k-1}" class="form-control col-md-7 col-xs-12" value="{$v}" placeholder="x:y:w:h">
+                                            </foreach>
+                                        </div>
+                                    </div>
+                                    </foreach>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">文字数量</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="text_count" value="{$style['text_count']}" id="text_count" class="form-control col-md-7 col-xs-12" onchange="textCount()">
+                                    </div>
+                                </div>
+                                <div class="text_position">
+                                    <foreach name="text_position" item="val" key="k" >
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">坐标{$k-1}</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <foreach name="val" item="v" key="key" >
+                                            <input type="text" name="text_position_name{$k-1}" class="form-control col-md-7 col-xs-12" value="{$key}" placeholder="坐标命名">
+                                            </foreach>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <foreach name="val" item="v" key="key" >
+                                            <input type="text" name="text_position{$k-1}" class="form-control col-md-7 col-xs-12" value="{$v}" placeholder="size:x:y">
+                                            </foreach>
+                                        </div>
+                                    </div>
+                                    </foreach>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">类型</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        全平台通用<input type="radio" name="type" class="type" value="1" <if condition="$style['type'] == 1"> checked="checked"</if>>
+                                        机构<input type="radio" name="type" class="type" value="2" <if condition="$style['type'] == 2"> checked="checked"</if>>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="id" id="id" value="">
+                                <div class="form-group" id="org" style="display: none;">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">机构</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <select name="type_id" id="type_id" class="form-control">
+                                            <volist name="orgList" id="val">
+                                                <option value="">请选择</option>
+                                                <option value="{$val['id']}" {$val['id']==$style['type_id']?"selected='selected'":''}>{$val['org_name']}</option>
+                                            </volist>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {initialFrameWidth: 900, initialFrameHeight: 400, serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"});
+    });
+</script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("PosterStyle/editPoster")}',
+        'success_url': '{:U("PosterStyle/index")}'
+    };
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+
+    $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePicker',
+            formData: {dir: 'adspic'},
+            callback: function (f) {
+                layer.close(uploading);
+                var json = WST.toJson(f);
+                $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                $('#preview').show();
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+
+    function imageCount() {
+        var imgCount = document.getElementById('image_count').value;
+        if(imgCount > 5){
+            return dialog.error('不能超过5条');
+        }
+        $('.image_position').html('');
+        for(var i=0;i<imgCount;i++){
+            $('.image_position').append(
+                    "<div class='form-group'>"+
+                    "<label class='control-label col-md-3 col-sm-3 col-xs-12'>坐标"+i+"</label>" +
+                    "<div class='col-md-3 col-sm-3 col-xs-12'>" +
+                    "<input type='text' name='image_position_name"+i+"' class='form-control col-md-7 col-xs-12' value='' placeholder='坐标命名'>" +
+                    "</div>" +
+                    "<div class='col-md-3 col-sm-3 col-xs-12'>" +
+                    "<input type='text' name='image_position"+i+"' class='form-control col-md-7 col-xs-12' value='' placeholder='x:y:w:h'>" +
+                    "</div>"+
+                    "</div>"
+            );
+        }
+    }
+
+    function textCount() {
+        var textCount = document.getElementById('text_count').value;
+        if(textCount > 5){
+            return dialog.error('不能超过5条');
+        }
+        $('.text_position').html('');
+        for(var i=0;i<textCount;i++){
+            $('.text_position').append(
+                    "<div class='form-group'>"+
+                    "<label class='control-label col-md-3 col-sm-3 col-xs-12'>坐标"+i+"</label>" +
+                    "<div class='col-md-3 col-sm-3 col-xs-12'>" +
+                    "<input type='text' name='text_position_name"+i+"' class='form-control col-md-7 col-xs-12' placeholder='坐标命名'>" +
+                    "</div>" +
+                    "<div class='col-md-3 col-sm-3 col-xs-12'>" +
+                    "<input type='text' name='text_position"+i+"' class='form-control col-md-7 col-xs-12' placeholder='size:x:y'>" +
+                    "</div>"+
+                    "</div>"
+            );
+        }
+    }
+    $(function () {
+        var type = $('input[name="type"]:checked').val();
+        if(type == 2){
+            $('#org').show();
+        }else{
+            $('#org').hide();
+        }
+        $('.type').click(function () {
+            var type = $('input[name="type"]:checked').val();
+            if(type == 2){
+                $('#org').show();
+            }else{
+                $('#org').hide();
+            }
+        })
+    })
+
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    $('#id').val(GetQueryString("id"));
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/webuploader/webuploader.css" />
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>添加分类</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br />
+                            <form id="myform" method="post" data-parsley-validate class="form-horizontal form-label-left form-youpei"  autocomplete="off">
+                            <input type='hidden' name='id' class='form-control' value='{$class.id}'/>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">标题 <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="title"  id="title" class="form-control col-md-7 col-xs-12" value="{$class.title}">
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">排序
+                                     <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                     <input type="text" id="sort" name="sort" value="{$class.sort}" class="form-control col-md-7 col-xs-12" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> 是否显示  <span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                         显示<input type="radio" class="form-control icheckbox_flat-green"  value="0" id="is_show" name="is_show" <if condition="$class['is_show'] == 0 ">checked</if>/>
+                                         隐藏<input type="radio" id="is_show" class="form-control icheckbox_flat-green" name="is_show"  value="1"<if condition="$class['is_show'] == 1 ">checked</if>/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> 分类类型  <span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        课程<input type="radio" class="form-control icheckbox_flat-green"  value="1" name="type" <if condition="$class['type'] == 1 ">checked</if>/>
+                                        商品<input type="radio" class="form-control icheckbox_flat-green" name="type"  value="2" <if condition="$class['type'] == 2 ">checked</if>/>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/formValidator/formValidator-4.1.3.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/upload.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("ProductClass/addProductClass")}',
+        'success_url': '{:U("ProductClass/index")}'
+    };
+</script>
+</body>
+</html>

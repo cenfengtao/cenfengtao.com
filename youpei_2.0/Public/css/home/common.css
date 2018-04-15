@@ -1,0 +1,171 @@
+/*公共样式 start*/
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 0.12rem;
+    }
+li{
+    list-style: none;
+    }
+a,button{
+    text-decoration: none;
+    border:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+    outline:none;
+    tap-highlight-color:rgba(0,0,0,0);
+    tap-highlight-color:transparent;
+    }
+input,textarea,select,button,option{
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color:rgba(0,0,0,0);
+    tap-highlight-color:transparent;
+     -webkit-tap-highlight-color:transparent;
+     direction: ltr;
+     background-color: transparent;
+    }
+img{
+    border: none;
+    display: block;
+    }
+textarea{
+    resize: none;
+    overflow: hidden;
+    }
+body,html{
+    font-family: "微软雅黑";
+    background-color: #f0f1f1;
+}   
+/*公共样式 end*/
+
+/*定义字体*/
+@font-face {
+    font-family: "iconfont";
+    src: url('../../../../Public/fonts/iconfont.eot');
+    src: url('../../../../Public/fonts/iconfont.svg') format('svg'),
+    url('../../../../Public/fonts/iconfont.eot') format('embedded-opentype'),
+    url('../../../../Public/fonts/iconfont.ttf') format('truetype'),
+    url('../../../../Public/fonts/iconfont.woff') format('woff');
+}
+[data-icon]:before {
+    content: attr(data-icon);
+    display: inline-block;
+    margin-right: .25rem;
+     font-family: "iconfont" !important;
+    font-size: 0.8rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: #386998!important;
+}
+
+
+/*头部样式*/
+.header {
+	height: 1.2rem;
+	line-height: 1.22rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: white;
+	overflow: hidden;
+	z-index: 1000;
+	clear: both;
+    left: 0;
+}
+
+.header .back {
+	left: 0.27rem;
+	position: absolute;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+.header .back img {
+	margin-top: 0.4rem;
+	height: 0.5rem;
+}
+
+.header h3 {
+	text-align: center;
+	font-size: 0.6rem;
+	color: #065b9c;
+	margin-left: 0.3rem;
+	margin-top: 0.05rem;
+}
+
+.header .home {
+	right: 0.1rem;
+	position: absolute;
+	top: 0.05rem;
+}
+
+.header .home img {
+	width: 1rem;
+	height: 1rem;
+}
+
+/*底部样式*/
+.footer{
+    /*clear: both;*/
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100000;
+}
+.icon{
+    height: 1.5rem;
+    background: #386998;
+    height: 1.5rem;
+    z-index: 100;
+    opacity: 0.93;
+}
+.footer ul{
+    display: flex;
+    justify-content: space-around;
+}
+.footer ul li{
+    height: 1.5rem;
+    line-height: 1.6rem;
+    position: relative;
+}
+.footer ul li>img{
+    display: none;
+}
+.footer ul li >img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 0.42rem;
+    height: 0.21rem;
+    display: block;
+}
+.footer ul li a span{
+    display: inline-block;
+    font-size: 0.4rem;
+    color: white;
+    float: left;
+}
+.footer ul li a img{
+    display: inline-block;
+    height: 0.5rem;
+    float: left;
+    margin-top: 0.5rem;
+    margin-right: 0.08rem;
+}
+.footer div{
+    height: 0.2rem;
+    background: #f0f1f1;
+}
+
+/*向下加载时图片的大小*/
+ .layui-layer-loading .layui-layer-content{
+    width: 0.9rem;
+    height: 0.36rem;
+    background-size: 0.9rem 0.36rem;
+
+}

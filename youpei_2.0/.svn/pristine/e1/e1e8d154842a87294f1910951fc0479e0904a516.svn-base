@@ -1,0 +1,72 @@
+body,html{
+	background-color: #f0f1f1;
+}
+/*中部开始*/
+.middle{
+	margin-top: 1.34rem;
+}
+
+.articleContent{
+		border-top: 0.02rem solid #f1f1f1;
+	}
+
+
+	.articleLi {
+    width: 100%;
+    min-height: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    background: white;
+    margin-bottom: 0.13rem;
+}
+
+    .articleLi img {
+        height: 2.12rem;
+        width: 3.1rem;
+        float: left;
+        margin-top: 0.2rem;
+    }
+
+    .articleLi .text {
+        float: left;
+        margin-left: 0.3rem;
+        width: 57%;
+    }
+
+    .articleLi .text h3 {
+        font-size: 0.55rem;
+        color: #386998;
+        margin-top: 0.2rem;
+    }
+
+    .biao {
+        background-color: #3998e8;
+        color: #fff;
+        position: absolute;
+        right: -0.7rem;
+        top: 0.1rem;
+        font-size: 0.4403rem;
+        font-weight: 600;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        padding: 0.1rem 0.7rem;
+        text-align: center;
+    }
+
+    .time {
+        position: absolute;
+        bottom: 0.2rem;
+        font-size: 0.3rem;
+        color: #9e9e9e;
+        float: left;
+        /*margin-top: 0.4rem;*/
+    }
+
+    .custom {
+        float: left;
+        font-size: 0.4rem;
+        color: #386998;
+        position: absolute;
+        bottom: 0.2rem;
+        margin-left: 2.5rem;
+    }

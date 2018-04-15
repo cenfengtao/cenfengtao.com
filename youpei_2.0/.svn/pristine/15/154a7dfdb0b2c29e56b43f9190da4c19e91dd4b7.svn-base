@@ -1,0 +1,43 @@
+//商品数量加操作
+function add(obj){
+	var prd_num = obj.previousElementSibling;	
+	var num = prd_num.value;
+	
+	if(isNaN(num)){
+		num = 1;
+	}else{
+		num = parseInt(num);
+	}
+	
+	num+=1;
+	prd_num.value = num;
+}
+//商品数量改变的操作
+function numChange(obj){
+	var num = obj.value;
+	if(isNaN(num)){
+		num = 1;
+	}else if(num==""){
+		num=1;
+	}else if(num<1){
+		num=1;
+	}
+	num = parseInt(num);
+	obj.value = num;
+}
+//商品数量减操作
+function reduce(obj){
+	var prd_num = obj.nextElementSibling;
+	var num = prd_num.value;
+	if(isNaN(num)){
+		num = 1;
+	}else{
+		num = parseInt(num);
+	}
+	
+	num-=1;
+	if(num<1){
+		num=1
+	}
+	prd_num.value = num;
+}

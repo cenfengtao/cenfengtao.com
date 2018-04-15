@@ -1,0 +1,368 @@
+<include file="Common:header"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="__PUBLIC__/css/home/lottery.css">
+<style>
+        /* 大转盘样式 */
+    .banner{display:block;width:95%;margin-left:auto;margin-right:auto;margin-bottom: 20px;}
+    .banner .turnplate{display:block;width:100%;position:relative;}
+    .banner .turnplate canvas.item{width:100%;}
+    .banner .turnplate img.pointer{position:absolute;width:36%;height:40%;left:32%;top:28%;}
+    .more{display: block;width: 100%;position: fixed;top: 0;left: 0;height: 150px;}
+    #mark{width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;left: 0;display: none;}
+    .red-img{position: fixed;top: 10%;left: 5%;width: 90%;}
+</style>
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">幸运大抽奖<span class="num"></span></span>
+            <a href="javascript:history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+            <a href="{:U('Index/index',array('current'=>'1'))}" class="btn right btn-user" title="返回首页"
+               data-icon="Ņ"></a>
+        </div>
+    </div>
+    <section class="scroll">
+        <div class="main">
+            <div class="demo">
+                <input type="hidden" name="activityid" id="activityid" value="{$activityid}">
+                <input type="hidden" name="token" id="token" value="{$token}">
+                <img src="../../../../Public/images/3.png" id="shan-img" style="display:none;" />
+               <img src="../../../../Public/images/3.png" id="diy2-img" style="display:none;" />    
+                <img src="../../../../Public/images/3.png" id="diy1-img" style="display:none;" />
+                <img src="../../../../Public/images/3.png" id="diy3-img" style="display:none;" />
+                <img src="../../../../Public/images/3.png" id="diy4-img" style="display:none;" />
+                <img src="../../../../Public/images/3.png" id="diy5-img" style="display:none;" />
+                <div class="banner" style="margin-top: 12%;padding-top: 5%;">
+                    <div class="turnplate" style="background-image:url(../../../../Public/images/plate.gif);background-size:100% 100%;">
+                        <canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas>
+                        <img class="pointer" src="../../../../Public/images/jt2.png"/>
+                    </div>
+                </div>
+                <!--  <div class="lottery-prize">恭喜抽中<span id="lotteryCount">{$lotteryCount|default='0'}微信2元红包</span><label class="receive">领奖</label></div> -->
+                <!--  <p style="text-align: center;font-size:3vh;margin-top:2%;">你还可以抽
+                     <span style="color:red" id="lotteryCount">{$lotteryCount|default='0'}</span>次
+                 </p>
+                 <p style="text-align: center;font-size:2vh;margin-top:1vh;">好友助力总次数<span style="color:red">{$total_scan}</span>次  &nbsp;
+                     再助力<span style="color:red;">{$needScan}</span>次又能获得<span style="color:red;">1</span>次抽奖</p>-->
+                <!--  <p style="width:16vh;text-align: center;height:5vh;line-height: 5vh;font-size:3vh;margin:0 auto;
+                 background: #4daf7c;border:3px solid #00833f;border-radius: 5px;color:white;margin-top:3%" id="explain">
+                     抽奖说明</p>
+                 <p style="text-align: center"><a href="{:U('Lottery/lottery_record')}" id="history">抽奖记录</a></p> -->
+                <!--   <div class="border">
+                  <table border="1">
+                  <tr>
+                    <td><span><a href="{:U('Lottery/lottery_record')}">我的奖品</a></span></td>
+                    <td><span><a href="{:U('Lottery/userAddress')}">地址管理</a></span></td>
+                    <td><span id="explain"><a href="{:U('Lottery/rule')}">更多抽奖机会</a></span></td>
+                  </tr>
+                  </table>
+                  </div> -->
+                <div class="winners">
+                    <span>—— 恭喜中奖者 ——</span>
+                </div>
+                <div id="scrollDiv">
+                    <div class="scrollText">
+                        <ul>
+                            <volist name="re" id="vo" mod="2">
+                                <li>
+                                    <nobr><span>{$vo['username']}获得{$vo['prize']}</span></nobr>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 广告位置 -->
+                <div class="adverts-img" style="padding-bottom: 0.85rem">
+                    <a href="{$config['over_adv_link']}">
+                        <img src="{$config['over_adv']}" width="100%" style="height: 8rem;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="kap-bottom ty-menu-bottom">
+        <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+            <a href="{:U('Lottery/lottery_record')}">我的奖品</a>
+            <i class="border"></i>
+            <a href="{:U('Lottery/userAddress')}">地址管理</a>
+            <i class="border"></i>
+            <a href="{:U('Lottery/rule',array('token'=>$token,'activityid'=>$activityid))}">抽奖说明</a>
+        </div>
+    </div>
+</div>
+<script src="http://www.sucaihuo.com/Public/js/other/jquery.js"></script>
+<include file="Common:footer"/>
+<script src="__PUBLIC__/Home/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.flip.min.js"></script>
+<script src="__PUBLIC__/js/home/lottery.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/awardRotate.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/jQuery.textSlider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#scrollDiv").textSlider({line: 2, speed: 400, timer: 3000});
+    })
+</script>
+<script>
+    var turnplate={
+        restaraunts:[],             //大转盘奖品名称
+        colors:[],                  //大转盘奖品区块对应背景颜色
+        outsideRadius:192,          //大转盘外圆的半径
+        textRadius:155,             //大转盘奖品位置距离圆心的距离
+        insideRadius:68,            //大转盘内圆的半径
+        startAngle:0,               //开始角度
+        
+        bRotate:false               //false:停止;ture:旋转
+};
+
+$(document).ready(function(){
+    //动态添加大转盘的奖品与奖品区域背景颜色
+    var a= window.sessionStorage.getItem("key");
+    var b=a.split(",")
+    turnplate.restaraunts = b;
+    turnplate.colors = ["#FFFFFF","#5fcbd5", "#FFFFFF", "#5fcbd5", "#FFFFFF","#5fcbd5", "#FFFFFF", "#5fcbd5" ];
+
+    $.ajax({
+        type:"get",
+        url:"/index.php/Index/ajaxIndex",
+        dataType:"json",
+        aysnc:true,
+        success:function(data){
+            var h=["碧根果一袋", "年货红包", "水果拼盘300元月卡", "2元现金红包","women hj","我们"]
+            window.sessionStorage.setItem("key",h)
+        }
+    })
+    var rotateTimeOut = function (){
+        $('#wheelcanvas').rotate({
+            angle:0,
+            animateTo:2160,
+            duration:8000,
+            callback:function (){
+                alert('网络超时，请检查您的网络设置！');
+            }
+        });
+    };
+
+    //旋转转盘 item:奖品位置; txt：提示语;
+    var rotateFn = function (item, txt){
+        var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length*2));
+        if(angles<270){
+            angles = 270 - angles; 
+        }else{
+            angles = 360 - angles + 270;
+        }
+        $('#wheelcanvas').stopRotate();
+        $('#wheelcanvas').rotate({
+            angle:0,
+            animateTo:angles+3600,
+            duration:8000,
+            callback:function (){
+//              $('#mark').fadeIn();
+                alert(txt);
+                turnplate.bRotate = !turnplate.bRotate;
+                $('#mark').click(function(){
+                    $(this).hide();
+                });
+                
+            }
+        });
+    };
+var num=1;
+    $('.pointer').click(function (){
+        if(turnplate.bRotate)return;
+        turnplate.bRotate = !turnplate.bRotate;
+        if(num==1){
+            //获取随机数(奖品个数范围内)
+        var item = rnd(1,turnplate.restaraunts.length);
+        //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
+        rotateFn(item, turnplate.restaraunts[item-1]);
+        }
+        //获取随机数(奖品个数范围内)
+//      var item = rnd(1,turnplate.restaraunts.length);
+        //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
+//      rotateFn(item, turnplate.restaraunts[item-1]);
+        /* switch (item) {
+            case 1:
+                rotateFn(252, turnplate.restaraunts[0]);
+                break;
+            case 2:
+                rotateFn(216, turnplate.restaraunts[1]);
+                break;
+            case 3:
+                rotateFn(180, turnplate.restaraunts[2]);
+                break;
+            case 4:
+                rotateFn(144, turnplate.restaraunts[3]);
+                break;
+            case 5:
+                rotateFn(108, turnplate.restaraunts[4]);
+                break;
+            case 6:
+                rotateFn(72, turnplate.restaraunts[5]);
+                break;
+            case 7:
+                rotateFn(36, turnplate.restaraunts[6]);
+                break;
+            case 8:
+                rotateFn(360, turnplate.restaraunts[7]);
+                break;
+            case 9:
+                rotateFn(324, turnplate.restaraunts[8]);
+                break;
+            case 10:
+                rotateFn(288, turnplate.restaraunts[9]);
+                break;
+        } */
+        console.log(item);
+    });
+});
+
+function rnd(n, m){
+    var random = Math.floor(Math.random()*(m-n+1)+n);
+    return random;
+    
+}
+
+
+//页面所有元素加载完毕后执行drawRouletteWheel()方法对转盘进行渲染
+window.onload=function(){
+    drawRouletteWheel();
+};
+
+function drawRouletteWheel() {    
+  var canvas = document.getElementById("wheelcanvas");    
+  if (canvas.getContext) {
+      //根据奖品个数计算圆周角度
+      var arc = Math.PI / (turnplate.restaraunts.length/2);
+      var ctx = canvas.getContext("2d");
+      //在给定矩形内清空一个矩形
+      ctx.clearRect(0,0,422,422);
+      //strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式  
+      ctx.strokeStyle = "#FFBE04";
+      //font 属性设置或返回画布上文本内容的当前字体属性
+      ctx.font = 'bold 18px Microsoft YaHei';      
+      for(var i = 0; i < turnplate.restaraunts.length; i++) {       
+          var angle = turnplate.startAngle + i * arc;        
+          ctx.fillStyle = turnplate.colors[i];
+          ctx.beginPath();
+          //arc(x,y,r,起始角,结束角,绘制方向) 方法创建弧/曲线（用于创建圆或部分圆）    
+          ctx.arc(211, 211, turnplate.outsideRadius, angle, angle + arc, false);    
+          ctx.arc(211, 211, turnplate.insideRadius, angle + arc, angle, true);
+          ctx.stroke();  
+          ctx.fill();
+          //锁画布(为了保存之前的画布状态)
+          ctx.save();
+
+          //改变画布文字颜色
+          var b = i+2;
+          if(b%2){
+             ctx.fillStyle = "#FFFFFF";
+            }else{
+             ctx.fillStyle = "#E5302F";
+            };
+          
+          //----绘制奖品开始----
+            
+                  
+          var text = turnplate.restaraunts[i];
+          var line_height = 17;
+          //translate方法重新映射画布上的 (0,0) 位置
+          ctx.translate(211 + Math.cos(angle + arc / 2) * turnplate.textRadius, 211 + Math.sin(angle + arc / 2) * turnplate.textRadius);
+          
+          //rotate方法旋转当前的绘图
+          ctx.rotate(angle + arc / 2 + Math.PI / 2);
+          
+          /** 下面代码根据奖品类型、奖品名称长度渲染不同效果，如字体、颜色、图片效果。(具体根据实际情况改变) **/
+          if(text.indexOf("盘")>0){
+              var texts = text.split("盘");
+              for(var j = 0; j<texts.length; j++){
+                  ctx.font = j == 0?'bold 20px Microsoft YaHei':'bold 18px Microsoft YaHei';
+                  if(j == 0){
+                      ctx.fillText(texts[j]+"盘", -ctx.measureText(texts[j]+"盘").width / 2, j * line_height);
+                  }else{
+                      ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height*1.2); //调整行间距
+                  }
+              }
+          }else if(text.indexOf("盘") == -1 && text.length>8){
+              text = text.substring(0,8)+"||"+text.substring(8);
+              var texts = text.split("||");
+              for(var j = 0; j<texts.length; j++){
+                  ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+              }
+          }else{
+                
+              //在画布上绘制填色的文本。文本的默认颜色是黑色
+ 
+              //measureText()方法返回包含一个对象，该对象包含以像素计的指定字体宽度
+              ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+          }
+          
+          //添加对应图标
+          
+          if(text.indexOf(turnplate.restaraunts[0])>=0){
+              var img= document.getElementById("diy1-img");
+              img.onload=function(){  
+                  ctx.drawImage(img,-35,20);      
+              };  
+              ctx.drawImage(img,-35,20);  
+          };
+          if(text.indexOf(turnplate.restaraunts[1])>=0){
+              var img= document.getElementById("shan-img");
+              img.onload=function(){  
+                  ctx.drawImage(img,-35,20);      
+              }; 
+              ctx.drawImage(img,-35,20);  
+          };
+          if(text.indexOf(turnplate.restaraunts[2])>=0){
+              var img= document.getElementById("diy5-img");         
+              img.onload=function(){  
+                  ctx.drawImage(img,-25,35);      
+              };  
+              ctx.drawImage(img,-30,35);  
+          };
+          if(text.indexOf(turnplate.restaraunts[3])>=0){
+              var img= document.getElementById("shan-img");
+              img.onload=function(){  
+                  ctx.drawImage(img,-35,20);      
+              };  
+              ctx.drawImage(img,-35,20);  
+          };
+          if(text.indexOf(turnplate.restaraunts[4])>=0){
+              var img= document.getElementById("diy3-img");
+              img.onload=function(){  
+                  ctx.drawImage(img,-30,20);      
+              };  
+              ctx.drawImage(img,-30,20);  
+          };
+          if(text.indexOf(turnplate.restaraunts[5])>=0){
+              var img= document.getElementById("shan-img");
+              img.onload=function(){  
+                  ctx.drawImage(img,-35,20);      
+              };  
+              ctx.drawImage(img,-35,20);  
+          };
+          if(text.indexOf(turnplate.restaraunts[6])>=0){
+              var img= document.getElementById("diy2-img");           
+              img.onload=function(){  
+                  ctx.drawImage(img,-30,20);      
+              };  
+              ctx.drawImage(img,-30,20);  
+          };
+          
+          if(text.indexOf(turnplate.restaraunts[7])>=0){
+              var img= document.getElementById("shan-img");
+              img.onload=function(){  
+                  ctx.drawImage(img,-35,20);      
+              };  
+              ctx.drawImage(img,-35,20);  
+          };
+          
+          
+          //把当前画布返回（调整）到上一个save()状态之前 
+          ctx.restore();
+          //----绘制奖品结束----
+      }     
+  } 
+};
+</script>
+</body>
+</html>
+

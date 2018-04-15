@@ -1,0 +1,292 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+
+class IndexController extends BaseController
+{
+    public function home()
+    {
+        $this->display();
+    }
+
+    public function index()
+    {
+        $m = D('Picture');
+        $c = D('Homeclassify');
+        $p = D('ProductClass');
+        //轮播图
+        $picture = $m->getPicture();
+        //首页分类
+        $Homec = $c->getHomec();
+        //商品分类
+        $Homep = $p->getProductClass();
+        $cid = (int)I('cid', 1);
+        $this->assign('cid', $cid);
+        $this->assign('picture', $picture);
+        $this->assign('Homec', $Homec);
+        $this->assign('Homep', $Homep);
+        $current = (int)I('current', 1);
+        $this->assign('current', $current);
+        //限时抢购
+        $limitBuy = D('Product')->getRushList($this->token, 4, "id,title,f_title,pic_url,start_time,end_time,type,
+        original_price,rush_price,price,status,tag,is_hot");
+        if (!$limitBuy) {
+            $limitBuy = D('Product')->getSaleList(1, 4, "id,title,f_title,pic_url,start_time,end_time,type, 
+            original_price,rush_price,price,status,tag,is_hot");
+        }
+        foreach ($limitBuy as $k => $v) {
+            //判断抢购价
+            $limitBuy[$k]['rush_price'] = D('Product')->isRushingById($v['id']);
+            $limitBuy[$k]['thumb_image'] = str_replace('.', '_thumb.', $v['pic_url']);
+        }
+        foreach ($limitBuy as $k => $v) {
+            $tags = explode(' ', $v['tag']);
+            $limitBuy[$k]['tagA'] = $tags[0] ?: '';
+            $limitBuy[$k]['tagB'] = $tags[1] ?: '';
+            $limitBuy[$k]['tagC'] = $tags[2] ?: '';
+            $limitBuy[$k]['title'] = mb_substr($limitBuy[$k]['title'], 0, 20);
+        }
+        $this->assign('limitBuy', $limitBuy);
+        //精选课程
+        $sifts = M('product')->field("id,title,f_title,pic_url,start_time,end_time,type,original_price,rush_price,price,status,tag,is_hot")
+            ->where(array("type" => 1, 'is_hot' => 2, 'check_status' => 2))->order('id desc')->limit(3)->select();
+        foreach ($sifts as $k => $v) {
+            $sifts[$k]['thumb_image'] = str_replace('.', '_thumb.', $v['pic_url']);
+        }
+        $this->assign('sifts', $sifts);
+        $this->display();
+    }
+
+    public function indexTest()
+    {
+        header("Access-Control-Allow-Origin: *");
+        $m = D('Picture');
+        $c = D('Homeclassify');
+        $p = D('ProductClass');
+        //轮播图
+        $picture = $m->getPicture();
+        //首页分类
+        $Homec = $c->getHomec();
+        //商品分类
+        $Homep = $p->getProductClass();
+        $cid = (int)I('cid', 1);
+        $this->assign('cid', $cid);
+        $this->assign('picture', $picture);
+        $this->assign('Homec', $Homec);
+        $this->assign('Homep', $Homep);
+        $current = (int)I('current', 1);
+        $this->assign('current', $current);
+        //限时抢购
+        $limitBuy = D('Product')->getRushList($this->token, 4, "id,title,f_title,pic_url,start_time,end_time,type,
+        original_price,rush_price,price,status,tag,is_hot");
+        if (!$limitBuy) {
+            $limitBuy = D('Product')->getSaleList(1, 4, "id,title,f_title,pic_url,start_time,end_time,type, 
+            original_price,rush_price,price,status,tag,is_hot");
+        }
+        foreach ($limitBuy as $k => $v) {
+            //判断抢购价
+            $limitBuy[$k]['rush_price'] = D('Product')->isRushingById($v['id']);
+            $limitBuy[$k]['thumb_image'] = str_replace('.', '_thumb.', $v['pic_url']);
+        }
+        foreach ($limitBuy as $k => $v) {
+            $tags = explode(' ', $v['tag']);
+            $limitBuy[$k]['tagA'] = $tags[0] ?: '';
+            $limitBuy[$k]['tagB'] = $tags[1] ?: '';
+            $limitBuy[$k]['tagC'] = $tags[2] ?: '';
+            $limitBuy[$k]['title'] = mb_substr($limitBuy[$k]['title'], 0, 20);
+        }
+        $this->assign('limitBuy', $limitBuy);
+        //精选课程
+        $sifts = M('product')->field("id,title,f_title,pic_url,start_time,end_time,type,original_price,rush_price,price,status,tag,is_hot")
+            ->where(array("type" => 1, 'is_hot' => 2, 'check_status' => 2))->order('id desc')->limit(3)->select();
+        foreach ($sifts as $k => $v) {
+            $sifts[$k]['thumb_image'] = str_replace('.', '_thumb.', $v['pic_url']);
+        }
+        $this->assign('sifts', $sifts);
+        $data = [
+            'cid' => $cid,
+            'picture' => $picture,
+            'Homec' => $Homec,
+            'Homep' => $Homep,
+            'current' => $current,
+            'limitBuy' => $limitBuy,
+            'sifts' => $sifts
+        ];
+        return show(0, '', $data);
+    }
+
+    //根据课程分类显示内容
+    public function getProductByType()
+    {
+        if ($_POST['id'] == 0 || empty($_POST['id'])) {
+            $list = M('product')->field("id,title,f_title,pic_url,start_time,end_time,type,original_price,rush_price,price,status,tag,is_hot,class_id,org_id")
+                ->where(array('type' => 1, 'is_hot' => 1, 'status' => 1, 'check_status' => 2, 'is_fire' => 2))->order('create_time desc')->limit(3)->select();
+        } else {
+            $list = M('product')->field("id,title,f_title,pic_url,start_time,end_time,type,original_price,rush_price,price,status,tag,is_hot,class_id,org_id")
+                ->where(array('class_id' => $_POST['id'], 'is_hot' => 1, 'type' => 1, 'status' => 1, 'check_status' => 2, 'is_fire' => 1))->order('create_time desc')->limit(3)->select();
+        }
+        if (!$list || empty($list)) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '没有数据'));
+        }
+        foreach ($list as $k => $v) {
+            $tags = explode(' ', $v['tag']);
+            $list[$k]['tagA'] = $tags[0] ?: '';
+            $list[$k]['tagB'] = $tags[1] ?: '';
+            $list[$k]['tagC'] = $tags[2] ?: '';
+            $list[$k]['class_title'] = D('ProductClass')->getTitleById($v['class_id']);
+            $list[$k]['image'] = D('Organization')->getImageById($v['org_id']);
+            $list[$k]['add'] = D('Organization')->getAddById($v['org_id']);
+            $list[$k]['city'] = D('Organization')->getCityById($v['org_id']);
+            $list[$k]['area'] = D('Organization')->getAreaById($v['org_id']);
+            $list[$k]['price'] = D('Product')->isRushingById($v['id']);
+            $list[$k]['thumb_image'] = str_replace('.', '_thumb.', $v['pic_url']);
+        }
+        $this->ajaxReturn(array('status' => 1, 'msg' => '获取成功', 'data' => $list));
+    }
+
+    public function loadingProduct()
+    {
+        $npage = (int)I("npage");
+        $class_id = (int)I("first_class_id");
+        if ($class_id == 0) {
+            $list = M('product')->field("id,title,f_title,pic_url,start_time,end_time,type,original_price,rush_price,price,status,tag,is_hot,class_id,org_id")
+                ->where(array('type' => 1, 'is_hot' => 1, 'status' => 1, 'check_status' => 2, 'is_fire' => 2))->order('create_time desc')
+                ->limit($npage, 3)->select();
+        } else {
+            $list = M('product')->field("id,title,f_title,pic_url,start_time,end_time,type,original_price,rush_price,price,status,tag,is_hot,class_id,org_id")
+                ->where(array('type' => 1, 'is_hot' => 1, 'status' => 1, 'class_id' => $class_id, 'check_status' => 2, 'is_fire' => 1))->order('create_time desc')
+                ->limit($npage, 3)->select();
+        }
+        if (!$list || empty($list)) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '没有数据'));
+        }
+        foreach ($list as $k => $v) {
+            $tags = explode(' ', $v['tag']);
+            $list[$k]['tagA'] = $tags[0] ?: '';
+            $list[$k]['tagB'] = $tags[1] ?: '';
+            $list[$k]['tagC'] = $tags[2] ?: '';
+            $list[$k]['class_title'] = D('ProductClass')->getTitleById($v['class_id']);
+            $list[$k]['image'] = D('Organization')->getImageById($v['org_id']);
+            $list[$k]['add'] = D('Organization')->getAddById($v['org_id']);
+            $list[$k]['city'] = D('Organization')->getCityById($v['org_id']);
+            $list[$k]['area'] = D('Organization')->getAreaById($v['org_id']);
+            $list[$k]['price'] = D('Product')->isRushingById($v['id']);
+            $list[$k]['thumb_image'] = str_replace('.', '_thumb.', $v['pic_url']);
+        }
+        $this->ajaxReturn(array('status' => 1, 'msg' => '获取成功', 'data' => $list));
+    }
+
+    public function search()
+    {
+        $tags = M('config')->where("token='{$this->token}'")->getField('search_tag');
+        $searchTags = explode(' ', $tags);
+        $searchHistory = D('SearchRecord')->getHistory($this->user['id']);
+        $this->assign('searchTags', $searchTags)->assign('searchHistory', $searchHistory);
+        $this->display();
+    }
+
+    public function searchResult()
+    {
+        if (!$_GET['type'] || empty($_GET['type'])) {  //type 1:文章 2:课程 3:商品 4:机构
+            $this->error('搜索类型错误');
+        };
+        if (!$_GET['word'] || empty($_GET['word'])) {
+            $this->error('搜索内容不能为空');
+        }
+        //添加到搜索记录表
+        $isRecord = D('SearchRecord')->isRecordByWord($this->user['id'], $_GET['word']);
+        if ($isRecord) {
+            D('SearchRecord')->updateById($isRecord, array("create_time" => time()));
+        } else {
+            $recordData = [
+                "user_id" => $this->user['id'],
+                'word' => $_GET['word'],
+                'create_time' => time(),
+                'type' => $_GET['type'],
+            ];
+            D('SearchRecord')->insert($recordData);
+            //判断记录有否超过7条，删除最后一条
+            D('SearchRecord')->deleteLastRecord($this->user['id']);
+        }
+        switch ($_GET['type']) {
+            case 1:
+                $result = M('article')->order('create_time desc')->where(array("title" => array('like', "%{$_GET['word']}%"), 'status' => 2))->limit(0, 10)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 1;
+                    $result[$k]['time'] = date('Y年m月d日', $v['create_time']);
+                }
+                break;
+            case 2:
+                $result = M('product')->order('start_time desc')->where(array('title' => array('like', "%{$_GET['word']}%"), 'type' => 1, 'status' => 1, 'check_status' => 2))->limit(0, 10)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 2;
+                    $result[$k]['time'] = date('Y年m月d日', $v['start_time']);
+                }
+                break;
+            case 3:
+                $result = M('product')->order('start_time desc')->where(array('title' => array('like', "%{$_GET['word']}%"), 'type' => 2, 'status' => 1, 'check_status' => 2))->limit(0, 10)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 3;
+                    $result[$k]['time'] = date('Y年m月d日', $v['start_time']);
+                }
+                break;
+            case 4:
+                $result = M('organization')->order('create_time desc')->where(array('org_name' => array('like', "%{$_GET['word']}%")))->limit(0, 10)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 4;
+                    $result[$k]['time'] = date('Y年m月d日', $v['create_time']);
+                }
+                break;
+            default:
+                $result = false;
+        }
+        $this->assign('result', $result)->assign('type', $_GET['type']);
+        $this->display();
+    }
+
+    public function clearHistory()
+    {
+        D('SearchRecord')->deleteByUserId($this->user['id']);
+        $this->ajaxReturn(array('status' => 1, 'msg' => '清除成功'));
+    }
+
+    public function loadingSearch()
+    {
+        $npage = (int)I('npage');
+        switch ($_POST['type']) {
+            case 1;
+                $result = M('article')->order('create_time desc')->where(array("title" => array('like', "%{$_POST['word']}%"), 'status' => 2))->limit($npage, 6)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 1;
+                    $result[$k]['time'] = date('Y年m月d日', $v['create_time']);
+                }
+                break;
+            case 2;
+                $result = M('product')->order('start_time desc')->where(array('title' => array('like', "%{$_POST['word']}%"), 'type' => 1, 'status' => 1, 'check_status' => 2))->limit($npage, 6)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 2;
+                    $result[$k]['time'] = date('Y年m月d日', $v['start_time']);
+                }
+                break;
+            case 3;
+                $result = M('product')->order('start_time desc')->where(array('title' => array('like', "%{$_POST['word']}%"), 'type' => 2, 'status' => 1, 'check_status' => 2))->limit($npage, 6)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 3;
+                    $result[$k]['time'] = date('Y年m月d日', $v['start_time']);
+                }
+                break;
+            case 4;
+                $result = M('organization')->order('create_time desc')->where(array('org_name' => array('like', "%{$_POST['word']}%")))->limit($npage, 6)->select();
+                foreach ($result as $k => $v) {
+                    $result[$k]['search_type'] = 4;
+                    $result[$k]['time'] = date('Y年m月d日', $v['create_time']);
+                }
+                break;
+        }
+        if (!isset($result) || empty($result)) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '没有数据'));
+        }
+        $this->ajaxReturn(array('status' => 1, 'msg' => '获取成功', 'data' => $result));
+    }
+}

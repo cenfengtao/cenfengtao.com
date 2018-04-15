@@ -1,0 +1,121 @@
+ /*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a:first-child{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a:first-child img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+/*头部 end*/
+/*中部 start*/
+.middle{
+    padding-top: 1.4rem;
+    background: #f0f1f1;
+}
+
+ .orgList>ul>li{
+    height: 3.95rem;
+    background: white;
+    margin-bottom: 0.2rem;
+}
+.content{
+    width: 7rem;
+    float: left;
+}
+.content .rank{
+    width: 2.42rem;
+    height: 2.07rem;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 0.4rem;
+    display: inline-block;
+    float: left;
+}
+.content .rank >span{
+    text-align: center;
+    font-size: 0.3rem;
+    margin-bottom: 0.05rem;
+    color: #505050;
+    display: inline-block;
+}
+.content .rank>div{
+    position: relative;
+}
+.content .rank>div>img{
+    width: 1.3rem;
+    height: 1.7rem;
+    margin: 0 auto;
+}
+.content .rank>div>span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 0.15rem;
+    font-size: 0.6rem;
+    color: white;
+}
+.org{
+    overflow: hidden;
+    width: 4.5rem;
+    text-align: center;
+    display: inline-block;
+    height: 2.1rem;
+    float: left;
+    margin-top: 0.5rem;
+}
+.org img{
+    height: 1.4rem;
+    width: auto;
+    margin: 0 auto 0.1rem;
+}
+.org span{
+    font-size: 0.4rem;
+    margin-top: 0.1rem;
+}
+.img{
+    float: right;
+}
+.img img{
+    width: 3.95rem;
+    height: 2.83rem;
+    margin: 0.57rem 0.28rem 0 0;
+}
+.content ul{
+    clear: both;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.1rem;
+}
+.content ul li{
+    width: 33.3333%;
+    text-align: center;
+}
+.content ul li span:first-child{
+    font-size: 0.2792rem;
+    display: block;
+    margin: -0.1rem auto 0.1rem;
+}
+.content ul li img{
+   width: 0.35rem;
+    height: 0.32rem;
+    display: inline-block;
+}

@@ -1,0 +1,142 @@
+@charset "utf-8";
+/*@media screen and (max-width: 639px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    html {
+        font-size: 36px;
+    }
+}*/
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: translateY(-.3125rem);
+        transform: translateY(-.3125rem)
+    }
+    /*50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }*/
+    100% {
+        -webkit-transform: translateY(-.3125rem);
+        transform: translateY(-.3125rem)
+    }
+}
+
+.ani-shake {
+    -webkit-animation: shake .5s infinite;
+    animation: shake .5s infinite
+}
+
+@font-face {
+    font-family: "iconfont";
+    src: url('/Public/fonts/iconfont.eot');
+    src: url('/Public/fonts/iconfont.svg') format('svg'),
+    url('/Public/fonts/iconfont.eot') format('embedded-opentype'),
+    url('/Public/fonts/iconfont.ttf') format('truetype'),
+    url('/Public/fonts/iconfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: "character";
+    src: url('/Public/fonts/character.OTF');
+}
+
+
+
+
+
+.kap-loading-icon {
+    border: none;
+    -webkit-animation: kap_ani_rotate .5s infinite linear;
+    animation: kap_ani_rotate .5s infinite linear;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    display: none;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+ .ty-loading-icon {
+    border: none;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    display: none;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+.kap-loading .kap-loading-icon {
+    display: block
+}
+
+.kap-loading .ty-loading-icon {
+    display: block
+}
+
+.kap-loading:before {
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 9999
+}
+
+
+@-webkit-keyframes delay_show {
+    0% {
+        opacity: 0
+    }
+    99% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes delay_show {
+    0% {
+        opacity: 0
+    }
+    99% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes delay_hide {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes delay_hide {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/schedule.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>我的课程表</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="advert" style="height: 3.75rem;">
+                <img src="../../../../Public/images/group.jpg" alt="" style="height: 3.75rem;">
+            </section>
+            <section class="date">
+				<div class="boxshaw list" id="schedule-box">
+					
+				</div>
+                <p class="explain">注：红色的小圆点代表有课上，灰色的小圆点代表已上或未上已过期，点击可查看详情。</p>
+				<div class="arrange">
+                    <div class="classTime">
+                        <span>上课时间：</span>
+                        <span class="time">2017年9月4日</span>
+                    </div>
+                    <ul class="arrangeList">
+                    </ul>
+                    <div class="uploadInfo" style="display: none;">
+                        <img src="../../../../Public/images/addClass.jpg" alt="">
+                        <span class="uploadClass" attr-year="" attr-month="" attr-day="">添加课程</span>
+                    </div>
+                    <div class="uploadContent" style="display: none;">
+                        <form>
+                            <div class="title">
+                                <img src="../../../../Public/images/uploadWhite.png" alt="">
+                                <span>课程安排</span>
+                                <img src="../../../../Public/images/close.png" alt="" class="closeCourse">
+                            </div>
+                            <label class="classTimes">
+                                <span>上课时间：</span>
+                                <input type="time" id="test1" style="width: 2.2rem;" value="00:00" name="start_hour_time">
+                                </select>
+                                <span class="contain">一</span>
+                                <input type="time" id="test2" style="width: 2.2rem;" value="00:00" name="end_hour_time">
+                            </label>
+                            <hr>
+                            <label class="className">
+                                <span>课程名称：</span>
+                                <input type="text" placeholder="请输入......(必填)" name="class_title">
+                            </label>
+                            <hr> 
+                            <label class="classTeacher">
+                                <span>上课老师：</span>
+                                <input type="text" placeholder="请输入......(必填)" name="teacher">
+                            </label>
+                            <hr>
+                            <label class="username">
+                                <span>上课学生：</span>
+                                <input type="text" placeholder="请输入......(必填)" name="username">
+                            </label>
+                            <hr>
+                            <!-- <label class="userTel">
+                                <span>手机号码：</span>
+                                <input type="number" placeholder="请输入......(必填)" name="mobile" maxlength="11">
+                            </label>
+                            <hr> -->
+                            <label class="classNow">
+                                <span>当前课时：</span>
+                                <input type="text" placeholder="请输入......(必填)" name="class_hour">
+                            </label>
+                            <hr>
+                            <label class="classAddress">
+                                <span>上课地址：</span>
+                                <select class="province" name="province">
+                                    <option value="请选择省">省份</option>
+                                </select>
+                                <select class="city" name="city">
+                                    <option value="请选择市">市</option>
+                                </select>
+                                <select class="county" name="county">
+                                    <option value="请选择区">县/区</option>
+                                </select>
+                                <input type="text" placeholder="请输入详细的地址" name="details">
+                            </label>
+                            <span class="submit" id="post">确定</span>
+                        </form>
+                    </div>
+                </div>  
+            </section>
+            <section class="tellBox">
+                <div class="tellContent form-message">
+                    <img src="../../../../Public/images/close.png" alt="" class="closeBtn">
+                    <h3>温馨提示</h3>
+                    <div>您还没有在该平台绑定手机号码哦，请您填写下面信息进行提交信息绑定，才能获取您即将要上课的信息哦。</div>
+                    <p>手 &ensp; 机：<input type="tel" name="mobiles" maxlength="11" placeholder="请输入手机号码"></p>
+                    <p>验证码：<input type="number" max="4" name="code" style="width: 2.1rem;"  placeholder="请输入验证码">
+                        <button id="code" onclick="getCode()">接收验证码</button>
+                    </p>
+                    <button onclick="submitInfo()" class="submit">提交信息</button>
+                </div>
+            </section>            
+        </article>
+        <script src="/Public/js/home/dateSchedule.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/city.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/font.js" type="text/javascript" charset="utf-8"></script>
+        <!-- <script src="__PUBLIC__/js/laydate/laydate.js" type="text/javascript" charset="utf-8"></script> -->
+        <script src="/Public/js/home/schedule.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

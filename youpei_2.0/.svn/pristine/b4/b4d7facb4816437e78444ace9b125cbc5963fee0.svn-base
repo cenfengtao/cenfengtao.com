@@ -1,0 +1,284 @@
+<!doctype html>
+<!--headTrap<body></body><head></head><html></html>--><html>
+<head>
+    <meta charset="utf-8">
+    <title>优培圈</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=0, minimum-scale=0.5, maximum-scale=0.5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- iOS webapp s-->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="优培圈" />
+    <meta name="description" content="" />
+    <link rel="apple-touch-icon-precomposed" href="styles/app_icon.png">
+    <!-- iOS webapp e -->
+    <link href="__PUBLIC__/Home/css/kap.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/Home/css/common.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/index/member/css/dialog.css" media="all" />
+    <script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/index/member/js/dialog.js"></script>
+    <!--移动端兼容适配 end -->
+    <script src="__PUBLIC__/Home/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+
+        // var ua = navigator.userAgent.toLowerCase();
+        //     if(ua.indexOf("iphone")>0){ //app
+
+        //         get_ios_script();
+        //     }else{
+        //         get_android_script();
+        //         $("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0');
+        //     }
+        //     function get_ios_script() {
+        //       var link = document.createElement('link');
+        //         link.type = 'text/css';
+        //         link.rel = 'stylesheet';
+        //         link.href = '__PUBLIC__/Home/css/ios.css';
+        //         document.getElementsByTagName("head")[0].appendChild(link);
+        //     }
+
+
+    </script>
+</head>
+<link href="__PUBLIC__/Home/css/pageloader.css" rel="stylesheet" type="text/css">
+<body class="kap-loading ty-view-all" onload="">
+<div class="kap-wrap">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style>
+    .qiandao-warp{
+        margin-top: 2.6rem;
+    }
+    body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+    #allmap{width:100%;height:39rem;}
+    p{margin-left:5px; font-size:14px;}
+    #message{
+        width:100%;
+    }
+    #message a{
+        display: inline-block;
+        width:31%;
+        text-align: center;
+        line-height: 6vh;
+        font-size: 2.5vh;
+    }
+    .BMapLib_bubble_title{
+        font-size: 16px!important;
+        font-weight: 600;
+    }
+    .BMapLib_sendToPhone{
+        display: none;
+    }
+    .seach{
+        margin-top: 2.5rem;
+        height: 2rem;
+        position: relative;
+        background: #fff;
+    }
+    .seach input{
+        height: 1.8rem;
+        text-indent: .5rem;
+        line-height: 2rem;
+        width: 70%;
+        margin: 0.1rem 0 auto 15%;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: .25rem;
+        outline: none;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-size: .875rem;
+        display: inline-block;
+    }
+    .seach i:before{
+        position: absolute;
+        right: 15%;
+        top: 0;
+        font-size: 1rem;
+        line-height: 2rem;
+        color: #ccc;
+    }
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZL7uRt3632Y1iZWucCRIc76y3LWF6U7z"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+
+<!-- 菜单 开始 -->
+<div class="kap-top ty-menu-top" id="headTitle">
+    <div class="kap-top ty-menu-top">
+        <div id="tools-msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="seach"><input type="text" id="title" name="title" placeholder="搜索机构名称" value=""><i data-icon="Đ"></i><a href="javascript:void(0);" title="搜索" onclick="searchTitle();" style="float:right;font-size:1rem;margin-right: 0.8rem;font-weight:600;line-height:2.1rem;">搜索</a></div>
+</div>
+<div class="kap-wrap">
+    <div class="qiandao-warp" id="qiandao">
+        <div id="allmap" style="display:;"></div>
+        <div id="data">
+            <volist name="data" id="val">
+                {$val}
+            </volist>
+        </div>
+        <input type="hidden" value="" id="lng">
+        <input type="hidden" value="" id="lat">
+        <input type="hidden" value="" id="map_lng">
+        <input type="hidden" value="" id="map_lat">
+    </div>
+</div>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map('allmap');
+    if($('#data').text() == 0){
+        alert('此机构暂未加入我们');
+        window.history.back(-1);
+    }
+    var data = $('#data').text().replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    var subst = data.substr(0,data.length-1);
+    var spli = subst.split(',');
+    var data_info = [];
+    for(var z=0;z<spli.length;z++){
+        data_info[z] = spli[z].split(":");
+        data_info[z][0] = parseFloat(data_info[z][0]);
+        data_info[z][1] = parseFloat(data_info[z][1]);
+    }
+    $('#map_lng').val(data_info[0][0]);
+    $('#map_lat').val(data_info[0][1]);
+    $('#data').hide();
+    for(var i=0;i<data_info.length;i++){
+        map.centerAndZoom(new BMap.Point(data_info[i][0],data_info[i][1]), 16);
+        map.enableScrollWheelZoom();
+        var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1])); //创建marker对象
+        var title = data_info[i][2];
+        var center = '<div style="margin:0;line-height:20px;padding:2px;" id="message">'+'电话：'+data_info[i][4]+'<br/>'+'地址：'+data_info[i][3]+'<br/><a onclick="bus('+data_info[i][0]+','+data_info[i][1]+')">公车</a>'+'<a onclick="walk('+data_info[i][0]+','+data_info[i][1]+')">步行</a>'+'<a onclick="car('+data_info[i][0]+','+data_info[i][1]+')">驾车</a>'+'</div>';
+        addClickHandler(marker,center,title);
+        map.addOverlay(marker); //在地图中添加marker
+        var label = new BMap.Label(title,{offset:new BMap.Size(20,-10)});
+        marker.setLabel(label);
+    }
+    function addClickHandler(marker,center,title){
+        //创建检索信息窗口对象
+        var searchInfoWindow = null;
+        searchInfoWindow = new BMapLib.SearchInfoWindow(map, center, {
+            title  : title,      //标题
+            width  : 290,             //宽度
+            height : 80,              //高度
+            panel  : "panel",         //检索结果面板
+            enableAutoPan : true,     //自动平移
+            searchTypes   :[
+                /*BMAPLIB_TAB_SEARCH,   //周边检索
+                BMAPLIB_TAB_TO_HERE,  //到这里去
+                BMAPLIB_TAB_FROM_HERE //从这里出发*/
+            ]
+        });
+        marker.addEventListener("click", function(e){
+            searchInfoWindow.open(marker);
+        })
+    }
+    //个人定位
+    var origin = "0,0";
+    var origin_region = "";
+    var map_lng = $('#map_lng').val();
+    var map_lat = $('#map_lat').val();
+    var point = new BMap.Point(map_lng,map_lat);
+    map.enableScrollWheelZoom();
+    map.centerAndZoom(point, 15);
+    var marker1 = new BMap.Marker(point);
+//    map.addOverlay(marker1);
+
+    var gectrl=new BMap.GeolocationControl( {
+        anchor:BMAP_ANCHOR_TOP_LEFT,
+        enableAutoLocation: true });
+    map.addControl(gectrl); //添加定位控件
+
+
+    var myCity = new BMap.LocalCity();
+    myCity.get(function(result){ origin_region = result.name; });
+
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS ) {
+            origin = r.point.lng + "," + r.point.lat;
+            $('#lng').val(r.point.lng);
+            $('#lat').val(r.point.lat);
+        }
+    });
+    //公交导航
+    function bus(lng,lat) {
+        var x_lng = $('#lng').val();
+        var y_lat = $('#lat').val();
+        var map = new BMap.Map("allmap");            // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+        var p1 = new BMap.Point(x_lng,y_lat);
+        var p2 = new BMap.Point(lng,lat);
+        var transit = new BMap.TransitRoute(map, {
+            renderOptions: {map: map}
+        });
+        transit.search(p1, p2);
+        console.log(transit);
+        console.log(transit.kb);
+        /*if(transit.kb == -1){
+            walk(lng,lat);
+        }else if(transit.kb == 0){
+            bus(lng,lat);
+        }*/
+    }
+    //驾车导航
+    function car(lng,lat){
+        var x_lng = $('#lng').val();
+        var y_lat = $('#lat').val();
+        var map = new BMap.Map("allmap");            // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+        var p1 = new BMap.Point(x_lng,y_lat);
+        var p2 = new BMap.Point(lng,lat);
+        var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+        driving.search(p1, p2);
+    }
+    //步行导航
+    function walk(lng,lat) {
+        var x_lng = $('#lng').val();
+        var y_lat = $('#lat').val();
+        var map = new BMap.Map("allmap");            // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 12);
+        var p1 = new BMap.Point(x_lng,y_lat);
+        var p2 = new BMap.Point(lng,lat);
+        var walking = new BMap.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+        walking.search({title: '起点', point: p1},
+                {title: '终点', point: p2});
+    }
+    /*
+    //步行导航
+    var p1 = new BMap.Point(origin);
+    var p2 = new BMap.Point(116.508328,39.919141);
+    var walking = new BMap.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+    driving.search({title: '我这里', point: p1},
+            {title: '你这里', point: p2});*/
+
+</script>
+    <script>
+        function searchTitle() {
+            var title = $("input[name='title']").val();
+            if(!title){
+                return alert("请输入搜索内容");
+            }
+            window.location.href = "{:U('Map/search')}?title="+title;
+        }
+    </script>
+<!--tailTrap<body></body><head></head><html></html>-->
+</div>
+<include file="Common:footer"/>

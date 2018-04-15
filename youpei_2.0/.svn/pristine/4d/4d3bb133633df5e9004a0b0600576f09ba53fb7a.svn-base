@@ -1,0 +1,146 @@
+/*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a:first-child{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a:first-child img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+/*头部 end*/
+/*中部 start*/
+.middle{
+    padding-top: 1.2rem;
+    background: #f0f1f1;
+}
+.leave{
+    background: white;
+    padding: 0.34rem 0;
+    margin-top: 0.26rem;
+}
+textarea{
+    width: 9.78rem;
+    height: 6.6rem;
+    margin: 0 auto;
+    display: block;
+    padding: 0.2rem;
+    font-size: 0.45rem;
+    border: 0.01rem solid black;
+    border-radius: 0.08rem;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #454545; opacity:1; 
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #454545;opacity:1;
+}
+
+textarea:-ms-input-placeholder{
+    color: #454545;opacity:1;
+}
+
+textarea::-webkit-input-placeholder{
+    color: #454545;opacity:1;
+}
+
+.content{
+    padding: 0.58rem 0;
+    background: #386998;
+}
+.content >div{
+    width: 10.08rem;
+    margin: 0 auto;
+}
+.content h3{
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    margin-bottom: 0.03rem;
+    color: #386998;
+    background: white;
+    font-size: 0.48rem;
+}
+.teacher{
+    margin-bottom: 0.03rem;
+    background: #e3f2f9;
+}
+.teacher span:first-child{
+    width: 25%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    display: inline-block;
+    border-right:0.03rem solid #386998;
+    float: left;
+    box-sizing:border-box;
+    font-size: 0.45rem;
+    color: #386998;
+}
+.teacher span:nth-child(2){
+    width: 73%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    padding-left: 2%;
+    display: inline-block;
+    font-size: 0.45rem;
+    color: #386998;    
+}
+.classNum{
+    margin-bottom: 0.03rem;
+    background: white;
+}
+.classNum span:first-child{
+    width: 25%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    display: inline-block;
+    border-right:0.03rem solid #386998;
+    float: left;
+    box-sizing:border-box;
+    font-size: 0.45rem;
+    color: #386998;    
+}
+.classNum span:nth-child(2){
+    width: 73%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    display: inline-block;
+    font-size: 0.45rem;
+    padding-left: 2%;
+    color: #386998;
+}
+.button{
+    text-align: center;
+}
+.button span{
+    width: 7.11rem;
+    height: 1.41rem;
+    line-height: 1.41rem;
+    text-align: center;
+    font-size: 0.5rem;
+    margin: 1.8rem auto 2.74rem;
+    border-radius: 0.1rem;
+    display: inline-block;
+    background: #db6066;
+    color: white;
+}

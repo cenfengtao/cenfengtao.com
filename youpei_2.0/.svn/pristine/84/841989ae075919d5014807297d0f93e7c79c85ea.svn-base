@@ -1,0 +1,217 @@
+body,html{
+	background-color: #f0f1f1;
+}
+/*中部开始*/
+.middle{
+	margin-top: 1.34rem;
+	margin-bottom: 1.7rem;
+}
+
+
+.light{
+    height: 0.2rem;
+    background: #f1f1f1;
+    margin-bottom: -0.02rem;
+}
+.light2{
+    height: 0.12rem;
+    background: #f1f1f1;
+}
+.navList{
+    position: fixed;
+    margin-top: 1.2rem;
+    width: 100%;
+    top:0;
+    z-index: 10000;
+}
+.smallNav{
+     background:#fff;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x:scroll ;
+    margin-top: -0.05rem;
+}
+.smallNav::-webkit-scrollbar {
+    display: none;
+}
+.smallNav li{
+    width: 24.5%;
+    text-align: center;
+    display: inline-block;
+    height: 1.3rem;
+    line-height: 1.3rem;
+}
+
+.smallNav li.on a{
+    border: solid 0.03rem #f56b85;
+    color: #f56b85;
+}
+.smallNav a{
+    font-size: 0.45rem;
+    /*display: block;*/
+    color: #505050;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.product{
+    padding-top: 1.3rem;
+}
+.courseList{
+    padding-top: 0.45rem;
+    background-color: white;
+    overflow: hidden;
+    padding-bottom: 0.45rem;
+}
+.courseList .img{
+    position: relative;
+    float: left;
+    margin-left: 0.24rem;
+    margin-right: 0.3rem;
+}
+.courseList .img .courseImg{
+    width: 5.39rem;
+    height: 3.83rem;
+}
+.courseList .tap{
+    height: 1.04rem;
+    width: 1.15rem;
+    position: absolute;
+    top: -0.05rem;
+    left: 0.1rem;
+}
+.courseList .logoTap{
+    height: 1.04rem;
+    width: 1.15rem;
+    position: absolute;
+}
+.courseList .img .imgLogo{
+    width: 0.7rem;
+    height: 0.7rem;
+    position: absolute;
+    top: 0.15rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.courseList .type{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+.courseList .type span{
+    height: 0.56rem;
+    line-height: 0.56rem;
+    font-size: 0.34rem;
+    padding: 0 0.15rem;
+    color: white;
+    display: inline-block;
+    margin-right: 0.15rem;
+    border-radius: 0.1rem;
+}
+.courseList .type span:first-child{
+    background-color: #ffc62d;
+    margin-left: 0.3rem;
+}
+.courseList .type span:nth-child(2){
+    background-color: #e0656b;
+}
+.courseList .type span:nth-child(3){
+    background-color: #62b7e3;
+}
+.courseList .text{
+    float: left;
+    width: 5.2rem;
+}
+.courseList .text .time{
+    float: right;
+    margin-right: 0.28rem;
+    overflow: hidden;
+}
+.courseList .text .time img{
+    width: 0.29rem;
+    height: 0.37rem;
+    float: left;
+}
+.courseList .text .time span{
+    float: left;
+    margin-left: 0.15rem;
+    margin-top: -0.05rem;
+    font-size: 0.36rem;
+    color: #626262;
+}
+.courseList .text h3{
+    clear: both;
+}
+.courseList .text h3{
+    font-size: 0.48rem;
+    line-height: 0.48rem;
+    color: #386998;
+    margin: 0.22rem 0 0.1rem;
+    padding-top: 0.22rem;
+}
+.courseList .text .groupPrice{
+    font-size: 0.4rem;
+    color: #386998;
+    font-weight: bold;
+}
+.courseList .text .moneySign{
+    font-size: 0.4rem;
+    color: #db6066;
+}
+.courseList .groupPrice strong{
+    font-size: 0.6rem;
+    color: #db6066;
+}
+.courseList .originalPrice{
+    font-size: 0.36rem;
+    color: #386998;
+    text-decoration: line-through;
+}
+.courseList .text a{
+    width: 1.5rem;
+    height: 0.72rem;
+    border-radius: 0.1rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 0.72rem;
+    font-size: 0.4rem;
+    display: inline-block;
+    margin-right: 0.3rem;
+    border:0.05rem solid #db6066;
+    color: #db6066;
+    float: right;
+    margin-top: 0.05rem;
+    margin-bottom: 0.1rem;
+}
+.courseList .text .groupNum{
+    overflow: hidden;
+    clear: both;
+    width: 5.25rem;
+}
+.courseList .groupNum .finished{
+    font-size: 0.2876rem;
+    float: left;
+}
+.courseList .groupNum .bar{
+    width: 1.9rem;
+    height: 0.2rem;
+    border-radius: 0.2rem;
+    float: right;
+    margin-top: 0.1rem;
+    border:0.04rem solid #db6066;
+    margin-left: 0.1rem;
+}
+.courseList .groupNum .bar span{
+    height: 0.2rem;
+    width: 1rem;
+    background-color: #ffa3a7;
+    border-radius: 0.2rem;
+    display: block;
+    margin-left: -0.01rem;
+    float: left;
+}

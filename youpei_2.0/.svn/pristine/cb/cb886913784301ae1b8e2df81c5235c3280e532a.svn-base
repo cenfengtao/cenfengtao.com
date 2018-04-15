@@ -1,0 +1,27 @@
+/*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+/*头部 end*/

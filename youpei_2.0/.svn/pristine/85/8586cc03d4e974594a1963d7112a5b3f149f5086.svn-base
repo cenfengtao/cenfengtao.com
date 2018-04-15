@@ -1,0 +1,634 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/qiangou.css">
+<link rel="stylesheet" href="__PUBLIC__/css/home/index.css">
+<style>
+/*    .change-headernav img{
+        margin-left: 0.15rem;
+    }*/
+    .change-headernav::before{
+        height: 0!important;
+    }
+    .bargain img{
+        width: 1.5rem!important;
+         height: auto!important; 
+        position: absolute;
+        top: 0.2rem;
+        z-index: 10;
+        left: 5.5rem;
+        background-color: rgba(0,0,0,0)!important;
+    }
+    .limit-area{
+        background: url(../../../../Public/images/qianggou.jpg) no-repeat;
+        background-size: 100% 100%;
+        border-top: 0.25rem solid #348dbc;
+        padding-bottom: 0.8rem;
+    }
+    .limit-head .title img{
+        height: 1rem;
+        width: 1rem;
+        margin-top: -0.2rem;
+        margin-left: -0.2rem;
+        margin-right: 0.2rem;
+    }
+    .swiper-container{
+        height: 7.8rem;
+    }
+    .swiper-slide{
+        /*overflow: hidden;*/
+        border-radius: 0.3rem;
+    }
+    .swiper-slide .rig{
+        height: 6.4rem;
+        /*border-bottom: 0.01rem dashed #b6bec2;*/
+        background: url(../../../../Public/images/light2.png) no-repeat;
+        background-position: bottom;
+        padding-top: 0.1rem;
+    }
+    .swiper-slide .rig .price .current{
+        float: left;
+        margin-left: 1rem;
+        margin-top: -7px;
+    }
+    .swiper-slide .rig .title{
+        color: #386998;
+        margin-bottom: 0;
+    }
+    .swiper-slide .thumb{
+        height: 5.5rem;
+    }
+    .niceShop{
+        margin-bottom: 0.35rem;
+        position: relative;
+    }
+    .niceShop a{
+        position: absolute;
+        right: 1.27%;
+        bottom: 0;
+        height: 1.5rem;
+        width: 4.44rem;
+        background: rgba(0,0,0,0.5);
+        border-bottom-right-radius: 0.15rem;
+        color: white;
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: 0.8rem;
+        display: inline-block;
+    }
+    .niceShop .niceImg{
+        width: 97.5%;
+        height: 8.5rem;
+        display: block;
+        margin: 1.25% 1.25% 0 1.25%;
+        border-radius: .25rem;
+    }
+    .niceShop .up1{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -0.06rem;
+        margin: 0 auto;
+        width: 2.09rem;
+    }
+    .niceShop .up2{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -0.43rem;
+        margin: 0 auto;
+        width: 2rem;
+        z-index: 100;
+    }
+    .poster{
+        margin-top: 1rem;
+        position: relative;
+    }
+    .poster a{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 1.5rem;
+        width: 4.44rem;
+        background: rgba(0,0,0,0.5);
+        color: white;
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: 0.8rem;
+        display: inline-block;
+    }
+    .poster .tuan{
+        width: 100%;
+        height: 8.5rem;
+        display: block;
+    }
+    .link1{
+        position: absolute;
+        left: 1rem;
+        width: 0.7rem;
+        height: 1.7rem;
+        top: -0.7rem;
+    }
+    .link2{
+        position: absolute;
+        right: 1rem;
+        width: 0.7rem;
+        height: 1.7rem;
+        top: -0.7rem;
+    }
+/*    .productContent{
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    .productContent ul{
+        overflow: hidden;
+        margin-right: -2.6rem;
+    }*/
+    .productContent ul{
+        padding: 2%;
+    }
+    .productContent ul li{
+        /*float: left;*/
+        width: 40%;
+        background: white;
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+        position: relative;
+        display: inline-block;
+        border:1px solid gray;
+        border-radius: 0.3rem;
+        overflow: hidden;
+    }
+     .productContent .textss{
+        margin: 0.18rem 0 0 0.2rem;
+    }
+
+    .productContent ul li .img img{
+        width: 100%;
+        height: 7rem;
+    }
+    .productContent .address img{
+        width: 0.33rem;
+        height: 0.45rem;
+        float: left;
+        margin: 0 0.03rem;
+    }
+    .productContent .address span{
+        float: left;
+        font-size: 0.36rem;
+        color: #757575;
+        margin-top: -0.08rem;
+    }
+    .productContent .textss{
+        padding-bottom: 0.2rem;
+    }
+    .productContent .textss h3{
+        clear: both;
+        color: #386998;
+        font-size: 0.7rem;
+        /*margin: 0.2rem 0;*/
+        height: 1rem;
+        overflow: hidden;
+        margin-left: -0.3rem;
+        width: 100%;
+         text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+    }
+    .productContent .describe{
+        font-size: 0.58rem;
+        height: 1rem;
+        overflow: hidden;
+        width:100%;
+         text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+    }
+    .productContent .type{
+        overflow: hidden;
+        margin-right: -0.15rem;
+    }
+    .productContent .type span{
+        font-size: 0.58rem;
+        height: 0.52rem;
+        /*width: 1.4rem;*/
+        padding:0 0.13rem;
+        border-radius: 0.1rem;
+        -webkit-border-radius: 0.1rem;
+        /*text-align: center;*/
+        line-height: 0.52rem;
+        margin-right: 0.16rem;
+        display: inline-block;
+        color: white;
+    }
+    .productContent .type span:first-child{
+        background: #f6d94f;
+    }
+    .productContent .type span:nth-child(2){
+        background: #6fbee4;
+    }
+    .productContent .type span:nth-child(3){
+        background: #de8cbd;
+    }
+    .productContent .original-price{
+        color: #386998;
+        text-decoration: line-through;
+        margin-top: 0.1rem;
+        float: left;
+        font-size: 0.58rem;
+    }
+    .productContent .textss p{
+        /*clear: both;*/
+        line-height: 0.6rem;
+        padding-bottom: 0.3rem;
+        text-align: right;
+        margin-top: 0.2rem;
+        margin-right: 0.2rem;
+    }
+    .productContent .textss p span{
+        font-weight: bold;
+    }
+    .productContent .textss p span:first-child{
+        color: #386998;
+        font-size: 0.58rem;
+    }
+    .productContent .textss p span:nth-child(2){
+        color: #db6066;
+        font-size: 0.58rem;
+    }
+    .productContent .textss p span:nth-child(3){
+        color: #db6066;
+        font-size: 0.62rem;
+        margin-left: -0.1rem;
+    }
+    .productContent .textss p span:nth-child(4){
+        color: #999999;
+        font-size: 0.3877rem;
+    }
+    .classes{
+        /*padding-bottom: 1rem;*/
+        border:0.01rem solid gray;
+        width: 97%;
+        margin: 0 auto;
+        border-radius: 0.3rem;
+        /*overflow: hidden;*/
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+/*    .classes a{
+        width: 31.3%;
+        border: 1px solid;
+        display: inline-block;
+        height: 13.1vh;*/
+        /*padding-top: 1vh;*/
+/*        border-radius: 0.3rem;
+        margin: 0 1%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }*/
+/*    .classes a img{
+        width: 100%;
+        height: 13vh;
+        margin: 0 auto;*/
+        /*margin-left: 5%;*/
+/*        border-radius: 0.3rem;
+    }*/
+/*    .classes p{
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }*/
+    .lunbo{
+        position: relative;
+        margin-top: 0.6rem;
+        overflow: hidden;
+        width: 95%;
+        margin: 0 auto;
+        border-radius: 0.3rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+        -webkit-border-radius: 0.3rem;
+    }
+    .lunbo .arrow-right1{
+        background: url(../../../../Public/images/arrows.png) no-repeat left bottom;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -52.5px;
+        width: 75px;
+        height: 105px;
+        z-index: 10;
+        background-size: 60px;
+    }
+    .lunbo .arrow-left1{
+        background: url(../../../../Public/images/arrows.png) no-repeat left top;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -52.5px;
+        width: 75px;
+        height: 105px;
+        z-index: 10;
+        background-size: 60px;
+    }
+    .lunbo img{
+        width: 100%;
+        height:10rem;
+        border-radius: 0.3rem;
+    }
+    .choice{
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1rem;
+        background: #eeeff1;
+        text-align: center;
+        color: #666;
+    }
+    .tap{
+        width: 0;
+        height: 0;
+        border-top: 2rem solid #db6066;
+        border-left: 2rem solid transparent;
+        position: absolute;
+        right: 0rem;
+        top: 0rem;
+        border-top-right-radius: 10px;
+        border-bottom: 1rem solid transparent;
+        border-right: 1rem solid #db6066;
+    }
+    .texts{
+        position: absolute;
+        right: 0.1rem;
+        top: 0.4rem;
+        font-size: 1rem;
+        color: white;
+        transform: rotate(45deg);
+        font-weight: bold;
+    }
+    .addr{
+        font-size: 0.8rem;
+        /*margin-left: 1rem;*/
+        color: #9e9e9e;
+        width:8rem;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        overflow: hidden;
+    }
+    .list-card .thumb img{
+        height: 11rem;
+    }
+    .list-card .thumb{
+        height: 11rem!important;
+        padding-bottom: 0;
+    }
+    .fz16{
+        font-weight: normal;
+    }
+    .choice{
+        color: #386998;
+    }
+    .choice span{
+        color: #959696;
+    }
+</style>
+<!-- 菜单 开始 -->
+<div class="kap-top ty-menu-top">
+    <div class="ty-announce" id="ty_announce_top" style="display:none;" data-ty-page="" data-ty-args="">
+        <div class="content"></div>
+        <span data-icon="ă" class="btn-close"></span>
+    </div>
+    <div id="tools_loading" class="ty-tools ty-tools-loading">
+        <a href="javascript:void(0);" class="btn btn-back-loading" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_hot" class="ty-tools ty-tools-hot ty-tools-current" data-ty-autohide="false">
+        <span class="title" data-icon=""><a href="/index.php/Company/introduce/token/g232238gc959"><img src='__PUBLIC__/images/5886c9b0d0eac.jpg' style="height: auto;width: 150px;"></a></span>
+        <div class="ty-tools-search">
+            <div class="input-jump" data-ty-target="#page_search"
+                 onclick="window.location.href='/index.php/Index/search'">搜索精彩内容...
+                <!--onclick="_hmt.push(['_trackEvent', 'topbar', 'click', '首页搜索']);">搜索精彩内容...-->
+            </div>
+            <i data-icon="Đ"></i>
+        </div>
+        <div class="ty-tools-cityswitch">
+            <select id="sel_city_switch" data-kap-skin="sel-city-switch" data-icon-blue="Ė"
+                    style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">
+                <option value="1">广州</option>
+                <option value="0" selected="">全部</option>
+            </select>
+        </div>
+    </div>
+    <div id="tools_search" class="ty-tools ty-search-bar" data-ty-autohide="false">
+        <a href="javascript:void(0);" class="btn-home" title="首页" data-icon="ɒ"></a>
+        <div class="ty-tools-search">
+            <form id="page_hot_search">
+                <div class="ty-tools-typeswitch">
+                    <div data-kap="_kap_1" class="kap-input sel-type-switch" style="position: relative;"><select
+                            data-kap-skin="sel-type-switch" data-icon="Ė" id="sel_type_switch"
+                            style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">
+                        <option value="1">活动</option>
+                        <option value="2">达人</option>
+                    </select><span data-icon="Ė" class="kap-input-value">活动</span></div>
+                </div>
+                <input class="input" id="page_hot_keyword" placeholder="搜索活动、达人..." type="search"></form>
+            <i data-icon="Đ"></i>
+        </div>
+        <div class="btn-search">搜索</div>
+    </div>
+</div>
+<div id="page_hot" title="热推" class="kap-page kap-page-current" data-ty-tools="#tools_hot,#tools_idx,#side_common">
+    <div class="ty-page" data-ty-current="12" data-ty-total="377" data-filter-tags="" data-ty-seriesid="0"
+         data-ty-title="" data-ty-talents="" data-ty-pic="">
+        <section class="banner">
+            <!--             <span class="ty-banner-prev-btn" data-icon="Ĩ" id="prev" onclick="prev()"></span>
+                        <span class="ty-banner-next-btn" data-icon="Ĩ" id="next" onclick="next()"></span> -->
+            <div class="bd">
+                <ul class="imgLi">
+                </ul>
+            </div>
+            <div class="hd">
+                <ul class="hdList">
+                    <li class="on"></li>
+                </ul>
+            </div>
+            <!--<span id="left"></span>-->
+            <!--<span id="right"></span>-->
+        </section>
+         <div class="headernav headernav2 change-headernav clr">
+                 <ul class="list-tags clr">
+                     <volist name="Homec" id="vo" key="k" offset="0" length="10">
+                         <li>
+                             <if condition="$vo['title'] eq '签到' "><a href="javascript:void(0)" onclick="signin()">
+                                 <else/>
+                                 <a href="{$vo['url']}">
+                             </if>
+                             <div class="ico"><img src="__ROOT__/{$vo['image']}" alt="">
+                             </div>
+                             <div class="fz16">
+                                 <span>{$vo['title']}</span>
+                             </div>
+                             </a>
+                         </li>
+                     </volist>
+                 </ul>
+             </div>
+             <div class="limit-area on">
+                 <div class="limit-head">
+        <span class="title"><img src="../../../../Public/images/time.png" alt="">限时抢购</span>
+        <!--<span class="more" data-icon-after="Ĩ" data-ty-target="#page_activity_tag">查看更多<i-->
+        <!--data-icon="ɑ"></i></span>-->
+                </div>
+                <div class="device">
+                <!--<a class="arrow-left" href="#"></a>-->
+                <!--<a class="arrow-right" href="#"></a>-->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <volist name="limitBuy" id="val" offset="0" length="4">
+                                <div class="swiper-slide" onclick="getProduct({$val['id']})">
+                                    <img class="thumb" src="{$val['thumb_image']}">
+                                    <div class="tap"></div>
+                                    <p class="texts">抢购</p>
+                                    <div class="rig">
+        <!--<span class="status"></span>-->
+       <div class="addr">地点：{$val['city']}{$val['area']}{$val['address']}</div>
+        <div class="labels">
+            <notempty name="val['tagA']"><span class="label1">{$val['tagA']}</span></notempty>
+            <notempty name="val['tagB']"><span class="label2">{$val['tagB']}</span></notempty>
+            <notempty name="val['tagC']"><span class="label3">{$val['tagC']}</span></notempty>
+        </div>
+        <div class="title">{$val['title']}</div>
+        <div class="price">
+            <span class="original">原价:￥{:intval($val['original_price'])}</span>
+            <span class="current now"><strong>抢购价:</strong>￥<b>{:intval($val['now_price'])}</b></span>
+        </div>
+    </div>
+    <!-- <div class="light"><img src="../../../../Public/images/light2.png" alt=""></div> -->
+    <div class="bot">
+        <em class="endtime showtime" value="{$val['end_time']}"></em>
+    </div>
+</div>
+</volist>
+</div>
+</div>
+</div>
+</div>
+<div class="pagination"></div>
+        <!-- 精选商品 -->
+        <div class="niceShop" onclick="shopDetail()">
+             <img src="__PUBLIC__/images/niceShop.jpg" data-kap-lazy="__PUBLIC__/images/niceShop.jpg"
+                             alt="" width="640" height="320" class="niceImg">
+             <a href="/index.php/Boutique/index.html">列表 >></a>
+             <img src="../../../../Public/images/up1.png" alt="" class="up1">   
+            <img src="../../../../Public/images/up2.png" alt="" class="up2">             
+        </div>
+        <div class="productContent">
+                <ul class="classes">
+                    <foreach name="sifts" item="vo">
+                        <li onclick="getProduct({$vo['id']})">
+                            <a href="###" class="img">
+                                <img src="{$vo['thumb_image']}" alt="">
+                            </a>
+                            <div class="textss">
+                                <h3>{$vo['title']}</h3>
+                                <div class="describe">简介：{$vo['f_title']}</div>
+                                <div class="original-price">原价:￥{$vo['original_price']}</div>
+                                <p>
+                                    <span>现价:</span>
+                                    <span>￥</span>
+                                    <span>{$vo['now_price']}</span>
+                                </p>
+                            </div>
+                        </li>
+                    </foreach>    
+                </ul>
+<!--             <foreach name="sifts" item="vo">
+                <a class="item" href="{:U('Product/productDetails')}?pro_id={$vo['id']}"><img src="{$vo['thumb_image']}" alt=""></a>
+            </foreach> -->
+        </div>
+        <!-- 团购商品 -->
+        <div class="poster" onclick="tuanDetail()">
+                <img src="__PUBLIC__/images/tuanGou.jpg" data-kap-lazy="__PUBLIC__/images/tuanGou.jpg"
+                     alt="" width="640" height="320" class="tuan">
+                     <a href="/index.php/Groups/index.html">列表 >></a>
+        </div>
+        <div class="rule" style="width: 100%; height: 12px; background: #d8d8d8; margin: 1rem 0; position: relative;">
+            <img src="../../../../Public/images/link.png" alt="" class="link1">   
+            <img src="../../../../Public/images/link.png" alt="" class="link2">   
+        </div>
+        <div class="lunbo">
+            <a class="arrow-left1" href="#"></a>
+            <a class="arrow-right1" href="#"></a>
+            <div class="swiper-container1">
+                <div class="swiper-wrapper">
+                    <volist name="groupList" id="val" offset="0" length="5">
+                    <div class="swiper-slide">
+                        <a href="/index.php/Groups/getGroup?id={$val['id']}" style="display: block;"><img src="{$val['image']}"></a>
+                    </div>
+                    </volist>
+                </div>
+            </div>
+            <div class="pagination1" style="display: none;">
+                <span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span>
+                <span class="swiper-pagination-switch"></span>
+                <span class="swiper-pagination-switch"></span>
+            </div>
+        </div>
+        <div class="choice">课 <span>/</span> 程 <span>/</span> 精 <span>/</span> 选</div>       
+        <div class="ty-cat-tags">
+            <a href="javascript:;" onclick="getProductByType(0)"> <span
+                    class="tag link on" id="first_class" attr_id="0">热门</span></a>
+            <a href="javascript:;" onclick="getProductByType(-1)"> <span
+                    class="tag link" attr_id="-1">砍价</span></a>
+            <volist name="Homep" id="vo" key='i' empty='暂无添加分类'>
+                <a href="javascript:;" onclick="getProductByType({$vo['id']})"> <span
+                        class="tag link" attr_id="{$vo['id']}">{$vo['title']}</span></a>
+            </volist>
+            <!-- <span class="show-all off" data-icon="Ė">展开</span> -->
+        </div>
+        <ul class="list-card colorList" style="padding-top: 12px">
+
+        </ul>
+
+    </div>
+</div>
+<include file="Common:menu"/>
+<input type="hidden" id="image" value="{$shareData['share_img']}">
+<!-- 独立弹窗 结束 -->
+<span id="btn_top" class="iconfont btn-top-hide">Ė</span>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<include file="Common:footer"/>
+<script src="__PUBLIC__/js/home/index.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var windowWidth=$(window).width();
+    if(windowWidth<680){
+        $(".swiper-container").css("height","7.8rem")
+        $(".swiper-slide .rig").css("height","6.375rem")
+        $(".swiper-slide .rig .price .original").css("margin-top","0")
+        $(".productContent ul li .img img").css("height","6.3rem")
+        $("html").css("font-size","26px")
+    }
+     var mySwiper1 = new Swiper('.swiper-container1',{
+        pagination: '.pagination1',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true,
+        direction: 'vertical',
+    });
+    $('.arrow-left1').on('click', function(e){
+        e.preventDefault();
+        mySwiper1.swipePrev();
+    });
+    $('.arrow-right1').on('click', function(e){
+        e.preventDefault();
+        mySwiper1.swipeNext();
+    });
+    function shopDetail(){
+        window.location.href="/index.php/Boutique/index.html"
+    }
+    function tuanDetail(){
+        window.location.href="/index.php/Groups/index.html"
+    }
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

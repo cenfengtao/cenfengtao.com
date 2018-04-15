@@ -1,0 +1,43 @@
+<include file="Common:header"/>
+<style type="text/css">
+    .msgContent {
+        background: #f1f1f1;
+        width: 95%;
+        margin: 3rem auto;
+    }
+    .title{
+        padding: 0.5rem 0.5rem 0 0.5rem;
+        line-height: 1.5rem;
+        font-weight: bold;
+        color: #386998;
+    }
+    .time{
+        padding: 0 0.5rem;
+        line-height: 1.5rem;
+    }
+    .content{
+        padding: 0 0.5rem;
+        line-height: 1.5rem;
+    }
+    .content p{
+        padding: 0 0.5rem;
+        line-height: 1.5rem;
+    }
+</style>
+<div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回"
+           data-icon="ɒ"></a>
+        <a href="{:U('Personal/index',array('current'=>'4'))}" class="btn right btn-user" title="返回个人中心"
+           data-icon="Ņ"></a>
+    </div>
+</div>
+<div class="msgContent">
+    <div class="title">{$data.title}</div>
+    <div class="time">{$data.create_time}</div>
+    <div class="content">{$data.content}</div>
+</div>
+<include file="Common:footer"/>
+</body>
+</html>

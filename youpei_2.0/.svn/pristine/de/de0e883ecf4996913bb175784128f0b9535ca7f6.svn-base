@@ -1,0 +1,145 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>课程表管理</h2>
+                            <a href="javascript:addSingleTime()" class="btn btn-success add_button btn_access" access_id="311">添加单个课程表</a>
+                            <a href="javascript:addTime()" class="btn btn-success add_button btn_access" access_id="198">上传课程表</a>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table table-bordered">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">学生名</th>
+                                        <th class="column-title">手机</th>
+                                        <th class="column-title no-link last"><span class="nobr">操作</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <notempty name='fault'>
+                                        <tr class="even pointer">
+                                            <td>{$fault.username}</td>
+                                            <td>{$fault.mobile}</td>
+                                            <td class="last">
+                                                <a href="" class="btn btn-info btn-xs btn_access"></a>
+                                                <a href="/admin.php/ClassTime/checkFaultTime"
+                                                   class="btn btn-danger btn-xs btn_access" access_id="306">查看详细</a>
+                                            </td>
+                                        </tr>
+                                    </notempty>
+                                    <foreach name="classList" item="val">
+                                        <tr class="even pointer">
+                                            <td>{$val['username']}</td>
+                                            <td>{$val['mobile']}</td>
+                                            <td class="last">
+                                                <a href="/admin.php/ClassTime/checkTime?userId={$val['user_id']}" access_id="199"
+                                                   class="btn btn-info btn-xs btn_access">查看详细</a>
+                                                <a href="javascript:deleteTimeByUser({$val['user_id']})"
+                                                   class="btn btn-danger btn-xs btn_access" access_id="310">删除该学生</a>
+                                            </td>
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- self -->
+<script>
+
+    function deleteTimeByUser(userId) {
+        layer.open({
+            type: 0,
+            title: '确认信息',
+            btn: ['确认', '取消'],
+            icon: 3,
+            closeBtn: 2,
+            content: '确定删除该学生的课程表？',
+            yes: function () {
+                var ajaxUrl = '/admin.php/ClassTime/deleteTimeByUser';
+                $.post(ajaxUrl,{user_id:userId}, function (result) {
+                    if (result.status == 1) {
+                        return dialog.success(result.message, '');
+                    } else {
+                        return dialog.error(result.message);
+                    }
+                }, 'json')
+            }
+        });
+    }
+
+    function addTime() {
+        layer.open({
+            type: 1,
+            title: '上传课程表',
+            skin: 'layui-layer-rim',
+            area: ['370px', '240px'], //宽高
+            content: "<form style='margin-top:20px;' id='demo-form2' method='post' data-parsley-validate class='form-horizontal form-label-left form-youpei' action='/admin.php/ClassTime/addTime' enctype='multipart/form-data'><div class='form-group'>" +
+            "<label class='control-label col-md-3 col-sm-3 col-xs-12'> 上传Excel </label>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12'>" +
+            "<input type='file' name='excel_file'>" +
+            "</div></div>" +
+            "<div class='form-group'>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12 col-md-offset-3'>" +
+            "<button type='submit' class='btn btn-success'>提交</button>" +
+            "</div></div></form>"
+        });
+    }
+    
+    function addSingleTime() {
+        window.location.href = '/admin.php/ClassTime/addSingleTime';
+    }
+</script>
+</body>
+</html>

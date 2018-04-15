@@ -1,0 +1,115 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/select2.min.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<!-- bootstrap-daterangepicker -->
+<link href="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>设置推荐文章</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">推荐文章</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <select class="js-example-basic-single" name="artId" id="artId">
+                                            <option value="0">请选择推荐的文章</option>
+                                            <foreach name="list" item="val">
+                                                <option value="{$val['id']}" attr_id="{$val['id']}">{$val['title']}
+                                                </option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" onclick="submitData()" class="btn btn-success">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="__PUBLIC__/vendors/moment/min/moment.min.js"></script>
+<script src="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<!-- product -->
+<script src="__PUBLIC__/js/admin/product.js"></script>
+<script src="__PUBLIC__/js/admin/select2.full.js"></script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("product/addRushProduct")}',
+        'success_url': '{:U("product/rushList")}'
+    };
+
+    $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+    });
+
+    // 获取url中的参数
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+
+    function submitData() {
+        var classId = GetRequest().id;
+        var artId = $("#artId option:selected").val();
+        var ajaxUrl = '/admin.php/ProductClass/setClassArticle';
+        $.post(ajaxUrl, {classId:classId,artId:artId}, function (result) {
+            if(result.status == 0) {
+                return dialog.error(result.message);
+            } else {
+                return dialog.success(result.message, '/admin.php/ProductClass/index');
+            }
+        }, 'json');
+    }
+</script>
+</body>
+</html>

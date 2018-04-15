@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>优培圈</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/confirmationInfo.css"/>
+    <style>
+        .img img{
+            width: 100%;
+            height: 4.8rem;
+        }
+    </style>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+
+</head>
+<body class="kap-loading ty-view-all">
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>确认订单</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle">
+    <section class="img">
+        <img src="../../../../Public/images/school_product2.png" alt="">
+    </section>
+    <section class="title">
+        <h3>史太姆积木课精选</h3>
+    </section>
+    <section class="classTime">
+        <span class="finished"><strong>· </strong>已选课时：</span>
+        <strong>16课时</strong>
+        <span class="num">x1</span>
+    </section>
+    <section class="credit">
+        <label for="credit">
+            <span class="mark"><strong>· </strong>积分：</span>
+            <strong> 可用<span id="nowIntegral"></span>积分</strong>
+            <input type="checkbox" value="1" name="use_integral" id="credit" style="display: none;">
+            <i class="check"></i>
+            <span class="reduceNum"></span>
+        </label>
+    </section>
+    <section class="roll">
+        <span class="rolls"><strong>· </strong>优惠卷：</span>
+        <strong>></strong>
+        <span class="rollNum">-￥<span class="money">0</span></span>
+    </section>
+    <section class="coupon">
+        <ul class="coupon-list coupon-lists">
+        </ul>
+    </section>
+    <section class="use">
+        说明：代金卷和优惠卷可同时使用，代金卷可同时选中多张使用，而优惠卷只能选中一张使用。
+    </section>
+    <section class="information">
+        <p>
+            <span><strong class="point">· </strong>姓名：<strong class="name"></strong></span>
+            <span><strong class="point">· </strong>联系电话：<strong class="mobile"></strong></span>
+        </p>
+        <p>
+            <span><strong class="point">· </strong>地址：<strong class="address"></strong></span>
+        </p>
+    </section>
+    <section class="order">
+        <span>原价：<strong>￥<span id="totalPrice">0</span></strong>/实付款：<strong>￥<span id="realPrice">0</span></strong></span>
+    </section>
+    <section class="buy">
+        <button onclick="addOrder()">立即下单</button>
+    </section>
+</article>
+<script src="/Public/js/jquery-1.10.2.min.js"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="/Public/js/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        var ajaxUrl = "/index.php/Groups/ajaxConfirmationInfo";
+        var groupRecordId = getQueryString("groupRecordId");
+        var amount = getQueryString("amount");
+        $.get(ajaxUrl, {groupRecordId: groupRecordId, amount: amount}, function (result) {
+            if (result.status == 0) {
+                return alert(result.message);
+            }
+             $(".img img").attr("src",result.data.image)
+            $(".title h3").text(result.data.title)
+            $("#realPrice").text(result.data.totalPrice);
+            $("#totalPrice").text(result.data.totalPrice);
+            $("#nowIntegral").text(result.data.nowIntegral);
+            var nowIntegral=result.data.nowIntegral;
+            var nowIntegralNum=parseFloat(nowIntegral/100);
+            $(".reduceNum").html("-￥"+nowIntegralNum)
+            if(result.data.couponList.length==0){
+                $(".use").hide()
+            }
+            if (result.data.couponList.length != 0) {
+                $.each(result.data.couponList, function (key, val) {
+                    if (val.coupon_type == 2) {
+                        $(".coupon-list").append(
+                        	'<li class="cash_coupon" id="coupon-id-'+val.id+'">'+
+                                '<label for="coupon-check-'+val.id+'">'+
+                                    '<div class="contents">'+
+                                        '<div class="texts">'+
+                                            '<span>￥<strong>'+val.fee.split(".")[0]+'</strong></span>'+
+                                            '<div>'+
+                                                '<span>代金卷</span>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="hr"></div>'+
+                                            '<p>有效期'+val.start_time+'-'+val.end_time+'</p>'+
+                                    '</div>'+
+                                    '<input type="checkbox" name="cash_coupon" value="'+val.id+'" attr_value="'+val.fee+'" style="display: none;" onclick="clickCashCoupon(' + val.id + ')" id="coupon-check-'+val.id+'">'+
+                                    '<i class="check"></i>'+
+                                '</label>'+
+                            '</li>'
+                                );
+                    }
+                })
+                var contentLength=$(".content").length;
+                if(contentLength==1){
+                    $("input[type=radio]").attr("type","checkbox")
+                }
+            }
+        }, 'json');
+    });
+
+
+    //代金券选中事件
+    function clickCashCoupon() {
+        var totalPrice = parseFloat($("#totalPrice").text());
+        var cashCouponPrice = 0;
+        $.each($("input[name='cash_coupon']:checked"), function (key, val) {
+            cashCouponPrice += parseFloat($(this).attr("attr_value"));
+        });
+        var integral = !($('input[name="use_integral"]:checked').val()) ? 0 : parseFloat($("#nowIntegral").text());
+        var couponId = $("input[name='coupon']:checked").val();
+        if (!couponId) {
+            var nowPrice = totalPrice - cashCouponPrice - (integral * 0.01);
+        } else {
+            var subtract = parseFloat($('#coupon-subtract-' + couponId).attr('attr-value'));
+            var nowPrice = totalPrice - cashCouponPrice - subtract - (integral * 0.01);
+        }
+        if (nowPrice < 0) {
+            var nowPrice = 0;
+            $("input[name='coupon']").not('input:checked').attr('disabled', 'disabled').next('.coupon').css('background', 'gray');
+            $("input[name='cash_coupon']").not('input:checked').attr('disabled', 'disabled').next('.cash_coupon').css('background', 'gray');
+            $("input[name='use_integral']").not('input:checked').attr('disabled', 'disabled');
+        } else {
+            $("input[name='cash_coupon']").not('input:checked').removeAttr('disabled').next('.cash_coupon').css('background', 'rgb(242, 175, 45)');
+            $("input[name='use_integral']").not('input:checked').removeAttr('disabled');
+            if (!couponId) {
+                $("input[name='coupon']").not('input:checked').removeAttr('disabled').next('.coupon').css('background', 'rgb(242, 175, 45)');
+            }
+        }
+        $("#realPrice").text(nowPrice);
+        if(integral){
+           if(totalPrice-nowPrice==totalPrice){
+                    $(".money").text(parseInt(totalPrice-nowPrice))
+                }else{
+                    $(".money").text(parseFloat(totalPrice-nowPrice).toFixed(2)-(integral * 0.01))
+                }
+        }else{
+            $(".money").text(totalPrice-nowPrice+(integral * 0.01))
+        }
+    }
+
+    //积分选中事件
+    $("input[name='use_integral']").click(function () {
+        var totalPrice = parseFloat($("#totalPrice").text());
+        var isChecked = $('input[name="use_integral"]:checked').val();
+        var integral = parseFloat($("#nowIntegral").text());
+        var couponId = $("input[name='coupon']:checked").val();
+        var subtract = couponId ? parseFloat($('#coupon-subtract-' + couponId).attr('attr-value')) : 0;
+        var cashCouponPrice = 0;
+        $.each($("input[name='cash_coupon']:checked"), function (key, val) {
+            cashCouponPrice += parseFloat($(this).attr("attr_value"));
+        });
+        if (isChecked) {
+            var nowPrice = totalPrice - cashCouponPrice - subtract - (integral * 0.01);
+        } else {
+            var nowPrice = totalPrice - cashCouponPrice - subtract;
+        }
+        if (nowPrice < 0) {
+            var nowPrice = 0;
+            $("input[name='coupon']").not('input:checked').attr('disabled', 'disabled').next('.coupon').css('background', 'gray');
+            $("input[name='cash_coupon']").not('input:checked').attr('disabled', 'disabled').next('.cash_coupon').css('background', 'gray');
+        } else {
+            $("input[name='cash_coupon']").not('input:checked').removeAttr('disabled').next('.cash_coupon').css('background', 'rgb(242, 175, 45)');
+            $("input[name='coupon']").not('input:checked').removeAttr('disabled').next('.coupon').css('background', 'rgb(242, 175, 45)');
+        }
+        $("#realPrice").text(nowPrice);
+    });
+
+    function addOrder() {
+        var couponId = $("input[name='coupon']:checked").val();
+        var cashCouponIds = [];
+        $.each($("input[name='cash_coupon']:checked"),function (key,val) {
+            cashCouponIds[key] = $(this).val();
+        });
+        var useIntegral = $("input[name='use_integral']:checked").val();
+        var data = {
+            coupon_id : couponId?couponId:0,
+            cash_coupon_ids : cashCouponIds,
+            integral : useIntegral? parseFloat($("#nowIntegral").text()):0,
+            groupRecordId : getQueryString('groupRecordId'),
+            amount : getQueryString('amount'),
+            name : getRequest().name,
+            mobile : getQueryString('mobile'),
+            message : getRequest().message,
+            address : getRequest().address,
+        };
+        var url = "/index.php/Orders/addGroupOrder";
+        $.post(url, data, function (result) {
+            if(result.status == 0 ){
+                return alert(result.message);
+            } else {
+                window.location.href = "/index.php/WxPay/jsapiByGroup?orderId=" + result.orderId;
+            }
+        }, 'json')
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    function getRequest() {
+        var url = window.location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                //就是这句的问题
+                theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+                //之前用了unescape()
+                //才会出现乱码
+            }
+        }
+        return theRequest;
+    }
+    var name=getRequest().name;
+    var mobile=getRequest().mobile;
+    var address=getRequest().address;
+    $(".name").html(name);
+    $(".mobile").html(mobile)
+    $(".address").html(address)
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

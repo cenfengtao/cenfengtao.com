@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$header_title|default="优培圈"}</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Mobile Devices Support @begin -->
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes"/> <!-- apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/dialog.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/main_1-0.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/message.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/comment.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/kap.css">
+    <!--移动端兼容适配 end -->
+</head>
+<link href="__PUBLIC__/css/home/style4.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/getArticle.css">
+<body>
+<div class="container">
+    <div class="header" style="z-index: 11;" data-action="{$Think.ACTION_NAME}">
+        <a class="block" href="javascript:void(0)" id="header_go_back"
+           data-home-url="{:U('Index/index')}" style="display: none;"></a>
+        <h1 style="font-size:20px;">优培圈</h1>
+        <a class="block" href="{:U('Index/index')}" id="header_go_home" style="display: none;"></a>
+        <notempty name="interests_url">
+            <a class="icon_menu block" href="{$interests_url}"></a>
+        </notempty>
+    </div>
+    <div class="banner" style="z-index: 11;">
+        <a href="/index.php/index/index.html" class="article_banner"  style="z-index: 11;"></a>
+    </div>
+    <div id="test" class="banner" style="position: fixed;top:0;width:100%;z-index: 10;"><a href="/index.php/index/index.html" class="article_banner" style="width:100%"></a></div>
+    <div class="main plpr0" style="padding: 10px;">
+        <section class="scroll">
+            <input type="hidden" name="article_id" id="article_id" value="{$article.id}">
+            <h1 style="font-size:20px;">{$article['title']|default="优培圈"}</h1>
+            <time>{$article.create_time|date="Y-m-d",###} <span>{$article['author']|default=""}</span></time>
+            <div class="content">
+                <div class="info" style="font-size:14px;" id="content-wrapper">
+                    {$article.content}
+                </div>
+                <if condition="$article['show_liability'] eq 1">
+                    <div id="test1">《<font color="#F00"><u>请点击了解免责声明</u></font>》</div>
+                </if>
+            </div>
+            <div class="see-count">阅读&nbsp;&nbsp;{$article.read_count|default="0"}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                    href="javascript:finger({$article.id},'2')">
+                <if condition="$article['isFinger'] gt 0">
+                    <img src="__PUBLIC__/images/finger-1.jpg" id="z-{$article['id']}"/>
+                    <else/>
+                    <img src="__PUBLIC__/images/finger-2.jpg" id="z-{$article['id']}"/>
+                </if>
+                &nbsp;<span id="finger-{$article.id}">{$article.fingerCount}</span></a>
+                <notempty name="isCollect">
+                    <a class="isCollect" data-icon="ą" href="javascript:collect({$article.id},'5')">收藏</a>
+                    <else/>
+                    <a class="follow" data-icon="ą" href="javascript:collect({$article.id},'5')">收藏</a>
+                </notempty>
+            </div>
+        </section>
+        <div id="msgBox">
+            <button type="button" class="btn-comment" data-icon="Ę" style="padding: 0 0.425rem;">说点什么..</button>
+            <div class="lists">
+                <h3><span>最新评论</span></h3>
+                <ul id="lists-msg">
+                    <empty name="comments">
+                        <li id="empty">还没有人发表</li>
+                        <else/>
+                        <volist name="comments" id="val">
+                            <notempty name="val['user_id']">
+                                <li class="items" >
+                                    <div class="first" onclick='getFather("{$val['id']}")'>
+                                        <div class="userPic"><img src="{$val['headimgurl']}"/></div>
+                                        <div class="content" style="text-align: left;">
+                                            <div class="userName"><a href="javascript:;">{$val['username']}</a>:</div>
+                                            <div class="msgInfo">{$val['content']}</div>
+                                            <div class="times">
+                                                <span>{$val['create_time']|date="m-d H:i",###}</span>
+                                            </div>
+                                        </div>
+                                        <div class="finger">
+                                            <a href="javascript:finger('{$val.id}','1')">
+                                                <if condition="$val['is_finger'] gt 0">
+                                                    <img src="__PUBLIC__/images/finger-1.jpg" id="z-{$val.id}"/>
+                                                    <else/>
+                                                    <img src="__PUBLIC__/images/finger-2.jpg" id="z-{$val.id}"/>
+                                                </if>
+                                                &nbsp;<span id="finger-{$val.id}">{$val.finger_count}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+
+                                    <div class="replys">
+                                        <volist id="va" name="val['child']">
+                                            <div class="reply" onclick='getFatherId({$va['id']},{$val['id']})'>
+
+                                            <div class="image"><img src="{$va['headImg']}" alt=""><span>回复：</span><img src="{$va['headImgs']}" alt=""></div>
+
+                                            <span class="text">{$va['content']}</span>
+                                            </div>
+                                        </volist>
+                                    </div>
+
+                                </li>
+
+                            </notempty>
+                        </volist>
+                    </empty>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="footer_coopyright">
+        本活动最终解释权归优培圈所有
+    </div>
+</div>
+<div data-kap="kap-bottomwin" class="kap-bottomwin" style="display:none;">
+    <div class="kap-hitarea"></div>
+    <div class="kap-win" style="transform: translateY(0px); transition: -webkit-transform 0.2s cubic-bezier(0, 0, 0.25, 1);">
+        <div class="kap-content">
+            <div class="ty-popbottom">
+                <div class="title">
+                    发表评论
+                    <span class="ask-kf">
+                        <span><span class="btn-close" data-icon="ă"></span></span>
+                    </span>
+                </div>
+                <div class="content" style="height: 5.625rem;">
+                    <div class="ty-comment-pop">
+                        <input type="hidden" name="par_id" value="{$product['id']}">
+                        <textarea class="input-textarea btn-comment" id="product_contact_memo" placeholder="评论不少于3个字哦！"></textarea>
+                    </div>
+                </div>
+                <div class="btn-submit" id="addProduct">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-kap="_kap_mask" class="kap-mask kap-mask-on" style="display:none;"></div>
+
+<div class="kap-comment" style="display:none;">
+    <div class="kap-hitarea"></div>
+    <div class="kap-win"
+         style="transform: translateY(0px); transition: -webkit-transform 0.2s cubic-bezier(0, 0, 0.25, 1);">
+        <div class="kap-content">
+            <div class="ty-popbottom">
+                <div class="title">
+                    发表评论
+                    <span class="ask-kf">
+                        <span><span class="btn-close" data-icon="ă"></span></span>
+                    </span>
+                </div>
+                <div class="content" style="height: 5.625rem;">
+                    <div class="ty-comment-pop">
+                        <textarea class="input-textarea " id="product_contact_meto"
+                                  placeholder="评论不少于3个字哦！"></textarea>
+                    </div>
+                </div>
+                <div class="btn-submit" id="addComment" attr_father_id="" attr_type_id="">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-kap="_kap_mask" class="kap-mask  kap-background" style="display:none;"></div>
+<input type="hidden" id="attentionStatus" value="{$attentionStatus}">
+<div class="tellBox" style="display: none;">
+    <div class="tellContent">
+        <img src="../../../../Public/images/close.png" alt="" class="closeBtn">
+        <h3>温馨提示</h3>
+        <div>
+          <p>欢迎来到优培圈,您还没有关注我们哦!</p>
+        </div>
+        <a href="javascript:void(0);">关注「优培圈」才能方便您以后查看更多精彩的内容！</a>
+        <img src="../../../../Public/images/ypq_qrcode.jpg" alt="" class="code">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/home/dialog_1-0.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+<script src="__PUBLIC__/js/home/zepto.min.js"></script>
+<script src="__PUBLIC__/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/layer/layer.js"></script>
+<script src="__PUBLIC__/js/sea.js"></script>
+<script src="__PUBLIC__/js/home/getArticle.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var attentionStatus=$("#attentionStatus").val();
+    console.log(attentionStatus)
+    if(attentionStatus==2){
+        $(".tellBox").show();
+    }
+    $(".closeBtn").click(function(){
+        $(".tellBox").hide();
+    })
+    var assetsVersion = '2.5';
+    seajs.config({
+        map: [
+            [/^(.*\.(?:css|js))(.*)$/i, '$1?v=' + assetsVersion]
+        ],
+        base: "__PUBLIC__/js",
+        alias: {
+            "jquery": "jquery-1.10.2.min.js",
+            "zepto": "modules/zepto/zepto",
+        }
+    });
+    seajs.use(["main"], function (main) {
+        wrapper = document.getElementById('content-wrapper');
+        if (wrapper) {
+            main.previewImage(wrapper);
+        }
+    });
+
+    // 调用微信分享接口
+     wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+        timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+        nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+        signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: "{$article[title]}",
+            desc: "{$article['desc']}",
+            link: "{$share_url}",
+            imgUrl: "{$share_img}",
+            success: function () {
+                share_record();
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: "{$article[title]}",
+            link: "{$share_url}",
+            imgUrl: "{$share_img}",
+            success: function () {
+                share_record();// 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                alert('已取消');// 用户取消分享后执行的回调函数
+            }
+        });
+        wx.error(function (res) {
+//            alert(JSON.stringify(res));
+        });
+        function share_record() {
+            var art_id = "{$article['id']}";
+            var url = "/index.php/Article/shareRecord";
+            $.post(url, {art_id: art_id}, function (result) {
+                alert(result.message);
+            }, 'json');
+        }
+    });
+</script>
+</body>
+</html>

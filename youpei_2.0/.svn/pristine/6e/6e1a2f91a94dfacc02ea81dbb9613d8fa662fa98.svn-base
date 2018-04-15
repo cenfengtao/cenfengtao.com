@@ -1,0 +1,21 @@
+body {
+    background: url("/Public/images/lottery_userinfo.png") no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    width:100%;
+    height:100%;
+    }
+
+#totop{
+  display: none;
+}
+.layui-layer-title{
+  font-size: 1rem;
+}
+.layui-layer-setwin{
+  display: none;
+}
+.layui-layer-btn a{
+ height:1.5rem;
+ line-height: 1.5rem;
+}

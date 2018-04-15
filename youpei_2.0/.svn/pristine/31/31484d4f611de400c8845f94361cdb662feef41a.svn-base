@@ -1,0 +1,22 @@
+<div class="kap-bottom ty-menu-bottom">
+    <div id="tools_orders" class="ty-tools ty-tools-orders ty-tools-current">
+        <a href="{:U('Orders/allOrders')}" class="" data-ty-target="#page_orders"
+            <if condition='$umark eq "allOrders"'>class="current"</if>
+            >全部</a>
+        <a href="{:U('Orders/queryPayByPage')}" data-ty-target="#page_orders_wait"
+        <if condition='$umark eq "queryPayByPage"'>class="current"</if>
+        >待付款</a>
+
+        <a href="{:U('Orders/queryDeliveryByPage')}" data-ty-target="#page_orders_ready"
+        <if condition='$umark eq "queryDeliveryByPage"'>class="current"</if>
+        >已付款</a>
+
+        <a href="{:U('Orders/queryAppraiseByPage')}" data-ty-target="#page_orders_rate"
+        <if condition='$umark eq "queryAppraiseByPage"'>class="current"</if>
+        >待评价</a>
+
+        <a href="{:U('Orders/queryCancelOrders')}" data-ty-target="#page_orders_cancel"
+        <if condition='$umark eq "queryCancelOrders"'>class="current"</if>
+        >取消/退款</a>
+    </div>
+</div>

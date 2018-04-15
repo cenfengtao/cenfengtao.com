@@ -1,0 +1,69 @@
+<?php
+/**
+ * 定时脚本控制器
+ */
+namespace Admin\Controller;
+
+use Think\Controller;
+
+require_once __DIR__ . '/../../../ThinkPHP/Library/Vendor/ChuanglanSmsHelper/ChuanglanSmsApi.php';
+
+class ScriptController extends Controller
+{
+    /**
+     * 过期订单处理脚本
+     */
+    public function overdueOrder()
+    {
+        $overdueTime = 540; //过期时间
+        $overdueList = M('order')->where(array('status' => 0, 'create_time' => array('lt', time() - $overdueTime)))->select();
+        foreach ($overdueList as $k => $v) {
+            D('Order')->updateById($v['id'], array('status' => 2, 'end_time' => time()));
+            //发送短信给机构
+            if (!empty($v['product_id'])) {
+                $proTitle = M('product')->where("id={$v['product_id']}")->getField('title');
+            } else if (!empty($v['parenting_id'])) {
+                $proTitle = M('parenting')->where("id={$v['parenting_id']}")->getField('title');
+            } else if (!empty($v['activity_id'])) {
+                $proTitle = M('organization_activity')->where("id={$v['activity_id']}")->getField('title');
+            } else if (!empty($v['group_record_id'])) {
+                $groupId = M('group_record')->where("id={$v['group_record_id']}")->getField('group_id');
+                $proTitle = M('group_product')->where("id={$groupId}")->getField('title');
+            } else {
+                return 'no product';
+            }
+            $organization = M('organization')->where(array('token' => $v['token']))->field('id,org_name')->find();
+            $orgMobile = M('admin_user')->where(array('org_id' => $organization['id'], 'mobile' => array(array('exp', 'is not null'), array('neq', ''), 'and')))->getField('mobile');
+            $sms = new \ChuanglanSmsApi();
+            $msg = '{$var} 您好，您在优培圈的 {$var} 有用户已下单未支付，请跟进沟通！';
+            $params = "{$orgMobile},{$organization['org_name']},{$proTitle}";
+            $result = $sms->sendVariableSMS($msg, $params);
+            $recordData = [
+                'create_time' => time(),
+                'content' => "{$organization['org_name']} 您好，您在优培圈的 {$proTitle} 有用户已下单未支付，请跟进沟通！",
+                'type' => 2,
+                'type_id' => $v['id'],
+                'mobile' => $orgMobile
+            ];
+            if (!is_null(json_decode($result))) {
+                $output = json_decode($result, true);
+                if (isset($output['code']) && $output['code'] == '0') {
+                    $recordData['status'] = 2;
+                    $recordData['err_code'] = $output['code'];
+                    D('SmsRecord')->insert($recordData);
+                } else {
+                    $recordData['status'] = 3;
+                    $recordData['err_code'] = $output['code'];
+                    $recordData['err_msg'] = $output['errorMsg'];
+                    D('SmsRecord')->insert($recordData);
+                }
+            } else {
+                $recordData['status'] = 3;
+                $recordData['err_code'] = 'undefined';
+                $recordData['err_msg'] = '发送失败';
+                D('SmsRecord')->insert($recordData);
+            }
+        }
+        echo 'finish';
+    }
+}

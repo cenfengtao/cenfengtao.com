@@ -1,0 +1,128 @@
+ .text{
+        display: block;
+        text-indent: 6.5rem;
+        line-height: 2rem;
+        word-wrap: break-word;
+        text-align: left;
+    }
+    .image{
+        position: absolute;
+        font-size: 0.8rem;
+    }
+    .image span{
+        line-height:2rem;
+    }
+    .replys{
+        margin-left:3.1rem;
+    }
+    .image img{
+        width: 1.8rem;
+        height:1.8rem;
+        vertical-align: middle;
+    }
+    .btn-comment{
+        height: 2rem;
+        line-height: 1.5rem;
+        width: 37%;
+        padding: 0 0.625rem;
+        font-size: .875rem;
+        color: #71ccb0;
+        background-color: #fff;
+        float: right;
+        margin: -3.1rem 0rem 0.5rem 0rem;
+        border-radius: .25rem;
+        border: 1px solid #71ccb0;
+    }
+    .kap-mask{
+        top:0;
+    }
+    .isCollect:before {
+        color: #f56b85;
+    }
+
+    .isCollect {
+        display: inline-block;
+        width: 25%;
+        margin-left: 5%;
+        position: relative;
+        color: #f56b85;
+    }
+
+    .follow {
+        display: inline-block;
+        width: 25%;
+        margin-left: 5%;
+        position: relative;
+    }
+    .article_banner {
+        background: url("../../images/article-banner.png");
+        display: block;
+        width:100%;
+        height:3rem;
+        background-size: 100%;
+    }
+
+/*关注弹框*/
+.tellBox{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1000000000;
+}
+ .tellContent{
+    border-radius: 0.1rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 17.56rem;
+    width:17.96rem;
+    margin: auto;
+    background: white;
+}
+.tellContent .closeBtn{
+    float: right;
+    height: 1.47rem;
+    width: 1.47rem;
+    margin-top: 0.28rem;
+    margin-right: 0.3rem;
+}
+.tellContent h3{
+    text-align: center;
+    font-size: 1.5361rem;
+    color: white;
+    background: #386998;
+    height: 2.3rem;
+    line-height: 2.3rem;
+    border-top-left-radius: 0.1rem;
+    border-top-right-radius: 0.1rem;
+}
+.tellContent div{
+    text-align: center;
+    font-size: 1rem;
+}
+.tellContent div p{
+    width: 98%;
+    padding: 1.17rem 0 0.77rem;
+    border-bottom: 0.01rem solid #e7e7e7;
+    color: #236b9c;
+    margin: 0 auto;
+}
+.tellContent >a{
+    display: block;
+    color: #ff4a58;
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.66rem 0 0.59rem;
+    text-decoration: underline;
+}
+.tellContent .code{
+    width: 8.5rem;
+    height: 8.5rem;
+    margin: 0 auto;
+    display: block;
+}

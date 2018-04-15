@@ -1,0 +1,133 @@
+<script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+<if condition='$umark eq "productDetails"'>
+    <div id="side_article" class="ty-sidebar-area ty-tools ty-tools-current">
+        <div class="section">
+            <span class="qrcode"><img src="__PUBLIC__/images/618348288222690487.jpg" alt="" height="166" width="166"><b
+                    class="tip">微信扫一扫</b></span>
+            <p>关注“<b>优培圈</b>”微信公众号， “<b class="wx-code">立即购买</b></p>
+            <span class="btn phone" data-icon="Ĉ">客服电话<b>1569357635</b></span>
+        </div>
+        <p class="copyright">
+            Copyright &copy;2017 youpei<br>
+            <a href="#" target="_blank">粤ICP备17008351号</a>
+        </p>
+    </div>
+</if>
+
+
+<!-- 20160621 updated -->
+<script language="javascript">
+    function getUrlArg(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    function is_weixn() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function setCookie(name, value) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+    }
+
+    function delCookie(c_name, value) {
+        var date = new Date();
+        //将date设置为过去的时间
+        date.setTime(date.getTime() - 10000);
+        //将userId这个cookie删除
+        document.cookie = c_name + "=" + escape(value) + " ; expires=" + date.toGMTString();
+    }
+
+    function getCookie(name) {
+        var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+        if (arr != null) return unescape(arr[2]);
+        return null;
+    }
+    var timestamp = (new Date()).valueOf();
+    var hash = location.hash;
+    var source = getUrlArg("source");
+</script>
+<script src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.ba-hashchange.min.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.exif.min.js"></script>
+<script type="text/vbscript">
+Function IEBinary_getByteAt(strBinary, iOffset)
+    IEBinary_getByteAt = AscB(MidB(strBinary,iOffset+1,1))
+End Function
+Function IEBinary_getLength(strBinary)
+    IEBinary_getLength = LenB(strBinary)
+End Function
+</script>
+<script src="__PUBLIC__/Home/js/kap.js?v6.6"></script>
+<script src="__PUBLIC__/Home/js/common.js?v6.6"></script>
+<script src="__PUBLIC__/Home/js/c.js?v6.6"></script>
+<script src="__PUBLIC__/Home/layer/layer.js"></script>
+<script language="javascript">
+    function handleOpenURL(url) {
+        setTimeout(function () {
+            var link = "";
+            if (link.indexOf("http://www.youpei-exc.com") == 0) window.location.href = link;
+        }, 0);
+    }
+</script>
+<!--<script src="__PUBLIC__/Home/js/selectivizr.js?v1.3"></script>-->
+<!--加载 -->
+<script src="__PUBLIC__/Home/js/pageloader.js"></script>
+<script>
+    jQuery(window).resize(function () {
+        resizenow();
+    });
+    function resizenow() {
+        var browserwidth = jQuery(window).width();
+        var browserheight = jQuery(window).height();
+        jQuery('.bonfire-pageloader-icon').css('right', ((browserwidth - jQuery(".bonfire-pageloader-icon").width()) / 2)).css('top', ((browserheight - jQuery(".bonfire-pageloader-icon").height()) / 2));
+    };
+    resizenow();
+</script>
+<script>
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+        timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+        nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+        signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: "{$shareData['share_title']}",
+            desc: "{$shareData['share_desc']}",
+            link: "{$shareData['share_url']}",
+            imgUrl: "{$shareData['share_img']}",
+            success: function () {
+                alert('分享成功');
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: "{$shareData['share_title']}",
+            link: "{$shareData['share_url']}",
+            imgUrl: "{$shareData['share_img']}",
+            success: function () {
+                alert('分享成功');// 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                alert('已取消');// 用户取消分享后执行的回调函数
+            }
+        });
+        wx.error(function (res) {
+//            alert(JSON.stringify(res));
+        });
+    });
+</script>
+</div>

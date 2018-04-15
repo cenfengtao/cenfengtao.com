@@ -1,0 +1,114 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<!-- bootstrap-daterangepicker -->
+<link href="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>添加优惠券发放</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <form id="demo-form2" data-parsley-validate
+                                      class="form-horizontal form-label-left form-youpei">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">标题 </label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" name="title" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">开始使用时间</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                                <input type="text" aria-describedby="inputSuccess2Status3"
+                                                       name="start_time" id="single_cal3"
+                                                       class="form-control has-feedback-left"/>
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">结束使用时间
+                                        </label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                            <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                                <input type="text" aria-describedby="inputSuccess2Status3"
+                                                       name="end_time" id="single_cal1"
+                                                       class="form-control has-feedback-left"/>
+                                                <small>此优惠券每张限领一次，如需重复发放请重新添加</small>
+                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">满减额度</label>
+                                        <div class="col-md-9 col-sm-12 col-xs-12">
+                                            满：<input type="number" name="full" min="0" value="0">
+                                            减：<input type="number" name="subtract" min="0" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">库存 </label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="number" name="count" class="form-control col-md-7 col-xs-12" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            <button class="btn btn-primary" type="reset">重置</button>
+                                            <button type="button" id="table-button-submit" class="btn btn-success">提交
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="__PUBLIC__/vendors/moment/min/moment.min.js"></script>
+<script src="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("Coupon/addCouponOffer")}',
+        'success_url': '{:U("Coupon/getOfferList")}'
+    };
+</script>
+</body>
+</html>

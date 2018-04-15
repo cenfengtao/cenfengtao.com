@@ -1,0 +1,252 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>用户设置</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <input type="hidden" name="id" value="{$config['id']}">
+                                <h4><b>积分设置</b></h4>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">签到赠送积分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="task_sign_integral" min="0"
+                                               value="{$config['task_sign_integral']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">分享赠送积分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="task_share_integral" min="0"
+                                               value="{$config['task_share_integral']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">阅读赠送积分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="task_read_integral" min="0"
+                                               value="{$config['task_read_integral']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">评论赠送积分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="task_comment_integral" min="0"
+                                               value="{$config['task_comment_integral']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">学友赠送积分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="task_schoolmate_integral" min="0"
+                                               value="{$config['task_schoolmate_integral']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">抽奖积分兑换</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="integral_exchange" min="0"
+                                               value="{$config['integral_exchange']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">每天获取积分限制</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="max_integral" min="0"
+                                               value="{$config['max_integral']|default=0}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <hr>
+                                <h4><b>红包设置</b></h4>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">抽奖规则说明</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <textarea name="lotteryrule" id="info">{$config['lotteryrule']}</textarea>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">设置搜索标签</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="search_tag"
+                                               value="{$config['search_tag']}" class="form-control col-md-7 col-xs-12">
+                                        <small>用空格分隔</small>
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">抽奖页广告图</label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <div id="filePicker" style=''>上传图片</div>
+                                            <input type="hidden" name="over_adv" id="upload_image" tabindex="3"
+                                                   autocomplete="off">
+                                            <empty name="config['over_adv']">
+                                                <img id='over_adv' src='' ref='' width='250' height='150'
+                                                     style='display:none'/>
+                                                <else/>
+                                                <img id='preview' ref='' width='250' height='150' src="{$config['over_adv']}"/>
+                                            </empty>
+
+                                        </div>
+                                    </div>
+
+                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">抽奖页广告链接</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="" name="over_adv_link" value="{$config['over_adv_link']}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">签到页广告图</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div id="filePicke" style=''>上传图片</div>
+                                        <input type="hidden" name="sign_image" id="upload_sign_image" tabindex="3"
+                                               autocomplete="off">
+                                        <empty name="config['sign_image']">
+                                            <img id='sign_image' src='' ref='' width='250' height='150'
+                                                 style='display:none'/>
+                                            <else/>
+                                            <img id='previews' ref='' width='250' height='150' src="{$config['sign_image']}"/>
+                                        </empty>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">签到页广告链接</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="" name="sign_image_link" value="{$config['sign_image_link']}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {
+            initialFrameWidth: 700,
+            initialFrameHeight: 400,
+            serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"
+        });
+    });
+</script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("UserConfig/index")}',
+        'success_url': '{:U("UserConfig/index")}'
+    };
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+
+     $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePicker',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                    $('#preview').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+
+    $(function () {
+        var uploadings = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePicke',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#sign_image').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#upload_sign_image').val('/' + json.file.savepath + json.file.savename);
+                    $('#sign_image').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploadings = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+</script>
+</body>
+</html>

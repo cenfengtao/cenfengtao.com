@@ -1,0 +1,155 @@
+html{font-size:20px}
+body{background:#e5e5e5}
+html,body,.kap-wrap{width:100%; height:auto; min-width:1160px}
+.kap-wrap{height:auto; position:relative; margin:0 auto}
+.kap-page{box-shadow:none}
+.ty-view-all .ty-page,.ty-view-top .ty-page{margin-top:3rem; padding-top:0;box-shadow:1px 2px .25rem rgba(0,0,0,0.3)}
+.ty-tools{width:100%}
+.ty-tools-hot .title{text-align:center; text-indent:-9999px; background:url(/Public/images/5886c9b0d0eac.png) center no-repeat; height:2.5rem}
+.ty-tools-cityswitch{left:0; right:auto}
+.ty-tools-search{right:.5rem; left:auto}
+.ty-tools-search .input-jump{color:#C2ECD2; border-color:#fff}
+.ty-tools-search i:before,.ty-tools-inner .btn,.ty-tools-common a,.ty-tools-common a.on,.ty-search-bar .btn-home,.ty-search-bar .btn-search,.ty-menu-top .ty-tools .title,.sel-city-switch,.ty-tools .btn-back,.ty-tools a.btn-back,.ty-tools-inner .btn-back,.ty-tools-inner .btn-home,.ty-tools-product a{color:#fff}
+.ty-menu-bottom{-webkit-transition:all 0s;transition:all 0s; z-index:554; max-height:85%; overflow-y:auto}
+.ty-menu-bottom .ty-tools{height:auto}
+.ty-view-all .ty-menu-bottom,.ty-view-top .ty-menu-bottom{width:240px; left:50%; margin-left:-570px; top:3rem; bottom:auto; background:#FFF; border-radius:.25rem; box-shadow:1px 2px .25rem rgba(0,0,0,0.3); height:auto;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
+.ty-tools-idx,.ty-tools-idx.ty-tools-current,.ty-tools-user.ty-tools-current,.ty-tools-orders.ty-tools-current,.ty-tools-te.ty-tools-current,.ty-tools-experience.ty-tools-current,.ty-tools-talent.ty-tools-current{background:none; box-shadow:none; display:block; height:100%; overflow:hidden}
+.ty-tools-user.ty-tools-current,.ty-tools-te.ty-tools-current,.ty-tools-experience.ty-tools-current,.ty-tools-talent.ty-tools-current{border-top:1px solid #e5e5e5}
+.ty-menu-bottom .ty-tools-idx > a,.ty-menu-bottom .ty-tools-user > a,.ty-menu-bottom .ty-tools-orders > a,.ty-menu-bottom .ty-tools-te > a,.ty-menu-bottom .ty-tools-experience > a,.ty-menu-bottom .ty-tools-talent > a{display:block; color:#999; font-size:18px; text-align:left; padding-left:30px}
+.ty-menu-bottom .ty-tools > a:last-child{border-radius:0 0 .25rem .25rem}
+.ty-menu-bottom .ty-tools.ty-tools-idx > a.current{color:#299955}
+
+.ty-page .ty-menu-bottom{width:640px; left:50%; margin-left:-320px; bottom:0; top:auto; border-radius:0}
+
+.ty-tools-user a.current,.ty-tools-orders a.current,.ty-tools-te a.current,.ty-tools-experience a.current{background:#f5f5f5}
+.ty-tools a:after{content:""; display:none}
+.ty-tools-idx i.on{left:0; margin-left:.375rem; top:1rem; border:0}
+.ty-tools-idx i.border{display:none;}
+.ty-menu-bottom .ty-tools-talent > a{line-height: 2.875rem}
+.ty-menu-bottom .ty-tools-talent > a:before{display:inline-block; font-size: 1.125rem;}
+.ty-tools-product a,.talent-contact{color:#fff}
+
+.ty-menu-top{background-color:rgba(41,153,85,.9); color:#fff; box-shadow:0 0 .0625rem rgba(0,0,0,0.4);}
+.ty-menu-top .ty-tools{background:none; box-shadow:none; max-width:1160px}
+
+.ty-view-all .ty-menu-top-hide,.ty-view-top .ty-menu-top-hide{-webkit-transform:translateY(0); -ms-transform:translateY(0); transform:translateY(0)}
+.act-tag.fixed.top{top:2.5rem}
+.list-tags.discover .item{}
+
+.activity.ty-calendars{top:3rem}
+.timeline-product{margin-top:22rem}
+.activity .ty-calendar .top,.ty-calendars.activity,.hotel-cat{border-radius:.25rem .25rem 0 0 }
+.ticket.activity .ty-calendar .top, .ty-calendars.activity.ticket{border-radius:0}
+
+#page_activity.kap-mask-blur{z-index:999}
+.cat-tag-wrap{width:640px; left:50%; position:fixed; margin-left:-320px; top:0; z-index:999; background:none}
+.cat-tag-wrap .cat-tag{width:100%; margin-left:0 !important}
+.cat-tag-wrap .cat-tag .tag{font-size:16px; color:#fff}
+.cat-tag .tag.on{color:#299955; background:#fff; border-radius:.25rem}
+.cat-tag-wrap.fixed{z-index:999; box-shadow:none; top:0}
+
+.ty-login-area{display:block;background:#f0f1f2; border-radius:.25rem .25rem 0 0; padding:1rem; margin-top:0}
+.head-icon img{display:block;margin:0 auto; width:120px; height:120px; border-radius:120px; box-shadow:1px 2px .25rem rgba(0,0,0,0.3)}
+.ty-login-area .btn{display:block; width:120px; height:30px; line-height:30px; font-size:16px; margin:1rem auto 0 auto; text-align:center; color:#299955; background:#fff;box-shadow:1px 2px .25rem rgba(0,0,0,0.3); border-radius:.25rem; cursor:pointer}
+.ty-login-area .btn:before{vertical-align:bottom}
+.ty-login-area .wx-name{text-align:center; padding:10px; display:block}
+
+.limit-area .list-talent-product::-webkit-scrollbar {
+    height:.5rem; display:block
+}
+.limit-area .list-talent-product::-webkit-scrollbar-track
+{
+  background: none;
+}
+
+.limit-area .list-talent-product::-webkit-scrollbar-thumb
+{
+  background:#2da36d; border-radius:.5rem;
+}
+
+/*20170303 updated*/
+.list-life-talent,.ty-sc-h::-webkit-scrollbar {height:.5rem; display:block}
+.list-life-talent,.ty-sc-h::-webkit-scrollbar-track{background: none}
+.list-life-talent,.ty-sc-h::-webkit-scrollbar-thumb{background: #ccc; border-radius:.5rem}
+.list-life-talent li{width:120px}
+.ty-sc-h>*{width:200px}
+.ty-rec-view.ty-sc-h>*{width:140px;}
+/*20170303 updated end*/
+
+.ty-sidebar-area{display:none;background:#f9f9f9;width:220px;box-shadow:1px .25rem .25rem rgba(0,0,0,0.3);position:fixed;right:50%;top:0;margin-right:-570px;height:1000px;padding:70px 10px;font-size:16px;color:#777;text-align:left;line-height:1.5em;max-height: 90%;overflow: auto;}
+.ty-sidebar-area.ty-tools-current{display:block}
+.ty-sidebar-area .section{background:#f0f1f2; padding:10px 0}
+.ty-sidebar-area .section .qrcode{display:block; height:220px; margin:0 auto; text-align:center}
+.ty-sidebar-area .section .qrcode img{display:block; width:150px; height:auto; border:8px solid #fff; border-radius:.25rem;box-shadow:1px 2px .25rem rgba(0,0,0,0.3); margin:10px auto 20px auto; font-size:14px}
+.ty-sidebar-area .section h3{padding-left:10px}
+.ty-sidebar-area .section .phone{font-size:26px; line-height:40px; padding-left:10px; display:block}
+.ty-sidebar-area .section .mail{padding-left:10px; display:block}
+.ty-sidebar-area .section .link-list{margin-top:10px; border-top:1px solid #e5e5e5; height:100%; overflow:hidden}
+.ty-sidebar-area .section .link-list li{float:left; display:inline-block; width:50%; text-align:center; line-height:40px; height:40px}
+.ty-sidebar-area .section .link-list li a{color:#444}
+.ty-sidebar-area .copyright{padding:20px; color:#777; font-size:14px; line-height:21px}
+.ty-sidebar-area .copyright a{color:#777}
+.ty-sidebar-area p{padding:0 10px; margin:.5rem 0}
+.ty-sidebar-area b{color:#299955}
+.ty-tools.ty-sidebar-area  span.btn{color:#fff;background:#299955;font-size:.875rem;line-height:1.5em;padding:.5rem 0;text-align:center;width:80%;border-radius:.25rem;display:block;margin:.5rem auto;height: 2.5em;float: none;min-height: 1.5em;}
+.ty-tools.ty-sidebar-area span.btn.phone{background:none;border:1px dashed #299955;box-sizing:border-box;color:#299955;font-size:.875rem;line-height:1.5em;height: auto;}
+.ty-sidebar-area .btn.phone b{font-size:1rem; display:block}
+.ty-sidebar-area .btn.buy-now,.ty-sidebar-area .btn.btn-order{ cursor:pointer;background:rgba(204,51,0,0.95)}
+.ty-sidebar-area.ty-tools p{ white-space:normal}
+
+.ty-sidebar-area .tip{margin:0 auto; display:block; width:166px;  font-size:16px; text-align:center}
+
+.ty-talent-entry{display:block; padding:10px 0; border-top:1px solid #e5e5e5}
+.ty-talent-entry .btn-talent{color:#fff; display:block; margin:0 auto; width:80%; text-align:center; height:40px; line-height:40px; border-radius:.25rem; background:#56b489; font-size:16px}
+.ty-talent-entry .btn-talent:hover{background:#45a378}
+.ty-talent-entry .detail{color:#299955; font-size:14px; width:180px; display:block; line-height:32px; text-align:right; margin:0 auto}
+
+.calendar-prev-btn,.calendar-next-btn{line-height:40px; width:40px}
+
+.act-tag,.cat-tag{-webkit-transition:0s; transition:0s}
+
+.ty-menu-bottom .ty-tools-current.ty-tools-order{display:none}
+
+.ty-pc-login,.ty-pc-order{position:fixed; width:100%; height:100%; left:0; top:0; z-index:9001}
+.login-qrcode,.order-qrcode{display:block;width: 240px;height: 280px;position:fixed;left:50%;top:50%;margin:-140px auto auto -120px;text-align:center;line-height:40px;color:#fff;text-shadow:1px 2px .25rem rgba(0,0,0,0.3);border-radius:.25rem;background:#299955;box-shadow:1px 2px .25rem rgba(0,0,0,0.3);padding:20px;}
+.order-qrcode{width:240px; height:320px; margin:-200px auto auto -130px; background:#fff}
+.order-qrcode .order-detail{border-radius:.25rem; text-align:left; text-shadow:none; font-size:16px; padding-top:10px; margin-top:10px; height:100%; overflow:hidden}
+.login-qrcode img,.order-qrcode img{ display:block;box-shadow:1px 2px .25rem rgba(0,0,0,0.3);border-radius:.25rem; margin:0 auto}
+
+.ty-user-cover img,.ty-view-all .ty-page, .ty-view-top .ty-page,.banner-roll .item,.cat-tag-wrap,.ty-detail-cover .thumb,.ty-detail-cover,.ty-order-person .project-desc{border-radius:.25rem .25rem 0 0}
+
+.act-tag.fixed{border-radius:0}
+
+.h5-copyright{display:none}
+
+.ty-iframe{overflow-y:hidden}
+
+.tag,[data-ty-target],.ty-fes li h3,.item-more,.ty-sidebar-area .btn,.list-order-items .num .btn-increase,.list-order-items .num .btn-decrease,.ty-order-person .ty-join .join-list .item,.list-tags .item,.activity .ty-calendar .day .num,.btn,.btn-delete-history,.ty-search-history .item,.ty-hot-search .item,.ty-search-bar .btn-search,.ty-search-bar .btn-home{cursor:pointer}
+.banner-roll img {
+	height:220px;
+}
+.imgList li{
+	width:640px;
+}
+
+.limit-area .list-talent-product .labels1, .labels2, .labels3{
+	height:2.5vh; width:7vmin;line-height:1.2rem;
+}
+.limit-area .list-talent-product .triangle{
+	margin:-22% -0.94rem 0;
+}
+.list-card .triangle{
+	margin:-52% -1.2rem 0;
+}
+@media screen and (max-width:1170px){
+	html,body,.kap-wrap{min-width:0}
+	.ty-view-all .ty-menu-bottom,.ty-view-top .ty-menu-bottom{left:50%; margin-left:-485px; width:200px}
+	.ty-sidebar-area{left:50%; margin-left:285px; width:200px}
+	.kap-page{ left:50%;margin-left:-275px; width:550px}
+	.ty-page,.activity.ty-calendars,.ty-cat-tags{width:550px}
+	.te-tags.fixed, .ty-iframe,.tags-wrap.fixed,.talent-msg-area .ty-msg,.act-tag.fixed,.kap-bottomwin .kap-win{width:550px; margin-left:-275px}
+	.ty-tools-hot .title{text-align:left; text-indent:0; background:none}
+	.ty-tools-cityswitch{left:auto; right:0}
+	.ty-tools-search{left:30vw}
+	
+}

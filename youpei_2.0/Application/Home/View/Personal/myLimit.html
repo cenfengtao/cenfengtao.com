@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+    <style>
+     /*头部 start*/
+    .header{
+        height: 1.2rem;
+        line-height: 1.22rem;
+        position: fixed;
+        width: 100%;
+        background: white;
+        overflow: hidden;
+        z-index: 100;
+        clear: both;
+    }
+    .header a:first-child{
+        left: 0.27rem;
+        position: absolute;
+    }
+    .header a:first-child img{
+        margin-top: 0.4rem;
+        height: 0.5rem;
+    }
+    .header h3{
+        text-align: center;
+        font-size: 0.52rem;
+        color: #065b9c;
+        margin-left: 0.3rem;
+        margin-top: 0.05rem;
+    }
+    /*头部 end*/
+    /*中部 start*/
+    .middle{
+        padding-top: 1.4rem;
+        background: #f0f1f1;
+    }
+    /*限时抢购样式*/
+.limit{
+    margin-bottom: 0.2rem;
+}
+.limit ul li{
+    background: white;
+    margin-bottom: 0.2rem;
+}
+.limitHead{
+    overflow: hidden;
+    height: 1.03rem;
+    border-bottom: 0.01rem solid #c1c1c1;
+}
+.limitHead .text{
+    float: left;
+    margin-top: 0.38rem;
+    margin-left: 0.25rem;
+}
+.limitHead .text img{
+    width: 0.48rem;
+    height: 0.48rem;
+    float: left;
+}
+.limitHead .text span{
+    float: left;
+    font-size: 0.42rem;
+    color: #386998;
+    font-weight: bold;
+    margin-left: 0.21rem;
+    margin-top: -0.05rem;
+}
+.limitHead .time{
+    float: right;
+    margin-top: 0.48rem;
+    margin-right: 0.34rem;
+}
+.limitHead .time img{
+    width: 0.29rem;
+    height: 0.37rem;
+    float: left;
+    margin-top: -0.05rem;
+}
+.limitHead .time span{
+    float: left;
+    margin-left: 0.15rem;
+    margin-top: -0.1rem;
+    font-size: 0.36rem;
+    color: #626262;
+}
+.limitContent{
+    overflow: hidden;
+    /*padding-bottom: 0.2rem;*/
+}
+.limitContent .img{
+    position: relative;
+    float: left;
+    margin: 0.24rem 0.23rem 0.24rem 0.21rem;
+}
+.limitContent .img img{
+    width: 3.85rem;
+    height: 2.98rem;
+}
+.limitContent .tap{
+    width: 0;
+    height: 0;
+    border-top: 1rem solid #db6066;
+    border-left: 1rem solid transparent;
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    border-bottom: 0.5rem solid transparent;
+    border-right: 0.5rem solid #db6066;
+}
+.limitContent .tap span{
+    position: absolute;
+    right: -0.95rem;
+    top: -0.6rem;
+    font-size: 0.42rem;
+    color: white;
+    transform: rotate(45deg);
+    font-weight: bold;
+    width: 1.4rem;
+}
+.limitContent .text{
+    float: left;
+}
+.limitContent .text h3{
+    font-size: 0.48rem;
+    color: #386998;
+    line-height: 0.48rem;
+    margin: 0.42rem 0 0.2rem;
+}
+.limitContent .type{
+    overflow: hidden;
+}
+.limitContent .type span{
+    font-size: 0.34rem;
+    color: white;
+    margin-right: 0.2rem;
+    padding: 0 0.14rem;
+    height: 0.52rem;
+    line-height: 0.52rem;
+    display: inline-block;
+    border-radius: 0.08rem;
+}
+.limitContent .type span:first-child{
+    background-color: #f6d94f;
+}
+.limitContent .type span:nth-child(2){
+    background-color: #83cf95;
+}
+.limitContent .type span:nth-child(3){
+    background-color: #927cd6;
+}
+.limitContent .add{
+    overflow: hidden;
+    margin: 0.1rem 0 0.05rem;
+}
+.limitContent .add img{
+    float: left;
+    width: 0.29rem;
+    height: 0.4rem;
+    margin: 0.1rem 0.13rem 0 0;
+}
+.limitContent .add span{
+    float: left;
+    color: #9e9e9e;
+    font-size: 0.36rem;
+    margin-top: 0.05rem;
+}
+.limitContent .originalPrice{
+    font-size: 0.36rem;
+    color: #386998;
+    margin-right: 0.6rem;
+    text-decoration: line-through;
+}
+.limitContent .limitPrice{
+    font-size: 0.4rem;
+    font-weight: bold;
+    color: #386998;
+}
+.limitContent .moneySign{
+    color: #db6066;
+}
+.limitContent strong{
+    font-size: 0.6rem;
+     color: #db6066;
+}
+    </style>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>我的抢购</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="limit">
+                <ul>
+                    <li onclick="getProduct()">
+                        <div class="limitHead">
+                            <div class="text">
+                                <img src="../../../../Public/images/indexTime.png" alt="">
+                                <span>限时抢购</span>
+                            </div>
+                            <div class="time">
+                                <img src="../../../../Public/images/indexFilter.png" alt="">
+                                <span class="endtime" value=""></span>
+                            </div>
+                        </div>
+                        <div class="limitContent">
+                            <div class="img">
+                                <img src="../../../../Public/images/vote.jpg" alt="">
+                                <div class="tap">
+                                    <span>抢购</span>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3>美术行天下</h3>
+                                <div class="type">
+                                    <span>尽量客观</span>
+                                    <span>尽量客观</span>
+                                </div>
+                                <p class="add">
+                                    <img src="../../../../Public/images/indexAddr.png" alt="">
+                                    <span>个抠脚大叔空格键</span>
+                                </p>
+                                <p class="price">
+                                    <span class="originalPrice">原价:￥15</span>
+                                    <span class="limitPrice">抢购价：<span class="moneySign">￥</span><strong>18</strong></span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li onclick="getProduct()">
+                        <div class="limitHead">
+                            <div class="text">
+                                <img src="../../../../Public/images/indexTime.png" alt="">
+                                <span>限时抢购</span>
+                            </div>
+                            <div class="time">
+                                <img src="../../../../Public/images/indexFilter.png" alt="">
+                                <span class="endtime" value=""></span>
+                            </div>
+                        </div>
+                        <div class="limitContent">
+                            <div class="img">
+                                <img src="../../../../Public/images/vote.jpg" alt="">
+                                <div class="tap">
+                                    <span>抢购</span>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3>美术行天下</h3>
+                                <div class="type">
+                                    <span>尽量客观</span>
+                                    <span>尽量客观</span>
+                                </div>
+                                <p class="add">
+                                    <img src="../../../../Public/images/indexAddr.png" alt="">
+                                    <span>个抠脚大叔空格键</span>
+                                </p>
+                                <p class="price">
+                                    <span class="originalPrice">原价:￥15</span>
+                                    <span class="limitPrice">抢购价：<span class="moneySign">￥</span><strong>18</strong></span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </article>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+        $(function(){
+            $.ajax({
+                type:"get",
+                url:"/index.php/Personal/myLimitAjax",
+                aysnc:true,
+                data:{
+
+                },
+                dataType:"json",
+                success:function(){
+                    $(".limit ul").append(
+                        '<li onclick="getProduct()">'+
+                            '<div class="limitHead">'+
+                                '<div class="text">'+
+                                    '<img src="../../../../Public/images/indexTime.png" alt="">'+
+                                    '<span>限时抢购</span>'+
+                                '</div>'+
+                                '<div class="time">'+
+                                    '<img src="../../../../Public/images/indexFilter.png" alt="">'+
+                                    '<span class="endtime" value=""></span>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="limitContent">'+
+                                '<div class="img">'+
+                                    '<img src="../../../../Public/images/vote.jpg" alt="">'+
+                                    '<div class="tap">'+
+                                        '<span>抢购</span>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="text">'+
+                                    '<h3>美术行天下</h3>'+
+                                    '<div class="type">'+
+                                        '<span>尽量客观</span>'+
+                                        '<span>尽量客观</span>'+
+                                    '</div>'+
+                                    '<p class="add">'+
+                                        '<img src="../../../../Public/images/indexAddr.png" alt="">'+
+                                        '<span>个抠脚大叔空格键</span>'+
+                                    '</p>'+
+                                    '<p class="price">'+
+                                        '<span class="originalPrice">原价:￥15</span>'+
+                                        '<span class="limitPrice">抢购价：<span class="moneySign">￥</span><strong>18</strong></span>'+
+                                    '</p>'+
+                                '</div>'+
+                            '</div>'+
+                        '</li>'
+                    )
+                }
+            })
+        })
+        </script>
+	</body>
+</html>

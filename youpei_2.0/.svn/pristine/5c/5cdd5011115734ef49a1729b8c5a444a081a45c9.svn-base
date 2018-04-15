@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/bargain.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+        <!--<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
+        <script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+       <!--  <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script> -->
+    </head>
+    <body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+            <a href="javascript:history.back()" class="back">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3></h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="product">
+            </section>
+            <section class="way">
+                <div class="tag">
+                    <img src="../../../../Public/images/title1.png" alt="">
+                    <span>砍法</span>
+                </div>
+                <div class="rule">
+                    <p>1.分享本页面给朋友，邀请TA帮你砍价。</p>
+                    <p>2.好友点击“帮他砍一刀“按钮即完成砍价！</p>
+                    <p>3.每人只可砍一次价。</p>
+                    <p>4.长按下方指纹识别二维码关注服务号可定时获取砍价进度哦！</p>
+                </div>
+                <div class="serve">
+                    <div>
+                        <img src="../../../../Public/images/ypq_qrcode.jpg" alt="">
+                        <img src="../../../../Public/images/finger.gif" alt="">
+                    </div>
+                </div>
+            </section>
+            <div class="bargain" style="display: none;">
+                <section class="rate">
+                    <div class="title">
+                        <span></span>
+                        <h3>砍价进度</h3>
+                        <span></span>
+                    </div>
+                    <div class="light">
+                        <div class="green-child" style="position:absolute;z-index:999;width:100%;margin:0 auto;text-align: center;height: 0.87rem;line-height: 0.87rem;font-size:0.5rem;"></div>
+                        <div class="green"></div>
+                        <!-- <div class="gray"><span>50元</span></div> -->
+                    </div>
+                </section>
+                <section class="alert">
+                    <div class="text">
+                        <img src="../../../../Public/images/clock.png" alt="">
+                        <span>提示：已有<strong class="num">1</strong>位好友帮你砍价!</span>
+                        <a href="###" class="more">邀请更多人帮忙</a>
+                    </div>
+                </section>
+                <section class="user">
+                    <ul class="userImg">
+                        <!-- <li><img src="../../../../Public/images/ypq_qrcode.jpg" alt=""></li> -->
+                    </ul>
+                </section>
+                <section class="details">
+                    <div class="tag">
+                        <img src="../../../../Public/images/title1.png" alt="">
+                        <span>详情</span>
+                    </div>
+                    <div class="detailsText">
+                        
+                    </div>
+                </section>
+                <section class="buy">
+                    <a href="###" onclick="buy()" id="addOrder" style="position: fixed;z-index:111;bottom: 0;top:auto;margin:0 auto;width:100%;">果断买单</a>
+                </section>
+                <section class="morePeople" style="display: none;">
+                     <!--<span>&uarr;</span>-->
+                     <span><img src="../../../../Public/images/guide1.png"/></span>
+                    <!-- <p>点击微信上自带的右上角的三个点按钮分享或转发出去让朋友们继续接力下去吧！</p> -->
+                </section>
+            </div>
+            <div class="helpBargain" style="display: none;">
+                <section class="alert">
+                    <div class="text">
+                        <img src="../../../../Public/images/clock.png" alt="">
+                        <span>提示：已有<strong class="num">11</strong>位好友帮TA一共砍了<a href="###" class="much"></a>元。</span>
+                    </div>
+                </section>
+                <section class="user">
+                    <ul class="userImg">
+                    </ul>
+                </section>
+                <section class="together">
+                    <a href="###" class="help">果断帮忙减价</a>
+                    <a href="/index.php/Index/index.html" class="also">我也要发起砍价购课!</a>
+                    <img src="../../../../Public/images/ax.png" alt="">
+                </section>
+                <section class="box" style="display: none;">
+                    <div class="content">
+                        <div class="top">
+                            <img src="../../../../Public/images/reduceIcon.png" alt="">
+                            <span>确定砍价</span>
+                            <img src="../../../../Public/images/closeButton.png" alt="" class="close">
+                        </div>
+                        <div class="reduce">
+                            <p>你已成功帮TA砍价<span class="reducePrice">42元</span>,更多精彩请长按下方二维码进行识别关注哦！</p>
+                            <img src="../../../../Public/images/ypq_qrcode.jpg" alt="">
+                        </div>
+                        <a href="###" class="confirm">确定</a>
+                    </div>                    
+                </section>
+                <!-- <section class="share" style="display: none;"> -->
+                    <!--<span>&uarr;</span>-->
+                    <!-- <span><img src="../../../../Public/images/sign.png"/></span>
+                    <div class="step">
+                        <p>提示：</p>
+                        <p>点击微信上自带的右上角的三个点按钮分享或转发出去让朋友们继续接力下去吧！</p>
+                    </div>
+                </section> -->
+            </div> 
+            <section class="type" style="display: none;">
+                <div><p>当前砍价活动优惠每人仅限购一次，您已经买过了，欢迎下次再来参与！</p></div>
+            </section>     
+        </article>
+         <footer class="footer" style="display: none;">
+            <div></div>
+            <ul class="icon">
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Index/index.html">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Discovery/index',array('current'=>'2'))}">
+                        <img src="__PUBLIC__/image/footer_icon2.png"/>
+                        <span>发现</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Association/index.html">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>社群</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Personal/index',array('current'=>'4'))}">
+                        <img src="__PUBLIC__/image/footer_icon4.png"/>
+                        <span>个人中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/jquery.touchSwipe.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+        <script src="__PUBLIC__/js/home/bargain.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+               // 调用微信的分享接口
+setTimeout(function(){
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+        timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+        nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+        signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: inputTitle,
+            desc: inputFtitle,
+            link: inputUrl,
+            imgUrl: inputImg,
+            success: function () {
+                share_record();
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: inputTitle,
+            link: inputUrl,
+            imgUrl: inputImg,
+            success: function () {
+                share_record();// 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                alert('已取消');// 用户取消分享后执行的回调函数
+            }
+        });
+
+        function share_record() {                  
+            var pro_id = GetRequest().pro_id;;
+            var url = "{:U('Product/bargainRecord')}";
+            $.post(url, {pro_id: pro_id}, function (result) {
+                alert(result.message);
+            }, 'json');
+        }
+    });
+},1800)
+        </script>
+    </body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

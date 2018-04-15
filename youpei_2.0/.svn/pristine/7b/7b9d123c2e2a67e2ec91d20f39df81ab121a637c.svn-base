@@ -1,0 +1,45 @@
+<include file="Common:header"/>
+<div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="history.go(-1); " class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Personal/index',array('current'=>'4'))}" class="btn right btn-user" title="返回个人中心"
+           data-icon="Ņ"></a>
+    </div>
+</div>
+
+<div id="detail_msg" title="{$title}" class="kap-page kap-page-current" >
+<div class="ty-page" >
+            <ul class="list-user-msg">
+            <volist name="list" id="val">
+            <a href="{:U('Messages/showMessage',array('id'=>$val['id']))}">
+                   <li class="item <if condition="$val['Readid'] eq 0"> item-new</if>">
+                    <span class="desc">
+                        <span class="from"><if condition="$val['msgType'] eq 0">{$val['org_name']}</if></span>
+                        <span class="time">{$val['create_time']|date="m-d",###}</span>
+                    </span>
+                    <span class="content">{$val['title']}[点击查看]</span>
+                    <span class="status" data-icon="Ă"></span>
+                </li>
+                    </volist>    
+
+                    <volist name="res" id="v">
+                <a href="{:U('Messages/showMessage',array('id'=>$v['id']))}">
+                   <li class="item <if condition="$v['Readid'] eq 0"> item-new</if>">
+                    <span class="desc">
+                        <span class="from"><if condition="$val['msgType'] eq 0">{$v['org_name']}</if></span>
+                        <span class="time">{$v['create_time']|date="m-d",###}</span>
+                    </span>
+                    <span class="content">{$v['title']}[点击查看]</span>
+                    <span class="status" data-icon="Ă"></span>
+                </li>
+                    </volist>          
+                   <li data-icon="Ĩ" class="item-more" style="display:none;">
+                    查看更多
+                </li>
+                </a>
+            </ul>
+        </div></div>
+  <include file="Common:footer"/>
+</body>
+</html>

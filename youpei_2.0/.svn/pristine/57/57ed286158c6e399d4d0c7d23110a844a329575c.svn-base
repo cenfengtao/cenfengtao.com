@@ -1,0 +1,72 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>广告管理</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <h4><b>发现页广告</b><a href="/admin.php/Poster/addPoster?location=2" class="btn btn-success add_button btn_access" access_id="315">添加发现广告</a></h4>
+                                <table class="table table-striped jambo_table table-bordered">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">标题</th>
+                                        <th class="column-title">图片</th>
+                                        <th class="column-title">类型</th>
+                                        <th class="column-title no-link last"><span class="nobr">操作</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="discoverList" item="val">
+                                        <tr class="even pointer">
+                                            <td>{$val['title']}</td>
+                                            <td><img src="{$val['image']}" style="width:60px;height:40px" alt=""></td>
+                                            <td>{$val['type'] == 1?'文章':'课程'}</td>
+                                            <td class="last">
+                                                <a href="/admin.php/Poster/editPoster?id={$val['id']}&location=2" class="btn btn-info btn-xs btn_access" access_id="314">修改</a>
+                                                <a href="javascript:void(0)" attr_message="确认删除该广告？" attr_id="{$val['id']}"  class="btn btn-danger btn-infos btn-xs table-button-delete btn_access" access_id="320">删除</a>
+                                            </td>
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                                <hr>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("Poster/deletePoster")}'
+    };
+</script>
+</body>
+</html>

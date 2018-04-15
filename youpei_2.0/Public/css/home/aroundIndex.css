@@ -1,0 +1,109 @@
+/*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a:first-child{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a:first-child img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+/*头部 end*/
+/*中部 start*/
+.middle{
+    padding-top: 1.2rem;
+    background: #f0f1f1;
+    padding-bottom: 1.5rem;
+}
+
+.parent .imgs{
+    position: relative;
+}
+
+
+.parent .address{
+    position: absolute;
+}
+.parent .address img{
+    height: 0.6rem;
+    display: inline-block;
+    margin: 0.5rem;
+    float: left;
+}
+.parent .address a{
+    float: left;
+    margin-top: 0.4rem;
+    color: white;
+    font-size: 0.5rem;
+}
+.parent .imgs>img{
+    height: 4.8rem;
+    width: 100%;
+}
+.parent .price{
+    position: absolute;
+    bottom: 0.2rem;
+    left: 0;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    font-size: 0.36rem;
+    padding: 0.2rem;
+    border-bottom-right-radius: 0.1rem;
+    border-top-right-radius: 0.1rem;
+}
+.parent .price strong{
+    font-size: 0.5rem;
+}
+.parent .texts .title{
+    color: #386998;
+    padding: 0.2rem;
+    line-height: 0.8rem;
+    font-size: 0.45rem;
+}
+.parent .texts .time{
+    color: gray;
+    font-size: 0.45rem;
+    margin-left: 0.2rem;
+}
+.parent .texts .time span{
+    font-size: 0.45rem;
+}
+.parent .texts .types{
+    margin-left: 0.2rem;
+    margin-top: 0.4rem;
+    padding-bottom: 0.8rem;
+}
+.parent .texts .types span{
+    font-size: 0.45rem;
+    color: white;
+    background: orange;
+    border-radius: 0.1rem;
+    padding: 0.1rem 0.2rem;
+    background: red;
+    margin-right: 0.8rem;
+}
+.parent .texts .types span:first-child{
+    background: orange;
+}
+.parent .texts .types span:nth-child(2){
+    background: #F56B85;
+}
+.parent .texts .types span:nth-child(3){
+    background: #56B489;
+}

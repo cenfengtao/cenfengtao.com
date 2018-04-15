@@ -1,0 +1,301 @@
+.header {
+	height: 1.2rem;
+	line-height: 1.22rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: white;
+	overflow: hidden;
+	z-index: 1000;
+	clear: both;
+	border-bottom: 0.01rem solid black;
+}
+
+.header .back {
+	left: 0.27rem;
+	position: absolute;
+}
+
+.header .back img {
+	margin-top: 0.4rem;
+	height: 0.5rem;
+}
+
+.header h3 {
+	text-align: center;
+	font-size: 0.6rem;
+	color: #065b9c;
+	margin-left: 0.3rem;
+	margin-top: 0.05rem;
+}
+
+.header .home {
+	right: 0.27rem;
+	position: absolute;
+	top: 0.1rem;
+}
+
+.header .home img {
+	width: 1rem;
+	height: 1rem;
+}
+
+.middle {
+	border-top: 0.02rem solid gray;
+	margin-top: 1.2rem;
+}
+
+.article {
+	width: 100%;
+	min-height: 2.5rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.article img {
+	height: 2.48rem;
+	width: 3rem;
+	float: left;
+}
+
+.article .text {
+	float: left;
+	margin-left: 0.3rem;
+	width: 57%;
+}
+
+.article .text h3 {
+	font-size: 0.45rem;
+	color: #386998;
+	margin-top: 0.2rem;
+}
+
+.biao {
+	background-color: #3998e8;
+	color: #fff;
+	position: absolute;
+	right: -58px;
+	top: 18px;
+	font-size: 34px;
+	font-weight: 600;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	padding: 10px 70px;
+	text-align: center;
+}
+
+.time {
+	position: absolute;
+	bottom: 0.2rem;
+	font-size: 0.3rem;
+	color: #9e9e9e;
+	float: left;
+	/*margin-top: 0.4rem;*/
+}
+
+.custom {
+	float: left;
+	font-size: 0.4rem;
+	color: #386998;
+	position: absolute;
+	bottom: 0.2rem;
+	margin-left: 2.5rem;
+}
+
+.product {
+	height: 3rem;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.product img {
+	height: 3rem;
+	width: 3rem;
+	float: left;
+}
+
+.produce {
+	float: left;
+	margin-left: 0.3rem;
+	margin-top: 0.2rem;
+	width: 57%;
+}
+
+.produce h3 {
+	font-size: 0.45rem;
+	color: #386998;
+	margin-bottom: 0.2rem;
+}
+
+.produce p {
+	font-size: 0.3rem;
+}
+
+.tag {
+	background-color: #c30;
+	color: #fff;
+	position: absolute;
+	right: -58px;
+	top: 18px;
+	font-size: 34px;
+	font-weight: 600;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	padding: 10px 70px;
+	text-align: center;
+}
+
+.tag span {
+	font-size: 34px;
+}
+
+.price {
+	width: 73%;
+	float: left;
+	height: 1rem;
+	position: absolute;
+	line-height: 1rem;
+	bottom: 0;
+	right: 0;
+	border-top: 0.02rem solid gray;
+}
+
+.price .last {
+	float: left;
+	color: #386998;
+	font-size: 0.45rem;
+	margin-left: 0.3rem;
+}
+
+.price .last strong {
+	text-decoration: line-through;
+}
+
+.price .now {
+	float: right;
+	color: #386998;
+	font-size: 0.45rem;
+	margin-right: 0.3rem
+}
+
+.price strong {
+	font-weight: normal;
+	color: red;
+	font-size: 0.45rem;
+}
+
+.classes {
+	position: relative;
+	overflow: hidden;
+	border-bottom: 0.1rem solid gray !important;
+}
+
+.classes a {
+	width: 100%;
+	display: block;
+}
+
+.classes a img {
+	width: 100%;
+	height: 4rem;
+}
+
+.solution {
+	background: #f1f1f1;
+	height: 3rem;
+}
+
+.left {
+	float: left;
+	margin-left: 0.5rem;
+	width: 80%;
+}
+
+.left img {
+	width: 0.6rem;
+	height: 0.8rem;
+	float: left;
+	margin-top: 0.2rem;
+}
+
+.address {
+	font-size: 0.45rem;
+	margin-top: 0.3rem;
+	color: black;
+}
+
+.course {
+	font-size: 0.5rem;
+	color: #386998;
+	margin-left: 0.1rem;
+}
+
+.type {
+	margin-top: 0.5rem;
+}
+
+.type span {
+	padding: 0.1rem 0.2rem;
+}
+
+.type span:first-child {
+	color: white;
+	background: #F56B85;
+	text-align: center;
+	display: inline-block;
+	border-radius: 0.06rem;
+	font-size: 0.3rem;
+	margin-right: 0.1rem;
+}
+
+.type span:nth-child(2) {
+	color: white;
+	background: #56B489;
+	text-align: center;
+	display: inline-block;
+	border-radius: 0.06rem;
+	font-size: 0.3rem;
+	margin-right: 0.1rem;
+}
+
+.type span:nth-child(3) {
+	color: white;
+	background: orange;
+	text-align: center;
+	display: inline-block;
+	border-radius: 0.06rem;
+	font-size: 0.3rem;
+}
+
+.right {
+	height: 3rem;
+	position: relative;
+}
+.right span:first-child {
+	position: absolute;
+    color: #386998;
+	font-size: 0.45rem;
+	right: 0.5rem;
+	bottom: 0.7rem;
+}
+.right span:first-child strong{
+	text-decoration: line-through;
+}
+.right span:nth-child(2) {
+	position: absolute;
+	color: #386998;
+	font-size: 0.45rem;
+	right: 0.5rem;
+	bottom: 0.1rem;
+}
+.right strong {
+	font-weight: normal;
+	color: red;
+	font-size: 0.45rem;
+}
+/*.right span b {
+	font-size: 0.4rem;
+	color: gray;
+	font-weight: normal;
+}*/

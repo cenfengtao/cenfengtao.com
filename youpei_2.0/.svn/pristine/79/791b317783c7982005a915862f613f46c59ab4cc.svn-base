@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.baidu.BaiduMap" style="margin-top: 50px;font-size:3rem;">测试</a>
+    <a href="bdapp://map/geocoder?location=23.082651806668,113.28787473956" style="font-size:3rem;margin-left:2rem;">反向地址解析</a>
+</body>
+</html>

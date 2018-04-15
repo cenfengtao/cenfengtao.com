@@ -1,0 +1,8 @@
+ $(window).load(function (){
+    setTimeout(function () {
+        $('.kap-bottom').show();
+    },2000)
+});
+function getProduct(id) {
+    window.location.href = "/index.php/Groups/getGroup?id=" + id;
+}

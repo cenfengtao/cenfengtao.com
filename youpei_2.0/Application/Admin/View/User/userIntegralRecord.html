@@ -1,0 +1,95 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>积分详情</h2>
+                            <a href="/admin.php/Admin/User/addUserIntegral.html?user_id={$userId}" class="btn btn-success add_button btn_access" access_id="514">添加积分</a>
+                            <div class="clearfix"></div>
+                            <h4>总获得积分: {$totalGetIntegral?$totalGetIntegral:0} &nbsp;可用积分: {$nowIntegral?$nowIntegral:0} 已用积分: {$totalUseIntegral?$totalUseIntegral:0}</h4>
+                        </div>
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-striped jambo_table table-bordered">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">用户名</th>
+                                        <th class="column-title">积分</th>
+                                        <th class="column-title">状态</th>
+                                        <th class="column-title">录入时间</th>
+                                        <th class="column-title">类型</th>
+                                        <th class="column-title">内容</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="recordList" item="val">
+                                        <tr class="even pointer">
+                                            <td>{$val['username']}</td>
+                                            <td>{$val['integral']}</td>
+                                            <td>{$val['status'] == 0?'未录入':($val['status'] == 1?'成功':'失败')}</td>
+                                            <td>{$val['create_time']|date="Y-m-d H:i:s",###}</td>
+                                            <td>{$val['type'] == 1?'支出':'收入'}</td>
+                                            <td>{$val['desc']}</td>
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- self -->
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("User/delete")}'
+    };
+</script>
+</body>
+</html>

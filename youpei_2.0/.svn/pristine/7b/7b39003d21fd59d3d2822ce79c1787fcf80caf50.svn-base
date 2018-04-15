@@ -1,0 +1,142 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>权限列表</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p>请在这里选择角色
+                            <select onchange="chooseRole()">
+                                <foreach name="roleList" item="vo">
+                                    <option name="roleId" value="{$vo['id']}" {$vo['id'] == $nowRoleId?"selected='selected'":""} >{$vo['title']}</option>
+                                </foreach>
+                            </select>
+                            <a href="#" onclick="access.access();" class="btn btn-primary" style="margin-left:30px;">点击授权</a>
+                        </p>
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table table-bordered bulk_action">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th>
+                                            <input type="checkbox" id="check-all" class="flat">
+                                        </th>
+                                        <th class="column-title">地址</th>
+                                        <th class="column-title">附属菜单</th>
+                                        <th class="column-title">权限名称</th>
+                                        <th class="column-title">类型</th>
+                                        <th class="column-title">描述</th>
+                                        <th class="column-title">状态</th>
+                                        <th class="column-title no-link last"><span class="nobr">操作</span>
+                                        </th>
+                                        <th class="bulk-actions" colspan="7">
+                                            <a class="antoo" style="color:#fff; font-weight:500;">总共勾选了 ( <span
+                                                    class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="list" item="val">
+                                        <tr class="even pointer">
+                                            <td class="a-center ">
+                                                <input type="checkbox" class="flat" name="table_records" value="{$val['id']}">
+                                            </td>
+                                            <td>{$val['acc_name']}</td>
+                                            <td>{$val['url']}</td>
+                                            <td>{$val['fatherName']}</td>
+                                            <td>{$val['type']==1?'按钮':'菜单'}</td>
+                                            <td>{$val['description']}</td>
+                                            <td>{$val['isAccess']}</td>
+                                            <td class="last">
+                                                <a href="{:U('Access/editAccess',array('id'=>$val['id']))}" class="btn btn-info btn-xs btn_access" access_id="232">修改</a>
+                                                <a href="javascript:void(0)" class="table-button-delete btn btn-danger btn-xs btn_access" access_id="233"
+                                                   attr_message="确认删除该权限？" attr_id="{$val['id']}">删除</a></td>
+                                        </tr>
+                                        <noempty name="val['child']">
+                                            <foreach name="val['child']" item="v">
+                                                <tr class="even pointer">
+                                                    <td class="a-center ">
+                                                        <input type="checkbox" class="flat" name="table_records" value="{$v['id']}">
+                                                    </td>
+                                                    <td>&nbsp; &nbsp; &nbsp; &nbsp;┗━{$v['acc_name']}</td>
+                                                    <td>{$v['url']}</td>
+                                                    <td>{$v['fatherName']}</td>
+                                                    <td>{$v['type']==1?'按钮':'菜单'}</td>
+                                                    <td>{$v['description']}</td>
+                                                    <td>{$v['isAccess']}</td>
+                                                    <td class="last">
+                                                        <a href="{:U('Access/editAccess',array('id'=>$v['id']))}" class="btn btn-info btn-xs btn_access" access_id="232">修改</a>
+                                                        <a href="javascript:void(0)" class="table-button-delete btn btn-danger btn-xs btn_access" access_id="233"
+                                                           attr_message="确认删除该权限？" attr_id="{$v['id']}">删除</a></td>
+                                                </tr>
+                                            </foreach>
+                                        </noempty>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+<script src="__PUBLIC__/js/admin/access.js"></script>
+<!-- self -->
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("Access/deleteAcc")}'
+    };
+    function chooseRole() {
+        var roleId = $('select option:selected').val();
+        window.location.href = "/admin.php/access/accessList?roleId=" + roleId;
+    }
+</script>
+</body>
+</html>

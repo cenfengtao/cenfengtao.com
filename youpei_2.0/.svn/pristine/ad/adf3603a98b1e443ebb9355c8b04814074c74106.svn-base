@@ -1,0 +1,117 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+    #demo-form2 {
+        float:left;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>修改分类</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="myform" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">标题 <span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="hidden" value="{$cate['id']}" name="id">
+                                        <input type="text" name="cate_title" id="cate_title" required="required" value="{$cate['cate_title']}"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"> 是否显示  <span
+                                            class="required">*</span>
+                                    </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        显示<input type="radio" class="form-control icheckbox_flat-green"  value="0" id="is_show" name="is_show" <if condition="$cate['is_show'] == 0 ">checked</if>/>
+                                        隐藏<input type="radio" id="is_show" class="form-control icheckbox_flat-green" name="is_show"  value="1"<if condition="$cate['is_show'] == 1 ">checked</if>/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">排序
+                                        <!-- <span class="required">*</span> -->
+                                    </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" id="sort" name="sort" value="{$cate.sort}" class="form-control col-md-7 col-xs-12" >
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("ParentingCate/addCate")}',
+        'success_url': '{:U("ParentingCate/index")}'
+    };
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+
+    $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('ArticleCate/uploadPic')}",
+            pick: '#filePicker',
+            formData: {dir: 'adspic'},
+            callback: function (f) {
+                layer.close(uploading);
+                var json = WST.toJson(f);
+                $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                $('#preview').show();
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+</script>
+</body>
+</html>

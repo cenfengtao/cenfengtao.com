@@ -1,0 +1,404 @@
+<?php
+/**
+ * 投票
+ */
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+use Think\Upload;
+
+class VoteController extends BaseController
+{
+    public function voteList()
+    {
+        $this->display();
+    }
+    public function userWorks()
+    {
+        $this->display();
+    }
+     public function userVote()
+    {
+        $this->display();
+    }
+    public function userBillboard()
+    {
+        $this->display();
+    }
+    public function ajaxVoteList()
+    {
+        $voteList = D('Vote')->getList(array('check_status'=>2,'status'=>array('neq', 6),
+            'vote_end_time'=>array('EGT',time())));
+        $isGet = D('VoteRecord')->everydayCount($this->user['id']);
+        if ($isGet == 1) {
+            $countData = [
+                'create_time' => time(),
+                'user_id' => $this->user['id'],
+                'type' => 1,
+                'type_id' => $_GET['share_user_id'],
+                'count' => 2,
+                'is_expend' => 2
+            ];
+            D('VoteRecord')->insert($countData);
+        }
+        return show(1, '', $voteList);
+    }
+
+    public function voteDetail()
+    {
+        $this->display();
+    }
+
+    public function ajaxVoteDetail()
+    {
+        try {
+            if ($_GET['orgId'] && !empty($_GET['orgId'])) {
+                $orgId = $_GET['orgId'];
+            } else {
+                $orgId = M('organization')->where(['token' => $this->token])->getField('id');
+            }
+            $vote = M('Vote')->where(['type_id' => $orgId, 'check_status' => 2])->find();
+            if (!$vote) {
+                return show(0, '暂时没有投票活动');
+            }
+            $isGet = D('VoteRecord')->everydayCount($this->user['id']);
+            if ($isGet == 1) {
+                $countData = [
+                    'create_time' => time(),
+                    'user_id' => $this->user['id'],
+                    'type' => 1,
+                    'type_id' => $_GET['share_user_id'],
+                    'count' => 2,
+                    'is_expend' => 2
+                ];
+                D('VoteRecord')->insert($countData);
+            }
+            $contributions = M('contribution_record')->where(['vote_id' => $vote['id'], 'status' => 2])->select();
+            switch ($vote['status']) {
+                case 1 : //投稿中
+                    return show(1, '', ['vote' => $vote, 'contributions' => $contributions, 'type' => $vote['upload_type']]);
+                case 2: //截止投稿
+                    return show(2, '', ['vote' => $vote, 'contributions' => $contributions, 'type' => $vote['upload_type']]);
+                case 3: //截止投票
+                    return show(3, '', ['contributions' => $contributions, 'type' => $vote['upload_type']]);
+                case 4: //发布结果
+                    //todo
+                    break;
+                case 5: //结束
+                    //todo
+                    break;
+                default:
+                    return show(0, '找不到投票活动');
+            }
+        } catch (Exception $e) {
+            return show(0, $e->getMessage());
+        }
+    }
+
+    public function contribution()
+    {
+        $this->display();
+    }
+    //投稿
+    public function ajaxContribution()
+    {
+        /*$_POST = [
+            'vote_id' => 7,
+            'title' => '食屎啦你',
+            'username' => 'MissTan',
+            'mobile' => '222',
+        ];*/
+        if (!$_POST['vote_id']) {
+            return show(0, '投票ID参数错误');
+        }
+        //判断是否已投稿
+        $isContribution = M('contribution_record')->where(['vote_id' => $_POST['vote_id'], 'user_id' => $this->user['id']])->getField('id');
+        if (!$isContribution) {
+            if (!$_POST['title']) {
+                return show(0, '请填写你的作品名称');
+            }
+            if (!$_POST['username']) {
+                return show(0, '参赛人不能为空');
+            }
+            if (!$_POST['mobile']) {
+                return show(0, '联系手机不能为空');
+            }
+        }
+        $vote = D('Vote')->find($_POST['vote_id']);
+        $result = [];
+        if($vote['upload_type'] == 1){
+            //匹配出图片的格式
+            if (!preg_match('/^(data:\s*image\/(\w+);base64,)/', $_POST['path'], $result)) {
+                return show(0, '图片格式不正确');
+            }
+        }elseif($vote['upload_type'] == 2){
+            //匹配出视频的格式
+            if (!preg_match('/^(data:\s*video\/(\w+);base64,)/', $_POST['path'], $result)) {
+                return show(0, '视频格式不正确');
+            }
+        }
+        $new_file = "Upload/Vote/" . date('Y-m-d', time()) . "/";
+        if (!file_exists($new_file)) {
+            //检查是否有该文件夹，如果没有就创建，并给予最高权限
+            mkdir($new_file, 0777, true);
+        }
+        //文件名后缀
+        $type = $result[2];
+        //拼接文件名
+        $filename = $new_file . time() . ".{$type}";
+        if (!file_put_contents($filename, base64_decode(str_replace($result[1], '', $_POST['path'])))) {
+            return show(0, '文件保存有误');
+        }
+        $filename = '/' . $filename;
+        //获取文件位置
+        $filenames = $_SERVER['DOCUMENT_ROOT'] . '/' . $filename;
+        //拼接文件名
+        $thumbename = $new_file . time() . "_thumb.{$type}";
+        $this->mkThumbnail($filenames, 147, 147,$thumbename);
+        if ($isContribution) {
+            $path = M('contribution_record')->where(['vote_id' => $_POST['vote_id'], 'user_id' => $this->user['id']])->getField('path');
+            //删除视频和图片
+            unlink(dirname(__FILE__) . '/../../..' . $path);
+            $data = [
+                'path' => $filename,
+                'create_time' => time(),
+                'title' => $_POST['title'],
+                'username' => $_POST['username'],
+                'mobile' => $_POST['mobile']
+            ];
+            return $this->contributionAgain($isContribution, $data);
+        }
+        try {
+            $data = [
+                'create_time' => time(),
+                'user_id' => $this->user['id'],
+                'type' => $vote['upload_type'],
+                'path' => $filename,
+                'vote_id' => $vote['id'],
+            ];
+            $data = array_merge($data, $_POST);
+            $id = D('ContributionRecord')->insert($data);
+            if ($id) {
+                return show(1, '投稿成功');
+            } else {
+                return show(0, '投稿失败，请稍候再试');
+            }
+        } catch (Exception $e) {
+            return show(0, $e->getMessage());
+        }
+    }
+
+    public function contributionAgain($recordId, $data)
+    {
+        try {
+            $id = D('ContributionRecord')->updateById($recordId, $data);
+            if ($id === false) {
+                return show(0, '重新投稿失败');
+            }
+            return show(1, '重新投稿成功');
+        } catch (Exception $e) {
+            return show(0, $e->getMessage());
+        }
+    }
+
+    //投票
+    public function toVote()
+    {
+        if (!$_POST['id']) {
+            return show(0, '参数错误');
+        }
+        if (!$_POST['count'] || $_POST['count'] < 0) {
+            return show(0, '投票数不正确');
+        }
+        try {
+            $voteCount = $_POST['count'];
+            //获取可投票数
+            $quotaWhere = [
+                'create_time' => ['elt', time()],
+                'end_time' => ['gt', time()],
+                'user_id' => $this->user['id'],
+            ];
+            $count = M('vote_quota')->where($quotaWhere)->sum('remain_count');
+            //判断每日投票数
+            $todayTime = strtotime(date("Y-m-d", time()));
+            $todayQuota = M('vote_record')->where(['type' => 3, 'create_time' => ['egt', $todayTime], 'user_id' =>
+                $this->user['id']])->sum('count');
+            $todayQuota = 2 - $todayQuota >= 0 ? 2 - $todayQuota : 0;
+            $count = $count + $todayQuota;
+            if ($_POST['count'] > $count) {
+                return show(0, '你的票数不足哦');
+            }
+            //先扣除每日投票数
+            if ($todayQuota > 0) {
+                $insertCount = $voteCount - $todayQuota <= 0 ? $voteCount : $todayQuota;
+                $insertData = [
+                    'create_time' => time(),
+                    'user_id' => $this->user['id'],
+                    'type' => 3,
+                    'type_id' => $_POST['id'],
+                    'count' => $insertCount,
+                    'is_expend' => 1,
+                ];
+                D('VoteRecord')->insert($insertData);
+                M('contribution_record')->where(['id' => $_POST['id']])->setInc('vote_count', $insertCount);
+            }
+            if ($voteCount - $todayQuota <= 0) {
+                return show(1, '投票成功');
+            } else {
+                //超过每日免费票数
+                $voteCount -= $todayQuota;
+                $voteQuatos = M('vote_quota')->where($quotaWhere)->order('end_time asc')->select();
+                foreach ($voteQuatos as $key => $val) {
+                    $insertCount = $voteCount - $val['remain_count'] <= 0 ? $voteCount : $val['remain_count'];
+                    $voteCount -= $insertCount;
+                    $insertData = [
+                        'create_time' => time(),
+                        'user_id' => $this->user['id'],
+                        'type' => 4,
+                        'type_id' => $_POST['id'],
+                        'count' => $insertCount,
+                        'is_expend' => 1,
+                    ];
+                    D('VoteRecord')->insert($insertData);
+                    M('vote_quota')->where(['id' => $val['id']])->setDec('remain_count', $insertCount);
+                    M('contribution_record')->where(['id' => $_POST['id']])->setInc('vote_count', $insertCount);
+                    if ($voteCount <= 0) {
+                        return show(1, '投票成功');
+                    }
+                }
+                return show(1, '投票成功');
+            }
+        } catch (Exception $e) {
+            return show(0, $e->getMessage());
+        }
+    }
+
+    //查看票数
+    public function lookVoteCount()
+    {
+        $where = [
+            'create_time' => ['elt', time()],
+            'end_time' => ['gt', time()],
+            'user_id' => $this->user['id'],
+        ];
+        $count = M('vote_quota')->where($where)->sum('remain_count');
+        //判断每日投票数
+        $todayTime = strtotime(date("Y-m-d", time()));
+        $todayQuota = M('vote_record')->where(['type' => 3, 'create_time' => ['egt' => $todayTime], 'user_id' =>
+            $this->user['id']])->sum('count');
+        $todayQuota = 2 - $todayQuota >= 0 ? 2 - $todayQuota : 0;
+        $count = $count + $todayQuota;
+        return show(1, '获取成功', ['count' => $count]);
+    }
+
+    //查看用户作品分享
+    public function userContribution()
+    {
+        $this->display();
+    }
+
+    public function ajaxUserContribution()
+    {
+        if (!$_GET['id']) {
+            return show(0, '参数错误');
+        }
+        $contribution = D('ContributionRecord')->find($_GET['id']);
+        $vote = D('Vote')->find($contribution['vote_id']);
+        $username = D('User')->getNameById($contribution['user_id']);
+        //设置默认分享信息
+        $shareData = [
+            'share_title' => '【优培·投票】' . '我是' . $username . ',正在参加' . $vote['title'],
+            'share_desc' => "快来帮Ta投上你神圣的一票吧",
+            'share_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/index.php/Vote/userContribution?id=' . $_GET['id'] . '&token=' . $this->token,
+            'share_img' => 'http://' . $_SERVER['HTTP_HOST'] . $contribution['path'],
+        ];
+        return show(1, '获取成功', $shareData);
+    }
+
+    public function uploadType()
+    {
+        if(!$_GET['vote_id']){
+            return show(0,'ID不能为空');
+        }
+        //1-图片 2-视频
+        $type = M('vote')->where(array('id'=>$_GET['vote_id']))->getField('upload_type');
+        if(!$type){
+            return show(0,'该活动不存在');
+        }
+        $userUpload = D('ContributionRecord')->uploadStatus($_GET['vote_id'],$this->user['id']);
+        //1-未投稿 2-已投稿
+        if(!$userUpload){
+            $userUpload['upload_status'] = 1;
+        }else{
+            $userUpload['upload_status'] = 2;
+        }
+        $data = [
+            'type'=>$type,
+            'userUpload'=>$userUpload
+        ];
+        return show(1,'获取类型成功',$data);
+    }
+
+    /**
+     * 生成缩略图函数（支持图片格式：gif、jpeg、png和bmp）
+     * @author ruxing.li
+     * @param  string $src      源图片路径
+     * @param  int    $width    缩略图宽度（只指定高度时进行等比缩放）
+     * @param  int    $width    缩略图高度（只指定宽度时进行等比缩放）
+     * @param  string $filename 保存路径（不指定时直接输出到浏览器）
+     * @return bool
+     */
+    function mkThumbnail($src, $width = null, $height = null, $filename = null) {
+        if (!isset($width) && !isset($height))
+            return false;
+        if (isset($width) && $width <= 0)
+            return false;
+        if (isset($height) && $height <= 0)
+            return false;
+
+        $size = getimagesize($src);
+        if (!$size)
+            return false;
+
+        list($src_w, $src_h, $src_type) = $size;
+        $src_mime = $size['mime'];
+        switch($src_type) {
+            case 1 :
+                $img_type = 'gif';
+                break;
+            case 2 :
+                $img_type = 'jpeg';
+                break;
+            case 3 :
+                $img_type = 'png';
+                break;
+            case 15 :
+                $img_type = 'wbmp';
+                break;
+            default :
+                return false;
+        }
+
+        if (!isset($width))
+            $width = $src_w * ($height / $src_h);
+        if (!isset($height))
+            $height = $src_h * ($width / $src_w);
+
+        $imagecreatefunc = 'imagecreatefrom' . $img_type;
+        $src_img = $imagecreatefunc($src);
+        $dest_img = imagecreatetruecolor($width, $height);
+        imagecopyresampled($dest_img, $src_img, 0, 0, 0, 0, $width, $height, $src_w, $src_h);
+
+        $imagefunc = 'image' . $img_type;
+        if ($filename) {
+            $imagefunc($dest_img, $filename);
+        } else {
+            header('Content-Type: ' . $src_mime);
+            $imagefunc($dest_img);
+        }
+        imagedestroy($src_img);
+        imagedestroy($dest_img);
+        return true;
+    }
+}

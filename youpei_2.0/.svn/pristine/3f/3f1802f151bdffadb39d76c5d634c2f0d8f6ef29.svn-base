@@ -1,0 +1,48 @@
+/*公共样式 start*/
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 0.12rem;
+	}
+li{
+	list-style: none;
+	}
+a{
+	text-decoration: none;
+	}
+input,textarea,select,button{
+	outline: none;
+	}
+img{
+	border: none;
+	display: block;
+	}
+textarea{
+	resize: none;
+	overflow: hidden;
+	}
+body,html{
+	font-family: "微软雅黑";
+}	
+/*公共样式 end*/
+
+
+@font-face {
+    font-family: "iconfont";
+    src: url('fonts/iconfont.eot');
+    src: url('fonts/iconfont.svg') format('svg'),
+    url('fonts/iconfont.eot') format('embedded-opentype'),
+    url('fonts/iconfont.ttf') format('truetype'),
+    url('fonts/iconfont.woff') format('woff');
+}
+[data-icon]:before {
+    content: attr(data-icon);
+    display: inline-block;
+    margin-right: .25rem;
+     font-family: "iconfont" !important;
+    font-size: 0.8rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}

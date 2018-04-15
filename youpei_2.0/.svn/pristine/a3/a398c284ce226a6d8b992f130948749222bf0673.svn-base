@@ -1,0 +1,190 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+    #demo-form2 {
+        float:left;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>查看上架商品</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">商品名称</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="title"  readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$product['title']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">商品副标题</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="f_title"  readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$product['f_title']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">机构</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="organization"  readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$orgName}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">分类名称</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="class_id"  readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$classTitle}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">图片</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <empty name="article['image']">
+                                            <img id='preview' src='' ref='' width='200' height='200' style='display:none'/>
+                                            <else/>
+                                            <img id='preview' width='200' height='200' src="{$product['pic_url']}"/>
+                                        </empty>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">是否使用代金券</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        否: <input type="radio" class="icheckbox_flat-green" name="is_voucher" disabled="disabled"
+                                                  value="1" {$product['is_voucher'] == 1?"checked='checked'":''}/>
+                                        是: <input type="radio" class="icheckbox_flat-green" name="is_voucher" disabled="disabled"
+                                                  value="2" {$product['is_voucher'] == 2?"checked='checked'":''}/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">是否使用优惠券</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        否: <input type="radio" class="icheckbox_flat-green" name="is_coupon" disabled="disabled"
+                                                  value="1" {$product['is_coupon'] == 1?"checked='checked'":''}/>
+                                        是: <input type="radio" class="icheckbox_flat-green" name="is_coupon" disabled="disabled"
+                                                  value="2" {$product['is_coupon'] == 2?"checked='checked'":''}/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">是否需要邮寄</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        否: <input type="radio" class="icheckbox_flat-green" name="is_mail" disabled="disabled"
+                                                  value="1" {$product['is_mail'] == 1?"checked='checked'":''}/>
+                                        是: <input type="radio" class="icheckbox_flat-green" name="is_mail" disabled="disabled"
+                                                  value="2" {$product['is_mail'] == 2?"checked='checked'":''}/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">现库存</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="count" class="form-control col-md-7 col-xs-12" readonly="readonly"
+                                               min="0" value="{$product['count']}" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">原价</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="original_price" min="0" readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12"
+                                               value="{$product['original_price']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">现价</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="price" class="form-control col-md-7 col-xs-12" readonly="readonly"
+                                               value="{$product['price']}" min="0">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">状态</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12 form_radio">
+                                        上架: <input type="radio" class="icheckbox_flat-green" name="status" disabled="disabled"
+                                                   value="1" {$product['status'] == 1? "checked='checked'":''}/>
+                                        下架: <input type="radio" class="icheckbox_flat-green" name="status" disabled="disabled"
+                                                   value="2" {$product['status'] == 2? "checked='checked'":''}/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">单位</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="unit" class="form-control col-md-7 col-xs-12" readonly="readonly"
+                                               value="{$product['unit']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">标签</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="tag" class="form-control col-md-7 col-xs-12" readonly="readonly"
+                                               value="{$product['tag']}">
+                                        <small>用空格隔开，最多三个</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">商品简介</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <textarea name="desc" id="info" disabled="disabled">{$product['desc']}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">费用说明</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <textarea name="cost" id="infos" disabled="disabled">{$product['cost']}</textarea>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {initialFrameWidth: 900, initialFrameHeight: 400, serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"});
+    });
+    $(document).ready(function () {
+        UE.getEditor('infos', {initialFrameWidth: 900, initialFrameHeight: 400, serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"});
+    });
+</script>
+</body>
+</html>

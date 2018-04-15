@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/myMatch.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+        <style>
+            .orgList>ul>li{
+                height: 3.95rem;
+                background: white;
+                margin-bottom: 0.2rem;
+            }
+            .content{
+                width: 7rem;
+                float: left;
+            }
+            .content .rank{
+                width: 2.42rem;
+                height: 2.07rem;
+                text-align: center;
+                overflow: hidden;
+                padding-top: 0.4rem;
+                display: inline-block;
+                float: left;
+            }
+            .content .rank >span{
+                text-align: center;
+                font-size: 0.3rem;
+                margin-bottom: 0.05rem;
+                color: #505050;
+                display: inline-block;
+            }
+            .content .rank>div{
+                position: relative;
+            }
+            .content .rank>div>img{
+                width: 1.3rem;
+                height: 1.7rem;
+                margin: 0 auto;
+            }
+            .content .rank>div>span{
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                top: 0.15rem;
+                font-size: 0.6rem;
+                color: white;
+            }
+            .org{
+                overflow: hidden;
+                width: 4.5rem;
+                text-align: center;
+                display: inline-block;
+                height: 2.1rem;
+                float: left;
+                margin-top: 0.5rem;
+            }
+            .org img{
+                height: 1.4rem;
+                width: auto;
+                margin: 0 auto 0.1rem;
+            }
+            .org span{
+                font-size: 0.4rem;
+                margin-top: 0.1rem;
+            }
+            .img{
+                float: right;
+            }
+            .img img{
+                width: 3.95rem;
+                height: 2.83rem;
+                margin: 0.57rem 0.28rem 0 0;
+            }
+            .content ul{
+                clear: both;
+                display: flex;
+                justify-content: space-around;
+                padding-top: 0.1rem;
+            }
+            .content ul li{
+                width: 33.3333%;
+                text-align: center;
+            }
+            .content ul li span:first-child{
+                font-size: 0.2792rem;
+                display: block;
+                margin: -0.1rem auto 0.1rem;
+            }
+            .content ul li img{
+               width: 0.35rem;
+                height: 0.32rem;
+                display: inline-block;
+            }
+        </style>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>机构列表</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="orgList">
+                <ul>
+                    <li>
+                        <div class="content">
+                            <div class="rank">
+                                <span>综合排名</span>
+                                <div>
+                                    <img src="../../../../Public/images/orgIcon1.png" alt="">
+                                    <span>1</span>
+                                </div>
+                                
+                            </div>
+                            <div class="org">
+                                <img src="../../../../Public/images/indexLogo.png" alt="">
+                                <span>进口大国杰克伦敦的</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    <span>教学环境</span>
+                                    <span>
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>教学环境</span>
+                                    <span>
+                                         <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>教学环境</span>
+                                    <span>
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="img">
+                            <img src="../../../../Public/images/vote.jpg" alt="">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content">
+                            <div class="rank">
+                                <span>综合排名</span>
+                                <div>
+                                    <img src="../../../../Public/images/orgIcon1.png" alt="">
+                                    <span>1</span>
+                                </div>
+                                
+                            </div>
+                            <div class="org">
+                                <img src="../../../../Public/images/indexLogo.png" alt="">
+                                <span>进口大国杰克伦敦的</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    <span>教学环境</span>
+                                    <span>
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>教学环境</span>
+                                    <span>
+                                         <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                    </span>
+                                </li>
+                                <li>
+                                    <span>教学环境</span>
+                                    <span>
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                        <img src="../../../../Public/images/star-full.png" alt="">
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="img">
+                            <img src="../../../../Public/images/vote.jpg" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </article>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/myMatch.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

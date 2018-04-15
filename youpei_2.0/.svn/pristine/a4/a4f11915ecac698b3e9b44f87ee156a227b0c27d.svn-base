@@ -1,0 +1,628 @@
+﻿@charset "utf-8";
+/* kap 1.7.0 */
+/*reset*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    list-style: none
+}
+
+body {
+    line-height: 1
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+
+nav ul {
+    list-style: none
+}
+
+blockquote, q {
+    quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+    color: #444
+}
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none
+}
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold
+}
+
+del {
+    text-decoration: line-through
+}
+
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0
+}
+
+input, select {
+    vertical-align: middle;
+    outline: none
+}
+
+html, body {
+    height: 100%;
+    -webkit-text-size-adjust: none
+}
+
+body, * {
+    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Tohoma, Arial, "iconfont" !important
+}
+
+pre {
+    word-break: break-all;
+    white-space: pre-wrap
+}
+
+/* icon loading */
+@-webkit-keyframes kap_ani_rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.kap-loading-icon {
+    border: none;
+    -webkit-animation: kap_ani_rotate 0.5s infinite linear;
+    animation: kap_ani_rotate 0.5s infinite linear;
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    display: none;
+    margin-left: -1rem;
+    margin-top: -2rem;
+}
+
+.kap-loading .kap-loading-icon {
+    display: block;
+}
+
+/*.kap-loading:before{content:""; position:fixed; left:0rem; top:0rem; width:100%; height:100%; background-color:rgba(0,0,0,0.7); z-index:9999;}*/
+.kap-loading-status {
+    font-size: .875rem;
+    line-height: 1.875rem;
+    height: 1.875rem;
+    position: fixed;
+    left: 0rem;
+    top: 50%;
+    margin-top: 0rem;
+    color: #fff;
+    text-align: center;
+    display: none;
+    width: 100%;
+    z-index: 9999;
+}
+
+.kap-loading .kap-loading-status {
+    display: block;
+}
+
+/* 动画 */
+@-webkit-keyframes kap_ani_slidein {
+    0% {
+        -webkit-transform: translateX(-100%);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+.kap-ani-slidein {
+    -webkit-animation: kap_ani_slidein 0.2s 1 ease-out;
+    animation: kap_ani_slidein 0.2s 1 ease-out;
+}
+
+@-webkit-keyframes kap_ani_slideout {
+    0% {
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+.kap-ani-slideout {
+    -webkit-animation: kap_ani_slideout 0.2s 1 ease-in;
+    animation: kap_ani_slideout 0.2s 1 ease-in;
+}
+
+@-webkit-keyframes kap_ani_fadein {
+    0% {
+        opacity: 0;
+        top: 45%;
+    }
+    100% {
+        opacity: 1;
+        top: 42%;
+    }
+}
+
+/* 竖屏检测 */
+@media screen and (orientation: portrait) {
+
+}
+
+/* 横屏检测
+@media screen and (orientation:landscape) {
+	body:before{
+		content:""; position:fixed; left:0rem; top:0rem; width:100%; height:100%; z-index:99999;
+		background:url(../images/kap_screen_orientation.png) center 50% no-repeat rgba(0,0,0,0.7); background-size:6.25rem 6.25rem;
+	}
+	body.kap-loading .kap-loading-icon{
+		left:auto;
+		top:auto;
+		right:.625rem;
+		bottom:.625rem;
+		margin:0rem;
+	}
+} */
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: none
+}
+
+.kap-wrap {
+    -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+}
+
+.kap-page {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    min-height: 100%;
+    display: none;
+    -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+}
+
+/* .kap-page-default{} removed */
+.kap-page-current {
+    display: block;
+}
+
+.kap-view {
+}
+
+.kap-body-sider {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.kap-sider {
+    position: fixed;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+    z-index: 8999;
+}
+
+.kap-sider .kap-hitarea {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+}
+
+.kap-sider .kap-content {
+    box-shadow: .3125rem 0rem .625rem rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    height: 100%;
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    -webkit-transform: translateX(-100%);
+    -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+}
+
+.kap-sider .kap-content-inset {
+    box-shadow: none;
+}
+
+.kap-sider-right .kap-content {
+    box-shadow: -.3125rem 0rem .625rem rgba(0, 0, 0, 0.3);
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.kap-sider-right .kap-content-inset {
+    box-shadow: none;
+}
+
+.kap-body-sider .kap-sider .kap-content {
+    -webkit-transform: translateX(0);
+}
+
+.kap-body-sider .kap-sider .kap-hitarea {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.kap-body-sider .kap-sider .kap-hitarea-inset {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.kap-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9000;
+    -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0, 0, 0.25, 1);
+}
+
+.kap-mask-on {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+/**/
+.kap-background{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+/**/
+
+.kap-mask-blur {
+    -moz-filter: blur(3px);
+    -webkit-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.kap-popwin {
+    position: fixed;
+    z-index: 90001;
+    width: 100%;
+    height: 100%;
+    left: 0rem;
+    top: 0rem;
+}
+
+.kap-popwin .kap-win {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, 0.5);
+    color: #444;
+    line-height: 2.5rem;
+    left: 50%;
+    top: 50%;
+    font-size: .875rem;
+    overflow: hidden;
+    border-radius: .3125rem;
+}
+
+.kap-popwin .kap-title {
+    padding: 0rem .625rem;
+}
+
+.kap-popwin .kap-hitarea {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.kap-popwin .kap-content {
+    line-height: 1.5rem;
+    font-size: .875rem;
+    padding: 0rem .625rem;
+}
+
+.kap-popwin .kap-btn-wrap {
+    height: 3.125rem;
+    line-height: 3.125rem;
+    text-align: center;
+    position: absolute;
+    left: 0rem;
+    bottom: 0rem;
+    width: 100%;
+    border-top: 1px solid #f0f0f0;
+}
+
+.kap-popwin a.kap-btn-submit, .kap-popwin a.kap-btn-submit:visited {
+    height: 3.125rem;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.kap-popwin a.kap-btn-cancel, .kap-popwin a.kap-btn-cancel:visited {
+    height: 3.125rem;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.kap-popwin a.kap-btn-submit:active, .kap-popwin a.kap-btn-cancel:active {
+    background-color: #888;
+    color: #fff;
+}
+
+.kap-tip {
+    position: fixed;
+    width: 90%;
+    height: auto;
+    top: 45%;
+    z-index: 9000;
+    text-align: center;
+    left: 5%;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+}
+
+.kap-tip .kap-text {
+    margin: 0 auto;
+    display: inline-block;
+    width: auto;
+    padding: 2% 4%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: .625rem;
+}
+
+.kap-tip.on {
+    opacity: 1;
+    top: 42%;
+    -webkit-animation: kap_ani_fadein 0.3s 1 ease-in;
+    animation: kap_ani_fadein 0.3s 1 ease-in;
+}
+
+.kap-alert .kap-content {
+    line-height: 1.5rem;
+    font-size: 1rem;
+    padding: 1.875rem .625rem;
+    text-align: center;
+}
+
+.kap-alert .kap-btn-cancel {
+    width: 100%;
+    height: 3.125rem;
+    text-align: center;
+    display: inline-block;
+}
+
+.kap-lockwin {
+    position: fixed;
+    z-index: 90002;
+    width: 100%;
+    height: 100%;
+    left: 0rem;
+    top: 0rem;
+}
+
+.kap-lockwin .kap-hitarea {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+}
+
+.kap-lockwin .kap-win {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    line-height: 2.5rem;
+    left: 0rem;
+    bottom: 0rem;
+    width: 100%;
+}
+
+.kap-lockwin .kap-content {
+    line-height: 1.5rem;
+    font-size: .875rem;
+    padding: 0rem .625rem;
+}
+
+.kap-bottomwin {
+    position: fixed;
+    z-index: 90002;
+    width: 100%;
+    height: 100%;
+    left: 0rem;
+    top: 0rem;
+}
+
+.kap-bottomwin .kap-hitarea {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+}
+
+.kap-bottomwin .kap-win {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0rem -.3125rem .625rem rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    line-height: 2.5rem;
+    left: 0rem;
+    bottom: 0rem;
+    width: 100%;
+}
+
+.kap-bottomwin .kap-content {
+    line-height: 1.5rem;
+    font-size: .875rem;
+}
+
+/**/
+.kap-comment {
+    position: fixed;
+    z-index: 90002;
+    width: 100%;
+    height: 100%;
+    left: 0rem;
+    top: 0rem;
+}
+
+.kap-comment .kap-hitarea {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+}
+
+.kap-comment .kap-win {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0rem -.3125rem .625rem rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    line-height: 2.5rem;
+    left: 0rem;
+    bottom: 0rem;
+    width: 100%;
+}
+
+.kap-comment .kap-content {
+    line-height: 1.5rem;
+    font-size: .875rem;
+}
+/**/
+.kap-input {
+    display: inline-block;
+    position: relative;
+}
+
+.kap-input select:focus, .kap-input input:focus {
+    outline: none;
+}
+
+.kap-canvas-stage {
+    display: block;
+    width: 100%;
+}
+
+.kap-share {
+    display: block;
+    position: fixed;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+    background: url(../images/share_top.png) center top no-repeat rgba(0, 0, 0, 0.7);
+    background-size: 100% auto;
+    z-index: 8888;
+}
+
+/* ============================================================
+   flex：定义布局为盒模型
+   flex-v：盒模型垂直布局
+   flex-1：子元素占据剩余的空间
+   flex-align-center：子元素垂直居中
+   flex-pack-center：子元素水平居中
+   flex-pack-justify：子元素两端对齐
+   兼容性：ios 4+、android 2.3+、winphone8+
+   ============================================================ */
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-v {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-1 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.flex-align-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-pack-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.flex-pack-justify {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}

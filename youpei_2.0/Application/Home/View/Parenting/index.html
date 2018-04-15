@@ -1,0 +1,390 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/parenting.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/new_menu.css">
+<style>
+    .list-card{
+        /*padding-top: 2.5rem!important;*/
+        margin-top: 0!important;
+    }
+    .list li{
+        border-bottom: none;
+    }
+    .list-rec .item .ty-rec-view{
+        margin-top: 6px;
+    }
+    .list-rec .item{
+        margin-bottom: auto;
+    }
+    .list-card .thumb{
+        height: 10rem;
+        padding-bottom: 0;
+    }
+</style>
+<!-- 菜单 开始 -->
+<div class="kap-top ty-menu-top">
+    <div class="kap-top ty-menu-top">
+        <div id="tools-msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="ty-announce" id="ty_announce_top" style="display:none;" data-ty-page="" data-ty-args="">
+        <div class="content"></div>
+        <span data-icon="ă" class="btn-close"></span>
+    </div>
+    <!-- 暂时无用
+    <div class="ty-tools ty-tools-common">
+        <a href="javascript:void(0);" class="btn-home left" title="首页" data-icon="&#x252;"></a>
+        <a href="javascript:void(0);" class="on" title="点赞" data-icon="&#x119;"><i>5</i></a>
+        <a href="javascript:void(0);" title="评论" data-icon="&#x118;"><i>545</i></a>
+        <a href="javascript:void(0);" class="btn-share" title="分享" data-icon="&#x115;"></a>
+    </div>
+    -->
+    <div id="tools_loading" class="ty-tools ty-tools-loading">
+        <a href="javascript:void(0);" class="btn btn-back-loading" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_hot" class="ty-tools ty-tools-hot ty-tools-current" data-ty-autohide="false">
+        <span class="title" data-icon=""><img src='__PUBLIC__/images/5886c9b0d0eac.jpg' width="26%" height=""></span>
+        <div class="ty-tools-search">
+            <div class="input-jump" data-ty-target="#page_search"
+                 onclick="_hmt.push(['_trackEvent', 'topbar', 'click', '首页搜索']);">搜索活动...
+            </div>
+            <i data-icon="Đ"></i>
+        </div>
+        <div class="ty-tools-cityswitch">
+            <select id="sel_city_switch" data-kap-skin="sel-city-switch" data-icon-blue="Ė"
+                    style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">
+                <option value="1">广州</option>
+                <option value="2">深圳</option>
+                <option value="0" selected="">全部</option>
+            </select>
+        </div>
+    </div>
+    <div id="tools_search" class="ty-tools ty-search-bar" data-ty-autohide="false">
+        <a href="javascript:void(0);" class="btn-home" title="首页" data-icon="ɒ"></a>
+        <div class="ty-tools-search">
+            <form id="page_hot_search">
+                <div class="ty-tools-typeswitch">
+                    <div data-kap="_kap_1" class="kap-input sel-type-switch" style="position: relative;"><select
+                            data-kap-skin="sel-type-switch" data-icon="Ė" id="sel_type_switch"
+                            style="opacity: 0; position: absolute; border: medium none; left: 0px; top: 0px; width: 100%; height: 100%;">
+                        <option value="1">活动</option>
+                        <option value="2">达人</option>
+                    </select><span data-icon="Ė" class="kap-input-value">活动</span></div>
+                </div>
+                <input class="input" id="page_hot_keyword" placeholder="搜索活动、达人..." type="search"></form>
+            <i data-icon="Đ"></i>
+        </div>
+        <div class="btn-search">搜索</div>
+    </div>
+    <div id="tools_user" class="ty-tools ty-tools-common transparent">
+        <a href="javascript:void(0);" class="btn-home left" title="首页" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn-logout" title="退出" data-icon="Ń"></a>
+    </div>
+    <div id="tools_user_share" class="ty-tools ty-tools-common">
+        <a href="javascript:void(0);" class="btn-home left" title="首页" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn-fav on" title="点赞" data-icon="ę"></a>
+        <a href="javascript:void(0);" data-ty-target="#page_user_share_msg" title="评论" class="btn-comment"
+           data-icon="Ę"></a>
+        <a href="javascript:void(0);" class="btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+    <div id="tools_talent" class="ty-tools ty-tools-common talent transparent">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn-back left" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn-user" title="用户中心" data-icon="ĵ"></a>
+        <a href="javascript:void(0);" class="btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+    <div id="tools_inner" class="ty-tools ty-tools-inner" data-ty-autohide="true">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+    <div id="tools_inner_order" class="ty-tools ty-tools-inner" data-ty-autohide="true">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+    <div id="tools_inner_order_person" class="ty-tools ty-tools-inner" data-ty-autohide="true">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_inner_activity" class="ty-tools ty-tools-inner" data-ty-autohide="false">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+    <div id="tools_paylist" class="ty-tools ty-tools-inner" data-ty-autohide="true">
+        <span class="title">待支付订单</span>
+        <a href="javascript:void(0);" class="btn left btn-user " title="返回用户中心" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_profiles" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_detail_mission" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_page_user" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_experience" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_mission" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_order_inner" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn left btn-user" title="返回用户中心" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_inner2" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_discover" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+    </div>
+    <div id="tools_inner3" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+    <div id="tools_msg" class="ty-tools ty-tools-inner">
+        <span class="title">我的消息<span class="num"></span></span>
+        <a href="javascript:void(0);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn btn-check-all" title="全部设为已读" data-icon="Ŵ"></a>
+    </div>
+    <div id="tools_activity_timeline" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn-share" title="分享" data-icon="ĕ">分享</a>
+        <!-- <span class="btn btn-date" title="指定日期" data-icon="&#x110;">
+            <input class="date" type="date" />
+        </span> -->
+    </div>
+    <div id="tools_special" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a class="btn btn-mine" href="javascript:void(0);" data-ty-target="#page_user" data-icon="ĵ">我的</a>
+        <a href="javascript:void(0);" class="btn-share" title="分享" data-icon="ĕ">分享</a>
+    </div>
+    <div id="tools_detail_calendar" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+            <span class="btn btn-date" title="指定日期" data-icon="Đ">
+                <select class="month"></select>
+            </span>
+    </div>
+    <div id="tools_activity" class="ty-tools ty-tools-product">
+        <a href="javascript:void(0);" class="btn-home left" title="首页" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn-calendar" title="活动日历" data-icon="ř"> 日期</a>
+        <a href="javascript:void(0);" class="btn-filter" title="筛选" data-icon="š">筛选</a>
+    </div>
+    <div id="tools_package" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn-home left" title="首页" data-icon="ɒ"></a>
+            <span class="btn btn-date" title="指定日期" data-icon="Đ">
+                <input class="date" type="date">
+            </span>
+    </div>
+    <div id="shop_msg" class="ty-tools ty-tools-inner">
+        <span class="title">在线咨询</span>
+        <a href="javascript:void(0);" class="btn btn-back" title="返回" data-icon="ɒ"></a>
+        <a href="tel:1569357635" class="btn talent-contact" style="" data-icon="Ĉ"></a>
+    </div>
+    <div id="tools_tags" class="ty-tools ty-tools-inner">
+        <span class="title"></span>
+        <a href="javascript:void(0);" class="btn-home left" title="首页" data-icon="ɒ"></a>
+        <a href="javascript:void(0);" class="btn btn-share" title="分享" data-icon="ĕ"></a>
+    </div>
+</div>
+<include file="Common:menu"/>
+<!-- 20160621 updated -->
+<div id="side_common" class="ty-sidebar-area ty-tools ty-tools-current">
+    <div class="section">
+        <span class="qrcode"><img src="" alt="" width="166" height="166">扫码关注优培圈微信公众号</span>
+        <span class="qrcode"><img src="" alt="" width="166" height="166">扫码下载优培圈APP</span>
+        <h3>联系我们</h3>
+        <span class="phone">1569357635</span>
+        <span class="mail">1569357635@qq.com</span>
+        <ul class="link-list">
+            <li><a target="_blank" href="">关于优培圈</a></li>
+            <li><a href="" target="_blank">帮助中心</a></li>
+        </ul>
+    </div>
+    <p class="copyright">
+        Copyright &copy;2017 youpei<br>
+        <a href="#" target="_blank">粤ICP备17008351号</a>
+    </p>
+</div>
+
+<div class="kap-wrap">
+
+    <!-- 视图 开始 -->
+    <div id="page_hot" title="热推" class="kap-page kap-page-current" data-ty-tools="#tools_hot,#tools_idx,#side_common">
+
+        <div class="ty-page" >
+            <div class="ty-cat-tags" style="position: inherit;">
+                <!--<volist id="val" name="Homep">
+                    <span attr_id="{$val['id']}" onclick="getCateListById({$val['id']})" class='tag link <if condition="$cateId eq $val['id']">on</if>'>{$val['cate_title']}</span>
+                </volist>-->
+                <section class="advert">
+                    <a href="/index.php/Organization/home.html?id=10"><img src="../../../../Public/images/orgAdvert2.jpg" alt="" style="width: 100%;height: 8rem; margin-bottom: 0.2rem;"></a>
+                </section>
+                <ul class="list-rec">
+                    <li class="item">
+                        <div class="ty-rec-view ty-sc-h" style="width: 100%">
+                            <foreach name="Homep" item="val" key="k">
+                                <span attr_id="{$val['id']}" class="<if condition=" $cateId eq $val['id']">on</if>"
+                                onclick="getCateListById({$val['id']})">{$val.cate_title}</span>
+                            </foreach>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ul class="list-card" style="padding-top: 0">
+                <volist id="val" name="list">
+                    <li class="item" data-ty-target="#detail_activity" data-ty-seriesid="9539">
+                        <a href="javascript:viod(0)" onclick="getPar({$val['id']})">
+                        <span class="thumb"
+                              style="background-image:url({$val.image}); background-size:cover"></span>
+                            <div class="desc-top">
+                                <span data-icon="Ć" class="loc"><a style="color:white;" href="/index.php/Map/GPS.html?par_id={$val['id']}">{$val['address']}</a></span>
+                                <!--<span data-icon="" class="day">7天6夜</span>-->
+                            </div>
+                            <div class="desc">
+                                <h3 class="title">{$val['title']}</h3>
+                                <span data-icon="Š" class="startoff">{$val['time']}</span>
+                                <span class="price prices">{$val['price']}</span>
+                                <!--<span class="status">境外游</span>-->
+                        <span class="talent"><i class="avatar"><img
+                                src="{$val['logo']}"></i></span>
+                                <div class="tags">
+                                    <span class="tag red">{$val['tagA']}</span>
+                                    <span class="tag">{$val['tagB']}</span>
+                                    <span class="tag">{$val['tagC']}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+            <ul class="list-card" style="margin-top:0;">
+
+            </ul>
+            <div class="list" style="line-height:1.5rem;text-align:center;margin-top:30px;">
+
+            </div>
+        </div>
+    </div>
+    <!-- 独立弹窗 结束 -->
+    <!-- <script src="scripts/jquery.min.js"></script> -->
+
+    <!-- 底部菜单 -->
+    <div class="kap-bottom ty-menu-bottom" style="display: none">
+        <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+            <a href="{:U('Index/index',array('current'=>'1'))}" style="background: url('__PUBLIC__/images/1495008448.png') no-repeat 0.7rem 1.2rem; background-size:20% 30%" class="current" data-icon="">首页</a>
+            <!--<i class="border"></i>-->
+            <a href="{:U('Discovery/index',array('current'=>'2'))}" style="background: url('__PUBLIC__/images/1495008486.png') no-repeat 0.7rem 1.2rem; background-size:20% 30%" <if condition='$current eq 2'>class="current"</if> data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '发现'])">发现</a>
+            <!--<i class="border"></i>-->
+            <a href="{:U('Association/index',array('current'=>'3'))}" style="background: url('__PUBLIC__/images/1495008503.png') no-repeat 0.7rem 1.2rem; background-size:20% 30%" <if condition='$current eq 3'>class="current"</if>  data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '消息'])">社群<i id="new_msg_alert"></i></a>
+            <!--<i class="border"></i>-->
+            <a href="{:U('Personal/index',array('current'=>'4'))}" <if condition='$current eq 4'>class="current"</if> style="background: url('__PUBLIC__/images/1495008528.png') no-repeat 0.7rem 1.2rem; background-size:15% 30%" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '我的'])">个人中心</a>
+        </div>
+    </div>
+
+    <script>
+        $(window).load(function (){
+            setTimeout(function () {
+                $('.kap-bottom').show();
+            },2000)
+        });
+        $(function(){
+            var imgHeight=$(".advert").height();
+            $(window).scroll(function(){
+                var scrollTop = $(this).scrollTop();
+                if(scrollTop>imgHeight){
+                    $(".ty-rec-view ").css("position","fixed");
+                     $(".ty-rec-view ").css("top","2.32rem");
+                }else{
+                    $(".ty-rec-view ").css("position","");
+                     $(".ty-rec-view ").css("top","");
+                }
+            })
+        })
+    </script>
+    <script>
+        function getPar(id) {
+            window.location.href = "{:U('Parenting/productDetails')}?par_id=" + id;
+        }
+        function getCateListById(id) {
+            window.location.href = "{:U('Parenting/index')}?cate_id=" + id;
+        }
+        $(function () {
+            $(".ty-cat-tags span").click(function () {
+                $(this).siblings('span').removeClass('on');  // 删除其他兄弟元素的样式
+                $(this).addClass('on');
+            });
+
+        });
+
+        var npage = 10;
+        $(function () {
+            $(window).scroll(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                var windowHeight = $(this).height();
+                var cate_id = $('.ty-cat-tags .on').attr('attr_id');
+                if (scrollTop + windowHeight == scrollHeight) {
+                    //加载层
+                    layer.load();
+                    setTimeout(function () {
+                        layer.closeAll('loading');
+                    }, 1000);
+                    var url = "{:U('Parenting/loadingParenting')}";
+                    var params = {};
+                    params.cate_id = cate_id;
+                    params.npage = npage;
+                    $.post(url, params, function (result) {
+
+                        if (result.status == 0) {
+                            $(".empty").remove();
+                            return $('.list').append("<li class='empty'>没有更多了<br>粤ICP备17008351号</li>");
+                        }
+
+                        $.each(result.data, function (index, value) {
+                            $(".list-card").append(
+                                    "<li class='item'>" +
+                                            "<a href='javascript:viod(0)' onclick='getPar( " + value['id'] + ")'>"+
+                                            "<span class='thumb' style='background-image:url(" + value['image'] + "); background-size:cover'></span>"+
+                                            "<div class='desc-top'>"+
+                                            "<span data-icon='Ć' class='loc'><a href='/index.php/Map/GPS.html?par_id=" + value['id'] +"' style='color:white;'>" + value['address'] +"</a></span>"+
+                                            "</div>"+
+                                            "<div class='desc'>"+
+                                            "<h3 class='title'>" + value['title'] + "</h3>"+
+                                            "<span data-icon='Š' class='startoff'>" + value['time'] + "</span>"+
+                                            "<span class='price prices'>" + value['price'] + "</span>"+
+                                            "<span class='talent'><i class='avatar'><img src='" + value['logo'] + "' alt=''></i></span>"+
+                                                "<div class='tags'>"+
+                                                "<span class='tag red'>" + value['tagA'] + "</span>"+
+                                                "<span class='tag'>" + value['tagB'] + "</span>"+
+                                                "<span class='tag'>" + value['tagC'] + "</span>"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "</a>"+
+                                    "</li>");
+                        });
+                    })
+                    npage += 6;
+                }
+            });
+        });
+    </script>
+    <!--tailTrap<body></body><head></head><html></html>-->
+<include file="Common:footer"/>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+        <style>
+        input{    
+            position: absolute;
+            top: 10.37rem;
+            left: 0;
+            height: 1.3rem;
+            width: 8.84rem;
+            margin: auto;
+            right: 0;
+            font-size: 0.6rem;
+            padding:0 0.58rem;
+            color: #c3182c;
+            border: none;
+            /*line-height: 1.3rem;*/
+            font-weight: bold;
+            display: inline-block;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: #c3182c;
+        }
+
+        input:-ms-input-placeholder{
+            color: #c3182c;
+        }
+
+        input::-webkit-input-placeholder{
+            color: #e5808c;
+        }
+        .start{
+            position: absolute;
+            top: 12.2rem;
+            left: 0;
+            height: 1.55rem;
+            width: 8.84rem;
+            margin: auto;
+            right: 0;
+            font-size: 0.8rem;
+            /* padding-left: 0.58rem; */
+            color: #ffffff;
+            border: none;
+            line-height: 1.55rem;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+        }
+        </style>
+        <!-- 判断是IE时执行 -->
+        <script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>    
+    </head>
+    <body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+            <div class="img">
+                <img src="/Public/images/newYear.jpg" alt="" style="width: 100%;height: auto;">
+                <input type="text" id="username" name="username" placeholder="请输入您的名字" />
+                <span onclick="createPoster()" class="start">开 始</span>
+            </div>
+        </div>
+        </article>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloadered.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/font.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="/Public/js/layer/layer.js"></script>
+        <script type="text/javascript">
+            function createPoster() {
+                var username = document.getElementById('username').value;
+                var url = '/index.php/Poster/createNewYearPoster';
+                $.post(url, {username:username}, function (result) {
+                    if (result.status == 0) {
+                        return alert(result.message);
+                    } else {
+                        var imageUrl = result.data;
+                        layer.open({
+                            type: 1,
+                            title: '分享元旦海报',
+                            skin: 'layui-layer-rim',
+                            area: ['80%', '14rem'], //宽高
+                            content:"<div><img src='"+imageUrl+"' style='width: 100%;height:12.8rem;'></div>",
+                        });
+                    }
+                }, 'json');
+            }
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

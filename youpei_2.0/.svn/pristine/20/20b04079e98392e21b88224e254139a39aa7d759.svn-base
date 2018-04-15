@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <!-- 向下滑动加载的图片样式，需放在外链的第一位 -->
+        <link rel="stylesheet" href="http://www.youpei-exc.com/Public/Home/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss">
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/orgActivityList.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+        <style>
+            [data-icon]:before{
+                color:gray!important;
+                font-size: 0.5rem;
+            }
+        </style>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>优培圈</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle"> 
+                <section class="activity">
+                    <ul class="match parent">
+                    </ul>
+<!--                     <div class="parent">
+                    </div> -->
+                </section>
+                <section class="alert" style="display: none;margin-top: 0.2rem;">
+                <p style="background: white; font-size: 0.5rem; text-align: center; margin-bottom: 0.2rem;line-height: 1rem;margin-top: -0.2rem;">亲，暂时没有内容了哦，更多精彩内容在发现页。</p>
+            </section>   
+        </article>
+        <footer class="footer" style="display: none;">
+            <!-- <div></div> -->
+              <ul class="icon">
+                <li onclick="orgIndex()">
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="javascript:void(0);">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>TA首页</span>
+                    </a>
+                </li>
+                <li onclick="fullshot()">
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="javascript:void(0);">
+                        <img src="__PUBLIC__/images/orgFooterIcon2.png"/>
+                        <span>图解</span>
+                    </a>
+                </li>
+                <li onclick="association()">
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="javascript:void(0);">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>群组</span>
+                    </a>
+                </li>
+                <li onclick="activity()">
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="javascript:void(0);">
+                        <img src="__PUBLIC__/images/orgFooterIcon4.png"/>
+                        <span>最新活动</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/city.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/home/swiper.min.js" ></script>
+        <script type="text/javascript" src="__PUBLIC__/js/home/carousel.js" ></script>
+        <script src="/Public/Home/layer/layer.js"></script>
+        <script src="/Public/js/home/orgActivityList.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

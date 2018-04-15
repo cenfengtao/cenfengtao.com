@@ -1,0 +1,46 @@
+<?php
+/**
+ * 投票
+ */
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class VoteController extends BaseController
+{
+    public function voteList()
+    {
+        $this->display();
+    }
+
+    public function ajaxVoteList()
+    {
+        $orgId = M('organization')->where(['token' => $this->token])->getField('id');
+        $voteList = D('Vote')->getList(['type' => 1, 'type_id' => $orgId, 'start_time' => array('elt', time()),
+            'end_time' => array('gt', time()), 'check_status' => 2, 'status' => 1]);
+        return show(1, '获取成功', $voteList);
+    }
+
+    public function voteDetail()
+    {
+        $this->display();
+    }
+
+    public function ajaxVoteDetail()
+    {
+        if (!$_GET['id']) {
+            return show(0, '参数错误');
+        }
+        try {
+            $vote = D('Vote')->find($_GET['id']);
+            if ($vote) {
+                return show(1, '获取成功', $vote);
+            } else {
+                return show(0, '没有该投票');
+            }
+        } catch (Exception $e) {
+            return show(0, $e->getMessage());
+        }
+    }
+}

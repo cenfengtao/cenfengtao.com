@@ -1,0 +1,127 @@
+.m-hdlist{ width: 100%;height: 100%; margin: 0 auto;}
+.m-main{  margin-top: 3rem;}
+.title-g,.title-r,.title-b{
+    background: #ffffff;
+    margin-left: .5rem;
+    border-bottom: 2px solid #f0f1f1;
+    height: 2rem;
+    display: block;
+font-size: .9rem;
+}
+.title-g span{
+    padding-left:.4rem; 
+     margin-left: .4rem;
+     font-weight: bold;
+     line-height: 1.8rem;
+     border-left: 4px solid #4c8f00;
+
+}
+.title-r span{
+    padding-left:.4rem; 
+     margin-left: .4rem;
+     font-weight: bold;
+     line-height: 1.8rem;
+     border-left: 4px solid red;
+
+}
+.title-b span{
+    padding-left:.4rem; 
+     margin-left: .4rem;
+     font-weight: bold;
+     line-height: 1.8rem;
+     border-left: 4px solid #386998;
+}
+.m-main ul li{
+    float: left;
+    margin-top: 0.5rem;
+    width: 33%;
+    padding-bottom: .5rem; 
+   display: block;
+}
+ul.m-list{
+     float:left;
+     border-bottom: 3px solid #f0f1f1;
+     width: 100%;
+}
+.m-main ul li .ico {
+    height: 3rem;
+    width: 3rem;
+   margin: 0 auto;
+}
+.m-main ul li .fz16 {
+text-align: center;
+font-weight: normal;
+font-size: .8rem;
+}
+.m-main img{
+
+    height: 100%;
+    width: 100%;
+}
+.m-main .red{
+    color:red;
+}
+.m-main .blue{
+    color:#386998;
+}
+.m-main .green{
+    color:green;
+}
+.go{
+  display: flex;
+  justify-content: space-around;
+}
+.go li{
+  text-align: center;
+}
+.go li a img{
+  height: 108px;
+  width: 108px;
+  display: block;
+  margin: 0 auto 30px;
+}
+.go li a span{
+  color: white;
+  background: brown;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+
+
+
+
+ @media screen and (max-width: 1100px){
+.layui-layer-iframe {
+  overflow-y: none!important;
+}
+.layui-layer-title{
+    font-family: "微软雅黑";
+    background-color: #386998 !important;
+    color: #fff !important;
+    font-weight:bold !important;
+    font-size: 3vh !important;
+    height:5vh;
+    line-height: 5vh;
+    /*border-bottom: 2px solid #386998 !important;*/
+    margin-bottom: -4px;
+    padding-left: 100px;
+    background: url(../../../../Public/images/redPacket.png) no-repeat 24px 10px;
+    background-size: 40px 40px;
+}
+.layui-layer-ico{
+    color: #fff !important;
+}
+#tools-idx{
+    background: #f1f1f1!important;
+}
+.layui-layer-setwin a {
+  position: relative!important;
+  width: 40px!important;
+  height: 40px!important;
+  margin-left: 10px!important;
+  font-size: 12px!important;
+  overflow: hidden!important; 
+  background: url(../../../../Public/images/closeButton.png)!important;
+  background-size: 40px 40px!important;
+}

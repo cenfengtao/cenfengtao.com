@@ -1,0 +1,55 @@
+body,html{
+	background-color: #f0f1f1;
+}
+/*中部开始*/
+.middle{
+	margin-top: 1.34rem;
+	margin-bottom: 1.7rem;
+}
+
+
+.light{
+    height: 0.2rem;
+    background: #f1f1f1;
+    margin-bottom: -0.02rem;
+}
+.light2{
+    height: 0.12rem;
+    background: #f1f1f1;
+}
+.navList{
+    position: fixed;
+    margin-top: 1.2rem;
+    width: 100%;
+    top:0;
+    z-index: 10000;
+}
+.smallNav{
+     background:#fff;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x:scroll ;
+    margin-top: -0.05rem;
+}
+.smallNav::-webkit-scrollbar {
+    display: none;
+}
+.smallNav li{
+    width: 24.5%;
+    text-align: center;
+    display: inline-block;
+    height: 1.3rem;
+    line-height: 1.3rem;
+}
+
+.smallNav li.on a{
+    border: solid 0.03rem #f56b85;
+    color: #f56b85;
+}
+.smallNav a{
+    font-size: 0.45rem;
+    /*display: block;*/
+    color: #505050;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.2rem;
+}

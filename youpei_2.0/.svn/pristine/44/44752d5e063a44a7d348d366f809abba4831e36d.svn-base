@@ -1,0 +1,151 @@
+/*头部 start*/
+.header{
+    height: 1.2rem;
+    line-height: 1.22rem;
+    position: fixed;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    z-index: 100;
+    clear: both;
+}
+.header a:first-child{
+    left: 0.27rem;
+    position: absolute;
+}
+.header a:first-child img{
+    margin-top: 0.4rem;
+    height: 0.5rem;
+}
+.header h3{
+    text-align: center;
+    font-size: 0.52rem;
+    color: #065b9c;
+    margin-left: 0.3rem;
+    margin-top: 0.05rem;
+}
+/*头部 end*/
+/*中部 start*/
+.middle{
+    padding-top: 1.4rem;
+    background: #f0f1f1;
+    padding-bottom: 1.5rem;
+}
+
+
+
+/*活动比赛*/
+.activity ul li{
+    display: flex;
+    flex-flow: row;
+    background: white;
+    height: 4.33rem;
+    margin-bottom: 0.2rem;
+}
+.activity .img{
+    width: 4.12rem;
+    height: 3.37rem;
+    position: relative;
+    margin: 0.47rem 0.16rem 0 0.36rem;
+
+}
+.activity .img img{
+    width: 100%;
+    height: 100%;
+}
+.activity .img .type{
+    height: 0.6rem;
+    line-height: 0.6rem;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.activity .img .type span{
+    height: 0.43rem;
+    line-height: 0.43rem;
+    font-size: 0.2593rem;
+    padding: 0 0.1rem;
+    color: white;
+    display: inline-block;
+    margin-right: 0.13rem;
+    border-radius: 0.1rem;
+}
+.activity .img .type span:first-child{
+    background-color: #ffc62d;
+    margin-left: 0.23rem;
+}
+.activity .img .type span:nth-child(2){
+    background-color: #e0656b;
+}
+.activity .img .type span:nth-child(3){
+    background-color: #62b7e3;
+    margin-right: 0;
+}
+.activity .text{
+    flex: 3;
+    margin-top: 0.47rem;
+}
+.activity .text h3{
+    font-size: 0.42rem;
+    line-height: 0.73rem;
+    height: 0.73rem;
+    color: #386998;
+    width: 95%;
+    padding-left: 0;
+}
+.activity .text .work{
+    height: 0.86rem;
+    line-height: 0.86rem;
+    overflow: hidden;
+    width: 95%;
+}
+.activity .text .workNum{
+    float: left;
+}
+.activity .workNum span{
+    font-size: 0.4rem;
+}
+.activity .text .workNum strong{
+    font-weight: normal;
+    color: #386998;
+    font-size: 0.4rem;
+}
+.activity .text .heat{
+    float: left;
+    font-size: 0.4rem;
+    margin-left: 0.3rem;
+}
+.activity .text .heat span{
+    font-size: 0.4rem;
+    float: left;
+    margin-right: 0.1rem;
+}
+.activity .text .heat img{
+    width: 0.4rem;
+    height: 0.38rem;
+    display: inline-block;
+    margin-top: 0.22rem;
+}
+.activity .text .date span{
+    font-size: 0.4rem;
+    height: 0.86rem;
+    line-height: 0.86rem;
+}
+.activity .text .date .dateTime{
+    color: #386998;
+}
+.activity .text>a{
+    float: right;
+    height: 0.8rem;
+    width: 3rem;
+    text-align: center;
+    line-height: 0.8rem;
+    background: #db6066;
+    color: white;
+    font-size: 0.4rem;
+    display: inline-block;
+    margin-right: 0.4rem;
+    border-radius: 0.1rem;
+}

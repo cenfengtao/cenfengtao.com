@@ -1,0 +1,14 @@
+$(function(){
+    var aLength=$(".img a").length;
+    $(".img a").click(function(){
+        $(this).addClass("on");
+        var onLength=$(".on").length;
+        if(aLength==onLength){
+            $(".box").show()
+        }
+    })
+    $(".box").click(function(){
+        $(".box").hide()
+    })
+
+})

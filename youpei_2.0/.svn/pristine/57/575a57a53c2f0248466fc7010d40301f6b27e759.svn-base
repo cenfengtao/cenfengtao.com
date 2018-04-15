@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/personalData.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>个人资料</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle"> 
+        	<form action="">
+            <section class="baseInfo">
+                <h3>——/ <strong>基</strong> / <strong>本</strong> / <strong>信</strong> / <strong>息</strong> /——</h3>
+                 <section class="works">
+                    <span>宝宝姓名：</span>
+                    <input type="text"  name="username" id="userName" placeholder="请输入宝宝姓名" onchange="testUsername(this.value)">
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section>
+                 <section class="works">
+                    <span>宝宝年龄：</span>
+                    <input type="number" value="" max="99"  onchange="testAge(this.value)" name="age" id="age" placeholder="请输入宝宝年龄">
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section>
+                 <section class="works">
+                    <span>联系电话：</span>
+                    <input type="number" value="" maxlength="11" onchange="testTel(this.value)" name="mobile" id="mobile" placeholder="请输入联系电话">
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section>
+                <section class="works">
+                    <label class="classAddress">
+                        <span>家庭住址：</span>
+                        <select class="province" name="province">
+                            <option value="请选择省">省份</option>
+                        </select>
+                        <select class="city" name="city">
+                            <option value="请选择市">市</option>
+                        </select>
+                        <select class="county" name="county">
+                            <option value="请选择区">县/区</option>
+                        </select>
+                        <input type="text" placeholder="请输入详细的地址" name="detail" class="detail" style="margin-bottom: 0.5rem;">
+                    </label>
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section> 
+            </section>
+            <section class="logisticalInfo">
+                <h3>——/ <strong>物</strong> / <strong>流</strong> / <strong>信</strong> / <strong>息</strong> /——</h3>
+                 <section class="works">
+                    <span style="margin-left: 0.8rem;">收货人：</span>
+                    <input type="text" value=""  id="shouhuoName" onchange="testLogistical(this.value)" placeholder="请输入收货人姓名">
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section>
+                 <section class="works">
+                    <span>收货电话：</span>
+                    <input type="number" value="" maxlength="11"  onchange="testMObile(this.value)"  id="shouhuoPhone" placeholder="请输入收货人电话">
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section>
+                 <section class="works"> 
+                    <label class="classAddress">
+                        <span>收货地址：</span>
+                        <select class="provinces" name="province">
+                            <option value="请选择省">省份</option>
+                        </select>
+                        <select class="citys" name="city">
+                            <option value="请选择市">市</option>
+                        </select>
+                        <select class="countys" name="county">
+                            <option value="请选择区">县/区</option>
+                        </select>
+                        <input type="text" placeholder="请输入详细的地址" name="details" class="details" style="margin-bottom: 0.5rem;">
+                    </label>
+                    <img src="../../../../Public/images/write.png" alt="">
+                </section>
+                <input type="hidden" value="" name="id" id="id">
+            </section>
+            <section class="button" >
+                <span onclick="submitfun()" class="submit" style="display: none;">提交信息</span>
+                <span class="change" style="display: none;">我要修改</span>
+            </section> 
+            </form>
+        </article>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/city.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/personalData.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,169 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+    #demo-form2 {
+        float:left;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>查看上架商品</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">名称 <span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="title" class="form-control col-md-7 col-xs-12" value="{$product['title']}" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">分类</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <select class="form-control" name="class_id" disabled="disabled">
+                                            <option value="0">请选择分类</option>
+                                            <foreach name="class_list" item="val">
+                                                <option value="{$val['id']}" {$product['class_id'] == $val['id'] ? "selected='selected'":''}>{$val['title']}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">图片</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <empty name="product['image']">
+                                            <img id='preview' src='' ref='' width='200' height='200'
+                                                 style='display:none'/>
+                                            <else/>
+                                            <img id='preview' src='{$product["image"]}' ref='' width='200' height='200'/>
+                                        </empty>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">原价</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="original_price" min="0" readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$product['original_price']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">团购价</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="price" class="form-control col-md-7 col-xs-12"
+                                               value="{$product['price']}" min="0" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">最少成团人数</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="min_people" min="1" readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$product['min_people']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">最大限制人数</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="max_people" min="1" readonly="readonly"
+                                               class="form-control col-md-7 col-xs-12" value="{$product['max_people']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">单位</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="unit" value="{$product['unit']}"
+                                               readonly="readonly" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">标签</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="tag" class="form-control col-md-7 col-xs-12"
+                                               value="{$product['tag']}" readonly="readonly">
+                                        <small>用空格隔开，最多三个</small>
+                                    </div>
+                                </div>
+                                <foreach name="class_time" key="k" item="val">
+                                    <div class="form-group class_time{$k}">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">{$k == 1?'上课时间':''}</label>
+                                        <div class="col-md-2 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="class_time_day" disabled="disabled">
+                                                <option value="周一" {$val['class_time_day'] == '周一'?"selected='selected'":''}>周一</option>
+                                                <option value="周二" {$val['class_time_day'] == '周二'?"selected='selected'":''}>周二</option>
+                                                <option value="周三" {$val['class_time_day'] == '周三'?"selected='selected'":''}>周三</option>
+                                                <option value="周四" {$val['class_time_day'] == '周四'?"selected='selected'":''}>周四</option>
+                                                <option value="周五" {$val['class_time_day'] == '周五'?"selected='selected'":''}>周五</option>
+                                                <option value="周六" {$val['class_time_day'] == '周六'?"selected='selected'":''}>周六</option>
+                                                <option value="周日" {$val['class_time_day'] == '周日'?"selected='selected'":''}>周日</option>
+                                            </select>
+                                        </div>
+                                        <input type="time" readonly="readonly" style="height:2.7rem;" name="class_start_hour" value='{$val["class_start_hour"]}'> - <input readonly="readonly" type="time" style="height:2.7rem;" name="class_end_hour" value='{$val["class_end_hour"]}'> &nbsp;
+                                    </div>
+                                </foreach>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">商品简介</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <textarea name="description" id="info">{$product['description']}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">费用说明</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <textarea name="cost" id="infos">{$product['cost']}</textarea>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {initialFrameWidth: 900, initialFrameHeight: 400, serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"});
+    });
+    $(document).ready(function () {
+        UE.getEditor('infos', {initialFrameWidth: 900, initialFrameHeight: 400, serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"});
+    });
+</script>
+</body>
+</html>

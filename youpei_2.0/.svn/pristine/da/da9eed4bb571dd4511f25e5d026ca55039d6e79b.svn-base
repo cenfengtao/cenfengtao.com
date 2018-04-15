@@ -1,0 +1,25 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class TestController extends Controller
+{
+    function setSessionTest()
+    {
+        $_SESSION['openid'] = $_GET['open_id'];
+        $_SESSION['token'] = $_GET['token'];
+        echo 'setSession and token ok';
+    }
+
+    function sendTest()
+    {
+        $this->display();
+    }
+
+    public function test2()
+    {
+        
+    }
+}

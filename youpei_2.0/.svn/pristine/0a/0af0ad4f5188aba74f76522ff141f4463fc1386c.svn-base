@@ -1,0 +1,378 @@
+body,html{
+	background: #f1f1f1;
+}
+.middle{
+	padding-top: 1.36rem;
+    padding-bottom: 1.7rem;
+}
+.container{
+    width: 10.57rem;
+    margin: 0 auto;
+    background: white;
+}
+
+.middle .works:nth-child(4){
+	padding-bottom: 0.3rem;
+}
+.out{
+    background: white;
+}
+/*基本信息*/
+.title{
+    background: white;
+}
+.title >h3{
+    font-size: 0.2669rem;
+    color: #959696;
+    font-weight: normal;
+    text-align: center;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    border-bottom:0.01rem solid #aeaeae;
+    background: white;
+}
+.title >h3 strong{
+    font-size: 0.468rem;
+    color: #386998;
+    font-weight: normal;
+}
+
+
+.works{
+	height: 1.35rem;
+	line-height: 1.35rem;
+	overflow: hidden;
+    background: white;
+}
+.works span{
+	font-size: 0.48rem;
+	/*width: 85px;*/
+	text-align: right;
+}
+.works input{
+	width: 6.15rem;
+	height: 0.88rem;
+	line-height: 0.9rem;
+	padding: 0 0.3rem;
+	color: #4791c0!important;
+	background: white;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	margin-top: -0.1rem;
+	margin-top: 0.2rem;
+	font-size: 0.45rem;
+    border:0.03rem solid #696969;
+    margin-left: 0.5rem;
+}
+
+.works img{
+	width: 0.69rem;
+	height: 0.74rem;
+	float: right;
+	margin-top: 0.3rem;
+}
+ .works select{
+        width: 6.2rem;
+        height: 0.88rem;
+        line-height: 0.9rem;
+        padding: 0 0.3rem;
+        color: #4791c0!important;
+        background: white;
+        border-radius: 0.1rem;
+        -webkit-border-radius: 0.1rem;
+        border:0.03rem solid #696969;
+        margin-top: 0.2rem;
+        font-size: 0.45rem;
+    }
+    .works select option{
+       font-size: 0.45rem;
+    }
+    .alert{
+      margin-top: 0.2rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem!important;
+    }
+
+.imgContent{
+    overflow: hidden;
+    padding: 0.58rem 0;
+}
+.imgContent1{
+    overflow: hidden;
+    padding: 0.58rem 0;
+}
+.imgContent2{
+    overflow: hidden;
+    padding: 0.58rem 0;
+}
+.img{
+	/*height: 7.23rem;*/
+	background: white;
+	width: 7.09rem;
+    float: right;
+	position: relative;
+}
+.img >img{
+	width: 100%;
+/*	height: 6.1rem;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;*/
+	margin: auto;
+	/*position: absolute;*/
+/*	padding-top: 1rem;
+	padding-bottom: 1rem;*/
+}
+.img p{
+	text-align: center;
+    padding: 0.2rem;
+    font-size: 0.63rem;
+}
+.video{
+	height: 100%;
+}
+.video video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+.upload{
+    background: white;
+    text-align: center;
+}
+.upload a:first-child{
+	height: 1.51rem;
+	width: 3.08rem;
+	display: inline-block;
+	background: #386998;
+	color: white;
+	font-size: 0.4rem;
+	text-align: center;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	font-weight: bold;
+    float: left;
+    padding-top: 0.25rem;
+}
+/*.upload input:nth-child(2){
+	height: 1.15rem;
+    display: inline-block;
+	background: #db6066;
+	color: white;
+	font-size: 0.6rem;
+	line-height: 1.15rem;
+	text-align: center;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	font-weight: bold;
+	border: 0.01rem solid #db6066;
+    margin: 0 auto;
+    margin-bottom: 0.9rem;
+}*/
+.submit{
+    height: 1.15rem;
+    width: 10.57rem;
+    display: inline-block;
+    background: #db6066;
+    color: white;
+    font-size: 0.6rem;
+    line-height: 1.15rem;
+    text-align: center;
+    border-radius: 0.1rem;
+    -webkit-border-radius:0.1rem;
+    font-weight: bold;
+    border: 0.01rem solid #db6066;
+    margin: 0 auto;
+    margin-bottom: 0.9rem;
+}
+/*投稿须知*/
+.explain{
+    background: white;
+    padding-bottom: 0.54rem;
+    margin-bottom: 0.2rem;
+}
+.explain h3{
+	font-size: 0.42rem;
+	line-height: 0.7rem;
+    font-weight: normal;
+    padding-top: 0.2rem;
+}
+.explain p{
+	line-height: 0.7rem;
+	font-size: 0.42rem;
+	color: #585858;
+}
+.explain p span{
+    height: 0.62rem;
+    width: 2.28rem;
+    font-size: 0.4rem;
+    color: white;
+    background: #83cf95;
+    text-align: center;
+    line-height: 0.62rem;
+    margin-left: 0.3rem;
+    display: inline-block;
+    border-radius: 0.1rem;
+}
+
+
+.show,.sub{
+    position: fixed;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+}
+.show p,.sub p{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    color: white;
+    width: 5rem;
+    text-align: center;
+    font-size: 0.5rem;
+    height: 1rem;
+}
+.layui-layer-btn a{
+	font-size: 16px;
+}
+
+
+
+/*第一次投稿成功*/
+.tellBox{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1000000000;
+}
+ .tellContent{
+    border-radius: 0.1rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 9.76rem;
+    width:8.96rem;
+    margin: auto;
+    background: white;
+}
+.tellContent .closeBtn{
+    float: right;
+    height: 0.47rem;
+    width: 0.47rem;
+    margin-top: 0.28rem;
+    margin-right: 0.3rem;
+}
+.tellContent h3{
+    text-align: center;
+    font-size: 0.5361rem;
+    color: white;
+    background: #386998;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    border-top-left-radius: 0.1rem;
+    border-top-right-radius: 0.1rem;
+}
+.tellContent div{
+	text-align: center;
+    font-size: 0.42rem;
+}
+.tellContent div p{
+	width: 98%;
+	padding: 1.17rem 0 0.77rem;
+	border-bottom: 0.01rem solid #e7e7e7;
+	color: #236b9c;
+	margin: 0 auto;
+}
+.tellContent >a{
+	display: block;
+	color: #ff4a58;
+	text-align: center;
+	font-size: 0.36rem;
+	margin: 0.66rem 0 0.59rem;
+	text-decoration: underline;
+}
+.tellContent .code{
+	width: 3.5rem;
+	height: 3.5rem;
+	margin: 0 auto;
+}
+
+.tellBoxs{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1000000000;
+}
+ .tellContents{
+    border-radius: 0.1rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 9.76rem;
+    width:8.96rem;
+    margin: auto;
+    background: white;
+}
+.tellContents .closeBtn{
+    float: right;
+    height: 0.47rem;
+    width: 0.47rem;
+    margin-top: 0.28rem;
+    margin-right: 0.3rem;
+}
+.tellContents h3{
+    text-align: center;
+    font-size: 0.5361rem;
+    color: white;
+    background: #386998;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    border-top-left-radius: 0.1rem;
+    border-top-right-radius: 0.1rem;
+}
+.tellContents div{
+    text-align: center;
+    font-size: 0.42rem;
+}
+.tellContents div p{
+    width: 98%;
+    padding: 1.17rem 0 0.77rem;
+    border-bottom: 0.01rem solid #e7e7e7;
+    color: #236b9c;
+    margin: 0 auto;
+}
+.tellContents >a{
+    display: block;
+    color: #ff4a58;
+    text-align: center;
+    font-size: 0.36rem;
+    margin: 0.66rem 0 0.59rem;
+    text-decoration: underline;
+}
+.tellContents .code{
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto;
+}

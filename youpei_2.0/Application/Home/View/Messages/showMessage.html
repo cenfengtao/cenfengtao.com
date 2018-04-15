@@ -1,0 +1,20 @@
+<include file="Common:header"/>
+<style type="text/css">
+.msgContent{
+	margin-top: 3rem;
+}
+</style>
+<div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="self.location=document.referrer;" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Personal/index',array('current'=>'4'))}" class="btn right btn-user" title="返回个人中心"
+           data-icon="Ņ"></a>
+    </div>
+</div>
+ <div class="msgContent">            
+            {$showMessage}
+          </div>
+ <include file="Common:footer"/>
+</body>
+</html>

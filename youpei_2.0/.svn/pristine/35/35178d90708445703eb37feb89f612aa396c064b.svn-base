@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>确认订单</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body>
+<div class="coupon">
+    <section>
+        <ul class="coupon-list">
+
+        </ul>
+    </section>
+    <div>
+        <input type="checkbox" value="1" name="use_integral" style="width:3rem;height:3rem;">
+        <p style="font-size:3rem;">是否使用积分 <span id="nowIntegral"></span></p>
+    </div>
+    <div>
+        <p style="margin:0 auto;text-align: center;font-size:3rem;">原价：<span id="totalPrice">0</span></p>
+        <p style="margin:0 auto;text-align: center;font-size:4rem;">实付：<span id="realPrice">0</span></p>
+    </div>
+    <button onclick="addOrder()" style="margin:0 auto;text-align: center;font-size:4rem;">
+        确认支付
+    </button>
+</div>
+<script src="/Public/js/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        var ajaxUrl = "/index.php/Organization/ajaxConfirmationInfo";
+        var id = getQueryString("id");
+        var amount = getQueryString("amount");
+        $.get(ajaxUrl, {id: id, amount: amount}, function (result) {
+            if (result.status == 0) {
+                return alert(result.message);
+            }
+            $("#realPrice").text(result.data.totalPrice);
+            $("#totalPrice").text(result.data.totalPrice);
+            $("#nowIntegral").text(result.data.nowIntegral);
+            if (result.data.couponList.length != 0) {
+                $.each(result.data.couponList, function (key, val) {
+                    if (val.coupon_type == 1) {
+                        $(".coupon-list").append("<input type='checkbox' name='coupon' class='coupon-checkbox' id='coupon-check-" + val.id + "' value='" + val.id + "' style='width: 3rem;height:3rem;' onclick='clickCoupon(" + val.id + ")'>" +
+                                "<li style='background:rgb(242, 175, 45);display: block;height: 10rem;margin-bottom: 0.5rem' class='coupon'>" +
+                                "<input type='hidden' id='coupon-subtract-" + val.id + "' attr-value='" + val.subtract + "'>" +
+                                "<div class='coupon-left' style='width:69%;float: left;height:10rem;border-right:1px dashed #fff'>" +
+                                "<p style='font-size:3.5rem;margin:1rem 0 1rem 0.5rem;color:#fff;'>" +
+                                "<span style='font-size:3rem;'>￥</span>" + val.subtract + "</p>" +
+                                "<p style='font-size:1.5rem;margin-left:0.5rem;margin-bottom: 1.5rem;color:#fff;line-height:0.5rem;'>订单金额满" + val.full + "元可使用</p>" +
+                                "<p style='font-size:1.5rem;margin-left:0.5rem;color:#fff;line-height: 0.1rem;'>有限期" + val.start_time + "-" + val.end_time + "</p> </div>" +
+                                "<div class='coupon-right' style='width:30%;float:left;height:10rem;line-height: 10rem;text-align: center;color:#fff;'>" +
+                                "<p style='font-size:2.5rem' class='get-status'>立即使用</p>" +
+                                "</div></li>");
+                    }
+                    if (val.coupon_type == 2) {
+                        $(".coupon-list").append("<input type='checkbox' name='cash_coupon' value='" + val.id + "' attr_value='" + val.fee + "' style='width: 3rem;height:3rem;' onclick='clickCashCoupon(" + val.id + ")'>" +
+                                "<li style='background:rgb(242, 175, 45);display: block;height: 10rem;margin-bottom: 0.5rem' class='cash_coupon' id='coupon-id-" + val.id + "'>" +
+                                "<div class='coupon-left' style='width:69%;float: left;height:10rem;border-right:1px dashed #fff'>" +
+                                "<p style='font-size:4rem;margin-left:0.5rem;color:#fff;line-height: 10rem;'><span style='font-size:3rem;'>￥</span>" + val.fee + " 代金券</p></div>" +
+                                "<div class='coupon-right' style='width:30%;float:left;height:10rem;line-height: 10rem;text-align: center;color:#fff;'>" +
+                                "<p style='font-size:2.5rem' class='get-status'>立即使用</p>" +
+                                "</div></li>");
+                    }
+                })
+            }
+        }, 'json');
+    });
+
+
+    //选中优惠券事件
+    function clickCoupon(id) {
+        var totalPrice = parseFloat($("#totalPrice").text());
+        var isChecked = $('#coupon-check-' + id).is(':checked');
+        var subtract = parseFloat($('#coupon-subtract-' + id).attr('attr-value'));
+        var integral = !($('input[name="use_integral"]:checked').val()) ? 0 : parseFloat($("#nowIntegral").text());
+        //判断有否选中代金券
+        var cashCouponPrice = 0;
+        $.each($("input[name='cash_coupon']:checked"), function (key, val) {
+            cashCouponPrice += parseFloat($(this).attr("attr_value"));
+        });
+        if (isChecked) { //选择当前
+            $('#coupon-check-' + id).siblings(".coupon-checkbox").removeAttr("checked").attr("disabled", 'disabled').next('.coupon').css('background', 'gray');
+            var nowPrice = totalPrice - cashCouponPrice - subtract - (integral * 0.01);
+            if (nowPrice < 0) {
+                var nowPrice = 0;
+                $("input[name='cash_coupon']").not('input:checked').attr('disabled', 'disabled').next(".cash_coupon").css('background', 'gray');
+                $("input[name='use_integral']").not('input:checked').attr('disabled', 'disabled');
+            }
+            $("#realPrice").text(nowPrice);
+        } else { //取消当前
+            var nowPrice = totalPrice - cashCouponPrice - (integral * 0.01);
+            if(nowPrice < 0) {
+                var nowPrice = 0;
+            }
+            $('#coupon-check-' + id).siblings(".coupon-checkbox").removeAttr("disabled").next('.coupon').css('background', 'rgb(242, 175, 45)');
+            $("input[name='cash_coupon']").not('input:checked').removeAttr('disabled').next(".cash_coupon").css('background', 'rgb(242, 175, 45)');
+            $("input[name='use_integral']").not('input:checked').removeAttr('disabled');
+            $("#realPrice").text(nowPrice);
+        }
+    }
+
+
+    //代金券选中事件
+    function clickCashCoupon() {
+        var totalPrice = parseFloat($("#totalPrice").text());
+        var cashCouponPrice = 0;
+        $.each($("input[name='cash_coupon']:checked"), function (key, val) {
+            cashCouponPrice += parseFloat($(this).attr("attr_value"));
+        });
+        var integral = !($('input[name="use_integral"]:checked').val()) ? 0 : parseFloat($("#nowIntegral").text());
+        var couponId = $("input[name='coupon']:checked").val();
+        if (!couponId) {
+            var nowPrice = totalPrice - cashCouponPrice - (integral * 0.01);
+        } else {
+            var subtract = parseFloat($('#coupon-subtract-' + couponId).attr('attr-value'));
+            var nowPrice = totalPrice - cashCouponPrice - subtract - (integral * 0.01);
+        }
+        if (nowPrice < 0) {
+            var nowPrice = 0;
+            $("input[name='coupon']").not('input:checked').attr('disabled', 'disabled').next('.coupon').css('background', 'gray');
+            $("input[name='cash_coupon']").not('input:checked').attr('disabled', 'disabled').next('.cash_coupon').css('background', 'gray');
+            $("input[name='use_integral']").not('input:checked').attr('disabled', 'disabled');
+        } else {
+            $("input[name='cash_coupon']").not('input:checked').removeAttr('disabled').next('.cash_coupon').css('background', 'rgb(242, 175, 45)');
+            if (!couponId) {
+                $("input[name='coupon']").not('input:checked').removeAttr('disabled').next('.coupon').css('background', 'rgb(242, 175, 45)');
+            }
+        }
+        $("#realPrice").text(nowPrice);
+    }
+    //积分选中事件
+    $("input[name='use_integral']").click(function () {
+        var totalPrice = parseFloat($("#totalPrice").text());
+        var isChecked = $('input[name="use_integral"]:checked').val();
+        var integral = parseFloat($("#nowIntegral").text());
+        var couponId = $("input[name='coupon']:checked").val();
+        var subtract = couponId ? parseFloat($('#coupon-subtract-' + couponId).attr('attr-value')) : 0;
+        var cashCouponPrice = 0;
+        $.each($("input[name='cash_coupon']:checked"), function (key, val) {
+            cashCouponPrice += parseFloat($(this).attr("attr_value"));
+        });
+        if (isChecked) {
+            var nowPrice = totalPrice - cashCouponPrice - subtract - (integral * 0.01);
+        } else {
+            var nowPrice = totalPrice - cashCouponPrice - subtract;
+        }
+        if (nowPrice < 0) {
+            var nowPrice = 0;
+            $("input[name='coupon']").not('input:checked').attr('disabled', 'disabled').next('.coupon').css('background', 'gray');
+            $("input[name='cash_coupon']").not('input:checked').attr('disabled', 'disabled').next('.cash_coupon').css('background', 'gray');
+        } else {
+            $("input[name='cash_coupon']").not('input:checked').removeAttr('disabled').next('.cash_coupon').css('background', 'rgb(242, 175, 45)');
+            $("input[name='coupon']").not('input:checked').removeAttr('disabled').next('.coupon').css('background', 'rgb(242, 175, 45)');
+        }
+            $("#realPrice").text(nowPrice);
+    });
+
+    function addOrder() {
+        var couponId = $("input[name='coupon']:checked").val();
+        var cashCouponIds = [];
+        $.each($("input[name='cash_coupon']:checked"),function (key,val) {
+            cashCouponIds[key] = $(this).val();
+        });
+        var useIntegral = $("input[name='use_integral']:checked").val();
+        var data = {
+            coupon_id : couponId?couponId:0,
+            cash_coupon_ids : cashCouponIds,
+            integral : useIntegral? parseFloat($("#nowIntegral").text()):0,
+            id : getQueryString('id'),
+            amount : getQueryString('amount'),
+            name : getRequest().name,
+            mobile : getQueryString('mobile'),
+            message : getRequest().message,
+            address : getRequest().address,
+        };
+        var url = "/index.php/Orders/addActivityOrder";
+        $.post(url, data, function (result) {
+            if(result.status == 0 ){
+                return alert(result.message);
+            } else {
+                window.location.href = "/index.php/WxPay/jsapiByActivity?orderId=" + result.orderId;
+            }
+        }, 'json')
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    function getRequest() {
+        var url = window.location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                //就是这句的问题
+                theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+                //之前用了unescape()
+                //才会出现乱码
+            }
+        }
+        return theRequest;
+    }
+</script>
+</body>
+</html>

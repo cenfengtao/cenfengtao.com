@@ -1,0 +1,53 @@
+.scroll{
+    
+	height: 100%;
+	margin-top:3rem; 
+	margin-left: .2rem;
+}
+dt span{
+
+	font-weight:bold;
+	font-size: 1.5rem;
+}
+.main dt{
+	margin-top: 10px;
+	margin-bottom:10px;
+}
+.main li{
+	line-height: 2.5rem;
+	width: 90%;
+	text-align: center;
+}
+.scroll input{
+	width: 50%;
+	height: 1.5rem;
+	font-size: 1rem;
+}
+.scroll select{
+	height: 1.5rem;
+	font-size: 1rem;
+}
+.footerbtn{
+	width: 100%;
+	text-align: center;
+	display: block;
+}
+.submit {
+	background-color: #ef3f56;
+	padding: 6px 20px;
+	font-size: 1rem;
+	letter-spacing: 2px;
+	text-decoration: none;
+	border: 1px solid #c03143;
+	border-radius: 5px;
+	color: #ffffff;
+	display: block;
+	cursor: pointer;
+	text-align: center;
+	font-weight:bold;
+	
+}
+
+.submit:active {
+	background-color: #B60006;
+}

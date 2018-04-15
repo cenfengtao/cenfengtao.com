@@ -1,0 +1,37 @@
+<include file="Common:header"/>
+
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+ <div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+    </div>
+</div>
+<div class="user-area" style="margin-top: -0.4rem;">
+     <div class="ty-user-cover img">
+           <img src="/Public/images/group.jpg" width="100%" style="height: 8rem;">
+     </div>
+</div>
+<div  class="Group" style="padding-bottom: 3.125rem;">
+      <ul class="list-talent-product">
+
+      </ul>
+    </div>
+      <!-- 底部菜单 -->
+<div class="kap-bottom ty-menu-bottom">
+    <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+            <a href="{:U('Index/index',array('current'=>'1'))}" data-ty-target="#page_hot" data-icon=""><i style="background: url('__PUBLIC__/images/1497609486.png') center center/70% 70% no-repeat; display:block;" class="on"> </i>首页</a>
+             <i class="border"></i>
+            <a href="{:U('Groups/index',array('current'=>'2'))}" class="current" <if condition='$current eq 2'>class="current"</if> data-ty-target="#page_discover" data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '发现'])"><i style="background: url('__PUBLIC__/images/1497609958.png')center center/70% 70% no-repeat; display:block;" class="on"> </i>入团</a>
+             <i class="border"></i>
+            <a href="{:U('Groups/addGroup',array('current'=>'3'))}" <if condition='$current eq 3'>class="current"</if> data-ty-target="#detail_msg" data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '消息'])"><i style="background: url('__PUBLIC__/images/1497609579.png')center center/70% 70% no-repeat; display:block;" class="on"> </i>愿望单<i id="new_msg_alert"></i></a>
+             <i class="border"></i>
+            <a href="{:U('Groups/myGroups',array('current'=>'4'))}" <if condition='$current eq 4'>class="current"</if> data-ty-target="#page_user" data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '我的'])"><i style="background: url('__PUBLIC__/images/1497609711.png')center center/70% 70% no-repeat; display:block;" class="on"></i>我的团</a>
+        </div>
+    </div>
+</div>
+   <script src="__PUBLIC__/js/home/groups.js" type="text/javascript" charset="utf-8"></script>
+<include file="Common:footer"/>
+</body>
+</html>

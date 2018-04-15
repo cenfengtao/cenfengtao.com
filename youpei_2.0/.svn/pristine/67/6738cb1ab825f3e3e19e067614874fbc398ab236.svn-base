@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>优培圈</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/checkExpress.css"/>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+</head>
+<body class="kap-loading ty-view-all">
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>物流详情</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle">
+    <section class="status">
+        <img src="../../../../Public/images/choujiang.png" alt="">
+        <div class="text">
+            <p class="type">已签收</p>
+            <p class="delivery"><span id="express"></span><span id="express_number"></span></p> 
+        </div>
+    </section>     
+    <ul class='express_list'>
+
+    </ul>
+</article>
+
+
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function () {
+        var order_id = getQueryString('id');
+        var ajaxUrl = "/index.php/Orders/ajaxCheckExpress?id=" + order_id;
+        $.get(ajaxUrl, {id: order_id}, function (result) {
+            if (result.status == 0) {
+                return alert(result.message);
+            }
+            if (result.status == 1) {
+                $("#express").text("订单确认中，待发货");
+            }
+            if (result.status == 2) {
+                $("#express").text(result.data.express+"速递：");
+                $("#express_number").text(result.data.express_number);
+                $(".text").append(
+                        '<p class="mobile">官方电话：<span>95554</span><a href="###" style="display:none;">物流服务</a></p>'
+                    )
+                $.each(result.data.list, function (key, val) {
+                    $(".express_list").append(
+                        '<li>'+
+                            '<div class="time">'+
+                                '<span>'+val.time.split(" ")[0]+'</span>'+
+                                '<span>'+val.time.split(" ")[1]+'</span>'+
+                                '<img src="../../../../Public/images/process.png" alt="">'+
+                            '</div>'+
+                            '<div class="content">'+
+                                '<p class="info">'+val.status+'</p>'+
+                            '</div>'+
+                        '</li>'
+                    );
+                })
+                var listLength=$(".info").length;
+                 for(var i=0; i<listLength; i++){
+                     var content=$(".info").eq(i).text()
+                     if(content.indexOf("已签收")>0||content.indexOf("已签收")==0){
+                        $(".info").eq(i).parent().siblings().find("img").attr("src","../../../../Public/images/finish.jpg");
+                        $(".info").eq(i).css("color","#db6066");
+                        $(".info").eq(i).parent().siblings().find("span").css("color","#db6066");
+                     }
+                 }
+            }
+        }, 'JSON');
+    });
+        // var listLength=$(".info").length;
+        //  for(var i=0; i<listLength; i++){
+        //      var content=$(".info").eq(i).text()
+        //      if(content.indexOf("已分享")>0||content.indexOf("已分享")==0){
+        //         $(".info").eq(i).parent().css("background","red")
+        //      }
+        //  }
+     
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+</script>
+</body>
+</html>

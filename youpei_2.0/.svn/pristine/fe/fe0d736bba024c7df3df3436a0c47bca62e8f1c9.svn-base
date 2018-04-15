@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>我的课程表</title>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/schedule.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>我的课程表</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="advert">
+                <img src="../../../../Public/images/scheduleAdvert.jpg" alt="">
+            </section>
+            <div class="date">
+                <h3 class="title">2017年9月</h3>
+                <div class="day">
+                    <ul class="days">
+                        <li><a href="###">周日</a></li>
+                        <li><a href="###">周一</a></li>
+                        <li><a href="###">周二</a></li>
+                        <li><a href="###">周三</a></li>
+                        <li><a href="###">周四</a></li>
+                        <li><a href="###">周五</a></li>
+                        <li><a href="###">周六</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <table cellpadding="0" cellspacing="1">
+    <!--                     <tr>
+                            <th>周日</th>
+                            <th>周一</th>
+                            <th>周二</th>
+                            <th>周三</th>
+                            <th>周四</th>
+                            <th>周五</th>
+                            <th>周六</th>
+                        </tr> -->
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td>30</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="arrange">
+                    <div class="classTime">
+                        <span>上课时间：</span>
+                        <span>2017年9月4日</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="timeLong">
+                                <span>10:00</span>
+                                <span>—</span>
+                                <span>11:00</span>
+                            </div>
+                            <div class="classText">
+                                <h3>史太姆积木课/48课时</h3>
+                                <p class="teacher">上课老师：<span>Terry老师</span></p>
+                                <p class="classNum">课次：<span>10/48</span></p>
+                                <p class="address">地址：<span>广州海珠区燕子岗68号</span><img src="../../../../Public/images/scheduleAddress.png" alt=""></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeLong">
+                                <span>15:00</span>
+                                <span>—</span>
+                                <span>16:00</span>
+                            </div>
+                            <div class="classText">
+                                <h3>史太姆绘画课/16课时</h3>
+                                <p class="teacher">上课老师：<span>KK老师</span></p>
+                                <p class="classNum">课次：<span>2/16</span></p>
+                                <p class="address">地址：<span>广州海珠区燕子岗68号</span><img src="../../../../Public/images/scheduleAddress.png" alt=""></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/schedule.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script
+	</body>
+</html>

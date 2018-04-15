@@ -1,0 +1,200 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/style_v3.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/new.css">
+<style>
+    .empty {
+        text-align: center;
+        line-height: 3.5rem;
+    }
+</style>
+<div id="page-user" title="搜索结果" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools-msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">搜索结果<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回"
+               data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+            <!--<a href="" class="saixuan"><img src="__PUBLIC__/images/saixuan.png" alt="">筛选</a>-->
+        </div>
+    </div>
+    <div class="kap-wrap">
+        <div id="page_hot" title="热推" class="kap-page kap-page-current"
+             data-ty-tools="#tools_hot,#tools_idx,#side_common">
+            <div class="ty-page">
+                <div class="timeline-product" style="margin: 0 0 .625rem 0;">
+                    <ul class="list-card-timeline">
+                        <empty name="result">
+                            <p style="margin-top: 3rem;text-align: center;">您所输入的搜索关键词没有找到任何信息哦！</p>
+                            <else/>
+                            <foreach name="result" item="val" key="k" offset="0" length="10">
+                                <if condition="$val['search_type'] eq 1">
+                                    <li class="item" data-ty-target="#detail_activity"
+                                        onclick="getArticle({$val['id']})">
+                                <span class="thumb"
+                                      style="background-image:url({$val.image}); background-size:cover"></span>
+                        <span class="desc">
+                            <h3 class="title">{$val.title}</h3>
+                            <span class="time"><span class="lef">{$val.time}</span></span>
+                        </span>
+                                        <span class="icon-sale"></span>
+                                    </li>
+                                    <elseif condition="($val['search_type'] eq 2) OR  ($val['search_type'] eq 3)"/>
+                                    <li class="item" data-ty-target="#detail_activity"
+                                        onclick="getProduct({$val['id']})">
+                                <span class="thumb"
+                                      style="background-image:url({$val.pic_url}); background-size:cover"></span>
+                        <span class="desc">
+                            <h3 class="title">{$val.title}</h3>
+                            <span class="time"><span class="lef">{$val.time}</span></span>
+                        </span>
+                                        <span class="icon-sale"></span>
+                                    </li>
+                                    <elseif condition="$val['search_type'] eq 4"/>
+                                    <li class="item" data-ty-target="#detail_activity"
+                                        onclick="getOrganization({$val['id']})">
+                                <span class="thumb"
+                                      style="background-image:url({$val.picture}); background-size:cover;width: 4.3rem;"></span>
+                        <span class="desc">
+                            <h3 class="title">{$val.org_name}</h3>
+                            <span class="time"><span class="lef">{$val.time}</span></span>
+                        </span>
+                                        <span class="icon-sale"></span>
+                                    </li>
+                                </if>
+                            </foreach>
+                        </empty>
+
+                    </ul>
+                    <ul class="list-card-timeline list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部菜单 -->
+    <div class="kap-bottom ty-menu-bottom">
+        <div id="pc_login" class="ty-login-area">
+            <span class="head-icon"><img
+                    src="http://wx.qlogo.cn/mmopen/086rSWpicGsicbJsticnNeKK7picIzosVBwa9PafHYAr04B77N5TODmIdHibHlziaZWUSqK6zKbOzMzm4sAFAGMiaiaUaWCHPDibPNwSK/132"
+                    alt="" height="200" width="200"></span>
+            <span class="wx-name">♚你有看到我的小熊吗</span>
+            <span class="wx-loginout btn" style="" data-icon="Ń">退出登录</span>
+            <span class="wx-login btn" style="display: none;" data-icon="ţ">微信登录</span>
+        </div>
+        <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+            <a href="{:U('Index/index',array('current'=>'1'))}"
+               style="background: url('__PUBLIC__/images/1495008448(1).jpg') no-repeat 0.7rem 1.2rem; background-size:20% 30%"
+               class="current" data-icon="">首页</a>
+            <i class="border"></i>
+            <a href="{:U('Discovery/index',array('current'=>'2'))}"
+               style="background: url('__PUBLIC__/images/1495008486(1).jpg') no-repeat 0.7rem 1.2rem; background-size:20% 30%"
+               data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '发现'])">发现</a>
+            <i class="border"></i>
+            <a href="javascript:void(0);" onclick="hint()"
+               style="background: url('__PUBLIC__/images/1495008503(1).jpg') no-repeat 0.7rem 1.2rem; background-size:20% 30%"
+            <if condition='$current eq 3'>class="current"</if>
+            data-icon="" onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '消息'])">社群<i id="new_msg_alert"></i></a>
+            <i class="border"></i>
+            <if condition='$current eq 4'>
+                <a href="javascript:void(0)" data-icon="ń"
+                   onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '我的'])">推荐</a>
+                <else/>
+                <a href="{:U('Personal/index',array('current'=>'4'))}"
+                   style="background: url('__PUBLIC__/images/1495008528(1).jpg') no-repeat 0.7rem 1.2rem; background-size:15% 30%"
+                   onclick="_hmt.push(['_trackEvent', 'footbar', 'click', '我的'])">个人中心</a>
+            </if>
+        </div>
+
+    </div>
+</div>
+<include file="Common:footer"/>
+<script>
+    //获取url地址type值
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return decodeURI(r[2]);
+        return null;
+    }
+
+    var npage = 10;
+    $(function () {
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var type = GetQueryString("type");
+            var word = GetQueryString("word");
+            if (scrollTop + windowHeight == scrollHeight) {
+                //加载层
+                layer.load();
+                setTimeout(function () {
+                    layer.closeAll('loading');
+                }, 1000);
+                var url = "{:U('Index/loadingSearch')}";
+                var params = {};
+                params.type = type;
+                params.word = word;
+                params.npage = npage;
+                $.post(url, params, function (result) {
+                    if (result.status == 0) {
+                        $(".empty").remove();
+                        return $('.list').append("<li class='empty'>没有更多了</li>");
+                    }
+                    $.each(result.data, function (index, value) {
+                        if (value['search_type'] == 1) {
+                            $(".list").append("<li class='item' onclick='getArticle( " + value['id'] + ")'>" +
+                                    "<img class='thumb' src='" + value['image'] + "' style='background-size:cover;'>" +
+                                    "<span class='desc'>" +
+                                    "<h3 class='title'>" + value['title'] + "</h3>" +
+                                    "<span class='time'><span class='lef'>" + value['time'] + "</span></span>" +
+                                    "</span>" +
+                                    "<span class='icon-sale'></span>" +
+                                    "</li>");
+                        } else if (vlaue['search_type'] == 2 || value['search_type'] == 3) {
+                            $(".list").append("<li class='item' onclick='getProduct( " + value['id'] + ")'>" +
+                                    "<img class='thumb' src='" + value['pic_url'] + "' style='background-size:cover;'>" +
+                                    "<span class='desc'>" +
+                                    "<h3 class='title'>" + value['title'] + "</h3>" +
+                                    "<span class='time'><span class='lef'>" + value['time'] + "</span></span>" +
+                                    "</span>" +
+                                    "<span class='icon-sale'></span>" +
+                                    "</li>");
+                        } else if (vlaue['search_type'] == 4) {
+                            $(".list").append("<li class='item' onclick='getOrganization( " + value['id'] + ")'>" +
+                                    "<img class='thumb' src='" + value['picture'] + "' style='background-size:cover;width: 4.3rem;'>" +
+                                    "<span class='desc'>" +
+                                    "<h3 class='title'>" + value['org_name'] + "</h3>" +
+                                    "<span class='time'><span class='lef'>" + value['time'] + "</span></span>" +
+                                    "</span>" +
+                                    "<span class='icon-sale'></span>" +
+                                    "</li>");
+                        }
+
+                    });
+                });
+                npage += 6;
+            }
+        });
+    });
+
+    function getArticle(id) {
+        window.location.href = "{:U('Article/getArticle')}?art_id=" + id;
+    }
+    function getProduct(id) {
+        window.location.href = "{:U('Product/productDetails')}?pro_id=" + id;
+    }
+    function getOrganization(id) {
+        window.location.href = "{:U('Organization/home')}?id=" + id;
+    }
+    $(function () {
+        $(".ty-cat-tags span").click(function () {
+//            $(this).find("span").addClass("tag link on").parent().siblings().find("span").removeClass("on");
+
+            $(this).siblings('span').removeClass('on');  // 删除其他兄弟元素的样式
+            $(this).addClass('on');
+        });
+    });
+</script>
+</body>
+</html>

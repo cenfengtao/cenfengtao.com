@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>机构全景图片</title>
+    <!-- <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/> -->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/swiper.min.css"/>
+    <style>
+    *{
+      margin: 0;
+      padding: 0;
+      font-size: 0.12rem;
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    input,textarea,select,button{
+      outline: none;
+    }
+    img{
+      border: none;
+      display: block;
+    }
+    textarea{
+      resize: none;
+      overflow: hidden;
+    }
+    body,html{
+      font-family: "微软雅黑";
+    } 
+    html{width: 100%;height: 100%;}
+    .all{width: 100%;height: 100%;}
+    .all >img{width: 100%;height: 100%;}
+    .top{
+      width: 100%;
+      height: 100%;
+    }
+    /*头部样式*/
+    .header {
+      height: 6%;
+      width: 100%;
+      background: white;
+      /*overflow: hidden;*/
+      z-index: 1000;
+      clear: both;
+    }
+
+    .header .back {
+      left: 0.27rem;
+      position: absolute;
+    }
+
+    .header .back img {
+      margin-top: 0.4rem;
+      height: 0.5rem;
+    }
+
+    .header h3 {
+      text-align: center;
+      font-size: 0.6rem;
+      color: #065b9c;
+      margin-left: 0.3rem;
+      padding-top: 0.2rem;
+    }
+
+    .header .home {
+      right: 0.2rem;
+      position: absolute;
+      top: 0rem;
+      font-size: 0.6rem;
+      color: #065b9c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .home span{
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    ul{
+      position: absolute;
+      width: 3rem;
+      right: 0;
+      top: 0;
+      z-index: 1000000;
+      background: #f1f1f1;
+      border-bottom-left-radius: 0.2rem;
+      overflow: hidden;
+    }
+    .type li{
+      background: white;
+      width: 100%;
+      text-align: center;
+      font-size: 0.5rem;
+      color: #065b9c;
+      margin-top: 0.05rem;
+      height: 1rem;
+      line-height: 1rem;
+      font-weight: 500;
+    }
+    .type li:nth-last-child(1){
+      margin-bottom: 0;
+    }
+    .swiper-container{
+      width: 100%;
+      height: 94%;
+      position: relative;
+    }
+    .swiper-wrapper{
+      position: relative;
+      /*margin-top: -0.5rem;*/
+    }
+    .desc{
+      width: 100%;
+      background: rgba(0,0,0,0.3);
+      font-size: 0.45rem;
+      /*text-align: center;*/
+      text-indent: 2em;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: white;
+      padding: 0.2rem 0rem;
+    }
+    p{
+      width: 80%;
+      margin:0 auto;
+    }
+  </style>
+<!--     <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script> -->
+</head>
+<body class="kap-loading ty-view-all top">
+    <include file="Common:common"/>
+    <header class="header">
+      <a href="javascript:history.back()" class="back">
+          <img src="../../../../Public/images/back.png" alt="">
+      </a>
+      <h3>机构全景图片</h3>
+      <a href="###" id="classify" class="home"><span>&and;</span>分类</a>
+    </header>    
+    <div class="swiper-container">
+      <ul style="display: none;" class="type">
+      </ul>
+      <div class="swiper-wrapper ">
+      </div>
+    </div>
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/userBillboard.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="__PUBLIC__/js/home/swiper.min.js" ></script>
+<script>
+
+//    获取url参数
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+var id=GetRequest().id;
+$(function(){
+  $.ajax({
+        type:"get",
+        url:"/index.php/Organization/ajaxFullShot",
+        async: true,
+        dataType:"json",
+        data:{
+          id:id
+        },
+        success:function(data){
+          var classity=data.data.class;
+          var classLength=classity.length;
+          var classImg=data.data.classContent;
+          var classContentLength=classImg.length;
+          for(var i=0; i<classLength; i++){
+            $(".type").append(
+              '<li class="'+classity[i].id+'">'+classity[i].class_title+'</li>'
+            )
+          }
+          for(var j=0; j<classContentLength; j++){
+            // $(".swiper-wrapper").html("")
+            $(".swiper-wrapper").append(
+                '<div class="swiper-slide  all">'+
+                  '<img src="'+classImg[j].image+'"/>'+
+                  '<div class="desc">'+
+                  '<p>'+classImg[j].description+'</p>'+
+                  '</div>'+
+                '</div>'
+              )
+          }
+           $("ul li").click(function(){
+             $(".home span").html("&and;")
+            $("ul").slideUp(1000)
+          })
+          var mySwiper = new Swiper('.swiper-container',{
+            loop: true,
+            direction: 'vertical',
+          });
+        }
+    })
+  setTimeout(function(){
+    $(".type li").click(function(){
+      var typeId=$(this).attr("class");
+      $.ajax({
+          type:"get",
+          url:"/index.php/Organization/ajaxFullShot",
+          async: true,
+          dataType:"json",
+          data:{
+            class_id:typeId,
+            id:id
+
+          },
+          success:function(data){
+            var classImg=data.data.classContent;
+            var classContentLength=classImg.length;
+            $(".swiper-wrapper").html("")
+            for(var s=0; s<classContentLength; s++){
+              $(".swiper-wrapper").append(
+                  '<div class="swiper-slide  all">'+
+                    '<img src="'+classImg[s].image+'"/>'+
+                    '<div class="desc">'+
+                    '<p>'+classImg[s].description+'</p>'+
+                    '</div>'+
+                  '</div>'
+                )
+            }
+             $("ul li").click(function(){
+               $(".home span").html("&and;")
+              $("ul").slideUp(1000)
+            })
+            var mySwiper = new Swiper('.swiper-container',{
+              loop: true,
+              direction: 'vertical',
+            });
+          }
+      })
+    })
+  },1800)
+  
+})
+</script>
+<script type="text/javascript">
+    $(function(){
+      $("#classify").click(function(){
+        if($("ul").css("display")=="none"){
+          $(".home span").html("&or;")
+        $("ul").slideDown(1000);
+        }else{
+        $(".home span").html("&and;")
+        $("ul").slideUp(1000);
+    }
+      })
+    })
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

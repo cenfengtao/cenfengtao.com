@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <ul class="vote-list">
+
+    </ul>
+</div>
+<script type="text/javascript" src="/Public/js/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $.get("/index.php/Vote/getVoteList", function (result) {
+            if (result.status == 0) {
+                return alert(result.message);
+            } else {
+                $.each(result.data,function (index,item) {
+                    $('.vote-list').append(
+                            "<li>"+item['title']+"</li>"
+                    );
+                })
+            }
+        }, 'json');
+    })
+</script>
+</body>
+</html>

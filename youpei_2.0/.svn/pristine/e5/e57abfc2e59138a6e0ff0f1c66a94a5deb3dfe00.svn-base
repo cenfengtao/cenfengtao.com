@@ -1,0 +1,99 @@
+.footer ul li a img{
+	margin-top: 0.52rem;
+}
+.footer ul li a span{
+	margin-left: 0.14rem;
+}
+body,html{
+	background: #f1f1f1;
+}
+.middle{
+	padding-top: 1.2rem;
+	padding-bottom: 1.6rem;
+}
+
+
+
+.vote-list{
+	overflow: hidden;
+	margin-right: -0.25rem;
+	margin-top: 0.14rem
+}
+.vote-list li{
+	width: 5.5rem;
+	background: white;
+	float: left;
+	margin-right: 0.25rem;
+	margin-bottom: 0.2rem;
+}
+.vote-list li .img{
+	position: relative;
+	margin: 0 0.2rem;
+}
+.vote-list li .img >img{
+	width: 5.11rem;
+	height: 3.22rem;
+	margin: 0.18rem auto;
+}
+
+.vote-list p{
+	font-size: 0.48rem;
+	line-height: 0.72rem;
+	margin-left: 0.6rem;
+}
+.vote-list p span{
+	font-size: 0.48rem;
+}
+.vote-list .name span{
+	color: #386998;
+}
+.vote-list .text{
+	width: 5.14rem;
+	margin: 0.2rem auto 0.6rem;
+	overflow: hidden;
+	border-top: 0.01rem solid #696969;
+	padding-top: 0.4rem;
+}
+.vote-list .text span{
+	font-size: 0.42rem;
+	float: left;
+	margin-top: 0.03rem;
+}
+.vote-list .text span strong{
+	color: #386998;
+	font-size: 0.45rem;
+}
+.vote-list .text a{
+	color: white;
+	font-size: 0.45rem;
+	width: 2.24rem;
+	text-align: center;
+	height: 0.71rem;
+	line-height: 0.71rem;
+	float: right;
+	display: inline-block;
+	background: #db6066;
+	border-radius: 0.1rem;
+	-webkit-border-radius:0.1rem;
+	margin-right: 0.1rem;
+	font-weight: bold;
+}
+
+.play{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+}
+.play img{
+	height: 2.03rem;
+	width: 2.03rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="app-mobile-web-app-capable" content="yes">   
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/swiper.min.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/orgIndex.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>优培圈</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle"> 
+        	<section class="org">
+             <div class="left">
+                <span class="logo">
+                    <img src="../../../../Public/images/indexLogo.png" alt="">
+                </span>
+                <a href="javascript:void(0);" onclick="getIntroduce()">了解TA</a>
+                <span class="seen" onclick="followed()"><if condition="$isFollowed EQ 1">已关注<else/>关注
+                </if></span>
+                <p>关注可获取TA的动态</p>
+             </div> 
+             <div class="right">
+                 <ul>
+                    <li>
+                         <span>教学环境</span>
+                         <span>
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                         </span>
+                    </li>
+                    <li>
+                         <span>教学质量</span>
+                         <span>
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                         </span>
+                    </li>
+                    <li>
+                         <span>教学信用</span>
+                         <span>
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                            <img src="../../../../Public/images/star-full.png" alt="">
+                         </span>
+                    </li>
+                 </ul>
+             </div>  
+            </section>
+             <section class="lunbo">
+                <section class="banner">
+                    <div class="bd swiper-container">
+                        <ul class="swiper-wrapper lunboList">
+                            <li class="swiper-slide"><a href="javascript:void(0);"><img src="../../../../Public/images/vote.jpg" alt=""></a></li>
+                            <li class="swiper-slide"><a href="javascript:void(0);"><img src="../../../../Public/images/vote.jpg" alt=""></a></li>
+                            <li class="swiper-slide"><a href="javascript:void(0);"><img src="../../../../Public/images/vote.jpg" alt=""></a></li>
+                        </ul>
+                         <div class="arrow-left"></div>
+    					<div class="arrow-right"></div>
+                    </div>
+                </section>
+            </section> 
+            <section class="couponButton">
+                <span onclick="getOffer()">领取优惠卷</span>
+            </section>
+            <section class="content">
+                 <section class="course">
+                    <ul class="courseContent">
+                        <li>
+                            <div class="text">
+                                <h3>优培钢琴48课时</h3>
+                                <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                <p class="originalPrice">原价：2288元/人</p>
+                                <p class="try">
+                                    <a href="###">下单/续费</a>
+                                    <a href="###">预约试听</a>
+                                </p>
+                            </div>
+                            <div class="img">
+                                <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                <div class="type">
+                                    <span>48课时</span>
+                                    <span>名师</span>
+                                    <span>气质</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text">
+                                <h3>优培钢琴48课时</h3>
+                                <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                <p class="originalPrice">原价：2288元/人</p>
+                                <p class="try">
+                                    <a href="###">下单/续费</a>
+                                    <a href="###">预约试听</a>
+                                </p>
+                            </div>
+                            <div class="img">
+                                <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                <div class="type">
+                                    <span>48课时</span>
+                                    <span>名师</span>
+                                    <span>气质</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="activity">
+                    <ul>
+                        <li>
+                            <div class="img">
+                                <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                <div class="type">
+                                    <span>48课时</span>
+                                    <span>名师</span>
+                                    <span>气质</span>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3>周年庆活动@生日会</h3>
+                                <div class="work">
+                                    <p class="workNum">
+                                        <span>参与作品数 : <strong>11</strong></span>
+                                    </p>
+                                    <p class="heat">
+                                        <span>热度 : </span>
+                                        <img src="../../../../Public/images/star.png" alt="">
+                                        <img src="../../../../Public/images/star.png" alt="">
+                                    </p>
+                                </div>
+                                <div class="date">
+                                    <span>活动时间 : </span>
+                                    <span class="dateTime">2018/8/15</span>
+                                </div>
+                                <a href="javascript:void(0);">报名参加</a>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="video">
+                    <ul>
+                        <li>
+                            <div class="desc">
+                                <span>搞笑一刻</span>
+                            </div>
+                            <img src="../../../../Public/images/expert_details2.jpg" alt="">
+                            <img src="../../../../Public/images/play.png" alt="" class="playVideo">
+                        </li>
+                    </ul> 
+                </section>
+            </section>
+            <section class="tellBoxs">
+                <div class="tellContents">
+                    <div class="title">
+                        <img src="../../../../Public/images/orgCoupnIcon.png" alt="">
+                        <span>课程安排</span>
+                        <img src="../../../../Public/images/close.png" alt="" class="closeButton">
+                    </div>
+                    <div class="coupons">
+                        <ul>
+                            <li class="coupon">
+                                <div class="content ">
+                                    <div class="texts">
+                                        <span>￥<strong>1000</strong></span>
+                                        <div>
+                                            <span>优惠券<label>(满888元可用)</label></span>
+                                            <p>优培圈平台购买商品、课程使用。</p>
+                                        </div>
+                                    </div>
+                                    <div class="hr"></div>
+                                    <p>有效期2017年11月11日-2017年11月20日</p>
+                                </div>
+                                <span class="get red">立即<br/><label style="font-size: 0.6rem;">领取</label></span>
+                            </li>
+                            <li class="cash_coupon">
+                                <div class="content">
+                                    <div class="texts">
+                                        <span>￥<strong>1000</strong></span>
+                                        <div>
+                                            <span>代金券</span>
+                                            <p>优培圈平台购买商品、课程使用。</p>
+                                        </div>
+                                    </div>
+                                    <div class="hr"></div>
+                                    <p>有效期2017年11月11日-2017年11月20日</p>
+                                </div>
+                                <span class="get orange">立即<br/><label style="font-size: 0.6rem;">领取</label></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </article>
+        <footer class="footer" style="display: none;">
+            <!-- <div></div> -->
+            <ul class="icon">
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Organization/demo.html">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>TA首页</span>
+                    </a>
+                </li>
+                <li onclick="fullshot()">
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="javascript:void(0);">
+                        <img src="__PUBLIC__/images/orgFooterIcon2.png"/>
+                        <span>图解</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Association/index/current/3.html">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>群组</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Organization/activityList.html">
+                        <img src="__PUBLIC__/images/orgFooterIcon4.png"/>
+                        <span>最新活动</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloadered.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/font.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/home/swiper.min.js" ></script>
+        <script type="text/javascript">
+        $(function(){
+            // 延时加载底部导航
+            $(window).load(function (){
+                setTimeout(function () {
+                    $('.footer').show();
+                },2000)
+            });
+              // 底部导航选中状态
+            $(".footer ul li>img").css("display","none");
+            $(".footer ul li>img:eq(0)").css("display","block");
+            $(" .footer ul li").click(function(){
+                $(this).addClass('on').siblings().removeClass("on");
+                var index=$(this).index();
+                var liLen=$(".footer ul li").length;
+                for(var i=0;i<=liLen-1;i++){
+                    $(".footer ul li>img").eq(i).css("display","none");
+                }
+                $(this).find("img:eq(0)").css("display","block");
+            })
+            // 点击关闭优惠券弹框
+            $(".closeButton").click(function(){
+                $(".tellBoxs").hide();
+            })
+        })
+            var mySwiper = new Swiper('.swiper-container',{
+            	effect : 'coverflow',
+            	slidesPerView: 1,
+            	// centeredSlides: true,
+            	loop:true,
+            	nextButton: '.arrow-left',  
+            	prevButton: '.arrow-right',  
+            	observer:true,
+                // autoplay:100,
+                observeParents:true,
+                loopAdditionalSlides: 1,
+            	coverflow: {
+                    rotate: 0,
+                    stretch: 50,
+                    depth: 50,
+                    modifier: 3,
+                    slideShadows : false,
+                    
+                }
+            })
+            $.ajax({
+                type:"get",
+                url:"/index.php/Organization/demoAjax",
+                aynsc:true,
+                data:{},
+                dataType:"json",
+                success:function(data){
+                    if(data.status==1){
+                        $(".lunboList").append(
+                                 '<li class="swiper-slide"><a href="javascript:void(0);"><img src="../../../../Public/images/vote.jpg" alt=""></a></li>'
+                            )
+                        $(".course ul").append(
+                            '<li onclick="getProduct('+data[i].product.id+')">'+
+                                '<div class="text">'+
+                                    '<h3>优培钢琴48课时</h3>'+
+                                    '<span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>'+
+                                    '<p class="originalPrice">原价：2288元/人</p>'+
+                                    '<p class="try">'+
+                                        '<a href="javascript:void(0);" onclick="groupOrder(event,'+data[i].product.id+')">下单/续费</a>'+
+                                        '<a href="javascript:void(0);" onclick="appoint(event,'+data[i].product.id+')">预约试听</a>'+
+                                    '</p>'+
+                                '</div>'+
+                                '<div class="img">'+
+                                    '<img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">'+
+                                    '<div class="type">'+
+                                        '<span>48课时</span>'+
+                                        '<span>名师</span>'+
+                                        '<span>气质</span>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</li>'
+                        )
+                        $(".activity ul").append(
+                            '<li onclick="voteList('+proceedActivity[i].id+')">'+
+                                '<div class="img">'+
+                                    '<img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">'+
+                                    '<div class="type">'+
+                                        '<span>48课时</span>'+
+                                        '<span>名师</span>'+
+                                        '<span>气质</span>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="text">'+
+                                    '<h3>周年庆活动@生日会</h3>'+
+                                    '<div class="work">'+
+                                        '<p class="workNum">'+
+                                            '<span>参与作品数 : <strong>11</strong></span>'+
+                                        '</p>'+
+                                        '<p class="heat">'+
+                                            '<span>热度 : </span>'+
+                                            '<img src="../../../../Public/images/star.png" alt="">'+
+                                            '<img src="../../../../Public/images/star.png" alt="">'+
+                                        '</p>'+
+                                    '</div>'+
+                                    '<div class="date">'+
+                                        '<span>活动时间 : </span>'+
+                                        '<span class="dateTime">2018/8/15</span>'+
+                                    '</div>'+
+                                    '<a href="javascript:void(0);">报名参加</a>'+
+                                '</div>'+
+                            '</li>'
+                        )
+                        $(".video ul").append(
+                            '<li onclick="getArticle('+data[i].video.id+')">'+ 
+                                '<div class="desc">'+
+                                    '<span>搞笑一刻</span>'+
+                                '</div>'+
+                                '<img src="../../../../Public/images/expert_details2.jpg" alt="">'+
+                                '<img src="../../../../Public/images/play.png" alt="" class="playVideo">'+
+                            '</li>'
+                            
+                        )
+                        $(".coupons ul").append(
+                            '<li class="coupon">'+
+                                '<div class="content ">'+
+                                    '<div class="texts">'+
+                                        '<span>￥<strong>1000</strong></span>'+
+                                        '<div>'+
+                                            '<span>优惠券<label>(满888元可用)</label></span>'+
+                                            '<p>优培圈平台购买商品、课程使用。</p>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="hr"></div>'+
+                                    '<p>有效期2017年11月11日-2017年11月20日</p>'+
+                                '</div>'+
+                                '<span class="get red">立即<br/>领取</span>'+
+                            '</li>'+
+                            '<li class="cash_coupon">'+
+                                '<div class="content">'+
+                                    '<div class="texts">'+
+                                        '<span>￥<strong>1000</strong></span>'+
+                                        '<div>'+
+                                            '<span>代金券</span>'+
+                                            '<p>优培圈平台购买商品、课程使用。</p>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="hr"></div>'+
+                                    '<p>有效期2017年11月11日-2017年11月20日</p>'+
+                                '</div>'+
+                                '<span class="get orange">立即<br/>领取</span>'+
+                            '</li>'
+                        )
+                    }
+                }
+            })
+            function getOffer() {
+                $("#getOffer").removeAttr("onclick");
+                var url = "/index.php/Organization/getOfferList";
+                var id = getQueryString('id');
+                $.get(url, {id: id}, function (result) {
+                    if (result.status == 0) {
+                        return alert(result.message);
+                    }
+                    var offerList = result.data.offerList;
+                    $(".tellBoxs").fadeIn(1000);
+                    $.each(offerList, function (key, value) {
+                        var startYear=value.start_time.split(".")[0];
+                        var startMonth=value.start_time.split(".")[1];
+                        var startDay=value.start_time.split(".")[2];
+                        var endYear=value.end_time.split(".")[0];
+                        var endtMonth=value.end_time.split(".")[1];
+                        var endDay=value.end_time.split(".")[2];
+                        $(".coupons ul").append(
+                             '<li class="coupon" id="coupon-id-'+value.id+'" onclick="getCoupon('+value.id+')">'+
+                                '<div class="content">'+
+                                    '<div class="texts">'+
+                                        '<span>￥<strong>'+value.subtract.split(".")[0]+'</strong></span>'+
+                                        '<div>'+
+                                            '<span>优惠券<label>(满'+value.full.split(".")[0]+'元可用)</label></span>'+
+                                            '<p>优培圈平台购买商品、课程使用。</p>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="hr"></div>'+
+                                    '<p>有效期'+startYear+'年'+startMonth+'月'+startDay+'日-'+endYear+'年'+endtMonth+'月'+endDay+'日</p>'+
+                                '</div>'+
+                                '<span class="get red">立即<br/><i style="font-size: 0.6rem; font-style:normal;">领取</i></span>'+
+                            '</li>'
+                               );
+
+                        if(value.is_get == 1){
+                            $("#coupon-id-"+value.id).attr('onclick',"goshop()").find("i").text("使用");
+                        }
+                    });
+                    $("#getOffer").attr("onclick","getOffer()");
+                }, 'json');
+            }
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+            function getCoupon(id) {
+                var url = "/index.php/Organization/getCoupon";
+                $.get(url, {id:id}, function (result) {
+                    if(result.status == 0){
+                        layer.closeAll();
+                        layer.open({
+                            content: result.message
+                            ,skin: 'msg'
+                            ,time: 10 //2秒后自动关闭
+                        });
+                    }
+                    if(result.status == 1){
+                         $("#coupon-id-"+id).attr('onclick',"goshop()").find("i").text("使用");
+                    }
+                }, 'json')
+            }
+                 // 进入文章详情页
+            function getArticle(id) {
+                window.location.href = "/index.php/Article/getArticle?art_id=" + id;
+            }
+            // 进入商品详情
+            function groupOrder(event,id){
+                event.stopPropagation();
+                window.location.href = "/index.php/Product/productDetails?pro_id=" + id;
+            }
+            // 进入预约表
+            function appoint(event,id){
+                event.stopPropagation();
+                window.location.href = "/index.php/Product/getClassTable?pro_id=" + id;
+            }
+             function voteList(id){
+                window.location.href="/index.php/Vote/voteList.html?vote_id="+id;
+            }
+            //    获取url参数
+            function GetRequest() {
+                var url = location.search; //获取url中"?"符后的字串
+                var theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                    }
+                }
+                return theRequest;
+            }
+            var id=GetRequest().id;
+            function goshop(){
+                window.location.href="/index.php/Organization/demo.html?id="+id;
+            }
+            function followed() {
+                var url = "{:U('Organization/followed')}";
+                $.post(url, {id: id}, function (res) {
+                    if (res.status == 1) {
+                        alert('成功关注');
+                        $('.seen').text('已关注');
+                    } else if (res.status == 2) {
+                        alert('成功取消关注');
+                        $('.seen').text('关注');
+                    }
+                }, 'json')
+            }
+            function getIntroduce() {
+                window.location.href = "{:U('Organization/getOrganizationIntroduce')}?id=" + id;
+            }
+            function fullshot(){
+                window.location.href ="/index.php/Organization/fullshot.html?id="+id;
+            }
+        </script>
+	</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

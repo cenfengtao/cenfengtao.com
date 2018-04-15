@@ -1,0 +1,159 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+    #demo-form2 {
+        /*float:left;*/
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>添加公众号</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">公众号名称<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="wxname" required="required"
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">公众号原始id<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="wxid" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">微信号<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="weixin" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Token<span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="token" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">地区省</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="province" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">地区市</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="city" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">公众号邮箱</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="email" name="qq" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="x_title">
+                                    <h2>微信高级设置</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">AppId</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="appid" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">AppSecret</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="appsecret" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="x_title">
+                                    <h2>微信支付设置</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">商户号</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="partnerId" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">微信支付密钥</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="partnerKey" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <input type="hidden" name="is_wxpay" value="1" >
+                                <input type="hidden" name="interface" value="1" >
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {initialFrameWidth: 900, initialFrameHeight: 400, serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"});
+    });
+</script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("WxUser/addWxUser")}',
+        'success_url': '{:U("WxUser/index")}'
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+ $(".footer ul li>img").css("display","none");
+$(".footer ul li>img:eq(1)").css("display","block");
+$(" .footer ul li").click(function(){
+    $(this).addClass('on').siblings().removeClass("on");
+    var index=$(this).index();
+    var liLen=$(".footer ul li").length;
+    for(var i=0;i<=liLen-1;i++){
+        $(".footer ul li>img").eq(i).css("display","none");
+    }
+    $(this).find("img:eq(0)").css("display","block");
+})
+
+
+
+
+//    获取url参数
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+// function count(obj){
+//         var objType = typeof obj;
+//         if(objType == "string"){
+//             return obj.length;
+//         }else if(objType == "object"){
+//             var objLen = 0;
+//             for(var i in obj){
+//                 objLen++;
+//             }
+//             return objLen;
+//         }
+//         return false;
+//     }
+// var vote_id=GetRequest().vote_id;
+    $.ajax({
+        type:"post",
+        url:"/index.php/Vote/ajaxuserVote",
+        async: true,
+        dataType:"json",
+        data:{
+        },
+        success:function(data){
+            if(data.status==1){
+                var data=data.data;
+                var dataLength=data.length;
+                for(var i=0; i<dataLength; i++){
+                    if(data[i].upload_type==1){
+                        var chtml='<li onclick="toVote('+data[i].id+','+data[i].vote_id+')">'+
+                                '<div class="img">'+
+                                     '<img src="'+data[i].path+'" alt="">'+
+                                '</div>'+
+                                '<p class="name">名称：<span>'+data[i].title+'</span></p>'+
+                                '<p>作者：<span>'+data[i].username+'</span></p>'+
+                                '<div class="text">'+
+                                    '<span class="getNum">共获<strong>'+data[i].vote_count+'</strong>票</span>'+
+                                    '<span class="vote">为TA投票</span>'+
+                                '</div>'+
+                            '</li>'
+                             if($('.voteLeft').height() > $('.voteRight').height()){
+                                    $('.voteRight').append(chtml);
+                                }else{
+                                    $('.voteLeft').append(chtml);
+                                }
+                    }
+                    if(data[i].upload_type==2){
+                        var chtm='<li onclick="toVote('+data[i].id+','+data[i].vote_id+')">'+
+                                '<div class="img">'+
+                                     '<video src="'+data[i].path+'" autoplay></video>'+
+                                     // '<div class="play">'+
+                                     //    '<img src="../../../../Public/images/play.png" alt="">'+
+                                     // '</div>'+
+                                '</div>'+
+                                '<p class="name">名称：<span>'+data[i].title+'</span></p>'+
+                                '<p>作者：<span>'+data[i].username+'</span></p>'+
+                                '<div class="text">'+
+                                    '<span class="getNum">共获<strong>'+data[i].vote_count+'</strong>票</span>'+
+                                    '<span class="vote">为TA投票</span>'+
+                                '</div>'+
+                            '</li>'
+                            if($('.voteLeft').height() > $('.voteRight').height()){
+                                    $('.voteRight').append(chtm);
+                                }else{
+                                    $('.voteLeft').append(chtm);
+                                }
+                    }
+                    if(data[i].voteStatus==1){
+                        document.getElementsByClassName("vote")[i].style.display="none";
+                        document.getElementsByClassName("getNum")[i].style.float="none";
+                        document.getElementsByClassName("text")[i].style.textAlign="center";
+                    }
+                }
+            }
+            
+        }
+    })
+    $.ajax({
+        type:"post",
+        url:"/index.php/Vote/lookVoteCount",
+        async: true,
+        dataType:"json",
+        data:{
+        },
+        success:function(data){
+            $(".num").html(data.data.count)
+        }
+    })
+function toVote(id,vote_id){
+        window.location.href="/index.php/Vote/voteDetail.html?id="+id+"&vote_id="+vote_id;
+    }

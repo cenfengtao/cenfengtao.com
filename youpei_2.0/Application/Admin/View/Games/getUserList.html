@@ -1,0 +1,158 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link href="__PUBLIC__/css/admin/page.css" rel="stylesheet">
+<style>
+    #datatable_paginate{display: none;}
+    #datatable_info{display:none;}
+    #datatable_length{display:none;}
+    .pagination ul a{color:#008DE7}
+    .dataTables_filter{display: none;}
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>中奖用户列表</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                         aria-labelledby="home-tab">
+                                        <div class="table-responsive">
+                                            <table id="table" class="table table-striped jambo_table table-bordered">
+                                                <thead>
+                                                <tr class="headings">
+                                                    <th class="column-title">昵称</th>
+                                                    <th class="column-title">时间</th>
+                                                    <th class="column-title">奖品</th>
+                                                    <th class="column-title">联系人</th>
+                                                    <th class="column-title">手机</th>
+                                                    <th class="column-title">地址</th>
+                                                    <th class="column-title">状态</th>
+                                                    <th class="column-title no-link last"><span class="nobr">操作</span></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <foreach name="list" item="val">
+                                                    <tr class="even pointer">
+                                                        <td>{$val['nickname']}</td>
+                                                        <td>{$val['create_time']|date="y-m-d H:i",###}</td>
+                                                        <td>{$val['title']}</td>
+                                                        <td>{$val['username']}</td>
+                                                        <td>{$val['mobile']}</td>
+                                                        <td>{$val['address']}</td>
+                                                        <td>{$val['is_exchange']== 1?'未兑换':'已兑换'}</td>
+                                                        <td class="last">
+                                                            <if condition="$val.status eq 4">
+                                                                <a href="javascript:updateExpress({$val['id']})" class="btn btn-info btn-xs btn_access" access_id="302">修改快递</a>
+                                                            </if>
+                                                        </td>
+                                                    </tr>
+                                                </foreach>
+                                                </tbody>
+                                            </table>
+                                            <div class="old pagination pagination-small">{$page}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="__PUBLIC__/vendors/jszip/dist/jszip.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="__PUBLIC__/vendors/pdfmake/build/vfs_fonts.js"></script>
+<!-- self -->
+<script>
+    var SCOPE = {
+        'delete_url': '{:U("Vote/delete")}'
+    };
+    function updateExpress(recordId) {
+        layer.open({
+            type: 1,
+            title: '发送快递',
+            skin: 'layui-layer-rim',
+            area: ['370px', '240px'], //宽高
+            content: "<form style='margin-top:20px;' id='demo-form2' data-parsley-validate class='form-horizontal form-label-left form-youpei'><div class='form-group'>" +
+            "<label class='control-label col-md-3 col-sm-3 col-xs-12'> 发送快递 </label>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12'>" +
+            "<input type='hidden' name='recordId' value='" + recordId + "'>" +
+            "<input type='text' name='express' class='form-control col-md-7 col-xs-12'>" +
+            "</div></div>" +
+            "<div class='form-group'>" +
+            "<label class='control-label col-md-3 col-sm-3 col-xs-12'> 快递单号 </label>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12'>" +
+            "<input type='text' name='express_number' class='form-control col-md-7 col-xs-12'>" +
+            "</div></div>" +
+            "<div class='form-group'>" +
+            "<div class='col-md-6 col-sm-6 col-xs-12 col-md-offset-3'>" +
+            "<button class='btn btn-primary' type='reset'>重置</button>" +
+            "<button type='button'  class='btn btn-success' onclick='submitExpress()'>提交</button>" +
+            "</div></div></form>"
+        });
+    }
+
+
+    function submitExpress() {
+        var url = "{:U('Games/updateExpress')}";
+        var gamesId = "{$games_id}";
+        var recordId = $("input[name='recordId']").val();
+        var express = $("input[name='express']").val();
+        var express_number = $("input[name='express_number']").val();
+        $.post(url, {recordId: recordId, express: express, express_number: express_number}, function (result) {
+            if (result.status == 1) {
+                return dialog.success(result.message, "/admin.php/Games/getUserList?games_id="+gamesId);
+            } else {
+                return dialog.error(result.message);
+            }
+        }, 'json');
+    }
+
+</script>
+</body>
+</html>

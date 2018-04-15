@@ -1,0 +1,17 @@
+ .list .empty{
+        text-align: center;
+        line-height: 2.3rem;
+    }
+    .list-card-timeline{
+        background: #f1f1f1;
+        padding-top: 5px;
+        border-bottom: none!important;
+        border-top: none!
+    }
+    .ty-ios .ty-cat-tags, .ty-ios .act-tag, .ty-ios .tags-wrap-container{
+        /*margin-bottom: 5px;*/
+        box-shadow: none!important;
+    }
+/*    .list-cat-tags{
+        border-bottom: none!important;
+    }*/

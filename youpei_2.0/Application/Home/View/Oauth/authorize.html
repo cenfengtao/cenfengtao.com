@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <title>微信授权</title>
+    <meta charset="utf-8"/>
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="pragram" content="no-cache"/>
+    <script src="__PUBLIC__/Slide/js/zepto.min.js"></script>
+    <style>
+        <
+        literal >
+        .clr:after {
+            clear: both;
+            content: ".";
+            display: block;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        * {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            vertical-align: top;
+            text-decoration: none;
+            border: none;
+            word-wrap: break-word;
+        }
+
+        a {
+            blr: expression(this.onFocus=this.blur()); /* for IE */
+            text-decoration: none;
+        }
+
+        ul li {
+            vertical-align: bottom;
+            list-style: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            letter-spacing: 1px;
+            /*box-shadow: 0 0 160px 4px #5C99E7;*/
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+            font: 12px/26px "微软雅黑";
+
+        }
+
+        .canvas {
+            width: 40%;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 15%;
+        }
+
+        .main {
+            padding-top: 10%;
+            width: 100%;
+        }
+
+        .logo {
+            display: block;
+            width: 86%;
+            margin: 0 auto;
+            margin-top: 8em;
+        }
+
+        .children {
+            margin:0 auto;
+            width:75%;
+            display: block;
+        }
+
+        .detail {
+            width: 90%;
+            text-align: center;
+            margin: 0 auto;
+            line-height: 35px;
+            padding-top: 7%;
+            font-size: 3em;
+            margin-top: 5em;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            background-size: 100% 100%;
+        }
+
+        @keyframes myfirst {
+            0% {
+                transform: rotate(0deg);
+            }
+            20% {
+                transform: rotate(72deg);
+            }
+            40% {
+                transform: rotate(144deg);
+            }
+            60% {
+                transform: rotate(216deg);
+            }
+            80% {
+                transform: rotate(288deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes myfirst /* Firefox */
+        {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            20% {
+                -moz-transform: rotate(72deg);
+            }
+            40% {
+                -moz-transform: rotate(144deg);
+            }
+            60% {
+                -moz-transform: rotate(216deg);
+            }
+            80% {
+                -moz-transform: rotate(288deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes myfirst /* Safari 和 Chrome */
+        {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            20% {
+                -webkit-transform: rotate(72deg);
+            }
+            40% {
+                -webkit-transform: rotate(144deg);
+            }
+            60% {
+                -webkit-transform: rotate(216deg);
+            }
+            80% {
+                -webkit-transform: rotate(288deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes myfirst /* Opera */
+        {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            20% {
+                -o-transform: rotate(72deg);
+            }
+            40% {
+                -o-transform: rotate(144deg);
+            }
+            60% {
+                -o-transform: rotate(216deg);
+            }
+            80% {
+                -o-transform: rotate(288deg);
+            }
+            100% {
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        .one {
+            width: 80%;
+            height: 80%;
+            position: absolute;
+            opactiy: 0.4;
+            left: 10%;
+            top: 10%;
+            animation: myfirst 7s linear 0.2s infinite;
+            /* Firefox: */
+            -moz-animation: myfirst 7s linear 0.2s infinite;
+            /* Safari 和 Chrome: */
+            -webkit-animation: myfirst 7s linear 0.2s infinite;
+            /* Opera: */
+            -o-animation: myfirst 7s linear 0.2s infinite;
+        }
+
+        .con {
+            position: absolute;
+            top: 45%;
+            left: 0%;
+            font-size: 3em;
+            width: 100%;
+            text-align: center;
+        }
+
+        .chk_con {
+            width: 90%;
+            text-align: center;
+            margin: 0 auto;
+            line-height: 35px;
+            padding-top: 9%;
+            font-size: 3em;
+            display: block;
+        }
+
+        h1 {
+            padding-top: 1em;
+            font-size: 7em;
+            text-align: center;
+        }
+
+        <
+        /
+        literal >
+    </style>
+</head>
+<!--移动端兼容适配 end -->
+<body>
+<div class="container">
+    <div class="main">
+        <div><img class="logo" src="__PUBLIC__/api/logo.jpg"></div>
+        <div><img class="children" src="__PUBLIC__/api/children.png" alt=""></div>
+        <div class="detail">该网页由优培教育科技有限责任公司开发</div>
+        <div class="form clr">
+            <form action="#" id="form">
+                <div class="chk_box">
+                </div>
+                <label class="chk_con">获得你的公开信息(昵称、头像等)</label>
+            </form>
+        </div>
+    </div>
+    <div class="canvas">
+        <div class="one" id="one"></div>
+        <div class="con">正在授权中</div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var w = $(".canvas").width();
+        var h = w;
+        var y = $(".one").width() / 2;
+        $(".canvas").css({"height": h + "px"});
+        for (var i = 0; i < 30; i++) {
+            var new_div = $('<div class="list"></div>');
+            new_div.css({
+                "width": "8px",
+                "height": "8px",
+                "background": "#ffffff",
+                "position": "absolute",
+                "top": "0px",
+                "left": y + "px",
+                "transform": "rotate(" + i * 12 + "deg)",
+                "transform-origin": "0px " + y + "px",
+                "-webkit-transform": "rotate(" + i * 12 + "deg)",
+                "-webkit-transform-origin": "0px " + y + "px"
+            });
+            new_div.appendTo(".one");
+        }
+        $.get('{$access_token_url}', function (res) {
+            var json = JSON.parse(res);
+            if (json.status == 1) {
+                window.location.href = json.url;
+            } else if (json.status == 0) {
+                if (json.errcode == 404) {
+                    window.location.href = json.url;
+                } else {
+                    $('#content').html('网页授权失败：原因如下<br/>' + json.message);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

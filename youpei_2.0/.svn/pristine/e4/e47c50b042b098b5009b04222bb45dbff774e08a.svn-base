@@ -1,0 +1,230 @@
+.list-card{
+        background: #e3e6ea;
+    }
+	.list-card .thumb {
+	    height: 290px!important;
+	    padding-bottom: 0%!important;
+        position: relative;
+	}
+	.list-card .triangle {
+	    margin: 0!important;
+		position: absolute;
+		right: -51px;
+		top: 9px;
+	}
+	.list-card .desc {
+	    position: initial!important;
+	}
+    .ty-tools-search .input-jump{
+        color: #d5cecf;
+        font-size: 0.7rem;
+    }
+    .bor{
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+    .loc{
+        color: #757575!important;
+        font-size: 0.85rem!important;
+        font-weight:bold ;
+    }
+    .iconfont, [data-icon]:before{
+        font-size:0.85rem!important;
+    }
+    .swiper-slide .rig .labels span{
+        width: auto;
+    }
+    .gps{
+        font-size: 1rem;
+    }
+  /*  .list-card .item{
+        border-bottom: 3px solid #f8d0d2;
+    }
+    .list-card .item:first-child{
+        border-top: 3px solid #f8d0d2;
+    }*/
+    .list-card .item{
+        margin-bottom: 12px;
+    }
+    .change-headernav ul li {
+        width: 20%;
+    }
+    .classes{
+        white-space: nowrap;
+        overflow-x:scroll;
+    }
+    .list li .status-view span{
+        text-align: left!important;
+        padding-left: 1.5rem;
+    }
+    .list-card .desc{
+        border:none!important;
+    }
+    .ty-cat-tags{
+        border-bottom: none!important;
+    }
+
+
+     /*轮播 start*/
+    .banner {
+        clear: both;
+        height: 33vw;
+        overflow: hidden;
+        position: relative;
+        margin-top: 2.5rem;
+    }
+
+    .banner .bd {
+        height: 33vw;
+        overflow: hidden;
+    }
+
+    .banner .bd ul {
+        overflow: hidden;
+    }
+
+    .banner .bd li {
+        height: 33vw;
+        overflow: hidden;
+        float: left;
+        width: 100%;
+    }
+
+    .banner .bd li img {
+        height: 33vw;
+        width: 100%;
+        display: block;
+    }
+
+    .banner .hd {
+        position: absolute;
+        bottom: 0.3rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .banner .hd ul {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+    }
+
+    .banner .hd ul li {
+        width: .5rem;
+        height: .5rem;
+        text-align: center;
+        display: inline-block;
+        line-height: 24px;
+        border-radius: 12px;
+        background-color: #fff;
+        color: white;
+        cursor: pointer;
+        margin: 0 .25rem;
+        vertical-align: middle
+    }
+
+    .banner .hd ul li.on {
+        background: #ffce55;
+        font-weight: bold;
+        color: white;;
+    }
+    .nowPrice{
+        color: #386998;
+        font-size: 1rem;
+        font-weight: bold;
+        position: absolute;
+        /*left: 10rem;*/
+        right: 0;
+        bottom: 0;
+    }
+    .originalPrice{
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: bold;
+        position: absolute;
+        /*left: 10rem;*/
+        right: 0;
+        text-decoration: line-through;
+        bottom: 0rem;
+        color: white;
+        background: rgba(0,0,0,0.2);
+    }
+    .list-card .price{
+        float: none!important;
+        font-size: 1.5rem!important;
+    }
+    .list-card .price:before {
+        content: none!important;
+    }
+/*    .title{
+        color: #2ab4e2!important;
+    }*/
+    .current strong{
+        color: #386998;
+    }
+    .current b{
+        font-size: 45px;
+    }
+    .current .start{
+        font-size: 30px;
+        color: gray;
+    }
+    .bor:before{
+        background: #386998!important;
+    }
+    .device{
+        border-radius: 10px;
+        -webkit-border-radius:10px;
+    }
+ .bargain {
+    display: block;
+    line-height: 2rem;
+    font-size: 1.2rem;
+    background-color: #ffe400;
+    color: #ed535d;
+    padding-left: 0.15rem;
+    padding-right: 1.9rem;
+    font-weight: bold;
+    position: absolute;
+    /*right: 0;*/
+    left: 0;
+    bottom: 0;
+    height: 2rem;
+}
+.bargain:after {
+    content: "";
+    width: 0;
+    border: 1.5rem solid #ffe400;
+    /*border-right: 1.5rem solid transparent;*/
+    border-bottom: none;
+    border-left: none;
+    position: absolute;
+    left: 6rem;
+    top: 8px;
+    transform: rotate(-135deg);
+}
+.list-card .talent{
+    top: 0.3rem!important;
+    right: inherit!important;
+    width: 3rem!important;
+    border-radius: 0.5rem!important;
+}
+.list-card .talent .avatar{
+    width: 3rem!important;
+    border-radius: 0.5rem!important;
+}
+.list-card .talent .avatar img{
+    border-radius: 0.5rem!important;
+}
+.swiper-slide .rig .labels span{
+    margin-right: 2%!important;
+}
+
+
+.change-headernav ul li{
+    margin-top: 0.3rem!important;
+}
+.change-headernav ul li .ico{
+    width: 2.4rem!important;
+    height: 2.4rem!important;
+}

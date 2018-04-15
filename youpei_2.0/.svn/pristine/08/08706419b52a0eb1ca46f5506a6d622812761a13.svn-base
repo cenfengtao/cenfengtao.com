@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- iOS webapp s-->
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="keywords" content="优培圈" />
+        <meta name="description" content="" />
+        <link rel="apple-touch-icon-precomposed" href="styles/app_icon.png">
+        <title>优培圈</title>
+        <!-- 向下滑动加载的图片样式，需放在外链的第一位 -->
+        <link rel="stylesheet" href="http://www.youpei-exc.com/Public/Home/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/swiper.min.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/index/member/css/dialog.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/personalDemo.css"/>
+        <!-- 判断是IE时执行 -->
+        <script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>    
+    </head>
+    <body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+            <a href="javascript:history.back()" class="back">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>个人中心</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="head">
+                <div class="headLeft">
+                    <img src="../../../../Public/images/head.png" alt="">
+                    <span>优小培</span>
+                </div>
+                <div class="headRight">
+                    <img src="../../../../Public/images/ypq_qrcode.jpg" alt="">
+                    <span>优培通行码</span>
+                </div>
+                <div class="ty-qrcode-area" style="display: none"><span class="qrcode"><img src="/Public/images/618348288222690487.jpg" alt="" width="200" height="200">请长按二维码关注</span></div>
+            </section>
+            <section class="integral">
+                <div class="title">
+                    <img src="../../../../Public/images/integral.png" alt="">
+                    <span>我的积分</span>
+                    <a href="/index.php/MemberIntegral/integrallist.html">详情 ></a>
+                </div>
+                <div class="integralText">
+                    <ul>
+                        <li>已获得积分</li>
+                        <li>已使用积分</li>
+                        <li>剩余积分</li>
+                    </ul>
+                </div>
+                <div class="integralNum">
+                    <span class="getIntegral">222</span>
+                    <span style="font-family: '宋体';margin: 0 0.5rem;">-</span>
+                    <span class="useIntegral">111</span>
+                    <span style="font-family: '宋体';margin: 0 0.5rem;">=</span>
+                    <span class="leaveIntegral">111</span>
+                </div>
+                <div class="integralUse">
+                    <a href="javascript:void(0);" onclick="red('{$user.id}')">积分兑换红包！</a>
+                    <a href="javascript:void(0);">获取更多积分？</a>
+                </div>
+            </section>
+            <section class="trends">
+                <div class="title">
+                    <img src="../../../../Public/images/trends.png" alt="">
+                    <span>我的动态</span>
+                    <a href="javascript:void(0);">更多 ></a>
+                </div>
+                <div class="trendsContent">
+                    <ul>
+                        <li><a class="" href="/index.php/Vote/userWorks.html"><img src="/Public/images/myVote.png" alt=""></a></li>
+                        <li><a class="" href="javascript:void(0);" onclick="hint()"><img src="/Public/images/activity2.jpg" alt=""></a></li>
+                        <li><a class="" href="javascript:void(0);" onclick="hint()"><img src="/Public/images/myApoint.png" alt=""></a></li>
+                        <li><a class="" href="javascript:void(0);" onclick="hint()"><img src="/Public/images/myShop.png" alt=""></a></li>
+                    </ul>
+<!--                     <ul>
+                        <li class="on"><a href="javascript:void(0);">比赛</a></li>
+                        <li><a href="javascript:void(0);">砍价</a></li>
+                        <li><a href="javascript:void(0);">抢购</a></li>
+                        <li><a href="javascript:void(0);">预约</a></li>
+                    </ul> -->
+                </div>
+            </section>
+            <section class="coupons">
+                <div class="title">
+                    <img src="../../../../Public/images/coupons.png" alt="">
+                    <span>我的电子券</span>
+                    <a href="javascript:void(0);">更多 ></a>
+                </div>
+                <ul>
+                    <li class="cash_coupon">
+                        <div class="content">
+                            <div class="texts">
+                                <span>￥<strong>50</strong></span>
+                                <div>
+                                    <span>代金券</span>
+                                    <p>优培圈平台购买商品、课程使用。</p>
+                                </div>
+                            </div>
+                            <div class="hr"></div>
+                            <p>有效期2017年11月20日-2017年12月31日</p>
+                            <div class="img">
+                                <img src="../../../../Public/images/imgTap.png" alt="" class="imgTap">
+                                <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="coupon">
+                        <div class="content ">
+                            <div class="texts">
+                                <span>￥<strong>10</strong></span>
+                                <div>
+                                    <span>优惠券</span>
+                                    <p>满300元使用</p>
+                                    <p>优培圈平台购买商品、课程使用。</p>
+                                </div>
+                            </div>
+                            <div class="hr"></div>
+                            <p>有效期2017年11月20日-2017年12月31日</p>
+                        </div>
+                        <div class="img">
+                            <img src="../../../../Public/images/imgTap.png" alt="" class="imgTap">
+                            <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="myTasks">
+                <div class="title">
+                    <img src="../../../../Public/images/myTasks.png" alt="">
+                    <span>我的任务</span>
+                    <a href="javascript:void(0);">更多 ></a>
+                </div>
+                <div class="situation">未完成任务（4），<span>完成可领20积分！</span></div>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);" onclick="signin()">
+                            <span>签到</span>
+                            <span>5分</span>
+                        </a>
+                        <i></i>                       
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="today_share()">
+                             <span>转发文章</span>
+                            <span>5分</span>
+                        </a>
+                        <i></i>  
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="today_share()">
+                             <span>发表评论</span>
+                            <span>5分</span>
+                        </a>
+                        <i></i>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" >
+                             <span>发展学友</span>
+                            <span>5分</span>
+                        </a>
+                        <i></i>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="today_share()">
+                             <span>阅读3篇未阅</br>读过的文章</span>
+                            <span>5分</span>
+                        </a>
+                        <i></i>
+                    </li>
+                </ul>
+            </section>
+            <section class="myPrice">
+                <div class="title">
+                    <img src="../../../../Public/images/myPrice.png" alt="">
+                    <span>我的钱包</span>
+                    <a href="javascript:void(0);">更多 ></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="../../../../Public/images/1496305730.png" alt="">
+                            <span>充值</span>
+                        </a>                       
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="../../../../Public/images/1496305777.png" alt="">
+                            <span>提现</span>
+                            <label>余额：300元</label>
+                        </a>    
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="../../../../Public/images/1496305783.png" alt="">
+                            <span>历史记录</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="myOrder">
+                <div class="title">
+                    <img src="" alt="">
+                    <span>我的订单</span>
+                    <a href="javascript:void(0);">更多 ></a>
+                </div>
+                    <div class="panel">
+                        <a href="/index.php/Orders/queryPayByPage.html"><span class="btn" data-icon="Ĥ"><label>待付款<br>(0)个</label></span></a>
+                        <a href="/index.php/Orders/queryDeliveryByPage.html"><span class="btn" data-icon="Ģ"><label>待收货</label></span></a>
+                        <a href="/index.php/Orders/needCommentList.html"><span class="btn" data-icon="İ"><label>待评价</label></span></a>
+                        <a href="/index.php/Orders/queryCancelOrders.html"><span class="btn" data-icon="ɡ"><label>退换/售后</label></span></a>
+                    </div>
+            </section>
+            <section class="mine">
+                <div class="title">
+                    <img src="../../../../Public/images/mine.png" alt="">
+                    <span>我的优培</span>
+                    <a href="javascript:void(0);">更多 ></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="../../../../Public/images/personalIcon1.png" alt="">
+                            <span>足迹</span>
+                        </a>                       
+                    </li>
+                    <li>
+                        <a href="{:U('Collect/index')}">
+                            <img src="../../../../Public/images/personalIcon2.png" alt="">
+                            <span>收藏</span>
+                        </a>    
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="getGamesPrize()">
+                            <img src="../../../../Public/images/personalIcon3.png" alt="">
+                            <span>活动奖品</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('Message/index')}">
+                            <img src="../../../../Public/images/personalIcon4.png" alt="">
+                            <span>消息</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <img src="../../../../Public/images/personalIcon5.png" alt="">
+                            <span>个人资料</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="info">粤ICP备17008351号</section>
+        </article>
+        <footer class="footer">
+            <div></div>
+            <ul class="icon">
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Index/index.html">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Discovery/index',array('current'=>'2'))}">
+                        <img src="__PUBLIC__/image/footer_icon2.png"/>
+                        <span>发现</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Association/index/current/3.html">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>社群</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Personal/index',array('current'=>'4'))}">
+                        <img src="__PUBLIC__/image/footer_icon4.png"/>
+                        <span>个人中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/jquery.touchSwipe.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/font.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/home/swiper.min.js" ></script>
+        <script src="__PUBLIC__/js/home/demo.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/layer/layer.js"></script>
+        <script type="text/javascript">
+        // 关注优培圈的显示与隐藏
+         $('.headRight').click(function(){
+           $(".ty-qrcode-area").css("display","block");
+         
+         })
+        $(".ty-qrcode-area").bind('click',function(){
+            $('.ty-qrcode-area').css('display','none');
+        });
+        // 积分兑换红包
+         function red(id) {
+        layer.open({
+            type: 2,
+            title: '积分兑红包',
+            shadeClose: false,
+            shade: 0.8,
+            area: ['80%', '60%'],
+            content: ["{:U('Personal/red',array('id'=>" + id + "))}", 'no'] //iframe的url
+        });
+    }
+        // 活动奖品
+        function getGamesPrize() {
+            window.location.href = "{:U('Games/prize')}";
+        }
+        // 签到任务
+         function signin(){
+            window.location.href = "{:U('Sign/index')}";
+        }
+        // 文章任务
+        function today_share() {
+            window.location.href = "{:U('Article/index')}";
+        }
+        function news() {
+            alert('暂时没有最新消息！');
+        }
+        </script>
+    </body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

@@ -1,0 +1,388 @@
+<include file="Common:header"/>
+<link href="__PUBLIC__/Home/css/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/faxian.css">
+<style>
+    .selling .price{
+        line-height: 2rem;
+    }
+    .map{
+        display: inline-block;
+        width: 100%;
+        height:13rem;
+        z-index: 10000;
+        position: absolute;
+    }
+</style>
+<script src="__PUBLIC__/Home/js/common.js"></script>
+<div id="page_activity" class="kap-page kap-page-current" title="{$title}">
+     <div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+        <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+    </div>
+</div>
+    <div class="ty-page" data-ty-current="12" data-ty-total="115" data-filter-tags="" data-filter-type="6"
+         data-filter-age="0" data-filter-days="0" data-filter-status="0" data-filter-beans="0" data-filter-keyword=""
+         data-sort-key="0">
+
+        <div class="headernav headernav2 change-headernav clr toptitle finder">
+            <ul class="list-tags clr">
+                    <li>
+                        <a href="{:U('Article/index',array('cate_id'=>1))}" >
+                            <div class="ico"><img src="__PUBLIC__/images/Finder_1.png" alt="">
+                            </div>
+                            <div class="fz16">
+                                <span>育儿</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('Article/index',array('cate_id'=>9))}">
+                            <div class="ico"><img src="__PUBLIC__/images/Finder_2.png" alt="">
+                            </div>
+                            <div class="fz16">
+                                <span>福利</span>
+                            </div>
+                        </a>
+                    </li>
+                <li>
+                    <a href="{:U('Boutique/index')}">
+                        <div class="ico"><img src="__PUBLIC__/images/Finder_3.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>精品</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Map/index')}" onclick="">
+                        <div class="ico"><img src="__PUBLIC__/images/Finder_5.png" alt="">
+                        </div>
+                        <div class="fz16">
+                            <span>地图</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="hotel-cat"></div>
+        <a href="{:U('Map/index')}" class="map" ></a>
+        <iframe src="{:U('Map/index')}" style="width:100%; height:13rem;z-index: 10" frameborder="0" onload="hideHead(this)"></iframe>
+        <ul class="list-card list-height">
+            <li class="item" data-ty-target="#detail_activity" data-ty-seriesid="8798">
+                <div class="device">
+                    <a class="arrow-left" href="#"></a>
+                    <a class="arrow-right" href="#"></a>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <volist name="helpChildList" id="val">
+                            <div class="swiper-slide" onclick="getArticle({$val['id']})">
+                                <img src="{$val['image']}">
+                                <div class="triangle left" style=""><p class="text" style="">热帖</p></div>
+                                <div class="black">{$val.title|mb_substr=###,0,17,'utf-8'}</div>
+                            </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+                <!--<div class="mainvisual">
+                    &lt;!&ndash;<div class="flickingcon">&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;<a href="#"></a>&ndash;&gt;
+                    &lt;!&ndash;</div>&ndash;&gt;
+                    <div class="mainimage">
+                        <ul>
+                            <volist name="helpChildList" id="val">
+                                <li onclick="getArticle({$val['id']})">
+                                    <span class="thumb"
+                                          style="background-image:url({$val['image']}); background-size:cover"></span>
+                                    <div class="triangle left" style=""><p class="text" style="">热帖</p></div>
+                                    <div class="desc row">
+                                        <label class="size red" style="color:#ffffff;text-align: center;display: block;line-height: 0.8rem;margin-left: -0.5rem;">{$val.title|mb_substr=###,0,17,'utf-8'}</label>
+                                        &lt;!&ndash;<div class="tags bp">&ndash;&gt;
+                                        &lt;!&ndash;<span class="tag red">自营11</span>&ndash;&gt;
+                                        &lt;!&ndash;<span class="tag">自营</span>&ndash;&gt;
+                                        &lt;!&ndash;</div>&ndash;&gt;
+                                    </div>
+                                </li>
+                            </volist>
+                        </ul>
+                        &lt;!&ndash;<span class="title">精选育儿文章</span>&ndash;&gt;
+                        <a href="javascript:;" id="btnprev"></a>
+                        <a href="javascript:;" id="btnnext"></a>
+                    </div>
+                </div>-->
+            </li>
+
+
+            <li class="item-more selected"> —— 精选福利 ——</li>
+
+            <li class="item" data-ty-target="#detail_activity" data-ty-seriesid="8798">
+                <div class="device">
+                    <a class="arrow-left1" href="#"></a>
+                    <a class="arrow-right1" href="#"></a>
+                    <div class="swiper-container1">
+                        <div class="swiper-wrapper">
+                            <volist name="parentList" id="val">
+                                <div class="swiper-slide" onclick="getArticle({$val['id']})">
+                                    <img src="{$val['image']}">
+                                    <div class="triangle left" style=""><p class="text" style="">热帖</p></div>
+                                    <div class="black">{$val.title|mb_substr=###,0,17,'utf-8'}</div>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <div class="pagination1"></div>
+                </div>
+            </li>
+            <li class="item mtop">
+            <a href="{:U('Lottery/index')}?token=g232238gc959">
+            <span class="thumb" style="background-image:url(/Public/images/1495531071.png); background-size:100% 100%"></span>
+            </a>
+            </li>
+            <li class="item-more selected"> —— 热销商品 ——</li>
+            <div style="" class="goods">
+                <volist name="saleProduct" id="val">
+                    <li class="item selling" onclick="getProduct({$val['id']})">
+                        <img class="thumb" src="{$val['pic_url']}" style="width:18vh;height:18vh;">
+                        <div class="triangle"><p class="text" style="">折扣 </p><i class="fireico">&nbsp;</i></div>
+                        <span class="title"><nobr>{$val['title']}</nobr></span>
+                        <span class="abstract">简介：{$val['f_title']}</span>
+                        <span class="discounts">优惠价：<span class="price">{$val['price']}</span></span>
+                    </li>
+                </volist>
+            </div>
+            <div class="goods goodss">
+
+            </div>
+            <!--<li data-icon="Ĩ" class="item-more">-->
+                <!--点击载入更多-->
+            <!--</li>-->
+
+        </ul>
+    </div>
+    <include file="Common:menu"/>
+</div>
+
+</div>
+<script src="__PUBLIC__/Home/js/jquery.event.drag-1.5.min.js"></script>
+<script src="__PUBLIC__/Home/js/jquery.touchSlider.js"></script>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<script src="__PUBLIC__/Home/js/kap.js"></script>
+<script src="__PUBLIC__/Home/layer/layer.js"></script>
+<script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script>
+<script type="text/javascript">
+    var mySwiper = new Swiper('.swiper-container',{
+        pagination: '.pagination',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true
+    })
+    $('.arrow-left').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipeNext()
+    })
+
+    var mySwiper1 = new Swiper('.swiper-container1',{
+        pagination: '.pagination1',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true
+    })
+    $('.arrow-left1').on('click', function(e){
+        e.preventDefault()
+        mySwiper1.swipePrev()
+    })
+    $('.arrow-right1').on('click', function(e){
+        e.preventDefault()
+        mySwiper1.swipeNext()
+    })
+
+
+    var npage = 5;
+    $(function() {
+        $(window).scroll(function() {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if (scrollTop + windowHeight == scrollHeight) {
+                //加载层
+                layer.load();
+                setTimeout(function(){layer.closeAll('loading');}, 1000);
+                var url = "{:U('Discovery/loadingProduct')}";
+                var params = {};
+                params.npage = npage;
+                $.post(url,params,function(result) {
+
+                    if (result.status == 0) {
+                        $(".empty").remove();
+                        return $('.goodss').append("<li class='empty'>没有更多了</li>");
+                    }
+
+                    $.each(result.data, function (index, value) {
+                        $(".goodss").append("<li class='item selling' onclick='getProduct( " + value['id'] + ")'>" +
+                                "<img class='thumb'  style='width:18vh;height:18vh;' src='" + value['pic_url'] + "'>" +
+                                "<div class='triangle'><p class='text'>折扣</p><i class='fireico'>&nbsp;</i></div>" +
+                                "<span class='title'><nobr>" + value['title'] + "</nobr></span>" +
+                                "<span class='abstract'>简介：" + value['f_title'] + "</span>" +
+                                "<span class='discounts'>优惠价：<span class='price'>" + value['price'] + "</span></span>" +
+                                "</li>");
+                    });
+                })
+                npage += 6;
+            }
+        });
+    });
+
+
+
+    function getCateListById(id){
+        window.location.href = "{:U('Article/index')}?cate_id="+ id;
+    }
+    $(document).ready(function () {
+
+        // $(".mainvisual").hover(function(){
+        //     $("#btnprev,#btnnext").fadeIn()
+        // },function(){
+        //     $("#btnprev,#btnnext").fadeOut()
+        // });
+
+        $dragBln = false;
+
+        $(".mainimage").touchSlider({
+            flexible: true,
+            speed: 500,
+            btn_prev: $("#btnprev"),
+            btn_next: $("#btnnext"),
+            paging: $(".flickingcon a"),
+            counter: function (e) {
+                $(".flickingcon a").removeClass("on").eq(e.current - 1).addClass("on");
+            }
+        });
+
+        $(".mainimage").bind("mousedown", function () {
+            $dragBln = false;
+        });
+
+        $(".mainimage").bind("dragstart", function () {
+            $dragBln = true;
+        });
+
+        $(".mainimage a").click(function () {
+            if ($dragBln) {
+                return false;
+            }
+        });
+
+        // timer = setInterval(function(){
+        //     $("#btnnext").click();
+        // }, 5000);
+
+        // $(".mainvisual").hover(function(){
+        //     clearInterval(timer);
+        // },function(){
+        //     timer = setInterval(function(){
+        //         $("#btnnext").click();
+        //     },5000);
+        // });
+
+        // $(".mainimage").bind("touchstart",function(){
+        //     clearInterval(timer);
+        // }).bind("touchend", function(){
+        //     timer = setInterval(function(){
+        //         $("#btnnext").click();
+        //     }, 5000);
+        // });
+
+
+    });
+    $(document).ready(function () {
+        $dragBln = false;
+        $(".mainimage1").touchSlider({
+            flexible: true,
+            speed: 500,
+            btn_prev: $("#btnprev1"),
+            btn_next: $("#btnnext1"),
+            paging: $(".flickingcon1 a"),
+            counter: function (e) {
+                $(".flickingcon1 a").removeClass("on").eq(e.current - 1).addClass("on");
+            }
+        });
+
+        $(".mainimage1").bind("mousedown", function () {
+            $dragBln = false;
+        });
+
+        $(".mainimage1").bind("dragstart", function () {
+            $dragBln = true;
+        });
+
+        $(".mainimage1 a").click(function () {
+            if ($dragBln) {
+                return false;
+            }
+        });
+
+        // timer = setInterval(function(){
+        //     $("#btnnext1").click();
+        // }, 5000);
+
+        // $(".mainvisual1").hover(function(){
+        //     clearInterval(timer);
+        // },function(){
+        //     timer = setInterval(function(){
+        //         $("#btnnext1").click();
+        //     },5000);
+        // });
+
+        // $(".mainimage1").bind("touchstart",function(){
+        //     clearInterval(timer);
+        // }).bind("touchend", function(){
+        //     timer = setInterval(function(){
+        //         $("#btnnext1").click();
+        //     }, 5000);
+        // });
+    });
+    function getArticle(id) {
+        window.location.href = "{:U('Article/getArticle')}?art_id=" + id;
+    }
+    function getProduct(id) {
+        window.location.href = "{:U('Product/productDetails')}?pro_id=" + id;
+    }
+    function hideHead(i) {
+        var head = i.contentWindow.document.getElementById('headTitle');
+        head.style.display = 'none';
+        var top = i.contentWindow.document.getElementById('qiandao');
+        top.style.margin = '-13rem auto 0 auto';
+        var allmap = i.contentWindow.document.getElementById('allmap');
+        allmap.style.height = '26rem';
+        var message = i.contentWindow.document.getElementById('message a');
+        message.style.size = '6vh';
+    }
+</script>
+<script src="__PUBLIC__/Home/js/selectivizr.js?v1.3"></script>
+<!--加载 -->
+<script src="__PUBLIC__/Home/js/pageloader.js"></script>
+<script>
+    jQuery(window).resize(function () {
+        resizenow();
+    });
+    function resizenow() {
+        var browserwidth = jQuery(window).width();
+        var browserheight = jQuery(window).height();
+        jQuery('.bonfire-pageloader-icon').css('right', ((browserwidth - jQuery(".bonfire-pageloader-icon").width()) / 2)).css('top', ((browserheight - jQuery(".bonfire-pageloader-icon").height()) / 2));
+    }
+    ;
+    resizenow();
+</script>
+</body>
+</html>

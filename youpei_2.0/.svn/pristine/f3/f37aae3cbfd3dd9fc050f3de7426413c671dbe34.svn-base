@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <!-- 向下滑动加载的图片样式，需放在外链的第一位 -->
+        <link rel="stylesheet" href="http://www.youpei-exc.com/Public/Home/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss">
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/orgList.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+        <style>
+           
+        </style>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>机构列表</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <section class="search">
+                <div class="area">
+                    <select name="searchType" id="" class="searchType">
+                        <!-- type 1:文章 2:课程 3:商品 4:机构-->
+<!--                         <option value="1" selected>文章</option>
+                        <option value="2">课程</option>
+                        <option value="3">商品</option> -->
+                        <option value="4"  selected>机构</option>
+                    </select>
+                    <img src="../../../../Public/images/searchDown.png" alt="">
+                </div>
+                <div class="searchWant">
+                    <!--<input type="text" placeholder="搜索您想要的......" onfocus="this.blur()">-->
+                    <input type="text" placeholder="搜索您想要的......" id="searchWord">
+                    <img src="../../../../Public/images/indexSearch.png" onclick="searchWord();">
+                </div>
+            </section>
+            <section class="mapContent">
+                <div style="position: relative;">
+                    <a href="/index.php/Map/index.html" class="map" style="z-index: 100">
+                    </a>
+                    <iframe src="{:U('Map/discoverIndex')}" style="width:95%; height:6.3rem;z-index: 10;margin-left: 2%; border-radius: 5px;overflow: hidden;border: 0.05rem solid #b8b1b0;position: relative; box-sizing:border-box;" frameborder="1" onload="hideHead(this)">
+                    </iframe>
+                    <!--<img src="../../../../Public/images/searchOrg.png" alt="" class="searchOrg">-->
+                    <!--<img src="../../../../Public/images/report.png" alt="" class="report">-->
+                </div>
+            </section>
+            <section class="orgList">
+                <ul>
+                </ul>
+                <div class="alert"></div>
+            </section>
+        </article>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/layer/layer.js"></script>
+        <script>
+         //查询
+             function searchWord() {
+                 var word = $("#searchWord").val();
+                 var type = $("select[name='searchType'] option:selected").val();
+                 if (!word) {
+                     return alert('请输入关键词');
+                 }
+                 window.location.href = "/index.php/Index/searchResult?type="+type+"&word="+word;
+             }
+
+             function getArticle(id) {
+                 window.location.href = '/index.php/Article/getArticle?art_id='+id;
+             }
+
+             function getBargain(id,key) {
+                 window.location.href = '/index.php/Product/bargain?pro_id='+id+'&key='+key;
+             }
+            // 调用地图时触发，隐藏头部
+                function hideHead(i) {
+                    var head = i.contentWindow.document.getElementById('headTitle');
+                    head.style.display = 'none';
+                    var top = i.contentWindow.document.getElementById('qiandao');
+                    top.style.margin = '-10rem auto 0 auto';
+                    var allmap = i.contentWindow.document.getElementById('allmap');
+                    allmap.style.height = '38rem';
+                    // var message = i.contentWindow.document.getElementById('message');
+                    // message.style.size = '6vh';
+                }
+            $(function(){
+                $.ajax({
+                    type:"get",
+                    url:"/index.php/organization/ajaxIndex",
+                    aynsc:true,
+                    data:{
+
+                    },
+                    dataType:"json",
+                    success:function(data){
+                        if(data.status==1){
+                            var data=data.data;
+                            for(var i=0; i<data.data.length; i++){
+                                $(".orgList >ul").append(
+                                   '<li onclick="getInfo('+data.data[i].id+')" id="'+data.data[i].id+'">'+
+                                        '<div class="content">'+
+                                            '<div class="rank">'+
+                                                '<span>综合排名</span>'+
+                                                '<div>'+
+                                                    '<img src="../../../../Public/images/orgIcon4.png" alt="" class="rankImg">'+
+                                                    '<span class="rankText">'+data.data[i].ranking+'</span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<div class="org">'+
+                                                '<img src="'+data.data[i].picture+'" alt="">'+
+                                                '<span>'+data.data[i].org_name+'</span>'+
+                                            '</div>'+
+                                            '<ul>'+
+                                               '<li>'+
+                                                    '<span>教学环境</span>'+
+                                                    '<span class="env_star">'+   
+                                                    '</span>'+
+                                                '</li>'+
+                                                '<li>'+
+                                                    '<span>教学质量</span>'+
+                                                    '<span class="quality_star">'+
+                                                    '</span>'+
+                                                '</li>'+
+                                                '<li>'+
+                                                    '<span>机构信誉</span>'+
+                                                    '<span class="org_star">'+
+                                                    '</span>'+
+                                                '</li>'+
+                                            '</ul>'+
+                                        '</div>'+
+                                        '<div class="img">'+
+                                            '<img src="'+data.data[i].cover_image+'" alt="">'+
+                                        '</div>'+
+                                    '</li>'
+                                )
+                                if($(".rankText").eq(i).html()==1){
+                                    $(".rankImg").eq(i).attr("src","../../../../Public/images/orgIcon1.png")
+                                }
+                                if($(".rankText").eq(i).html()==2){
+                                    $(".rankImg").eq(i).attr("src","../../../../Public/images/orgIcon2.png")
+                                }
+                                if($(".rankText").eq(i).html()==3){
+                                    $(".rankImg").eq(i).attr("src","../../../../Public/images/orgIcon3.png")
+                                }
+                                var env_star=data.data[i].env_star;
+                                var quality_star=data.data[i].quality_star;
+                                var org_star=data.data[i].org_star;
+                                for(var j=0; j<env_star; j++){
+                                    $("#"+data.data[i].id).find(".env_star").append(
+                                        '<img src="../../../../Public/images/star-full.png" alt="">'
+                                        )
+                                }
+                                for(var j=0; j<quality_star; j++){
+                                    $("#"+data.data[i].id).find(".quality_star").append(
+                                        '<img src="../../../../Public/images/star-full.png" alt="">'
+                                        )
+                                }
+                                for(var j=0; j<org_star; j++){
+                                    $("#"+data.data[i].id).find(".org_star").append(
+                                        '<img src="../../../../Public/images/star-full.png" alt="">'
+                                        )
+                                }
+                            }
+                            
+                        }
+                    }
+                })
+               
+            })
+            //  var npage=6;
+            //  $(window).scroll(function () {
+            //     var scrollTop = $(this).scrollTop();
+            //     var scrollHeight = $(document).height();
+            //     var windowHeight = $(this).height();
+            //     var upload_type=window.sessionStorage.getItem("status")
+            //     if (scrollTop + windowHeight == scrollHeight) {
+            //         $(this).scrollTop(scrollHeight - 50);
+            //         //加载层
+            //         layer.load();
+            //         setTimeout(function () {
+            //             layer.closeAll('loading');
+            //         }, 1000);
+            //         $.ajax({
+            //             type:"get",
+            //             url:"/index.php/organization/ajaxIndex",
+            //             aynsc:true,
+            //             data:{
+            //                 page:npage
+            //             },
+            //             dataType:"json",
+            //             success:function(data){
+            //                 if(data.status==1){
+            //                     var data=data.data;
+            //                     for(var i=0; i<data.data.length; i++){
+            //                         $(".orgList >ul").append(
+            //                            '<li onclick="getInfo('+data.data[i].id+')" id="'+data.data[i].id+'">'+
+            //                                 '<div class="content">'+
+            //                                     '<div class="rank">'+
+            //                                         '<span>综合排名</span>'+
+            //                                         '<div>'+
+            //                                             '<img src="../../../../Public/images/orgIcon4.png" alt="" class="rankImg">'+
+            //                                             '<span class="rankText">'+data.data[i].ranking+'</span>'+
+            //                                         '</div>'+
+            //                                     '</div>'+
+            //                                     '<div class="org">'+
+            //                                         '<img src="'+data.data[i].picture+'" alt="">'+
+            //                                         '<span>'+data.data[i].org_name+'</span>'+
+            //                                     '</div>'+
+            //                                     '<ul>'+
+            //                                        '<li>'+
+            //                                             '<span>教学环境</span>'+
+            //                                             '<span class="env_star">'+   
+            //                                             '</span>'+
+            //                                         '</li>'+
+            //                                         '<li>'+
+            //                                             '<span>教学质量</span>'+
+            //                                             '<span class="quality_star">'+
+            //                                             '</span>'+
+            //                                         '</li>'+
+            //                                         '<li>'+
+            //                                             '<span>机构信誉</span>'+
+            //                                             '<span class="org_star">'+
+            //                                             '</span>'+
+            //                                         '</li>'+
+            //                                     '</ul>'+
+            //                                 '</div>'+
+            //                                 '<div class="img">'+
+            //                                     '<img src="'+data.data[i].cover_image+'" alt="">'+
+            //                                 '</div>'+
+            //                             '</li>'
+            //                         )
+            //                         if($(".rankText").eq(i).html()==1){
+            //                             $(".rankImg").eq(i).attr("src","../../../../Public/images/orgIcon1.png")
+            //                         }
+            //                         if($(".rankText").eq(i).html()==2){
+            //                             $(".rankImg").eq(i).attr("src","../../../../Public/images/orgIcon2.png")
+            //                         }
+            //                         if($(".rankText").eq(i).html()==3){
+            //                             $(".rankImg").eq(i).attr("src","../../../../Public/images/orgIcon3.png")
+            //                         }
+            //                         var env_star=data.data[i].env_star;
+            //                         var quality_star=data.data[i].quality_star;
+            //                         var org_star=data.data[i].org_star;
+            //                         for(var j=0; j<env_star; j++){
+            //                             $(".env_star").eq(i).append(
+            //                                 '<img src="../../../../Public/images/star-full.png" alt="">'
+            //                                 )
+            //                         }
+            //                         for(var j=0; j<quality_star; j++){
+            //                             $(".quality_star").eq(i).append(
+            //                                 '<img src="../../../../Public/images/star-full.png" alt="">'
+            //                                 )
+            //                         }
+            //                         for(var j=0; j<org_star; j++){
+            //                             $(".org_star").eq(i).append(
+            //                                 '<img src="../../../../Public/images/star-full.png" alt="">'
+            //                                 )
+            //                         }
+            //                     }
+                                
+            //                 }else{
+            //                     $(".alert").html("")
+            //                     $(".alert").append('<p style="text-align:center; font-size:0.5rem; padding:0.2rem 0.5rem;">没有更多了</p>')
+            //                 }
+            //             }
+            //         })
+            //         npage+=6;
+            //     }
+            // })
+            function getInfo(id) {
+                window.location.href = "/index.php/Organization/home.html?id=" + id;
+            }
+        </script>
+	</body>
+</html>

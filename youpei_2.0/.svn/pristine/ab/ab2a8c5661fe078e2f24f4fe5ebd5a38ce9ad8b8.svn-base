@@ -1,0 +1,128 @@
+<include file="Common:header"/>
+<!-- NProgress -->
+<link href="__PUBLIC__/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="__PUBLIC__/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="__PUBLIC__/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link href="__PUBLIC__/css/admin/page.css" rel="stylesheet">
+<style>
+    .btn-infos{
+        color: #fff;
+        background-color: #E8720C;
+        border-color: #E8720C;
+    }
+    #datatable_paginate{display: none;}
+    #datatable_info{display:none;}
+    #datatable_length{display:none;}
+    .pagination ul a{color:#008DE7}
+    .dataTables_filter{display: none;}
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>用户抽奖记录 </h2>
+                          <!--   <a href="" class="btn btn-success add_button">添加</a> -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-striped jambo_table table-bordered">
+                                    <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">抽奖用户</th>
+                                        <th class="column-title">抽奖礼品</th>
+                                        <th class="column-title">抽奖时间</th>
+                                        <th class="column-title">奖品号码</th>
+                                        <th class="column-title">状态</th>
+                                        <!--<th class="column-title no-link last"><span class="nobr">操作</span></th>-->
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="list" item="val">
+                                        <tr class="even pointer">
+                                            <td>{$val['username']}</td>
+                                            <td>{$val['prize']}</td>
+                                            <td>{$val['create_time']|date="Y-m-d H:i:s",###}</td>
+                                            <td>{$val['code']}</td>
+                                            <td>{$val['status'] == 0?'未发送':'已发送'}</td>
+                                            <!--<td class="last">
+                                            <if condition="$val['status'] == 0 ">
+                                            <a  class="btn glyphicon btn-info btn-xs btn_access" access_id="115" onclick="send_prize({$val['id']})">发送</a>
+                                            <else/>
+                                             <a class="btn btn-xs btn-danger btn_access" access_id="114" href='javascript:void(0);'  onclick="cancel_send({$val['id']})">取消</a>
+                                            </if>
+                                            </td>-->
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                                <div class="pagination pagination-small">{$page}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/vendors/fastclick/lib/fastclick.js"></script>
+<!-- Datatables -->
+<script src="__PUBLIC__/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="__PUBLIC__/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script type="text/javascript">
+function send_prize(id) {
+    var url = "{:U('Userlottery/sendPrize')}"
+    $.post(url,{id:id},function (result) {
+        if (result.status == 0 ) {
+            return dialog.error(result.message);
+        } else {
+            return dialog.success(result.message,"{:U('Userlottery/index')}");
+        }
+    },'json');
+}
+function cancel_send(id) {
+    var url = "{:U('Userlottery/cancel_send')}"
+    $.post(url,{id:id},function (result) {
+        if (result.status == 0 ) {
+            return dialog.error(result.message);
+        } else {
+            return dialog.success(result.message,"{:U('Userlottery/index')}");
+        }
+    },'json');
+}
+</script>
+</body>
+</html>

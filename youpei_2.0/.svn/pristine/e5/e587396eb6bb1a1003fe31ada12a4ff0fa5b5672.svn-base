@@ -1,0 +1,310 @@
+/*头部 start*/
+.header{
+	height: 1.2rem;
+	line-height: 1.2rem;
+	position: relative;
+}
+.header a{
+	float: left;
+	margin-top: 0.36rem;
+	margin-left: 0.38rem;
+}
+.header a img{
+    height: 0.5rem;
+}
+.header h3{
+	text-align: center;
+	font-size: 0.52rem;
+	color: #386998;
+}
+/*头部 end*/
+
+/*中部 start*/
+.img img{
+	width: 100%;
+	height: 4.72rem;
+	border-top: 0.13rem solid #f0f1f1;
+	border-bottom: 0.18rem solid #f0f1f1;
+}
+
+.classes{
+	height: 9.42rem;
+	background: #386998;
+	width: 100%;
+}
+.week{
+	height: 1rem;
+	position: relative;
+}
+.week h3{
+	text-align: center;
+	font-size: 0.48rem;
+	color: white;
+	height: 1rem;
+	line-height: 1rem;
+}
+.week h3 span{
+	font-size: 0.48rem;
+}
+.week .left{
+	position: absolute;
+	width: 0.5rem;
+	height: 0.5rem;
+	background: white;
+	color: #43719e;
+	border-radius: 50%;
+	font-size: 0.3rem;
+	line-height: 0.5rem;
+	text-align: center;
+	font-weight: bolder;
+	font-family: '宋体';
+	left: 1.92rem;
+	top: 0.28rem;
+}
+.week .right{
+	position: absolute;
+	right: 1.92rem;
+	top: 0.28rem;
+	width: 0.5rem;
+	height: 0.5rem;
+	background: white;
+	color: #43719e;
+	border-radius: 50%;
+	font-size: 0.3rem;
+	line-height: 0.5rem;
+	text-align: center;
+	font-weight: bolder;
+	font-family: '宋体';
+}
+.day{
+	width: 10.96rem;
+	margin: 0 auto;
+	height: 0.93rem;
+	background: #6fbee4;
+	border-top-right-radius: 0.08rem;
+	border-top-left-radius: 0.08rem;
+}
+.day ul{
+	display: flex;
+	justify-content: space-around;
+}
+.day ul li{
+	float: left;
+	height: 0.93rem;
+	line-height: 0.93rem;
+}
+.day ul li a{
+	color: white;
+	font-size: 0.4rem;
+}
+.list{
+	width: 10.96rem;
+	margin: 0 auto;
+	margin-top: 0.05rem;
+}
+.list table tr td{
+	/*border:0.01rem solid #386998;*/
+	border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-webkit-border-radius: 0.2rem;
+	height: 1.3rem;
+	width: 1.3rem;
+	background: white;
+	text-align: center;
+	position: relative;
+}
+#monitor button{
+	display: inline-block;
+  	font-size: inherit;
+  	color: inherit;
+  	border: none;
+  	text-align: center;
+  	background: #f8ef61;
+  	height: 1.3rem;
+	width: 1.3rem;
+}
+/*.mark1{
+	background: #028BE0 !important;
+	color:#fff;
+	border-radius: 2px;
+}*/
+#monitor span{
+	height: 1.3rem;
+	width: 1.3rem;
+}
+.list table tr:first-child td{
+	height: 1.3rem;
+	background: #f8ef61;
+	font-size: 0.4448rem;
+	line-height: 1.3rem;
+	text-align: center;
+	width: 1.3rem;
+}
+.list table tr td:first-child{
+	background: #f8ef61;
+	font-size: 0.4316rem;
+	text-align: center;
+	color: #386998;
+	height: 1.3rem;
+	width: 1.3rem;
+}
+.list table tr td:first-child span{
+	font-size: 0.4316rem;
+	text-align: center;
+	color: #386998;
+	display:block;
+	line-height: 0.1rem;
+}
+.light{
+	margin-top: -0.1rem;
+	float: left;
+	margin-left: 0.47rem;
+	font-size: 1rem;
+	font-weight: 100;
+}
+.ke,.yu{
+	width: 1.12rem;
+	height: 1.12rem;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 1.12rem;
+	display: inline-block;
+	font-size: 0.528rem;
+	color: white;
+}
+.ke{
+	background: #71ccb0;
+}
+.yu{
+	background: #f7d06a;
+}
+.smallKe{
+	position: absolute;
+	top: 0.04rem;
+	left: 0.04rem;
+	height: 0.64rem;
+	width: 0.64rem;
+	background: #71ccb0;
+	color: white;
+	font-size: 0.324rem;
+	line-height: 0.64rem;
+	text-align: center;
+	border-radius: 50%;
+}
+.smallYu{
+	position: absolute;
+	bottom: 0.04rem;
+	right: 0.04rem;
+	height: 0.64rem;
+	width: 0.64rem;
+	background: #f7d06a;
+	color: white;
+	font-size: 0.324rem;
+	line-height: 0.64rem;
+	text-align: center;
+	border-radius: 50%;
+}
+.alert{
+	height: 3.85rem;
+	background: #f0f1f1;
+}
+.alert p:first-child{
+	padding-top: 0.8rem;
+	margin-left: 2.1rem;
+	font-size: 0.42rem;
+	line-height: 0.9rem
+}
+.alert p:first-child span:first-child{
+	height: 0.7rem;
+	width: 0.7rem;
+	border-radius: 50%;
+	background: #db6066;
+	color: white;
+	font-size: 0.42rem;
+	display: inline-block;
+	line-height: 0.7rem;
+	text-align: center;
+}
+.alert p:first-child span:nth-child(2){
+	color: #db6066;
+	font-size: 0.42rem;
+	margin: 0 -0.15rem;
+}
+.alert p:nth-child(2){
+	margin-left: 3.15rem;
+	font-size: 0.42rem;
+	line-height: 0.9rem;
+}
+
+
+.form{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	background: rgba(0,0,0,0.5);
+	display: none;
+}
+form{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin:auto;
+	width: 10rem;
+	height: 8rem;
+	background: white;
+	padding-top: 1rem;
+}
+form label{
+	font-size: 0.4rem;
+}
+form input{
+	border: 0.01rem solid black;
+	padding: 0.1rem 0.2rem;
+	margin:0.3rem 0;
+	height: 0.3rem;
+	font-size: 0.3rem;
+}
+.name{
+	margin-left: 1.8rem;
+}
+.tel{
+	margin-left: 1rem;
+}
+#name{
+	width: 5rem;
+}
+#tel{
+	width: 5rem;
+}
+.time{
+	margin-left: 3rem;
+	margin-right: 0.1rem;
+	height: 0.4rem;
+	width: 0.4rem;
+}
+.submit{
+	border:0.01rem solid black;
+	width: 2rem;
+	height: 1rem;
+	text-align: center;
+	margin-left: 4rem;
+	margin-top: 1rem;
+	font-size: 0.5rem;
+}
+.close{
+	top: 0;
+	right: 0;
+	color: white;
+	background: gray;
+	height: 0.5rem;
+	width: 0.5rem;
+	position: absolute;
+	text-align: center;
+	line-height: 0.5rem;
+	font-size: 0.3rem;
+}

@@ -1,0 +1,116 @@
+<?php
+namespace Home\Controller;
+
+use Think\Controller;
+
+class PersonalController extends BaseController
+{
+    public function index()
+    {
+        $this->title = "个人中心";
+        $m = D('PersonalBackground');
+        $list = $m->queryPicture();
+        $this->assign('object', $list);
+        //签到任务
+        $isSign = D('IntegralRecord')->querysignintime($this->user['id']);
+        $this->assign('isSign', $isSign);
+        $current = (int)I('current', 4);
+        $this->assign('current', $current);
+        //待付款数
+        $needPayCount = D("Order")->getPayCount($this->user['id'], 0);
+        $this->assign('needPayCount', $needPayCount)->assign('user', $this->user);
+        //电子券
+        $couponList = D('Coupon')->getTotalCouponByUserId($this->user['id']);
+        $this->assign('coupon_list', $couponList)->assign('coupon_count', count($couponList));
+        //学友团
+        $friendCount = $this->getFriendCount();
+        $this->assign('friend_count', $friendCount);
+        //积分汇总
+        $totalGetIntegral = D('IntegralRecord')->totalGetByUserId($this->user['id']);//共获得
+        $totalUseIntegral = D('IntegralRecord')->totalUseByUserId($this->user['id']);//已使用
+        $this->assign('totalGetIntegral', $totalGetIntegral)->assign('totalUseIntegral', $totalUseIntegral);
+        //转发任务
+        $isShare = D('ShareRecord')->isShareArticle($this->user['id']);
+        $this->assign('isShare', $isShare);
+        //阅读任务
+        $todayReadCount = D('ReadRecord')->getTodayCount($this->user['id']);
+        $this->assign('todayReadCount', $todayReadCount);
+        //评论任务
+        $isTodayComment = D('Comment')->isTodayComment($this->user['id']);
+        $this->assign('isTodayComment', $isTodayComment);
+        //邀请任务
+        $isTodayInvite = D('User')->isTodayInvite($this->user['id']);
+        $this->assign('isTodayInvite', $isTodayInvite);
+        //任务积分
+        $taskIntegral = M('config')->where("token='{$this->token}'")->field("task_share_integral,task_sign_integral,
+        task_read_integral,task_comment_integral,task_schoolmate_integral")->find();
+        $this->assign('taskIntegral', $taskIntegral);
+
+
+        $sum = M('UserMessage')->where(array('user_id' => $this->user['id'], 'is_read' => 1))->count();
+        $this->assign('sum', $sum);
+        $this->display();
+
+    }
+
+    public function red()
+    {
+        $id = $_GET['id'];
+        // $user = $this->getUserById($id);
+        $res = M('user')->where(array('id' => $this->user['id']))->field('id,integral')->find();
+        $this->assign('integral', $res);
+        $this->display('collar_red');
+    }
+
+    public function exchange()
+    {
+        $money = $_POST['price'];
+        $m = D('PersonalBackground');
+        $rs = $m->exchangered($money, $this->user['id']);
+        $this->ajaxReturn($rs);
+    }
+
+    //签到
+    public function today_signin()
+    {
+        //判断ajax和post
+        if (IS_AJAX && IS_POST) {
+            $res = D('IntegralRecord')->querysignintime($this->user['id']);
+            if ($res['status'] == 1) {
+                $this->ajaxReturn(array('status' => 0, 'msg' => '你今天已经签到了'));
+            }
+            //添加签到记录
+            $rs = D('IntegralRecord')->addintegralRecord($this->user['id'], $this->token);
+            //发送通知模板
+            $config = M('Config')->where("token='{$this->token}'")->find();
+            $nowIntegral = M('user')->where("id={$this->user['id']}")->getField('integral');
+            $first = '【优培圈】温馨提醒您的积分有变动';
+            $keyword1 = '+' . $config['task_sign_integral'] . '分';
+            $keyword2 = '签到赠送积分';
+            $keyword3 = date("Y-m-d H:i:s", time());
+            $keyword4 = $nowIntegral . '分';
+            $remark = '请点击“详情”查看具体内容 ，积分可兑换红包哦';
+            $url = "http://{$_SERVER['HTTP_HOST']}/index.php/Lottery/index?token=" . $this->token;
+            $templeFormat = array('__OPENID__', '__URL__', '__FIRST__', '__KEYWORD1__', '__KEYWORD2__', '__KEYWORD3__', '__KEYWORD4__', '__REMARK__');
+            $infoFormat = array($this->user['open_id'], $url, $first, $keyword1, $keyword2, $keyword3, $keyword4, $remark);
+            $wxuser = get_wxuser($this->token);
+            execute_public_template('INTEGRAL_CHANGE', $templeFormat, $infoFormat, $wxuser);
+            if ($rs['status'] == 1) {
+                $this->ajaxReturn(array('status' => 1, 'msg' => '签到成功', 'data' => ['addIntegral' => $config['task_sign_integral']]));
+            }
+        }
+    }
+
+    //获取学友团总数
+    public function getFriendCount()
+    {
+        $count = empty($this->user['up_user_id']) ? 0 : 1;
+        $children = D('User')->getChildren($this->user['id']);
+        $count += count($children);
+        foreach ($children as $v) {
+            $childrenByChild = D('User')->getChildren($v['id']);
+            $count += count($childrenByChild);
+        }
+        return $count;
+    }
+}

@@ -1,0 +1,254 @@
+body,html{
+	background: #f1f1f1;
+}
+
+/*头部*/
+.header {
+	height: 1.2rem;
+	line-height: 1.22rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: white;
+	overflow: hidden;
+	z-index: 1000;
+	clear: both;
+}
+
+.header .back {
+	left: 0.27rem;
+	position: absolute;
+}
+
+.header .back img {
+	margin-top: 0.4rem;
+	height: 0.5rem;
+}
+
+.header h3 {
+	text-align: center;
+	font-size: 0.6rem;
+	color: #065b9c;
+	margin-left: 0.3rem;
+	margin-top: 0.05rem;
+}
+
+.header .home {
+	right: 0.1rem;
+	position: absolute;
+	top: 0.05rem;
+}
+
+.header .home img {
+	width: 1rem;
+	height: 1rem;
+}
+
+/*中部*/
+.img img{
+	width: 100%;
+	height: 4.73rem;
+	margin-top: 1.3rem;
+}
+.img .text{
+	height: 0.88rem;
+	line-height: 0.88rem;
+	font-size: 0.46rem;
+	padding-left: 0.55rem;
+	background: white;
+}
+.schedule{
+	height: 1.08rem;
+	line-height: 1.08rem;
+	background: white;
+	margin: 0.22rem 0rem;
+	overflow: hidden;
+}
+.schedule img:first-child{
+	margin-left: 0.64rem;
+	margin-top: 0.18rem;
+	width: 0.75rem;
+	height: 0.72rem;
+	float: left;
+	margin-right: 0.2rem;
+}
+.schedule span{
+	font-size: 0.4804rem;
+	color: #386998;
+	float: left;
+}
+.schedule img:nth-child(3){
+	width: 0.2rem;
+	height: 0.34rem;
+	margin-top: 0.35rem;
+	margin-right: 0.42rem;
+	float: right;
+}
+
+.course{
+	height: 2.25rem;
+	background: white;
+}
+.course h3{
+	font-size: 0.6rem;
+	color: #416f9c;
+	font-weight: bold;
+	padding-top: 0.25rem;
+	margin-left: 0.64rem;
+}
+.course>span{
+	font-size: 0.48rem;
+	float: left;
+	margin-left: 0.64rem;
+	margin-top: 0.32rem;
+}
+.course>span span{
+	color: #db6066;
+	font-size: 0.48rem;
+}
+.course>span span strong{
+	font-size: 0.48rem;
+}
+.num{
+	float: right;
+	margin-top: 0.25rem;
+}
+.num>span{
+	float: left;
+	font-size: 0.48rem;
+}
+.num >div{
+	border: 0.03rem solid #b5b5b5;
+	float: left;
+	width: 2.38rem;
+	height: 0.6rem;
+	margin: 0 0.42rem;
+	overflow: hidden;
+}
+.num input{
+	width: 1.1rem;
+	height: 0.6rem;
+	border-left: 0.03rem solid #b5b5b5;
+	border-right: 0.03rem solid #b5b5b5;
+	border-top:none;
+	border-bottom: none;
+	float: left;
+	/*margin-top: -0.02rem;*/
+	color: #386998;
+	font-weight: bold;
+	font-size: 0.42rem;
+	text-align: center;
+}
+.reduce{
+	background: #eaeaea;
+	display: inline-block;
+	float: left;
+	height: 0.6rem;
+	width: 0.6rem;
+	text-align: center;
+	line-height: 0.6rem;
+	font-size: 0.42rem;
+	color: black;
+}
+.add{
+	background: #eaeaea;
+	display: inline-block;%;
+	float: left;
+	height: 0.6rem;
+	width: 0.6rem;
+	text-align: center;
+	line-height: 0.6rem;
+	font-size: 0.42rem;
+	color: black;
+}
+
+
+.type{
+	height: 1.08rem;
+	line-height: 1.08rem;
+	background: white;
+	margin-top: 0.2rem;
+	padding-left: 0.5rem;
+}
+.type a{
+	width: 2.15rem;
+	height: 0.64rem;
+	color: #777777;
+	border: 0.04rem solid #777777;
+	display: block;
+	float: left;
+	margin-right: 0.35rem;
+	font-size: 0.4378rem;
+	line-height: 0.7rem;
+	text-align: center;
+	border-radius: 0.1rem;
+	margin-top: 0.2rem;
+}
+.type a.on{
+	background: #386998;
+	border-color: #386998;
+	color: white;
+}
+
+
+.pay .all{
+	font-size: 0.55rem;
+	text-align: center;
+	margin-top: 1.2rem;
+}
+.pay .really{
+	color: #386998;
+	font-size: 0.55rem;
+	margin-top: 0.35rem;
+	margin-bottom: 0.9rem;
+	text-align: center;
+}
+.pay .really strong{
+	color: #db6066;
+	font-size: 0.55rem;
+}
+.rule{
+	margin-bottom: 2.2rem;
+	overflow: hidden;
+	position: relative;
+}
+.rule i{
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 50%;
+	border: 0.01rem solid #46d2b0;
+	margin-left: 1.8rem;
+	display: block;
+	top: 0.07rem;
+	left: 0.1rem;
+	position: absolute;
+}
+.rule input:checked+i{
+	background: url(../../../../Public/images/checkbox.png) no-repeat center;
+	background-size: 0.4rem 0.4rem;
+}
+.rule label{
+	float: left;
+	margin-left: 2.5rem;
+}
+.nextStep{
+	position: relative;
+}
+.nextStep a{
+	width: 100%;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	background: #46d2b0;
+	color: white;
+	display: block;
+	text-align: center;
+	font-size: 0.55rem;
+	/*padding-left: 4.2rem;*/
+}
+.nextStep a img{
+	height: 0.68rem;
+	width: 0.68rem;
+	position: absolute;
+	right: 4rem;
+	top: 0.4rem;
+}

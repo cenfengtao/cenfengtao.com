@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="/Public/css/home/appoint.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+		<script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+        <style>
+           
+        </style>
+	</head>
+	<body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+        	<a href="javascript:history.back()">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>预约表</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle"> 
+        	<form action="">
+            <section class="baseInfo">
+                <h3>——/ <strong>课</strong> / <strong>程</strong> / <strong>信</strong> / <strong>息</strong> /——</h3>
+                 <section class="works">
+                    <span>课程名称：</span>
+                    <input type="text"  name="courseName" id="courseName" placeholder="请输入课程名称" onchange="testCourseName(this.value)" style="background: url("");">
+                </section>
+                 <section class="works">
+                    <span>上课时间：</span>
+                    <input type="text" value=""  onchange="testClassTime(this.value) blur()" name="classTime" id="classTime" placeholder="请输入上课时间">
+                    <section class="date" style="display: none;">
+                        <div class="boxshaw list" id="schedule-box">
+                        
+                        </div>
+                    </section>
+                </section>
+                <section class="works">
+                    <label class="classAddress">
+                        <span>上课地点：</span>
+                        <select class="province" name="province">
+                            <option value="请选择省">省份</option>
+                        </select>
+                        <select class="city" name="city">
+                            <option value="请选择市">市</option>
+                        </select>
+                        <select class="county" name="county">
+                            <option value="请选择区">县/区</option>
+                        </select>
+                        <input type="text" placeholder="请输入详细的地址" name="detail" class="detail" style="margin-bottom: 0.5rem;background: url("");">
+                    </label>
+                </section> 
+            </section>
+            <section class="logisticalInfo">
+                <h3>——/ <strong>个</strong> / <strong>人</strong> / <strong>信</strong> / <strong>息</strong> /——</h3>
+                 <section class="works">
+                    <span>宝宝昵称：</span>
+                    <input type="text" value=""  id="userName" onchange="testUserName(this.value)" placeholder="请输入宝宝昵称" style="background: url("");">
+                </section>
+                 <section class="works">
+                    <span>宝宝年龄：</span>
+                    <input type="number" value=""  id="age" onchange="testAge(this.value)" placeholder="请输入宝宝年龄" style="background: url("");">
+                </section>
+                 <section class="works">
+                    <span>联系电话：</span>
+                    <input type="number" value="" maxlength="11"  onchange="testMObile(this.value)"  id="mobile" placeholder="请输入联系电话" style="background: url("");">
+                </section>
+                <input type="hidden" value="" name="id" id="id">
+            </section>
+            <section class="button" >
+                <span onclick="submitfun()" class="submit">提交预约信息</span>
+            </section> 
+            <p class="explain">预约信息提交后两天内，机构会主动联系您噢！请留意平台信息！</p>
+            </form>
+        </article>
+        <script src="/Public/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/city.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/Public/js/home/dateSchedule.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        var myDate=new Date();
+        var nowMonth=myDate.getMonth()+1;
+        var nowYear=myDate.getFullYear();
+        var nowDay=myDate.getDate();
+        $("#classTime").val(nowYear+'-'+nowMonth+'-'+nowDay)   
+        // 根据id调用月历插件
+            var mySchedule = new Schedule({
+                el: '#schedule-box',
+                //date: '2018-9-20',
+                clickCb: function (y,m,d) { 
+                    m=m.toString();
+                if(m.length==1){
+                    m="0"+m;
+                } 
+                if(d.length==1){
+                    d="0"+d;
+                } 
+                    $("#classTime").val(y+'-'+m+'-'+d)         
+                    $(".date").hide()
+                }
+
+            })
+            $(function(){
+                $("#classTime").click(function(){
+                    $("#classTime").blur()
+                    $(".date").show()
+                })
+            })
+            $.ajax({
+                type:"get",
+                url:"/index.php/personal/ajaxPersonalData",
+                aynsc:true,
+                dataType:"json",
+                data:{
+                },
+                success:function(data){
+                    if(data.data.user != null){
+                        $("#id").val(data.data.user.id);
+                        $("#userName").val(data.data.user.baby_name);
+                        $("#age").val(data.data.user.baby_age);
+                        $("#mobile").val(data.data.user.number);
+                        if(data.data.user.family_province != ''){
+                            $(".province option:selected").text(data.data.user.family_province);
+                            $(".city option:selected").text(data.data.user.family_city);
+                            $(".county option:selected").text(data.data.user.family_area);
+                        }
+                        $(".detail").val(data.data.user.family_address);
+                    }
+                }
+            })
+        //城市级联的实现
+        $(function () {
+            $.getScript("../../../../Public/js/home/city.js", function (data) {
+                var result = JSON.parse(data);
+                var cityArr = [];
+                var countyArr = [];
+                for (var i = 0; i < result.length; i++) {
+                    if (result[i].ProSort) {
+                        $(".province").append("<option value='" + result[i].ProID + "'>" + result[i].name + "</option>")//把数据拼接到.province下的option里
+                    } else if (result[i].CitySort) {
+                        cityArr.push(result[i]);//把符合的数据放入cityArr里
+                    } else if (result[i].DisSort == null) {
+                        countyArr.push(result[i]);//把符合的数据放入countyArr里
+                    }
+                }
+                $(".province").change(function () {
+                    var value = $(this).val();
+                    $(".city option").remove();
+                    $(".province option").eq(0).remove();
+                    for (var i = 0; i < cityArr.length; i++) {
+                        if (cityArr[i].ProID == value) {
+                            $(".city").append("<option value='" + cityArr[i].CityID + "'>" + cityArr[i].name + "</option>"); //把数据拼接到.city下的option里
+                        }
+                    }
+
+                    var value2 = $(".city option").val();
+
+                    $(".county option").remove();
+                    for (var i = 0; i < countyArr.length; i++) {
+                        if (countyArr[i].CityID == value2)
+                            $(".county").append("<option>" + countyArr[i].DisName + "</option>")
+                    }
+                });
+                $(".city").change(function () {
+                    var value = $(this).val();
+                    $(".county option").remove();
+                    for (var i = 0; i < countyArr.length; i++) {
+                        if (countyArr[i].CityID == value)
+                            $(".county").append("<option>" + countyArr[i].DisName + "</option>")//把数据拼接到.county下的option里
+                    }
+                })
+            })
+        })
+        
+//      	    课程名称不能为空判断
+                function testCourseName(value){
+                  if(!value){
+                    alert("请先填写课程名称。")
+                    return;
+                  }
+                }
+//                  上课时间不能为空判断
+                function testClassTime(value){
+                  if(!value){
+                    alert("请先填写上课时间。")
+                    return;
+                  }
+                }
+                  // 宝宝昵称不能为空判断
+                function testUserName(value){
+                  if(!value){
+                    alert("请先填写宝宝昵称。")
+                    return;
+                  }
+                }
+                  // 宝宝年龄不能为空判断
+                function testAge(value){
+                  if(!value){
+                    alert("请先填写宝宝年龄。")
+                    return;
+                  }
+                }
+                // 收货电话正则验证
+                function testMObile(value){
+                    var reg=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+                    if(!reg.test(value)){
+                        alert("你输入的手机号码不正确，请重新输入。")
+                        return false;
+                    }
+                }  
+            function submitfun() {
+                var courseName =  $("#courseName").val();
+                    if(courseName==""){
+                        alert("请先填写上课名称。")
+                        return false;
+                    }
+                    var classTime =  $("#classTime").val();
+                    if(classTime==""){
+                        alert("请先填写上课时间。")
+                        return false;
+                    }
+        		var username =	$("#userName").val();
+	        		if(username==""){
+	        			alert("请先填写您的宝宝昵称。")
+                        return false;
+	        		}
+        		var age=$("#age").val();
+        		if(age==""){
+        			 alert("请先填写您的宝宝年龄。")
+                    return;
+        		}
+        		var mobile=$("#mobile").val();
+        		var reg=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+                    if(!reg.test(mobile)){
+                        alert("你输入的手机号码不正确，请重新输入。")
+                        return false;
+                    }
+
+        		
+                if($(".province option:selected").val() > 0){
+                    var province=$(".province option:selected").text();
+                    var city=$(".city option:selected").text();
+                    var county=$(".county option:selected").text();
+                }else{
+                    province=null;
+                    city=null;
+                    county=null;
+                }
+                var detail=$(".detail").val();
+        		var id=$("#id").val();
+                $.ajax({
+                    type:"post",
+                    url:"/index.php/personal/uploadPersonalData",
+                    aynsc:true,
+                    dataType:"json",
+                    data:{
+                        id:id,
+                        courseName:courseName,
+                        classTime:classTime,
+                        baby_name:username,
+                        baby_age:age,
+                        number:mobile,
+                        family_province:province,
+                        family_city:city,
+                        family_area:county,
+                        family_address:detail,
+                    },
+                    success:function(data){
+                        if(data.status == 1){
+                            alert(data.message);
+                            setTimeout(function(){
+                                window.location.reload();
+                            },1000);
+                        }else{
+                            alert(data.message);
+                        }
+                    }
+                })
+        	}
+        </script>
+	</body>
+</html>

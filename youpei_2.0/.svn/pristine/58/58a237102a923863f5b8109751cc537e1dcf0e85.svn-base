@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>优培圈</title>
+        <!-- 向下滑动加载的图片样式，需放在外链的第一位 -->
+        <link rel="stylesheet" href="http://www.youpei-exc.com/Public/Home/layer/skin/default/layer.css?v=3.0.3303" id="layuicss-skinlayercss">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/pageloader.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/swiper.min.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/demo.css"/>
+        <!-- 判断是IE时执行 -->
+        <script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>    
+    </head>
+    <body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+           <a href="/index.php/Company/introduce/token/g232238gc959">
+               <img src="../../../../Public/images/indexLogo.png" alt="">
+           </a>
+           <div class="search" onclick="window.location.href='/index.php/Index/search'">
+               <input type="text" placeholder="搜索精彩内容" onfocus="this.blur()">
+               <img src="../../../../Public/images/indexSearch.png" alt="">
+           </div>
+            <div class="area">
+                <span><img src="../../../../Public/images/or.png" alt=""></span>
+                <select name="area" id="">
+                    <option value="0" selected>全部</option>
+                    <option value="1" >广州</option>
+                </select>
+                <!-- <span>广州</span> -->
+            </div>
+        </header>
+        <article class="middle">
+            <section class="banner">
+                <div class="bd swiper-container1">
+                    <ul class="imgLi swiper-wrapper">
+                    </ul>
+                    <div class="pagination1" style="width: 100%;text-align: center;"></div>     
+                </div>
+            </section>
+            <section class="nav">
+                <ul class="navList">
+                </ul>
+            </section>
+            <section class="limit">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper limitList">
+                    </div>
+                    <div class="pagination" style="width: 100%;text-align: center;"></div>     
+                </div>       
+            </section>
+            <section class="goods">
+                <h3>——/ <strong>精</strong> / <strong>品</strong> /——</h3>
+                <div class="goodsNav">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="goodsList">
+                    <ul>
+                    </ul>
+                </div>
+            </section>
+            <section class="groups">
+                <section class="classify">
+                    <div class="content">
+                        <div class="article">
+                            <div class="articleTap">
+                                <span>热文</span>
+                            </div>
+                            <div class="left">
+                                <h3>[优培·积木]</h3>
+                                <p>教你如何跟宝宝拼好积木</p>
+                                <div class="type">
+                                    <div class="comment">
+                                        <img src="../../../../Public/images/comment.png" alt="">
+                                        <span> 评论 (65) | </span>
+                                    </div>
+                                    <div class="collect">
+                                        <img src="../../../../Public/images/collect.png" alt="">
+                                        <span>收藏 (65) | </span>
+                                    </div>
+                                    <div class="send">
+                                        <img src="../../../../Public/images/send.png" alt="">
+                                        <span>转发 (65)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <img src="../../../../Public/images/scheduleImg.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="courseList">
+                            <ul>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                        <div class="tap">
+                                            <img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">
+                                            <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                                        </div>
+                                        <div class="type">
+                                            <span>48课时</span>
+                                            <span>名师</span>
+                                            <span>气质</span>
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div class="time">
+                                            <img src="../../../../Public/images/indexFilter.png" alt="">
+                                            <span>还剩下1天 18:47:47</span>
+                                        </div>
+                                        <h3>优培积木3课时</h3>
+                                        <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                        <p class="originalPrice">原价：2288元/人</p>
+                                        <a href="">立即加入</a>
+                                        <div class="groupNum">
+                                            <span class="finished">已拼团人数 : (<span class="nowPeople">3</span>/<span class="allPeople">10</span>)</span>
+                                            <div class="bar"><span></span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                        <div class="tap">
+                                            <img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">
+                                            <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                                        </div>
+                                        <div class="type">
+                                            <span>48课时</span>
+                                            <span>名师</span>
+                                            <span>气质</span>
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <div class="time">
+                                            <img src="../../../../Public/images/indexFilter.png" alt="">
+                                            <span>还剩下1天 18:47:47</span>
+                                        </div>
+                                        <h3>优培积木3课时</h3>
+                                        <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                        <p class="originalPrice">原价：2288元/人</p>
+                                        <a href="">立即加入</a>
+                                        <div class="groupNum">
+                                            <span class="finished">已拼团人数 : (<span class="nowPeople">3</span>/<span class="allPeople">10</span>)</span>
+                                            <div class="bar"><span></span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="course">
+                    <div class="courseContent">
+                        <div class="swiper-container2">
+                            <div class="swiper-wrapper coursesList">
+                                <div class="swiper-slide"> 
+                                    <div class="text">
+                                        <h3>优培钢琴48课时</h3>
+                                        <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                        <p class="originalPrice">原价：2288元/人</p>
+                                        <p class="try">
+                                            <a href="###">立即下单</a>
+                                            <a href="###">预约试听</a>
+                                        </p>
+                                    </div>
+                                    <div class="img">
+                                        <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                        <div class="tap">
+                                            <img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">
+                                            <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                                        </div>
+                                        <div class="type">
+                                            <span>48课时</span>
+                                            <span>名师</span>
+                                            <span>气质</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="text">
+                                        <h3>优培钢琴48课时</h3>
+                                        <span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>
+                                        <p class="originalPrice">原价：2288元/人</p>
+                                        <p class="try">
+                                            <a href="###">立即下单</a>
+                                            <a href="###">预约试听</a>
+                                        </p>
+                                    </div>
+                                    <div class="img">
+                                        <img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">
+                                        <div class="tap">
+                                            <img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">
+                                            <img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">
+                                        </div>
+                                        <div class="type">
+                                            <span>48课时</span>
+                                            <span>名师</span>
+                                            <span>气质</span>
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="pagination2" style="width: 100%;text-align: center;"></div>     
+                         </div>        
+                    </div>
+                </section>
+                <section class="video">
+                    <div class="desc">
+                        <span>搞笑一刻</span>
+                    </div>
+                    <img src="../../../../Public/images/expert_details2.jpg" alt="">
+                </section>
+                <section class="shopGroups">
+                    <ul>
+                        <li>
+                            <div class="img">
+                                <div class="time">
+                                    <span>还剩1天 18：20：19</span>
+                                </div>
+                                <div class="type">
+                                    <span class="originalPrice">原价:￥145</span>
+                                    <span class="tab">动手</span>
+                                    <span class="tab">益智</span>
+                                </div>
+                                <img src="../../../../Public/images/school_article2.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <h3>迷宫棋</h3>
+                                <div>
+                                    <span class="groupPrice">团购价:￥<strong>36</strong></span>
+                                <a href="javascript:void(0);">加入团购</a>
+                                </div>
+                                <div class="groupNum">
+                                    <span class="finished">已拼团人数 : (<span class="nowPeople">3</span>/<span class="allPeople">10</span>)</span>
+                                    <div class="bar"><span></span></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img">
+                                <div class="time">
+                                    <span>还剩1天 18：20：19</span>
+                                </div>
+                                <div class="type">
+                                    <span class="originalPrice">原价:￥145</span>
+                                    <span class="tab">动手</span>
+                                    <span class="tab">益智</span>
+                                </div>
+                                <img src="../../../../Public/images/school_article2.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <h3>迷宫棋</h3>
+                                <div>
+                                    <span class="groupPrice">团购价:￥<strong>36</strong></span>
+                                <a href="javascript:void(0);">加入团购</a>
+                                </div>
+                                <div class="groupNum">
+                                    <span class="finished">已拼团人数 : (<span class="nowPeople">3</span>/<span class="allPeople">10</span>)</span>
+                                    <div class="bar"><span></span></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="shopBargain">
+                    <ul>
+                        <li>
+                            <div class="tapImg">
+                                <img src="../../../../Public/images/tapImg.png" alt="">
+                                <span>砍价</span>
+                            </div>
+                            <div class="img">
+                                <img src="../../../../Public/images/school_article2.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <h3>迷宫棋</h3>
+                                <p>
+                                    <span>平台价：￥<strong>209</strong></span>
+                                </p>
+                                <div class="type">
+                                    <span>动手</span>
+                                    <span>益智</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tapImg">
+                                <img src="../../../../Public/images/tapImg.png" alt="">
+                                <span>砍价</span>
+                            </div>
+                            <div class="img">
+                                <img src="../../../../Public/images/school_article2.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <h3>迷宫棋</h3>
+                                <p>
+                                    <span>平台价：￥<strong>209</strong></span>
+                                </p>
+                                <div class="type">
+                                    <span>动手</span>
+                                    <span>益智</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </article>
+        <footer class="footer">
+            <div></div>
+            <ul class="icon">
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Index/index.html">
+                        <img src="__PUBLIC__/image/footer_icon1.png"/>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Discovery/index',array('current'=>'2'))}">
+                        <img src="__PUBLIC__/image/footer_icon2.png"/>
+                        <span>发现</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="/index.php/Association/index/current/3.html">
+                        <img src="__PUBLIC__/image/footer_icon3.png"/>
+                        <span>社群</span>
+                    </a>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/image/circle.png" alt="">
+                    <a href="{:U('Personal/index',array('current'=>'4'))}">
+                        <img src="__PUBLIC__/image/footer_icon4.png"/>
+                        <span>个人中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/jquery.touchSwipe.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/font.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/home/swiper.min.js" ></script>
+        <!-- <script src="__PUBLIC__/Home/js/idangerous.swiper.min.js"></script> -->
+        <script src="/Public/Home/layer/layer.js"></script>
+        <script src="__PUBLIC__/js/home/demo.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+
+        // 精选商品导航切换
+    	$(function(){
+    		
+    	})
+        // 拼团商品导航切换
+        $(".classifyNav li").click(function(){
+            $(this).addClass("on").siblings().removeClass("on")
+        })
+        
+        // 精选课程图片切换
+        var mySwiper = new Swiper('.swiper-container2',{
+            pagination: '.pagination2',
+            loop:true,
+            grabCursor: true,
+            paginationClickable: true,
+            centeredSlides: true,
+        });
+        // 拼团里的进度条颜色变化
+        var nowPeople=$(".nowPeople").text();
+        var allPeople=$(".allPeople").text();
+        var scale=(nowPeople/allPeople*100);
+        $(".bar span").css("width",scale+"%")
+        if(scale<35){
+            $(".bar span").css("background","greenyellow")
+        }else if(scale<70){
+            $(".bar span").css("background","orange")
+        }else if(scale<101){
+            $(".bar span").css("background","red")
+        }
+        //查看限时抢购商品
+        function getProduct(id) {
+            window.location.href = "/index.php/Product/productDetails?pro_id=" + id;
+        }
+        $.ajax({
+            type: "get",
+            url: "/index.php/Index/ajaxIndex",
+            aysnc: true,
+            dataType: "json",
+            success: function (data) {
+                if(data.status==1){
+                    // 遍历头部轮播图
+                    var pictureData=data.data.picture;
+                    for(var j=0; j<pictureData.length; j++){
+                        $(".imgLi").append(
+                                '<li class="swiper-slide"><a href="'+pictureData[j].url+'"><img src="'+pictureData[j].image+'" alt=""></a></li>'
+                            )
+                    }
+                     // 首页头部轮播图功能
+                    var mySwiper = new Swiper('.swiper-container1',{
+                        pagination: '.pagination1',
+                        loop:true,
+                        grabCursor: true,
+                        paginationClickable: true,
+                        centeredSlides: true,
+                        autoplay: 2000,
+                        autoplayDisableOnInteraction: false
+                    });
+                    // 遍历循环导航菜单栏数据
+                    var homeData = data.data.homeClass;
+                    for(var i=0; i<homeData.length; i++){
+                        $(".navList").append(
+                            '<li><a href="'+homeData[i].url+'"><img src="'+homeData[i].image+'" alt=""><span>'+homeData[i].title+'</span></a></li>'
+                        )
+                    }
+                    // 遍历限时抢购商品数据
+                    var limitData=data.data.limitBuy;
+                    for(var s=0; s<limitData.length; s++){
+                        $(".limitList").append(
+                            '<div class="swiper-slide" onclick="getProduct('+limitData[s].id+')">'+
+                                '<div class="limitHead">'+
+                                    '<div class="text">'+
+                                        '<img src="../../../../Public/images/indexTime.png" alt="">'+
+                                        '<span>限时抢购</span>'+
+                                    '</div>'+
+                                    '<div class="time">'+
+                                        '<img src="../../../../Public/images/indexFilter.png" alt="">'+
+                                        '<span class="endtime" value="'+limitData[s].end_time+'"></span>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="limitContent">'+
+                                    '<div class="img">'+
+                                        '<img src="'+limitData[s].thumb_image+'" alt="">'+
+                                        '<div class="tap">'+
+                                            '<span>抢购</span>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="text">'+
+                                        '<h3>'+limitData[s].title+'</h3>'+
+                                        '<div class="type'+s+' type">'+
+                                        '</div>'+
+                                        '<p class="add">'+
+                                            '<img src="../../../../Public/images/indexAddr.png" alt="">'+
+                                            '<span>'+limitData[s].city+limitData[s].area+limitData[s].address.substring(0,10)+'</span>'+
+                                        '</p>'+
+                                        '<p class="price">'+
+                                            '<span class="originalPrice">原价:￥'+limitData[s].original_price+'</span>'+
+                                            '<span class="limitPrice">抢购价：<span class="moneySign">￥</span><strong>'+limitData[s].now_price+'</strong></span>'+
+                                        '</p>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'
+                        )
+                        var type=".type"+s;
+                        if(limitData[s].tagA){
+                            $(type).append(
+                                    '<span>'+limitData[s].tagA+'</span>'
+                                )
+                        }
+                        if(limitData[s].tagB){
+                            $(type).append(
+                                    '<span>'+limitData[s].tagB+'</span>'
+                                )
+                        }
+                        if(limitData[s].tagC){
+                            $(type).append(
+                                    '<span>'+limitData[s].tagC+'</span>'
+                                )
+                        }
+                    }
+                    // 限时抢购图片切换
+                    var mySwiper = new Swiper('.swiper-container',{
+                        pagination: '.pagination',
+                        loop:true,
+                        grabCursor: true,
+                        paginationClickable: true,
+                        centeredSlides: true,
+                    });
+
+                    // 遍历精选商品列表
+                    var siftData=data.data.siftsClass;
+                    for(var a=0; a<siftData.length; a++){
+                        $(".goodsNav ul").append(
+                                '<li>'+
+                                    '<div>'+
+                                        '<span class="on"></span>'+
+                                        '<a href="javascript:void(0);">'+siftData[a].title+'</a>'+
+                                    '</div>'+
+                                '</li>'
+                            )
+                        $(".goodsNav ul li div").eq(0).addClass("stationery")
+                        $(".goodsNav ul li div").eq(1).addClass("toy")
+                        $(".goodsNav ul li div").eq(2).addClass("living")
+                    }
+                    var siftsProduct=siftData[0].siftsProduct;
+                    for(var i=0; i<siftsProduct.length; i++){
+                        $(".goodsList ul").append(
+                             '<li onclick="getProduct('+siftsProduct[i].id+')">'+
+                                '<img src="'+siftsProduct[i].thumb_image+'" alt="">'+
+                                '<h3>'+siftsProduct[i].thumb_image.substring(0,8)+'</h3>'+
+                                '<div class="type sift'+i+'">'+
+                                '</div>'+
+                                '<span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>'+siftsProduct[i].now_price+'</strong></span>'+
+                            '</li>'
+                        )
+                         var sift=".sift"+i;
+                        if(siftsProduct[i].tagA){
+                            $(sift).append(
+                                    '<span>'+siftsProduct[i].tagA+'</span>'
+                                )
+                        }
+                        if(siftsProduct[i].tagB){
+                            $(sift).append(
+                                    '<span>'+siftsProduct[i].tagB+'</span>'
+                                )
+                        }
+                        // if(siftsProduct[i].tagC){
+                        //     $(sift).append(
+                        //             '<span>'+siftsProduct[i].tagC+'</span>'
+                        //         )
+                        // }
+                    }
+                    $(".goodsNav li").click(function(){
+                        var index=$(this).index();
+                        $(this).find("span").addClass("on").show().parent().parent().siblings().find("span").removeClass("on").hide()
+                        var background=$(this).find("a").css("background-color");
+                        $(".goodsList").css("background-color",background)
+                        $(".goodsList ul").html("")
+                        var siftsProduct=siftData[index].siftsProduct;
+                        for(var i=0; i<siftsProduct.length; i++){
+                            $(".goodsList ul").append(
+                                 '<li onclick="getProduct('+siftsProduct[i].id+')">'+
+                                    '<img src="'+siftsProduct[i].thumb_image+'" alt="">'+
+                                    '<h3>'+siftsProduct[i].title.substring(0,8)+'...</h3>'+
+                                    '<div class="type sift'+i+'">'+
+                                    '</div>'+
+                                    '<span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>'+siftsProduct[i].now_price+'</strong></span>'+
+                                '</li>'
+                            )
+                            var sift=".sift"+i;
+                            if(siftsProduct[i].tagA){
+                                $(sift).append(
+                                        '<span>'+siftsProduct[i].tagA+'</span>'
+                                    )
+                            }
+                            if(siftsProduct[i].tagB){
+                                $(sift).append(
+                                        '<span>'+siftsProduct[i].tagB+'</span>'
+                                    )
+                            }
+                            // if(siftsProduct[i].tagC){
+                            //     $(sift).append(
+                            //             '<span>'+siftsProduct[i].tagC+'</span>'
+                            //         )
+                            // }
+                        }
+                    })
+                }
+            }
+        })
+
+//限时抢购倒计时
+var time_current = (new Date()).valueOf();//获取当前时间
+$(function () {
+    var dateTime = new Date();
+    var difference = dateTime.getTime() - time_current;
+
+    setInterval(function () {
+        $(".endtime").each(function () {
+            var obj = $(this);
+            var endTime = new Date(parseInt(obj.attr('value')) * 1000);
+            var nowTime = new Date();
+            var nMS = endTime.getTime() - nowTime.getTime() + difference;
+            var myD = Math.floor(nMS / (1000 * 60 * 60 * 24));
+            var myH = Math.floor(nMS / (1000 * 60 * 60)) % 24;
+            var myM = Math.floor(nMS / (1000 * 60)) % 60;
+            var myS = Math.floor(nMS / 1000) % 60;
+            var myMS = Math.floor(nMS / 100) % 10;
+            if (myD >= 0) {
+                var str = "剩余下" + myD + "天  " + myH + ":" + myM + ":" + myS;
+            } else {
+                var str = "已结束！";
+            }
+            obj.html(str);
+        });
+    }, 100);
+});
+        // 精选商品
+        // $(".goodsList ul").append(
+        //          '<li>'++
+        //             '<img src="../../../../Public/images/scheduleImg.jpg" alt="">'+
+        //             '<h3>迷宫</h3>'+
+        //             '<div class="type">'+
+        //                 '<span>益智</span>'+
+        //                 '<span>动手能力</span>'+
+        //             '</div>'+
+        //             '<span class="onlinePrice">平台价：<span class="moneySign">￥</span><strong>209</strong></span>'+
+        //         '</li>'
+        //     )
+        // 精选课程
+        // $(".coursesList").append(
+        //         '<div class="swiper-slide">'+
+        //             '<div class="img">'+
+        //                 '<img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">'+
+        //                 '<div class="tap">'+
+        //                     '<img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">'+
+        //                     '<img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">'+
+        //                 '</div>'+
+        //                 '<div class="type">'+
+        //                     '<span>48课时</span>'+
+        //                     '<span>名师</span>'+
+        //                     '<span>气质</span>'+
+        //                 '</div>'+
+        //             '</div>'+
+        //             '<div class="text">'+
+        //                 '<h3>优培钢琴48课时</h3>'+
+        //                 '<span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>'+
+        //                 '<p class="originalPrice">原价：2288元/人</p>'+
+        //                 '<p class="try">'+
+        //                     '<a href="###">直接购买</a>'+
+        //                     '<a href="###">预约试听</a>'+
+        //                 '</p>'+
+        //             '</div>'+
+        //         '</div>'
+        //     )
+        // 拼团课程
+        // $(".courseList ul").append(
+        //         '<li>'+
+        //             '<div class="img">'+
+        //                 '<img src="../../../../Public/images/scheduleImg.jpg" alt="" class="courseImg">'+
+        //                 '<div class="tap">'+
+        //                     '<img src="../../../../Public/images/imgTap.png" alt="" class="logoTap">'+
+        //                     '<img src="../../../../Public/images/imgLogo.png" alt="" class="imgLogo">'+
+        //                 '</div>'+
+        //                 '<div class="type">'+
+        //                     '<span>48课时</span>'+
+        //                     '<span>名师</span>'+
+        //                     '<span>气质</span>'+
+        //                 '</div>'+
+        //             '</div>'+
+        //             '<div class="text">'+
+        //                 '<div class="time">'+
+        //                     '<img src="../../../../Public/images/indexFilter.png" alt="">'+
+        //                     '<span>还剩下1天 18:47:47</span>'+
+        //                 '</div>'+
+        //                 '<h3>优培积木3课时</h3>'+
+        //                 '<span class="groupPrice">组团价：<span class="moneySign">￥</span><strong>1600</strong></span>'+
+        //                 '<p class="originalPrice">原价：2288元/人</p>'+
+        //                 '<a href="">去拼团</a>'+
+        //                 '<div class="groupNum">'+
+        //                     '<span class="finished">已拼团人数 : (<span class="nowPeople">6</span>/<span class="allPeople">10</span>)</span>'+
+        //                     '<div class="bar"><span></span></div>'+
+        //                 '</div>'+
+        //             '</div>'+
+        //         '</li>'
+        //     )
+        </script>
+    </body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

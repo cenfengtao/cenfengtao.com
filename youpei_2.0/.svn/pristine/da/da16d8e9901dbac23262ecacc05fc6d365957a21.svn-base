@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>榜单</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/userBillboard.css"/>
+    <script type="text/javascript">
+        if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+    </script>
+    <!--  <script>
+         var _hmt = _hmt || [];
+         (function() {
+           var hm = document.createElement("script");
+           hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+           var s = document.getElementsByTagName("script")[0];
+           s.parentNode.insertBefore(hm, s);
+         })();
+     </script> -->
+</head>
+<body class="kap-loading ty-view-all">
+<include file="Common:common"/>
+<header class="header">
+    <a href="javascript:history.back()" class="back">
+        <img src="../../../../Public/images/back.png" alt="">
+    </a>
+    <h3>榜单</h3>
+    <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+</header>
+<article class="middle">
+   <section class="countdown">
+       <h3>活动结束倒计时</h3>
+       <div class="time">
+           <span class="day">8</span>天
+           <span class="hours">8</span>时
+           <span class="minute">8</span>分
+           <span class="second">8</span>秒
+       </div>
+   </section>
+   <section class="chart">
+       <ul class="chartList">
+           
+       </ul>
+   </section>
+</article>
+<footer class="footer">
+    <ul class="icon">
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/voteList.html?vote_id=4">
+                <img src="__PUBLIC__/images/voteIcon1.png"/>
+                <span>作品库</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userVote.html">
+                <img src="__PUBLIC__/images/voteIcon2.png"/>
+                <span>我的投票</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userWorks.html">
+                <img src="__PUBLIC__/images/voteIcon3.png"/>
+                <span>我的作品</span>
+            </a>
+        </li>
+        <li>
+            <img src="__PUBLIC__/image/circle.png" alt="">
+            <a href="/index.php/Vote/userBillboard.html?vote_id=4">
+                <img src="__PUBLIC__/images/voteIcon4.png"/>
+                <span>榜单</span>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/js/home/userBillboard.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+//    获取url参数
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+var id=GetRequest().vote_id;
+  $.ajax({
+        type:"get",
+        url:"/index.php/Vote/ajaxUserBillboard",
+        async: true,
+        dataType:"json",
+        data:{
+          vote_id:id
+        },
+        success:function(data){
+          var list=data.data.list;
+          var listLength=list.length;
+          for(var i=0; i<listLength; i++){
+            $(".chartList").append(
+              '<li>'+
+                 '<div class="img">'+
+                     '<img src="../../../../Public/images/hat.png" alt="" class="hat">'+
+                     '<img src="'+list[i].user_img+'" alt="" class="head">'+
+                 '</div>'+
+                 '<div class="text">'+
+                     '<p><i></i>名称：<span>'+list[i].title+'</span></p>'+
+                     '<p><i></i>作者：<span>'+list[i].username+'</span></p>'+
+                     '<p><i></i>票数：<span class="count">'+list[i].vote_count+'</span></p>'+
+                 '</div>'+
+                 '<div class="order">'+
+                     '<img src="../../../../Public/images/prize.png" alt="">'+
+                     '<span class="num">'+list[i].ranking+'</span>'+
+                 '</div>'+
+             '</li>'
+            )
+          }
+          
+          $(".time").attr("value",data.data.endTime)
+                 //倒计时
+          var time_current = (new Date()).valueOf();//获取当前时间
+          $(function () {
+              var dateTime = new Date();
+              var difference = dateTime.getTime() - time_current;
+
+              setInterval(function () {
+                      var endTime = new Date(parseInt($(".time").attr('value')) * 1000);
+                      var nowTime = new Date();
+                      var nMS = endTime.getTime() - nowTime.getTime() + difference;
+                      var myD = Math.floor(nMS / (1000 * 60 * 60 * 24));
+                      var myH = Math.floor(nMS / (1000 * 60 * 60)) % 24;
+                      var myM = Math.floor(nMS / (1000 * 60)) % 60;
+                      var myS = Math.floor(nMS / 1000) % 60;
+                      var myMS = Math.floor(nMS / 100) % 10;
+                      $(".day").html(myD);
+                      $(".hours").html(myH);
+                      $(".minute").html(myM);   
+                      $(".second").html(myS);
+              }, 100);
+          });         
+        }
+    })
+</script>
+</body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

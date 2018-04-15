@@ -1,0 +1,178 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/lottery_record.css">
+<style>
+  .layui-layer-title{
+      font-size: 30px!important;
+      background: #386998;
+      height: 2em;
+      line-height: 2em;
+      color:#fff;
+  }
+  .layui-layer-setwin a {
+    position: relative!important;
+    width: 40px!important;
+    height: 40px!important;
+    margin-left: 10px!important;
+    font-size: 12px!important;
+    overflow: hidden!important; 
+    background: url(../../../../Public/images/closeButton.png)!important;
+    background-size: 40px 40px!important;
+    margin-top: -0.35rem;
+}
+  .list li .status-view span{
+      text-align: center;
+  }
+  .list-record li i{
+      z-index: 1;
+  }
+    .empty{
+        text-align: center;
+        line-height: 1.5rem;
+        padding-top: 0.5rem;
+        border-bottom:none;
+    }
+    .add-address {
+        display: block;
+        margin:0 auto;
+        font-size:1rem;
+        padding: 0.5rem;
+        border-radius:0.5rem;
+        border:0;
+        color:#fff;
+        background: #386998;
+    }
+</style>
+<body>
+<div class="container manage-container">
+<div class="kap-top ty-menu-top">
+    <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+        <span class="title">{$title}<span class="num"></span></span>
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回" data-icon="ɒ"></a>
+       <a href="{:U('Index/index',array('current'=>'1'))}" class="btn right btn-user" title="返回首页"
+           data-icon="Ņ"></a>
+    </div>
+</div>
+    <div class="scroll">
+        <span>奖品名称</span>
+        <span>兑换状态</span>
+    </div>
+    <div class="main record">
+        <section class="gift">
+          <div class="list-record">
+            <ul class="list">
+           <volist name="list" id="val" key='i'>
+             <li class="blue" id="li_{$val.id}">
+                  <div class="list-h" style="width: 60%;">
+                  <span>{$val.title}</span></div>
+                  <div class="status-view" style="width: 30%;"><span><if condition="$val['is_exchange'] eq 1">未领取<else/>已领取</if></span>
+                  <!--<div class="do-tasks" onclick="receive('{$val.id}','{$val.token}')">领取</div>--></div>
+                  <div class="annioc">
+                  <i onclick="open_info({$val.id})">&nbsp;</i></div>
+              </li>
+                   <ul class="prize-info li-{$val.id}" style="display:none;">
+                        <li>奖品名称:{$val.title}</li>
+                        <li>奖品编码:{$val.code}</li>
+                        <li>抽奖时间:{$val.create_time|date="Y-m-d",###}</li>
+                        <li>说明:{$val.desc}</li>
+                        <if condition="$val.status eq 4">
+                            <empty name="val['address']">
+                                <div style="padding:20px;">
+                                    <button class="add-address" onclick="showAddress({$val['id']})">填写收货地址</button>
+                                </div>
+                            </empty>
+                            <div style="padding:20px;">
+                                <p>联系人：{$val.username}</p>
+                                <p>联系电话：{$val.mobile}</p>
+                                <p>收货地址：{$val.address}</p>
+                                <if condition="$val.is_exchange eq 2">
+                                    <p>快递：{$val.express}</p>
+                                    <p>快递单号：{$val.express_number}</p>
+                                </if>
+                            </div>
+                        </if>
+                   </ul>
+           </volist>
+            </ul>
+          </div>
+
+        </section>
+        <!--<div id="foot" class="kap-bottom ty-menu-bottom" style="text-align: center;">
+        <div id="tools_idx" class="ty-tools ty-tools-idx ty-tools-current">
+        </div>
+
+           &lt;!&ndash;  <div class="minute-page" style="">
+               {$Page['pager']}
+            </div>
+            <br/>
+            <footer>
+                <nobr>本活动最终解释权归优培圈所有</nobr>
+            </footer>
+            <img class="zyj-footer-banner pt50" src="__PUBLIC__/images/footer_banner.jpg"> &ndash;&gt;
+        </div>-->
+    </div>
+</div>
+</body>
+<include file="Common:footer"/>
+<!-- layer -->
+<script src="__PUBLIC__/js/layer/layer.js"></script>
+<script src="__PUBLIC__/js/home/lottery_record.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var page = 17;
+    $(function () {
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if (scrollTop + windowHeight == scrollHeight) {
+                //加载层
+                layer.load();
+                setTimeout(function () {
+                    layer.closeAll('loading');
+                }, 1000);
+                var url = "{:U('Games/loadingPrize')}";
+                $.post(url, {page:page}, function (result) {
+
+                    if (result.status == 0) {
+                        $(".empty").remove();
+                        return $('.list').append("<div class='empty'>没有更多了<br>粤ICP备17008351号</div>");
+                    }
+
+                    $.each(result.data, function (index, value) {
+                        if(value['is_exchange'] == 1){
+                            value['exchange'] = '未领取';
+                        }else{
+                            value['exchange'] = '已领取';
+                        }
+                        $(".list").append(
+                                "<li class='blue' id='li_"+ value['id'] +"'>" +
+                                "<div class='list-h'>" +
+                                "<span>"+ value['title'] +"</span>" +
+                                "</div>" +
+                                "<div class='status-view'><span>"+ value['exchange'] +"</span></div>" +
+                                "<div class='annioc'><i onclick='open_info("+ value['id'] +")'>&nbsp;</i></div>" +
+                                "</li>" +
+                                "<ul class='prize-info li-"+ value['id'] +"' style='display:none;'>" +
+                                "<li>奖品名称:"+ value['title'] +"</li>" +
+                                "<li>奖品编码:"+ value['code'] +"</li>" +
+                                "<li>抽奖时间:"+ value['time'] +"</li>" +
+                                "<li>说明:"+ value['desc'] +"</li>" +
+                                "<div id='desc_"+ value['id'] +"' style='padding:20px;display:none;'>" +
+                                "<p>收货人："+ value['username'] +"</p>" +
+                                "<p>电话："+ value['mobile'] +"</p>" +
+                                "<p>邮件地址："+ value['address'] +"</p>" +
+                                "</div>" +
+                                "</ul>"
+                        );
+                        if(value['address_id'] !== null){
+                            var id = '#desc_'+ value['id'];
+                            $(id).css('display','block');
+                        }
+                    });
+                });
+                page += 6;
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+// <if condition="$Page['totalPage'] gt 1">
+//     $(document).ready(function(){
+//         laypage({
+//             cont: 'wst-page-items',
+//             pages: {$Page['totalPage']}, //总页数
+//             skip: true, //是否开启跳页
+//             skin: '#e23e3d',
+//             groups: 3, //连续显示分页数
+//             curr: function(){ //通过url获取当前页，也可以同上（pages）方式获取
+//                 var page = location.search.match(/p=(\d+)/);
+//                 return page ? page[1] : 1;
+//             }(), 
+//             jump: function(e, first){ //触发分页后的回调
+//                 if(!first){ //一定要加此判断，否则初始时会无限刷新
+//                     var nuewurl = WST.splitURL("p");
+//                     var ulist = nuewurl.split("?");
+//                     if(ulist.length>1){
+//                         location.href = nuewurl+'&p='+e.curr;
+//                     }else{
+//                         location.href = '?p='+e.curr;
+//                     }
+                    
+//                 }
+//             }
+//         });
+//     });
+// </if>
+
+
+function open_info(id){
+
+        var displays =$(".li-" + id).css('display');
+        if(displays == 'none'){
+           $(".li-" + id).css("display","");
+           $("#li_"+ id + " i").css("transform","rotate(180deg)");
+         }else{
+            $(".li-" + id).css("display","none");
+            $("#li_"+ id + " i").css("transform","rotate(0deg)");
+         }
+    }
+
+    function open_integrallist(){
+         var url="/index.php/MemberIntegral/integrallist";
+         window.location.href = url;
+    }
+
+    function receive(pid,token){
+        layer.open({
+        cornerRadius: 8,
+         type: 2 //Page层类型
+        , skin: 'layer-MyClass'
+        , area: ['100%', '100%']
+        , title: "填写收货地址"
+        , shade: 0.9 //遮罩透明度
+        , anim: 1 //0-6的动画形式，-1不开启
+        , maxmin: true
+        , content:["/index.php/Lottery/userinfo?pid=" + pid +"&token=" + token,'no']
+        });
+    }
+
+    function open_material(pid){
+        var params = {};
+         params.pid=pid;
+      $.post("/Index.php/Lottery/see",params,function(res){
+        var status;
+        if (res.status==1) {
+             status = "已发送";
+        }else{
+             status = "未发送";
+        }
+        layer.open({
+         type: 1, //Page层类型
+         area: ['90%', '10em'],
+         title: '礼品详情',
+         shade: 0.5, //遮罩透明度
+         anim: 5, //0-6的动画形式，-1不开启
+         content:'<div style="padding:20px;">' +
+                  '<p>收货人：'+res.receipt_name+'</p>'+
+                  '<p>邮件地址： '+res.areaname1+res.areaname2+res.areaname3+res.address+'</p>' +'<p>状况： '+status+'</p>' +
+                '</div>'
+        });
+
+      })
+    }

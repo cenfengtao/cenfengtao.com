@@ -1,0 +1,32 @@
+.layui-layer-setwin a {
+    position: relative!important;
+    width: 40px!important;
+    height: 40px!important;
+    margin-left: 10px!important;
+    font-size: 12px!important;
+    overflow: hidden!important; 
+    background: url(../../../../Public/images/closeButton.png)!important;
+    background-size: 40px 40px!important;
+}
+    .layui-layer-title {
+        height: 2.5rem;
+        font-size: 1rem;
+        line-height: 2.5rem;
+        background-color: gray;
+        color: white;
+    }
+
+    .layui-layer-setwin {
+        /*display: none;*/
+    }
+    .kap-page{
+        background-color: #f1f1f1!important;
+    }
+/*    .surplus{
+        margin-top: 2.8rem!important;  
+    }*/
+    .light{
+        height: 13px;
+        background-color: #f1f1f1;
+        width: 100%;
+    }

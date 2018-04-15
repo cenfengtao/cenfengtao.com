@@ -1,0 +1,299 @@
+.selling .price{
+        line-height: 2rem;
+    }
+    .map{
+        display: inline-block;
+        width: 100%;
+        height:13rem;
+        z-index: 10000;
+        position: absolute;
+    }
+     /*轮播 start*/
+    .banner {
+        clear: both;
+        height: 8.5rem;
+        overflow: hidden;
+        position: relative;
+        margin-top: 2.5rem;
+        border-bottom: 0.01rem solid #F0F1F1;
+    }
+
+    .banner .bd {
+        height: 8.5rem;
+        overflow: hidden;
+    }
+
+    .banner .bd ul {
+        overflow: hidden;
+    }
+
+    .banner .bd li {
+        height: 8.5rem;
+        overflow: hidden;
+        float: left;
+        width: 100%;
+    }
+
+    .banner .bd li img {
+        height: 8.5rem;
+        width: 100%;
+        display: block;
+    }
+
+    .banner .hd {
+        position: absolute;
+        bottom: 0.3rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .banner .hd ul {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+    }
+
+    .banner .hd ul li {
+        width: .5rem;
+        height: .5rem;
+        text-align: center;
+        display: inline-block;
+        line-height: 24px;
+        border-radius: 12px;
+        background-color: #fff;
+        color: white;
+        cursor: pointer;
+        margin: 0 .25rem;
+        vertical-align: middle
+    }
+
+    .banner .hd ul li.on {
+        background: red;
+        font-weight: bold;
+        color: white;;
+    }
+/*轮播结束*/
+    .toptitle::before{
+        height: 0rem!important;
+    }
+    .ty-view-all .ty-page {
+	    padding: 0rem 0 3.5rem 0!important;
+	}
+	.list-card .selling img{
+		margin: 18px 10px!important;
+	}
+    .ty-page{
+        margin-top: 0rem!important;
+    }
+    .goods{
+        background: #f1f1f1;
+    }
+    .goods .selling{
+        background: white;
+        margin-top: 5px;
+        border-top: none!important;
+    }
+    .goodss{
+        margin-top: 5px;
+    }
+    .list-card{
+        background: #f1f1f1;
+    }
+    .list-card .empty {
+    margin-top: 0.2rem!important;
+    text-align: center;
+    font-size: 1.2rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+}
+
+
+
+    /*商品列表样式*/
+    .productContent{
+        overflow: hidden;
+        /*margin-bottom: 1.5rem;*/
+    }
+    .productContent ul{
+        overflow: hidden;
+        margin-right: -0.6rem;
+    }
+    .productContent ul li{
+        float: left;
+        width: 48%;
+        background: white;
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+        position: relative;
+    }
+    .productContent .texts{
+        margin: 0.18rem 0 0 0.57rem;
+    }
+    .productContent ul li .img{
+        display: block;
+    }
+    .productContent ul li .img img{
+        width: 100%;
+        height: 9rem;
+    }
+    .productContent .address img{
+        width: 0.33rem;
+        height: 0.45rem;
+        float: left;
+        margin: 0 0.03rem;
+    }
+    .productContent .address span{
+        float: left;
+        font-size: 0.36rem;
+        color: #757575;
+        margin-top: -0.08rem;
+    }
+    .productContent .texts{
+        padding-bottom: 0.2rem;
+    }
+    .productContent .texts h3{
+        clear: both;
+        color: #386998;
+        font-size: 1rem;
+        margin: 0.2rem 0;
+        height: 2rem;
+        overflow: hidden;
+    }
+    .productContent .describe{
+        font-size: 0.8rem;
+        width:9rem;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        overflow: hidden;
+    }
+    .productContent .type{
+        overflow: hidden;
+        margin-right: -0.15rem;
+    }
+    .productContent .type span{
+        font-size: 0.34rem;
+        height: 0.52rem;
+        /*width: 1.4rem;*/
+        padding:0 0.13rem;
+        border-radius: 0.1rem;
+        -webkit-border-radius: 0.1rem;
+        /*text-align: center;*/
+        line-height: 0.52rem;
+        margin-right: 0.16rem;
+        display: inline-block;
+        color: white;
+    }
+    .productContent .type span:first-child{
+        background: #f6d94f;
+    }
+    .productContent .type span:nth-child(2){
+        background: #6fbee4;
+    }
+    .productContent .type span:nth-child(3){
+        background: #de8cbd;
+    }
+    .productContent .original-price{
+        color: #386998;
+        text-decoration: line-through;
+        margin-top: 0.3rem;
+        float: left;
+        font-size: 0.8rem;
+    }
+    .productContent .texts p{
+        clear: both;
+        line-height: 1.6rem;
+    }
+    .productContent .texts p span{
+        font-weight: bold;
+    }
+    .productContent .texts p span:first-child{
+        color: #386998;
+        font-size: 0.8rem;
+    }
+    .productContent .texts p span:nth-child(2){
+        color: #db6066;
+        font-size: 0.8rem;
+    }
+    .productContent .texts p span:nth-child(3){
+        color: #db6066;
+        font-size: 1rem;
+        margin-left: -0.1rem;
+    }
+    .productContent .texts p span:nth-child(4){
+        color: #999999;
+        font-size: 0.3877rem;
+    }
+
+    /*原有的基础上修改的样式*/
+    .list-card .empty{
+        clear: both;
+        background: white;
+    }
+    .device {
+        height: 10rem;
+    }
+    .swiper-container{
+        height: 10rem;
+    }
+    .swiper-wrapper{
+        height: 10rem;
+    }
+    .swiper-slide{
+        height: 10rem!important;
+    }
+    .swiper-slide img{
+        height: 10rem;
+    }
+    .device .arrow-left{
+        top:50%;
+        margin-top: -35px;
+    }
+    .device .arrow-left1{
+        top:50%;
+        margin-top: -35px;
+    }
+    .device .arrow-right{
+        top:50%;
+        margin-top: -35px;
+    }
+    .device .arrow-right1{
+        top:50%;
+        margin-top: -35px;
+    }
+    .list-card .thumb{
+        height: 8rem;
+        padding-bottom: 0;
+    }
+    .finder ul li{
+        width: 16.66%!important;
+    }
+    .change-headernav ul{
+        padding-bottom: 1rem;
+    }
+    .change-headernav ul li .ico{
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+    .hotel-cat{
+        margin-bottom: 0.3rem;
+    }
+    .kap-wrap{
+        width: 98%!important;
+        margin-left: 1%!important;
+    }
+    iframe{
+        margin:0.5rem 0;
+    }
+    .map{
+        margin: 0.5rem -1%;
+    }
+    .item-more, .item-no-more{
+        color: #386998;
+    }
+    .item-more span{
+        color: #959696;
+    }
+    .list-tags{
+        font-size: 0.8rem;
+    }

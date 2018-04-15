@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>双节寻宝</title>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/com.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pageloader.css"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/home/startGame.css"/>
+        <script type="text/javascript">
+            if(/msie/i.test(navigator.userAgent)){window.location.href="http://www.youpei-exc.com/"}
+        </script>
+       <!--  <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?548e13b07cb36e38bfd73870368a0253";
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script> -->
+    </head>
+    <body class="kap-loading ty-view-all">
+        <include file="Common:common"/>
+        <header class="header">
+            <a href="javascript:history.back()" class="back">
+                <img src="../../../../Public/images/back.png" alt="">
+            </a>
+            <h3>双节寻宝</h3>
+            <a href="../Index/index.html" class="home" data-icon="Ņ"></a>
+        </header>
+        <article class="middle">
+            <div class="img">
+                <img src="../../../../Public/images/startGame.jpg" alt="">
+                <span class="first"></span>
+                <span class="second"></span>
+                <span class="third"></span>
+                <span class="fourth"></span>
+                <span class="fifth"></span>
+                <span class="sixth"></span>
+            </div>
+            <div class="box" style="display: none;">
+                <div class="content">
+                    <img src="../../../../Public/images/box1.jpg" alt="" class="changeImg">
+                    <img src="../../../../Public/images/box1.png" alt="" class="box1" id="musicImg">
+                    <img src="../../../../Public/images/closeButton.png" alt="" class="close">
+                    <span class="gift" style="display: none;">
+                        <span class="giving"></span>
+                        <span class="code"></span>
+                    </span>
+                    <span class="gift1" style="display: none;">
+                        <span class="giving1"></span>
+                        <span class="code1"></span>
+                    </span>
+                    <span class="gift2" style="display: none;">
+                        <span class="giving2"></span>
+                        <span class="code2"></span>
+                    </span>
+                    <div class="more-message" style="display: none;">
+                      还不够爽？点击右上角菜单分享给朋友还可以增加多一次开宝箱机会哦
+                    </div>
+                    <audio id="music" src="../../../../Public/music/box.mp3"></audio>
+                </div>
+            </div>
+            <section class="step">
+                <p>玩法：</p>
+                <p>寻找图片中的月饼进行点击，当您找到的月饼数与图片中存在的一致后，您就能开启您的宝箱了，悄悄告诉您只有六个哦，每个用户仅限玩一次。</p>
+            </section>
+        </article>
+        <script src="__PUBLIC__/Home/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <!-- layer -->
+        <script src="__PUBLIC__/js/layer/layer.js"></script>
+        <script src="__PUBLIC__/Home/js/pageloader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__PUBLIC__/js/home/remCopy.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/jweixin-1.0.0.js"></script>
+        <script src="__PUBLIC__/js/home/startGame.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+         var title;
+         var shareUrl;
+         var f_title;
+         var shareImg;
+        $(function(){
+            $.ajax({
+            type:"get",
+                url:"/index.php/Games/share",
+                aysnc:true,
+                dataType:"json",
+                data:{
+                    id:id
+                },
+                success:function(data){
+                    if(data.status == 0){
+                        return alert(data.message);
+                    }
+                    var name = data.data.games.title;
+                    var explain = data.data.games.f_title;
+                    var share = data.data.games.shareUrl;
+                    var img = data.data.games.shareImg;
+                    title='[优培·寻宝]'+ name;
+                    shareUrl=share;
+                    f_title=explain;
+                    shareImg=img;
+                    if(data.status == 2){
+                        if(!data.data.isShare){
+                            $(".box").fadeIn(2000);
+                            $(".content").animate({width:'9.45rem',height:'13.44rem'}, 2000);
+                            $("#musicImg").hide();
+                            $(".changeImg").attr("src", "../../../../Public/images/box2.jpg");
+                            $(".gift").show();
+                            $(".giving").text(data.data.firstPrize.title);
+                            $(".code").text("兑换码：" + data.data.firstPrize.code);
+                            $(".more-message").show();
+                        } else {
+                            $(".box").fadeIn(2000);
+                            $(".content").animate({width: '9.45rem', height: '13.44rem'}, 2000);
+                        }
+                    }
+                    if(data.status == 3){
+                        $(".box").fadeIn(2000);
+                        $(".content").animate({width:'9.45rem',height:'13.44rem'}, 2000);
+                        $(".changeImg").attr("src", "../../../../Public/images/double-box.png");
+                        $("#musicImg").hide();
+                        $(".giving2").html(data.data.secondPrize.title);
+                        $(".code2").html("兑换码：" + data.data.secondPrize.code);
+                        $(".gift2").show();
+                        $(".giving1").html(data.data.firstPrize.title);
+                        $(".code1").html("兑换码：" + data.data.firstPrize.code);
+                        $(".gift1").show();
+                    }
+                }
+             })
+        });
+            // 调用微信的分享接口
+setTimeout(function(){
+    // console.log(shareUrl)
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: "{$signPackage['appId']}", // 必填，公众号的唯一标识
+        timestamp: "{$signPackage['timestamp']}", // 必填，生成签名的时间戳
+        nonceStr: "{$signPackage['nonceStr']}", // 必填，生成签名的随机串
+        signature: "{$signPackage['signature']}",// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideOptionMenu', 'showOptionMenu', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'closeWindow', 'chooseImage', 'uploadImage', 'getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: title,
+            desc: f_title,
+            link: shareUrl,
+            imgUrl: shareImg,
+            success: function () {
+                shareForFriend();
+            },
+            cancel: function () {
+                alert('已取消');
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: title,
+            link: f_title,
+            imgUrl: shareImg,
+            success: function () {
+                shareForFriend();
+            },
+            cancel: function () {
+                alert('已取消');// 用户取消分享后执行的回调函数
+            }
+        });
+        function shareForFriend() {
+            var url = "/index.php/Games/shareForFriend";
+            $.post(url,{id:id},function (result) {
+                if (result.status == 1){
+                    return alert('你可获得额外一次开宝箱机会，请刷新一下页面');
+                }
+            },'json');
+        }
+    });
+},1800);
+        </script>
+    </body>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->

@@ -1,0 +1,195 @@
+<include file="Common:header"/>
+<link rel="stylesheet" href="__PUBLIC__/css/home/addGroup.css">
+<style>
+    
+    /*底部样式*/
+.footer{
+    /*clear: both;*/
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100000;
+}
+.icon{
+    height: 2.5rem;
+    background: #386998;
+    height: 2.5rem;
+    z-index: 100;
+    opacity: 0.93;
+}
+.footer ul{
+    display: flex;
+    justify-content: space-around;
+}
+.footer ul li{
+    height: 2.5rem;
+    line-height: 2.6rem;
+    position: relative;
+}
+.footer ul li>img{
+    display: none;
+}
+.footer ul li >img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 0.84rem;
+    height: 0.42rem;
+    display: block;
+}
+.footer ul li a span{
+    display: inline-block;
+    font-size: 1rem;
+    color: white;
+    float: left;
+}
+.footer ul li a img{
+    display: inline-block;
+    height: 1.2rem;
+    float: left;
+    margin-top: 0.7rem;
+    margin-right: 0.2rem;
+}
+.footer div{
+    height: 0.2rem;
+    background: #f0f1f1;
+}
+.user-area ul li .check{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0.1rem;
+    display: inline-block;
+    background: url(../../../../Public/images/border.png) no-repeat center; 
+    background-size: 1.5rem 1.5rem;
+    position: absolute;
+    position: absolute;
+    right: 0.2rem;
+}
+.user-area ul li .checkbox:checked+span{
+    background: url(../../../../Public/images/checked.png) no-repeat center;
+    background-size: 1.5rem 1.5rem;
+}
+
+</style>
+<div id="page_user" title="{$title}" class="kap-page kap-page-current">
+    <div class="kap-top ty-menu-top">
+        <div id="tools_msg" class="ty-tools ty-tools-inner ty-tools-current">
+            <span class="title">{$title}<span class="num"></span></span>
+            <a href="javascript:void(0);" onclick="history.go(-1);" class="btn left btn-user" title="返回"
+               data-icon="ɒ"></a>
+            <a href="{:U('Index/index')}" class="btn right btn-user" title="返回首页" data-icon="Ņ"></a>
+        </div>
+    </div>
+    <div class="user-area">
+        <div class="hope-order" style="display: block;">
+            <ul>
+                <li>
+                    <div class="group-right" style="width: 100%;">
+                        <textarea name="hope_content" id="hope-content" placeholder="请输入你想要的培训内容/想法" style="margin:1rem; height: 12rem; padding:0.5rem;"></textarea>
+                    </div>
+                </li>
+                <li style="text-align: center;">—请选择你想要上课的时间—</li>
+                <li class="class-time1">
+                    <div class="group-left" style="width: 25%;">上课时间1</div>
+                    <div class="group-right">
+                        <select name="class_time_day">
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            <option value="周四">周四</option>
+                            <option value="周五">周五</option>
+                            <option value="周六">周六</option>
+                            <option value="周日">周日</option>
+                        </select>
+                        <input type="time" name="class_start_hour" value='00:00'> - <input type="time" name="class_end_hour" value='23:59'>
+<!--                         <label for="check1">
+                            <input type="checkbox" name="message" style="display: none;" class="checkbox" id="check1">
+                            <span class="check"></span>
+                        </label> -->
+                    </div>
+                    <hr>
+                </li>
+                <li class="class-time2">
+                    <div class="group-left" style="width: 25%;">上课时间2</div>
+                    <div class="group-right">
+                        <select name="class_time_day">
+                            <option value="周一">周一</option>
+                            <option value="周二">周二</option>
+                            <option value="周三">周三</option>
+                            <option value="周四">周四</option>
+                            <option value="周五">周五</option>
+                            <option value="周六">周六</option>
+                            <option value="周日">周日</option>
+                        </select>
+                        <input type="time" name="class_start_hour" value='00:00'> - <input type="time" name="class_end_hour" value='23:59'>
+<!--                         <label for="check2">
+                             <input type="checkbox" name="message" style="display: none;" class="checkbox" id="check2">
+                            <span class="check"></span>
+                        </label> -->
+                    </div>
+                    <hr>
+                </li>
+                <li style="display: none;">
+                    <div class="group-left">联系电话</div>
+                    <div class="group-right"><input type="number" name="mobile"></div>
+                </li>
+            </ul>
+            <div class="submit-hope">
+                <button onclick="submitHope()" class="button-submit">提交愿望</button>
+                <p class="hint" style="padding:0 1.8rem 4rem; line-height: 1.5rem;">● 提示：提交愿望后，优配圈会努力帮您实现哦！敬请留意最新课程信息！</p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部菜单 -->
+    <footer class="footer" style="display: none;">
+        <div></div>
+        <ul class="icon">
+            <li>
+                <img src="__PUBLIC__/image/circle.png" alt="">
+                <a href="/index.php/Groups/index.html">
+                    <img src="__PUBLIC__/images/groupsIcon3.png"/>
+                    <span>参团</span>
+                </a>
+            </li>
+            <li>
+                <img src="__PUBLIC__/image/circle.png" alt="">
+                <a href="/index.php/Groups/addGroup.html">
+                    <img src="__PUBLIC__/images/groupsIcon2.png"/>
+                    <span>愿望单</span>
+                </a>
+            </li>
+            <li>
+                <img src="__PUBLIC__/image/circle.png" alt="">
+                <a href="/index.php/Groups/myGroups.html">
+                    <img src="__PUBLIC__/images/groupsIcon1.png"/>
+                    <span>我的团</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</div>
+<include file="Common:footer"/>
+<script src="__PUBLIC__/js/home/addGroup.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    // 底部半圆的切换
+ $(".footer ul li>img").css("display","none");
+$(".footer ul li>img:eq(1)").css("display","block");
+$(" .footer ul li").click(function(){
+    $(this).addClass('on').siblings().removeClass("on");
+    var index=$(this).index();
+    var liLen=$(".footer ul li").length;
+    for(var i=0;i<=liLen-1;i++){
+        $(".footer ul li>img").eq(i).css("display","none");
+    }
+    $(this).find("img:eq(0)").css("display","block");
+})
+ $(window).load(function (){
+        setTimeout(function () {
+            $('.footer').show();
+        },2000)
+    });
+</script>
+</body>
+</html>

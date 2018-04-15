@@ -1,0 +1,288 @@
+<?php
+namespace Home\Controller;
+
+use Common\Controller\Wechat;
+use Think\Controller;
+
+require_once __DIR__ . '/../../../ThinkPHP/Library/Vendor/ChuanglanSmsHelper/ChuanglanSmsApi.php';
+
+class WxPayController extends BaseController
+{
+    public function jsapiIndex()
+    {
+        require_once VENDOR_PATH . 'WxPay/example/jsapi.php';
+    }
+
+    public function notify()
+    {
+        require_once VENDOR_PATH . 'WxPay/example/notify.php';
+    }
+
+    public function jsapiByActivity()
+    {
+        require_once VENDOR_PATH . 'WxPay/example/jsapiByActivity.php';
+    }
+
+    public function jsapiByGroup()
+    {
+        require_once VENDOR_PATH . 'WxPay/example/jsapiByGroup.php';
+    }
+
+    public function jsapiByParenting()
+    {
+        require_once VENDOR_PATH . 'WxPay/example/jsapiByParenting.php';
+    }
+
+    //查询订单状态
+    public function check()
+    {
+        require_once VENDOR_PATH . 'WxPay/example/notify.php';
+        if (!$_POST['out_trade_no'] || empty($_POST['out_trade_no'])) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '订单号错误'));
+        }
+        $record = D('PayRecord')->getRecordByOutNo($_POST['out_trade_no']);
+        if (!$record) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '找不到该记录'));
+        }
+        $notify = new \PayNotifyCallBack();
+        $result = $notify->Queryorder($_POST['out_trade_no']);
+        if ($result) {
+            //未支付，判断是否超时，关闭订单
+            if ($result['trade_state'] == 'NOTPAY') {
+                if ($record['create_time'] + 540 < time()) {
+                    $closeResult = $notify->Closeorder($_POST['out_trade_no']);
+                    if (!$closeResult) {
+                        $this->ajaxReturn(array('status' => 0, 'msg' => '订单关闭失败'));
+                    }
+                    //修改订单状态并释放冻结优惠券和代金券
+                    if (!empty($record['order_id'])) {
+                        D('Order')->updateById($record['order_id'], array('status' => 2, 'end_time' => time()));
+                        D('PayRecord')->updateById($record['id'], array('status' => 2, 'end_time' => time()));
+                        $order = D('Order')->find($record['order_id']);
+                        if (!empty($order['coupon_id'])) {
+                            D('Coupon')->updateById($order['coupon_id'], array('status' => 0));
+                        }
+                        if (!empty($order['cash_coupon_id'])) {
+                            $cashCouponIds = explode(',', $order['cash_coupon_id']);
+                            foreach ($cashCouponIds as $v) {
+                                D('Coupon')->updateById($v, array('status' => 0));
+                            }
+                        }
+                    }
+                    $this->ajaxReturn(array('status' => 0, 'msg' => '订单已关闭,请重新交易'));
+                } else {
+                    $this->ajaxReturn(array('status' => 2, 'msg' => '订单未支付'));
+                }
+            }
+            //判断订单支付状态
+            if ($result['trade_state'] == 'SUCCESS' && array_key_exists("trade_state", $result)) {
+                D('PayRecord')->updateById($record['id'], array('transaction_id' => $result['transaction_id'], 'status' => 1, 'end_time' => time()));
+                //如果是收款 增加收入
+                if ($record['type'] == 2) {
+                    D('User')->updateById($this->user['id'], array('money' => $this->user['money'] + $record['fee']));
+                }
+                if (!empty($record['order_id'])) {
+                    $order = D('Order')->find($record['order_id']);
+                    D('Order')->updateById($order['id'], array('status' => 1, 'end_time' => time()));
+                    //如有使用优惠券，把状态改回已使用并添加优惠券记录
+                    if (!empty($order['coupon_id'])) {
+                        D('Coupon')->updateById($order['coupon_id'], array('status' => 1));
+                        $couponRecordData = array(
+                            'user' => $this->user['id'],
+                            'create_time' => time(),
+                            'order_id' => $order['id'],
+                            'coupon_id' => $order['coupon_id'],
+                            'operate' => 1,
+                            'type' => 1,
+                        );
+                        D('CouponRecord')->insert($couponRecordData);
+                    }
+                    //如有使用代金券，把状态改回已使用并添加代金券记录
+                    if (!empty($order['cash_coupon_id'])) {
+                        $cashCouponIds = explode(',', $order['cash_coupon_id']);
+                        foreach ($cashCouponIds as $val) {
+                            D('Coupon')->updateById($val, array('status' => 1));
+                            $couponRecordData = array(
+                                'user' => $this->user['id'],
+                                'create_time' => time(),
+                                'order_id' => $order['id'],
+                                'coupon_id' => $val,
+                                'operate' => 1,
+                                'type' => 1,
+                            );
+                            D('CouponRecord')->insert($couponRecordData);
+                        }
+                    }
+                    //向管理员发送消息通知
+                    $this->sendMsgToOrg($record['order_id']);
+                    //发送模板通知
+                    $this->sendTemplateByFinish($record['order_id']);
+                }
+                $this->ajaxReturn(array('status' => 1, 'msg' => '交易成功'));
+            } else {
+                $errMsg = $result['err_code_des'] ? $result['err_code_des'] : '返回状态码为空';
+                D('PayRecord')->updateById($record['id'], array('status' => 3, 'end_time' => time(), 'err_msg' => $errMsg));
+                if (!empty($record['order_id'])) {
+                    D('Order')->updateById($record['order_id'], array('status' => 3, 'end_time' => time()));
+                }
+                if (!empty($order['coupon_id'])) {
+                    D('Coupon')->updateById($order['coupon_id'], array('status' => 0));
+                }
+                if (!empty($order['cash_coupon_id'])) {
+                    $cashCouponIds = explode(',', $order['cash_coupon_id']);
+                    foreach ($cashCouponIds as $v) {
+                        D('Coupon')->updateById($v, array('status' => 0));
+                    }
+                }
+                $this->ajaxReturn(array('status' => 0, 'msg' => '交易失败,请重新交易'));
+            }
+        } else {
+            D('PayRecord')->updateById($record['id'], array('status' => 3, 'end_time' => time(), 'err_msg' => '找不到该订单'));
+            if (!empty($record['order_id'])) {
+                D('Order')->updateById($record['order_id'], array('status' => 3, 'end_time' => time()));
+            }
+            if (!empty($order['coupon_id'])) {
+                D('Coupon')->updateById($order['coupon_id'], array('status' => 0));
+            }
+            if (!empty($order['cash_coupon_id'])) {
+                $cashCouponIds = explode(',', $order['cash_coupon_id']);
+                foreach ($cashCouponIds as $v) {
+                    D('Coupon')->updateById($v, array('status' => 0));
+                }
+            }
+            $this->ajaxReturn(array('status' => 0, 'msg' => '支付失败,请重新下单'));
+        }
+    }
+
+    //直接用优惠抵购全部金额支付或免费
+    public function finishByCoupon()
+    {
+        if (!$_POST['orderId'] || !is_numeric($_POST['orderId'])) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '订单ID错误'));
+        }
+        //获取订单
+        $order = D('Order')->find($_POST['orderId']);
+        if (!$order) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '找不到该订单'));
+        }
+        if ($order['status'] != 0) {
+            $this->ajaxReturn(array('status' => 0, 'msg' => '订单状态已改变'));
+        }
+        //支付成功，修改订单状态
+        D('Order')->UpdateById($order['id'], array('status' => 1, 'end_time' => time()));
+        //如有使用优惠券，把状态改回已使用并添加优惠券记录
+        if (!empty($order['coupon_id'])) {
+            D('Coupon')->updateById($order['coupon_id'], array('status' => 1));
+            $recordData = [
+                'user_id' => $this->user['id'],
+                'create_time' => time(),
+                'order_id' => $order['id'],
+                'coupon_id' => $order['coupon_id'],
+                'operate' => 1,
+                'type' => 1,
+            ];
+            D('CouponRecord')->insert($recordData);
+        }
+        //如有使用代金券，把状态改回已使用并添加代金券记录
+        if (!empty($order['cash_coupon_id'])) {
+            $cashCouponIds = explode(',', $order['cash_coupon_id']);
+            foreach ($cashCouponIds as $v) {
+                D('Coupon')->updateById($v, array('status' => 1));
+                $recordData = [
+                    'user_id' => $this->user['id'],
+                    'create_time' => time(),
+                    'order_id' => $order['id'],
+                    'coupon_id' => $v,
+                    'operate' => 1,
+                    'type' => 1,
+                ];
+                D('CouponRecord')->insert($recordData);
+            }
+        }
+        $this->sendMsgToOrg($order['id']);
+        $this->sendTemplateByFinish($order['id']);
+        $this->ajaxReturn(array('status' => 1, 'msg' => '支付成功'));
+    }
+
+    //向机构管理员发送信息通知
+    public function sendMsgToOrg($orderId)
+    {
+        $order = D('Order')->find($orderId);
+        if (!empty($order['product_id'])) {
+            $proTitle = M('product')->where("id={$order['product_id']}")->getField('title');
+        } else if (!empty($order['parenting_id'])) {
+            $proTitle = M('parenting')->where("id={$order['parenting_id']}")->getField('title');
+        } else if (!empty($order['activity_id'])) {
+            $proTitle = M('organization_activity')->where("id={$order['activity_id']}")->getField('title');
+        } else if (!empty($order['group_record_id'])) {
+            $groupId = M('group_record')->where("id={$order['group_record_id']}")->getField('group_id');
+            $proTitle = M('group_product')->where("id={$groupId}")->getField('title');
+        } else {
+            return false;
+        }
+        $orgId = M('organization')->where(array('token' => $order['token']))->getField('id');
+        $orgMobile = M('admin_user')->where(array('org_id' => $orgId, 'mobile' => array(array('exp', 'is not null'), array('neq', 0), 'and')))->getField('mobile');
+        $sms = new \ChuanglanSmsApi();
+        $msg = '用户 {$var} 已购买了商品 {$var}，付款金额{$var}元，请及时跟进！';
+        $params = "{$orgMobile},{$this->user['username']},{$proTitle},{$order['total_price']}";
+        $result = $sms->sendVariableSMS($msg, $params);
+        $recordData = [
+            'create_time' => time(),
+            'content' => "用户 {$this->user['username']} 已购买了商品 {$proTitle}，付款金额{$order['total_price']}元，请及时跟进！",
+            'type' => 1,
+            'type_id' => $orderId,
+            'mobile' => $orgMobile
+        ];
+        if (!is_null(json_decode($result))) {
+            $output = json_decode($result, true);
+            if (isset($output['code']) && $output['code'] == '0') {
+                $recordData['status'] = 2;
+                $recordData['err_code'] = $output['code'];
+                return D('SmsRecord')->insert($recordData);
+            } else {
+                $recordData['status'] = 3;
+                $recordData['err_code'] = $output['code'];
+                $recordData['err_msg'] = $output['errorMsg'];
+                return D('SmsRecord')->insert($recordData);
+            }
+        } else {
+            $recordData['status'] = 3;
+            $recordData['err_code'] = 'undefined';
+            $recordData['err_msg'] = '发送失败';
+            return D('SmsRecord')->insert($recordData);
+        }
+    }
+
+    public function sendTemplateByFinish($orderId = 83)
+    {
+        $order = D('Order')->find($orderId);
+        if ($order['status'] != 1) {
+            return false;
+        }
+        if (!empty($order['product_id'])) {
+            $proTitle = M('product')->where("id={$order['product_id']}")->getField('title');
+        } else if (!empty($order['parenting_id'])) {
+            $proTitle = M('parenting')->where("id={$order['parenting_id']}")->getField('title');
+        } else if (!empty($order['activity_id'])) {
+            $proTitle = M('organization_activity')->where("id={$order['activity_id']}")->getField('title');
+        } else if (!empty($order['group_record_id'])) {
+            $groupId = M('group_record')->where("id={$order['group_record_id']}")->getField('group_id');
+            $proTitle = M('group_product')->where("id={$groupId}")->getField('title');
+        } else {
+            return false;
+        }
+        $orgTel = M('organization')->where(array("token" => $order['token']))->getField('tel');
+        $first = '恭喜你购买课程成功！';
+        $keyword1 = $order['code'];
+        $keyword2 = $proTitle;
+        $keyword3 = $order['total_price'];
+        $keyword4 = $orgTel;
+        $keyword5 = date("Y-m-d H:i:s", $order['create_time']);
+        $remark = '请点击“详情”查看具体内容';
+        $url = "http://{$_SERVER['HTTP_HOST']}/index.php/Orders/queryDeliveryByPage?token=" . $this->token;
+        $templeFormat = array('__OPENID__', '__URL__', '__FIRST__', '__KEYWORD1__', '__KEYWORD2__', '__KEYWORD3__', '__KEYWORD4__', '__KEYWORD5__', '__REMARK__');
+        $infoFormat = array($this->user['open_id'], $url, $first, $keyword1, $keyword2, $keyword3, $keyword4, $keyword5, $remark);
+        $wxuser = get_wxuser($this->token);
+        execute_public_template('PAY_INFORM', $templeFormat, $infoFormat, $wxuser);
+    }
+}

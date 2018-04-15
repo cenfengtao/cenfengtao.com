@@ -1,0 +1,315 @@
+<include file="Common:header"/>
+<!-- iCheck -->
+<link href="__PUBLIC__/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/css/admin/main.css">
+<link rel="stylesheet" href="__PUBLIC__/js/webuploader/webuploader.css"/>
+<!-- bootstrap-daterangepicker -->
+<link href="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<!-- area -->
+<script src="__PUBLIC__/js/admin/area.js"></script>
+<style>
+    .webuploader-pick {
+        padding: 10px 20px;
+    }
+
+    #demo-form2 {
+        float: left;
+    }
+
+    select {
+        padding: 6px;
+    }
+</style>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <include file="Common:menu"/>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>修改机构</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br/>
+                            <form id="demo-form2" data-parsley-validate
+                                  class="form-horizontal form-label-left form-youpei">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">机构名称 <span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="org_name" required="required"
+                                               class="form-control col-md-7 col-xs-12"
+                                               value="{$organization['org_name']}">
+                                        <input type="hidden" name="id" value="{$organization['id']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">省市区</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <select id="s_province" name="province" class="address_init"
+                                                onclick="showInit()">
+                                            <option value="{$organization['province']}">{$organization['province']}
+                                            </option>
+                                        </select>  
+                                        <select id="s_city" name="city">
+                                            <option value="{$organization['city']}">{$organization['city']}</option>
+                                        </select>
+                                        <select id="s_county" name="area">
+                                            <option value="{$organization['area']}">{$organization['area']}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">详细地址 <span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="address" required="required"
+                                               class="form-control col-md-7 col-xs-12"
+                                               value="{$organization['address']}">
+                                        <input type="hidden" name="id" value="{$organization['id']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">联系电话 <span
+                                            class="required">*</span></label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="tel" value="{$organization['tel']}" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">机构官网 </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="company_url" class="form-control col-md-7 col-xs-12"
+                                               value="{$organization['company_url']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">公众号</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <select class="form-control" name="token" required="required">
+                                            <foreach name="list" item="val">
+                                                <option value="{$val['token']|default=0}" {$val[
+                                                'token']==$organization['token']?"selected='selected'":''}>{$val['wxname']|default=0}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">机构评分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="org_star" class="form-control col-md-7 col-xs-12" min="0" max="5" value="{$organization['org_star']}">
+                                        <small><span style="color:red;">*</span>0-5之间</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">环境评分</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="env_star" class="form-control col-md-7 col-xs-12" min="0" max="5" value="{$organization['env_star']}">
+                                        <small><span style="color:red;">*</span>0-5之间</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">教学质量</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="number" name="quality_star" class="form-control col-md-7 col-xs-12" min="0" max="5" value="{$organization['quality_star']}">
+                                        <small><span style="color:red;">*</span>0-5之间</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">LOGO</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div id="filePicker" style=''>上传LOGO</div><div class="size">建议尺寸：284px*160px（16:9均可）</div>
+                                        <input type="hidden" name="picture" id="upload_image" tabindex="3"
+                                               autocomplete="off">
+                                        <empty name="organization['picture']">
+                                            <img id='preview' src='' ref='' width='200' height='113' style='display:none'/>
+                                            <else/>
+                                            <img id='preview' src='{$organization['picture']}' ref='' width='200' height='113'/>
+                                        </empty>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">二维码</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div id="filePickers" style=''>上传二维码</div><div class="size">建议尺寸：160px*160px（1:1）</div>
+                                        <input type="hidden" name="qr_code" id="upload_images" tabindex="3"
+                                               autocomplete="off">
+                                        <empty name="organization['qr_code']">
+                                            <img id='previews' src='' ref='' width='200' height='200' style='display:none'/>
+                                            <else/>
+                                            <img id='previews' src='{$organization['qr_code']}' ref='' width='200' height='200'/>
+                                        </empty>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">广告图</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div id="filePic" style=''>上传广告图</div><div class="size">建议尺寸：700px*225px</div>
+                                        <input type="hidden" name="image" id="image" tabindex="3"
+                                               autocomplete="off">
+                                        <empty name="organization['image']">
+                                            <img id='proview' src='' ref='' width='300' height='150' style='display:none'/>
+                                            <else/>
+                                            <img id='proview' src='{$organization['image']}' ref='' width='300' height='150'/>
+                                        </empty>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">广告图链接 </label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <input type="text" name="image_url" class="form-control col-md-7 col-xs-12"
+                                               value="{$organization['image_url']}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">商品简介</label>
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <textarea name="description" id="info">{$organization['description']}</textarea>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="button" id="table-button-submit" class="btn btn-success" access_id="237">提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+        <!-- footer content -->
+        <include file="Common:footer"/>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- bootstrap-progressbar -->
+<script src="__PUBLIC__/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="__PUBLIC__/vendors/iCheck/icheck.min.js"></script>
+<!-- self -->
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/plugins/plugins.js"></script>
+<script src="__PUBLIC__/js/upload.js"></script>
+<script src="__PUBLIC__/js/webuploader/webuploader.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="__PUBLIC__/vendors/moment/min/moment.min.js"></script>
+<script src="__PUBLIC__/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- uEditor -->
+<script src="__PUBLIC__/vendors/ueditor/ueditor.config.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/ueditor.all.min.js"></script>
+<script src="__PUBLIC__/vendors/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "__PUBLIC__/vendors/ueditor/";
+    $(document).ready(function () {
+        UE.getEditor('info', {
+            initialFrameWidth: 900,
+            initialFrameHeight: 400,
+            serverUrl: "__PUBLIC__/vendors/ueditor/php/controller.php"
+        });
+    });
+</script>
+<script>
+    var SCOPE = {
+        'jump_url': '{:U("Organization/addOrganization")}',
+        'success_url': '{:U("Organization/orgList")}'
+    };
+    var ThinkPHP = window.Think = {
+        "ROOT": "__ROOT__",
+        "PUBLIC": "__PUBLIC__",
+        "DOMAIN": "{:HTTPDomain()}"
+    };
+
+    $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePicker',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#preview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#upload_image').val('/' + json.file.savepath + json.file.savename);
+                    $('#preview').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+    $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePickers',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#previews').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#upload_images').val('/' + json.file.savepath + json.file.savename);
+                    $('#previews').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+    $(function () {
+        var uploading = null;
+        uploadFile({
+            server: "{:U('Article/uploadPic')}",
+            pick: '#filePic',
+            formData: {dir: 'adspic'},
+            callback: function (result) {
+                if (result.status == 1) {
+                    layer.close(uploading);
+                    var json = WST.toJson(result);
+                    $('#proview').attr('src', ThinkPHP.DOMAIN + "/" + json.file.savepath + json.file.savethumbname);
+                    $('#image').val('/' + json.file.savepath + json.file.savename);
+                    $('#proview').show();
+                } else {
+                    dialog.error(result.message);
+                }
+            },
+            progress: function (rate) {
+                uploading = WST.msg('正在上传图片，请稍后...');
+            }
+        });
+    });
+    var Gid = document.getElementById;
+    var showArea = function () {
+        Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+                Gid('s_city').value + " - 县/区" +
+                Gid('s_county').value + "</h3>"
+    };
+    Gid('s_county').setAttribute('onchange', 'showArea()');
+    function showInit() {
+        if ($("#s_province").hasClass("address_init")) {
+            _init_area();
+            $("#s_province").removeClass("address_init");
+        }
+    }
+</script>
+</body>
+</html>

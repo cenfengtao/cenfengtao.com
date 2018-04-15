@@ -1,0 +1,77 @@
+.ty-tools-search{
+    left: 3.125rem;
+    right: 3.125rem;
+    width: auto;
+    height: 3.125rem;
+    overflow: hidden;
+}
+.ty-tools-typeswitch{
+    position: absolute;
+    left: .5rem;
+    width: 3rem;
+    top: 0;
+    font-size: .875rem;
+    color: #666;
+}
+.ty-tools-search .input{
+    height: 2rem;
+    text-indent: .5rem;
+    line-height: 2rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: .25rem;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: .875rem;
+    display: inline-block;
+    margin-top: -2px;
+    padding-left: 3rem;
+}
+.btn-search{
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 3.125rem;
+    right: 0;
+    text-align: center;
+    font-size: .875rem;
+    color: #299955;
+}
+.ty-tools i{
+    font-style: normal;
+    font-size: .625rem;
+    margin-left: .125rem;
+}
+.ty-tools-search i:before{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #ccc;
+}
+.kap-input-value{
+    font-size: 0.9rem;
+    margin-left: 0;
+}
+.ty-hot-search .title{
+    line-height: 2.5rem;
+    display: inline-block;
+    width: 3.125rem;
+    font-weight: bold;
+}
+.ty-hot-search{
+    padding: .625rem;
+    border-bottom: 1px solid #ccc;
+}
+.ty-hot-search .item{
+    display: inline-block;
+    color: #666;
+    background: #fff;
+    border: 1px solid #2a6591;
+    border-radius: 2.5rem;
+    line-height: 2rem;
+    padding: 0 .9375rem;
+    font-size: .875rem;
+    margin: 0 .5rem .25rem 0;
+}

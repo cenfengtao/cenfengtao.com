@@ -1,0 +1,1421 @@
+[ 2017-11-30T23:59:08+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057548' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:09+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057549' WHERE ( id=7904 ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:10+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0060s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057550' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:11+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057551' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:12+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057552' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:13+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057553' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2017-11-30T23:59:14+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057554' WHERE ( id=7904 ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:15+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057555' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:16+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057556' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:17+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057557' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:18+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057558' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:20+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057560' WHERE ( id=7904 ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:21+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057561' WHERE ( id=7904 ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:22+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0120s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057562' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:23+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057563' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:24+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057564' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:25+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057565' WHERE ( id=7904 ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:26+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0140s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0030s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057566' WHERE ( id=7904 ) [ RunTime:0.0030s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:27+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: Result too large D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057567' WHERE ( id=7904 ) [ RunTime:0.0000s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:28+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057568' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:29+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0030s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057569' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:30+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0120s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0030s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057570' WHERE ( id=7904 ) [ RunTime:0.0060s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2017-11-30T23:59:31+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0030s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057571' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:32+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057572' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:33+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0120s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057573' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:35+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0030s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057575' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:36+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057576' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:37+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057577' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2017-11-30T23:59:38+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057578' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:39+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057579' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:40+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057580' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:41+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057581' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:42+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0040s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057582' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2017-11-30T23:59:43+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057583' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:44+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057584' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:45+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057585' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:46+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057586' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:47+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057587' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:48+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0060s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057588' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:49+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057589' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:51+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057591' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:52+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057592' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:53+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0040s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057593' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:54+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057594' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:55+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0110s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0060s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057595' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-30T23:59:56+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057596' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:57+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057597' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:58+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0030s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057598' WHERE ( id=7904 ) [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-30T23:59:59+08:00 ] 192.168.1.125 /index.php/Personal/ajaxSchedule
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: token D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 169 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::delete() should be compatible with Think\Model::delete($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+NOTIC: [2048] Declaration of Common\Model\UserModel::find() should be compatible with Think\Model::find($options = Array) D:\phpStudy\WWW\youpei_2.0\Application\Common\Model\UserModel.class.php 第 14 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wx2a478415b419d817&amp;secret=5777fd0e27efa96cf5c85bbf1d2e5baa): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 233 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 234 行.
+NOTIC: [2] file_get_contents(): Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/user/info?access_token=&amp;openid=oSFV6w-VMN-xdb7eM0pyIq608E8E): failed to open stream: No such file or directory D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 237 行.
+NOTIC: [8] Trying to get property of non-object D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 238 行.
+SQL: SHOW COLUMNS FROM `yp_user` [ RunTime:0.0100s ]
+SQL: SELECT `last_login_time` FROM `yp_user` WHERE `open_id` = 'oSFV6w-VMN-xdb7eM0pyIq608E8E' LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `yp_user` SET `last_login_time`='1512057599' WHERE ( id=7904 ) [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yp_user` WHERE ( open_id='oSFV6w-VMN-xdb7eM0pyIq608E8E' ) LIMIT 1   [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: share_user_id D:\phpStudy\WWW\youpei_2.0\Application\Home\Controller\BaseController.class.php 第 125 行.
+SQL: SHOW COLUMNS FROM `yp_wxuser` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `yp_wxuser` WHERE `token` = 'g232238gc959' LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

@@ -1,0 +1,49 @@
+<?php
+/**
+ * 学友团
+ */
+namespace Home\Controller;
+
+use Think\Controller;
+use Think\Exception;
+
+class FriendsController extends BaseController
+{
+    public function index()
+    {
+        $count = 0;
+        $upUser = D('User')->getUpUser($this->user['id']);
+        if ($upUser) {
+            $count += 1;
+        }
+        //B级
+        $children = D('User')->getChildren($this->user['id']);
+        $count += count($children);
+        foreach ($children as $k => $v) {
+            //C级
+            $children[$k]['children'] = D('User')->getChildren($v['id']);
+            $children[$k]['child_count'] = count($children[$k]['children']);
+            $count += $children[$k]['child_count'];
+        }
+        $this->assign('up_user', $upUser)->assign('children', $children)->assign('count', $count);
+        $this->display();
+    }
+
+    //获取C级别
+    public function ajaxGetChildren()
+    {
+        if (!$_POST['id'] || empty($_POST['id'])) {
+            return show(0, '参数有误');
+        }
+        $children = D('User')->getChildren($_POST['id']);
+        if (!empty($children)) {
+            foreach ($children as $k => $v) {
+                $children[$k]['children'] = D('User')->getChildren($v['id']);
+                $children[$k]['child_count'] = count($children[$k]['children']);
+                $children[$k]['create_time'] = date("Y-m-d", $children[$k]['create_time']);
+            }
+
+        }
+        return show(1, '获取成功', $children);
+    }
+}
